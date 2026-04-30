@@ -23,11 +23,13 @@ awesome-skills-ai/
 │   │   ├── demo-prep/SKILL.md
 │   │   ├── feedback-frameworks/SKILL.md
 │   │   ├── leadership-os/SKILL.md
+│   │   ├── metrics-design/SKILL.md
 │   │   ├── one-on-one-prep/SKILL.md
 │   │   └── prioritization-frameworks/SKILL.md
 │   └── agents/
 │       ├── the-architect.md
 │       ├── the-eval-designer.md
+│       ├── the-explainer.md
 │       ├── the-incident-responder.md
 │       ├── the-prompt-critic.md
 │       ├── the-red-teamer.md
@@ -49,6 +51,7 @@ awesome-skills-ai/
 | `demo-prep` | Five-pass prep for high-stakes demos: headline, audience, pre-mortem, script, and Q&A — with extra hazard-handling for AI-feature demos. |
 | `feedback-frameworks` | Drafting and pressure-testing feedback for reports, peers, and stakeholders using the COIN structure (Connection → Observation → Impact → Next steps) and the SOLID quality checklist. |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
+| `metrics-design` | Designs the metric tree for an AI feature — north star, leading/lagging, and the counter-metrics that catch Goodhart-style failures where you optimize the model into a worse product. |
 | `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
 
@@ -61,6 +64,7 @@ awesome-skills-ai/
 | `the-spec-writer` | Turns a validated problem into a decision-ready PRD with concrete success metrics, scoped non-goals, and named seams between probabilistic and deterministic logic. |
 | `the-scientist` | Pre-development feasibility. Builds golden datasets and eval harnesses. Refuses to declare success on a single demo. |
 | `the-eval-designer` | Designs the smallest eval system that would actually catch a regression — golden set, metric class, LLM-as-judge rubric, production sampling, ship/rollback bars. |
+| `the-explainer` | Writes audience-calibrated how-it-works docs (customers, sales, support, execs, security/legal) covering capability, limitations, and the safety story — not marketing copy and not a research paper. |
 | `the-prompt-critic` | Reviews production prompts the way a senior engineer reviews code: scoping, instruction order, output contract, injection resistance, drift hazards. |
 | `the-architect` | Production hardening. Designs the input filter → LLM → output guardrail "safety sandwich." Separates probabilistic from deterministic logic. |
 | `the-red-teamer` | Pre-launch and maintenance. Simulates prompt injection, exfiltration, jailbreaks, and out-of-distribution failures. |
@@ -88,7 +92,7 @@ cp -r /path/to/awesome-skills-ai/ai-technical-pm-php/skills/* .claude/skills/
 cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
 ```
 
-Verify with `/agents` inside Claude Code — the ten subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`).
+Verify with `/agents` inside Claude Code — the eleven subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`).
 
 ## How it's meant to be used
 
@@ -101,6 +105,8 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 - *"Can you review this system prompt before we ship?"* → `the-prompt-critic` walks through it like a senior engineer in a code review.
 - *"We're putting this in front of paying customers next week."* → `the-architect` designs guardrails; `the-red-teamer` finds what breaks; `demo-prep` skill scripts the launch readout.
 - *"The model's hallucination rate just spiked in production."* → `the-incident-responder` stabilizes, investigates, writes the blameless postmortem; `the-translator` handles the customer comms.
+- *"What should we measure to know this AI feature is actually working?"* → `metrics-design` builds the four-layer tree with counter-metrics that catch the "engagement up, product worse" trap.
+- *"Sales needs a one-pager on how this works that won't oversell."* → `the-explainer` writes audience-calibrated capability + limitations + safety, with a what-to-say / what-not-to-say guide.
 - *"I need to brief the CEO on why our accuracy regressed."* → `the-translator` reframes the numbers.
 - *"Help me cut this 30-item backlog to what we can ship this quarter."* → `prioritization-frameworks` skill picks the right method and pressure-tests scoring assumptions.
 - *"Document why we picked Sonnet over Opus for this feature."* → `decision-log` skill captures it in a format that survives the next model migration.
