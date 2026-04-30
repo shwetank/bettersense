@@ -19,6 +19,7 @@ awesome-skills-ai/
 ├── ai-technical-pm/          # Stack-agnostic version
 │   ├── skills/
 │   │   ├── ai-pm-frameworks/SKILL.md
+│   │   ├── feedback-frameworks/SKILL.md
 │   │   └── leadership-os/SKILL.md
 │   └── agents/
 │       ├── the-reducer.md
@@ -35,6 +36,7 @@ awesome-skills-ai/
 | Skill | When it triggers |
 |---|---|
 | `ai-pm-frameworks` | Scoping AI features, build-vs-buy-vs-rule decisions, eval design, model selection, guardrail planning. |
+| `feedback-frameworks` | Drafting and pressure-testing feedback for reports, peers, and stakeholders using the COIN structure (Connection → Observation → Impact → Next steps) and the SOLID quality checklist. |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
 
 ### Subagents
