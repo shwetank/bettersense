@@ -19,13 +19,22 @@ awesome-skills-ai/
 ├── ai-technical-pm/          # Stack-agnostic version
 │   ├── skills/
 │   │   ├── ai-pm-frameworks/SKILL.md
+│   │   ├── decision-log/SKILL.md
+│   │   ├── demo-prep/SKILL.md
 │   │   ├── feedback-frameworks/SKILL.md
-│   │   └── leadership-os/SKILL.md
+│   │   ├── leadership-os/SKILL.md
+│   │   ├── one-on-one-prep/SKILL.md
+│   │   └── prioritization-frameworks/SKILL.md
 │   └── agents/
-│       ├── the-reducer.md
-│       ├── the-scientist.md
 │       ├── the-architect.md
+│       ├── the-eval-designer.md
+│       ├── the-incident-responder.md
+│       ├── the-prompt-critic.md
 │       ├── the-red-teamer.md
+│       ├── the-reducer.md
+│       ├── the-research-synthesizer.md
+│       ├── the-scientist.md
+│       ├── the-spec-writer.md
 │       └── the-translator.md
 └── ai-technical-pm-php/      # Same skills + agents, with a PHP prototyping stack baked in
     └── ...
@@ -36,17 +45,26 @@ awesome-skills-ai/
 | Skill | When it triggers |
 |---|---|
 | `ai-pm-frameworks` | Scoping AI features, build-vs-buy-vs-rule decisions, eval design, model selection, guardrail planning. |
+| `decision-log` | Capturing meaningful product/technical decisions in an ADR-style format with reversibility, rationale, and revisit triggers. Especially load-bearing for AI decisions tied to specific model versions. |
+| `demo-prep` | Five-pass prep for high-stakes demos: headline, audience, pre-mortem, script, and Q&A — with extra hazard-handling for AI-feature demos. |
 | `feedback-frameworks` | Drafting and pressure-testing feedback for reports, peers, and stakeholders using the COIN structure (Connection → Observation → Impact → Next steps) and the SOLID quality checklist. |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
+| `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
+| `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
 
 ### Subagents
 
 | Agent | Operational mode |
 |---|---|
 | `the-reducer` | Early discovery. Reduces ambiguity. Pushes back on "AI problems" that are actually UI problems. |
+| `the-research-synthesizer` | Clusters raw qualitative data — interview notes, support tickets, NPS verbatims — into themes, JTBDs, and product implications anchored to direct quotes. |
+| `the-spec-writer` | Turns a validated problem into a decision-ready PRD with concrete success metrics, scoped non-goals, and named seams between probabilistic and deterministic logic. |
 | `the-scientist` | Pre-development feasibility. Builds golden datasets and eval harnesses. Refuses to declare success on a single demo. |
+| `the-eval-designer` | Designs the smallest eval system that would actually catch a regression — golden set, metric class, LLM-as-judge rubric, production sampling, ship/rollback bars. |
+| `the-prompt-critic` | Reviews production prompts the way a senior engineer reviews code: scoping, instruction order, output contract, injection resistance, drift hazards. |
 | `the-architect` | Production hardening. Designs the input filter → LLM → output guardrail "safety sandwich." Separates probabilistic from deterministic logic. |
 | `the-red-teamer` | Pre-launch and maintenance. Simulates prompt injection, exfiltration, jailbreaks, and out-of-distribution failures. |
+| `the-incident-responder` | AI-feature incident lead — stabilization, technical investigation, blameless postmortems, and feeding failures back into the eval set. |
 | `the-translator` | Stakeholder comms. Converts eval metrics and failure modes into honest business language without hype or false humility. |
 
 ## Install
@@ -70,17 +88,59 @@ cp -r /path/to/awesome-skills-ai/ai-technical-pm-php/skills/* .claude/skills/
 cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
 ```
 
-Verify with `/agents` inside Claude Code — the five subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/ai-pm-frameworks` or `/leadership-os`.
+Verify with `/agents` inside Claude Code — the ten subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`).
 
 ## How it's meant to be used
 
 Drop into Claude Code and describe what you're working on the way you'd describe it to a teammate. The harness routes:
 
 - *"Users keep complaining the search results feel off — should we add an LLM reranker?"* → `the-reducer` runs first, asks whether this is genuinely an AI problem.
-- *"I've got a prototype that summarizes contracts. How do I know if it's good enough to ship?"* → `the-scientist` builds the eval scaffolding.
-- *"We're putting this in front of paying customers next week."* → `the-architect` designs guardrails; `the-red-teamer` finds what breaks.
+- *"Here are 40 customer interviews. What does this tell us?"* → `the-research-synthesizer` finds themes, jobs, and contradictions, anchored to direct quotes.
+- *"Draft a PRD for the contract-summarization feature."* → `the-spec-writer` produces a decision-ready spec with success metrics and scoped non-goals.
+- *"How do I know if this prototype is good enough to ship?"* → `the-eval-designer` designs the golden set, rubric, and ship/rollback bars; `the-scientist` runs it.
+- *"Can you review this system prompt before we ship?"* → `the-prompt-critic` walks through it like a senior engineer in a code review.
+- *"We're putting this in front of paying customers next week."* → `the-architect` designs guardrails; `the-red-teamer` finds what breaks; `demo-prep` skill scripts the launch readout.
+- *"The model's hallucination rate just spiked in production."* → `the-incident-responder` stabilizes, investigates, writes the blameless postmortem; `the-translator` handles the customer comms.
 - *"I need to brief the CEO on why our accuracy regressed."* → `the-translator` reframes the numbers.
+- *"Help me cut this 30-item backlog to what we can ship this quarter."* → `prioritization-frameworks` skill picks the right method and pressure-tests scoring assumptions.
+- *"Document why we picked Sonnet over Opus for this feature."* → `decision-log` skill captures it in a format that survives the next model migration.
+- *"I have a hard 1:1 with a struggling engineer tomorrow."* → `one-on-one-prep` builds the agenda; `feedback-frameworks` drafts the conversation.
 - *"My senior engineer keeps shutting down juniors in standup."* → `leadership-os` (the `Mirror` mode) gives you the conversation script.
+
+## What these skills actually add over plain Claude
+
+A reasonable question: *why install a skill when I could just ask Claude directly?* Two mechanical things, both of which matter most under pressure:
+
+1. **Auto-routing.** You describe the situation in your own words. Claude pulls in the right framework without you remembering its name or formatting your prompt for it. When your VP messages you at 4:47pm Friday, you won't remember to ask for "COIN feedback structure with a SOLID quality check." The skill triggers on the situation, not on the keyword.
+2. **Forcing functions.** A well-written skill *pushes back* on bad framing. Plain Claude tends to be helpful in the direction you point it, even if the direction is wrong. A skill bakes in an opinion that interrupts you — "is this actually an AI problem?", "where's the eval coverage for this case?", "that's a character label, not a behavior."
+
+### Three real scenarios
+
+**Friday-at-4:47pm: "Can we throw an LLM at search?"**
+Your VP slacks: *"Customers keep saying search sucks. Can we add an LLM reranker? Want a recommendation by Monday."* Without the skill, your weekend is a half-hedged memo recommending the reranker because that's what was asked. Engineering spends two weeks on it. Three weeks later, you discover the actual issue was that the indexer was missing 30% of the catalog — you shipped an LLM solution to a data problem.
+
+With the skills, you paste the Slack thread into Claude. `the-reducer` fires automatically and refuses to answer the surface question. It walks you through who's complaining (enterprise, not free — different problem), what the workaround is today, whether this is an intelligence problem or a data problem. You go look at search analytics, find the indexer issue, and ship a Monday memo recommending a $0 fix with AI as a follow-on. The reducer's opinionatedness ("default to no AI") is doing the work — Claude on its own would have helpfully written the memo you asked for.
+
+**Tuesday before launch: the model said something wrong.**
+Customer Success forwards a screenshot at 11am. Your contract-summarization feature said the contract had a 90-day termination clause; it's actually 30. Launch is Friday. Engineering says "the model just hallucinated, we can't reproduce it." Without the skill, you write some version of "we're investigating, we think it's fine," ship Friday, and find out two weeks later it's a P0 with a paying customer.
+
+With the skills, `the-incident-responder` walks you through reproduction (forces you to confront "we can't reproduce" as evidence that observability is broken, not a reason to dismiss the case), classifies the failure mode, and chains in `the-eval-designer` to ask if your golden set covers contracts with non-standard termination language. It doesn't. *That's* the gap. The output is a postmortem-style writeup that turns the unanswerable "is it fine?" into a real decision: add 20 cases to the eval and re-validate before Friday, or delay a week. The structure under panic is the value — you're not going to remember a six-step incident framework on Tuesday morning when your Slack is on fire.
+
+**The 1:1 you've been avoiding for three weeks.**
+A senior engineer keeps cutting off juniors in standup. You've noticed for a month. Every Sunday you think "I'll bring it up Monday." You don't. Eventually you say something rushed in a hallway, it lands wrong, and now you have a relationship problem on top of a behavior problem.
+
+With the skills, you type one paragraph on Sunday night. `one-on-one-prep` fires first and pushes you to book the time properly instead of ambushing him. `feedback-frameworks` then walks you through COIN: when you write "you've been dismissive," it pushes back — that's a character label, not a behavior. You rewrite as "on Tuesday and Thursday, when Priya and Alex were sharing approaches, you cut in within seconds with 'that won't work.'" When you say the impact is "bad for the team," it pushes back: be specific. You realize Priya's approach was the one the architect later recommended. *That's* the impact. SOLID then runs over the draft and catches that one of your incidents is secondhand — drop it. You walk into Monday's 1:1 with a script that lands. The senior engineer doesn't go defensive because you didn't call him dismissive — you described what he did and what it cost. The skill is the difference between *avoiding* the conversation indefinitely and *having* it.
+
+### Where these skills don't help
+
+Honest counterpoints:
+
+- **If you don't already use Claude as part of your workflow, none of this matters.** A skill inside an app you don't open is worthless.
+- **For routine work, they're overkill.** Writing a normal status update? Don't summon a framework. The skills earn their keep at decision points and high-stakes moments — not everywhere.
+- **They don't replace judgment.** `the-spec-writer` will produce a beautifully structured spec for a terrible idea. The skills make you faster and more rigorous; they don't make the underlying call for you.
+- **Some are stronger than others.** `prioritization-frameworks` is closer to a high-quality reference card — useful, but you could get most of the value by reading one blog post once. `the-reducer`, `the-incident-responder`, and `feedback-frameworks` are the ones whose opinionatedness genuinely changes what you do.
+
+The test for whether this collection is right for you: do you currently open Claude when you face these situations, and do you wish your version of Claude already knew the framework you'd want to apply? If yes, the skill format pays for itself by removing the prompt-engineering tax every time. If you're unsure, start with `the-reducer` and `feedback-frameworks` — see whether they actually change your behavior before installing the rest.
 
 ## Philosophy
 
