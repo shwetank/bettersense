@@ -32,7 +32,10 @@ awesome-skills-ai/
 │   │   │   ├── SKILL.md
 │   │   │   └── questions.json
 │   │   ├── stakeholder-register/SKILL.md
-│   │   └── stakeholder-synthesize/SKILL.md
+│   │   ├── stakeholder-synthesize/SKILL.md
+│   │   ├── wins-curate/SKILL.md
+│   │   ├── wins-due/SKILL.md
+│   │   └── wins-log/SKILL.md
 │   └── agents/
 │       ├── the-architect.md
 │       ├── the-eval-designer.md
@@ -66,6 +69,9 @@ awesome-skills-ai/
 | `stakeholder-reflect` | Guide a single reflection session about a registered stakeholder using a question library spanning *ask*, *sense*, and *ask-and-sense* lenses. Surfaces the question's `things_to_consider`, picks cadence-appropriate questions, and writes a dated entry back. |
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
 | `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
+| `wins-log` | Capture a structured win at work — situation, action, impact, evidence, honest credit framing. Pushes back on vague impact claims and inflated solo claims. Front-of-funnel for the brag-doc / hype-doc bundle. |
+| `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category (delivery / judgment / mentorship / recovery / range) because memory is selective. Accepts "honestly, nothing notable" without manufacturing fake wins. |
+| `wins-curate` | Turn the wins log into an audience-specific artifact: promo packet, behavioral interview stories (STAR), perf-review self-eval, salary-negotiation case, or year-in-review. Never invents wins; cites log entries; surfaces gaps as prep targets. |
 
 ### Subagents
 
@@ -104,7 +110,7 @@ cp -r /path/to/awesome-skills-ai/ai-technical-pm-php/skills/* .claude/skills/
 cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
 ```
 
-Verify with `/agents` inside Claude Code — the eleven subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`).
+Verify with `/agents` inside Claude Code — the eleven subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`).
 
 ## How it's meant to be used
 
@@ -121,6 +127,9 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 - *"Sales needs a one-pager on how this works that won't oversell."* → `the-explainer` writes audience-calibrated capability + limitations + safety, with a what-to-say / what-not-to-say guide.
 - *"Help me reflect on my new manager so I actually know what they need from me."* → `stakeholder-register` sets up the file, `stakeholder-reflect` guides the first session, `stakeholder-due` surfaces what to revisit weekly.
 - *"Before my reports' performance reviews, what do I actually know about each of them?"* → `stakeholder-synthesize` reads the files and produces dated, citation-backed reads — patterns, contradictions, blind spots — for each.
+- *"I just shipped contract-summarization to GA — log it before I forget."* → `wins-log` captures it structurally (situation, action, impact, evidence, honest credit) and pushes back if the impact framing is vague.
+- *"Friday afternoon — did I do anything notable this week?"* → `wins-due` probes by category (judgment, recovery, mentorship, range) because the generic question gets blank stares.
+- *"I have a behavioral interview Tuesday. Build me 5 STAR stories from my wins log."* → `wins-curate` (interview-stories mode) picks story-shaped wins with real conflict, drafts 90-second answers, and flags likely follow-ups.
 - *"I need to brief the CEO on why our accuracy regressed."* → `the-translator` reframes the numbers.
 - *"Help me cut this 30-item backlog to what we can ship this quarter."* → `prioritization-frameworks` skill picks the right method and pressure-tests scoring assumptions.
 - *"Document why we picked Sonnet over Opus for this feature."* → `decision-log` skill captures it in a format that survives the next model migration.
@@ -167,6 +176,40 @@ This was originally a feature inside the [Voohy](https://voohy.com) app — the 
 - **The data lives outside the public repo.** The skill creates `~/voohy-work-reflections/` on first run, gitignores it, and warns you about privacy. The folder holds candid notes about real people — don't put it in Dropbox if you wouldn't put your journal there. Override the path with `$VOOHY_WORK_REFLECTIONS_HOME` if you want it on an encrypted volume or somewhere else.
 - **Quality of synthesis depends on quality of input.** One-line entries produce shallow synthesis. The `things_to_consider` field is surfaced prominently to help — use it.
 - **Synthesis is honest about its evidence.** `stakeholder-synthesize` will not claim a pattern without citing dated entries. If your file is sparse, the synthesis will be tentative; if it's rich, the synthesis will be sharp.
+
+## Wins log: a worked example
+
+The three `wins-*` skills are a parallel system to the stakeholder bundle — same data root, same shape, but the subject is *you*. They cover the "hype doc" / "brag document" / "win log" pattern: capture wins as they happen so you can remix them into a promo packet, behavioral interview answers, perf-review self-eval, or salary case when the moment comes.
+
+### A note on origins
+
+This was originally a "Wins at Work" feature inside the [Voohy](https://voohy.com) app, since sunsetted. The Claude Code rebuild gains the same composition advantage as the stakeholder bundle: a wins entry can hand off to `decision-log` when it captures a judgment, to `feedback-frameworks` when it came from feedback work, to `stakeholder-reflect` when it was driven by a relationship. And `wins-curate` can compose with `stakeholder-synthesize` and `self-reflect` for a perf-review self-eval that draws from all three sources at once.
+
+### File layout
+
+```
+~/voohy-work-reflections/
+├── stakeholders.json
+├── managing-up/...
+├── managing-across/...
+├── managing-down/...
+├── teams/...
+├── self/reflections.md
+└── wins.md                          # newest entry on top
+```
+
+### A typical lifecycle
+
+1. **Capture.** *"I just shipped contract-summarization to GA. Log it."* → `wins-log` walks through the structured capture: type tags, scope, collaborators, honest credit framing, situation, action, quantified impact, evidence. Pushes back hard on vague impact and inflated solo claims.
+2. **Friday nudge.** Wired via `/schedule "Every Friday at 4pm, run /wins-due"`. Each Friday, `wins-due` checks the file and probes by category — judgment, recovery, mentorship, range — because *"anything notable this week?"* gets blank stares while *"did you say a useful no?"* gets memory hits. Accepts "honestly, nothing notable" without manufacturing wins.
+3. **Curate when it matters.** *"I have a promo case in two weeks."* → `wins-curate` in `promo-packet` mode reads the log, maps wins to the dimensions a panel cares about (scope, impact, judgment, leadership, growth), produces a citation-backed packet, and surfaces gaps as prep targets ("`judgment` is thin in your log — strongest available is X, but a panel may want more"). For interviews, `interview-stories` mode picks story-shaped wins (recovery, judgment, range) and drafts 90-second STAR answers with anticipated follow-ups.
+
+### Things to know before adopting
+
+- **The "log it later" decay is real.** Friday nudges help but won't fully prevent it. The wins captured weeks after the fact are usually thinner than wins captured in-week.
+- **The skill defaults to *probing*, not cheerleading.** Self-promotion friction varies a lot by user — `wins-log` is calibrated for users who tend to undercount. If it pushes too hard for you, say so and it'll dial back.
+- **Calibration is non-negotiable for external artifacts.** A promo packet that overclaims solo credit on team work hurts the case more than a thinner-but-honest one. The curate skill enforces this.
+- **Composes naturally with perf-review prep.** `wins-curate (perf-review)` reads `wins.md` *plus* `self-reflect`'s growth language *plus* `stakeholder-synthesize`'s relationship signals — the three together produce a self-eval that has both delivery breadth and relational depth.
 
 ## What these skills actually add over plain Claude
 
