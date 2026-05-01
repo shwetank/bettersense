@@ -25,7 +25,14 @@ awesome-skills-ai/
 │   │   ├── leadership-os/SKILL.md
 │   │   ├── metrics-design/SKILL.md
 │   │   ├── one-on-one-prep/SKILL.md
-│   │   └── prioritization-frameworks/SKILL.md
+│   │   ├── prioritization-frameworks/SKILL.md
+│   │   ├── self-reflect/SKILL.md
+│   │   ├── stakeholder-due/SKILL.md
+│   │   ├── stakeholder-reflect/
+│   │   │   ├── SKILL.md
+│   │   │   └── questions.json
+│   │   ├── stakeholder-register/SKILL.md
+│   │   └── stakeholder-synthesize/SKILL.md
 │   └── agents/
 │       ├── the-architect.md
 │       ├── the-eval-designer.md
@@ -54,6 +61,11 @@ awesome-skills-ai/
 | `metrics-design` | Designs the metric tree for an AI feature — north star, leading/lagging, and the counter-metrics that catch Goodhart-style failures where you optimize the model into a worse product. |
 | `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
+| `self-reflect` | Self-reflection on leadership, behavior under pressure, time/energy, fulfillment, and advocating for yourself — captured chronologically in a private file so insight compounds over time. |
+| `stakeholder-register` | Register a stakeholder (manager, peer, report, team) for ongoing reflection. Sets up a private folder at `~/voohy-reflections/`, creates a per-stakeholder file, and warns about privacy. |
+| `stakeholder-reflect` | Guide a single reflection session about a registered stakeholder using a question library spanning *ask*, *sense*, and *ask-and-sense* lenses. Surfaces the question's `things_to_consider`, picks cadence-appropriate questions, and writes a dated entry back. |
+| `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
+| `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
 
 ### Subagents
 
@@ -92,7 +104,7 @@ cp -r /path/to/awesome-skills-ai/ai-technical-pm-php/skills/* .claude/skills/
 cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
 ```
 
-Verify with `/agents` inside Claude Code — the eleven subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`).
+Verify with `/agents` inside Claude Code — the eleven subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`).
 
 ## How it's meant to be used
 
@@ -107,11 +119,49 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 - *"The model's hallucination rate just spiked in production."* → `the-incident-responder` stabilizes, investigates, writes the blameless postmortem; `the-translator` handles the customer comms.
 - *"What should we measure to know this AI feature is actually working?"* → `metrics-design` builds the four-layer tree with counter-metrics that catch the "engagement up, product worse" trap.
 - *"Sales needs a one-pager on how this works that won't oversell."* → `the-explainer` writes audience-calibrated capability + limitations + safety, with a what-to-say / what-not-to-say guide.
+- *"Help me reflect on my new manager so I actually know what they need from me."* → `stakeholder-register` sets up the file, `stakeholder-reflect` guides the first session, `stakeholder-due` surfaces what to revisit weekly.
+- *"Before my reports' performance reviews, what do I actually know about each of them?"* → `stakeholder-synthesize` reads the files and produces dated, citation-backed reads — patterns, contradictions, blind spots — for each.
 - *"I need to brief the CEO on why our accuracy regressed."* → `the-translator` reframes the numbers.
 - *"Help me cut this 30-item backlog to what we can ship this quarter."* → `prioritization-frameworks` skill picks the right method and pressure-tests scoring assumptions.
 - *"Document why we picked Sonnet over Opus for this feature."* → `decision-log` skill captures it in a format that survives the next model migration.
 - *"I have a hard 1:1 with a struggling engineer tomorrow."* → `one-on-one-prep` builds the agenda; `feedback-frameworks` drafts the conversation.
 - *"My senior engineer keeps shutting down juniors in standup."* → `leadership-os` (the `Mirror` mode) gives you the conversation script.
+
+## Stakeholder reflection: a worked example
+
+The five `stakeholder-*` and `self-reflect` skills are a tighter system than the rest of the bundle — they share private data at `~/voohy-reflections/` (configurable via `$VOOHY_HOME`) and are designed to be used together over months. Inspired by the stakeholder-reflection feature in [Voohy](https://voohy.com).
+
+```
+~/voohy-reflections/                  # private, gitignored, on your local machine only
+├── stakeholders.json
+├── managing-up/
+│   └── john-adams.md
+├── managing-across/
+│   ├── jill-smith.md
+│   └── trae-green.md
+├── managing-down/
+│   ├── draymond-young.md
+│   └── michelle-chang.md
+├── teams/
+│   └── client-delivery-abc.md
+└── self/
+    └── reflections.md
+```
+
+A typical lifecycle:
+
+1. **Register.** *"I just got a new VP. Add John Adams to managing-up."* → `stakeholder-register` creates `~/voohy-reflections/managing-up/john-adams.md` with frontmatter and waits to confirm before writing.
+2. **Reflect, weekly-ish.** *"Let me reflect on John."* → `stakeholder-reflect` loads the file, picks 2–3 questions appropriate to the moment (cadence-aware, balancing *ask* and *sense* lenses), surfaces the prompt's `things_to_consider`, and walks through a real conversation. Pushes back on one-line answers and identity-level labels. Writes a dated entry per question.
+3. **Stay current.** *"What's due this week?"* → `stakeholder-due` lists the overdue question × stakeholder pairs sorted by `due_ratio` (days_since / cadence). Or run it once via `/schedule "Every Monday at 9am, run /stakeholder-due"` to get a Monday-morning surfacing.
+4. **Synthesize, periodically.** *"Before John's quarterly skip-level, what do I know?"* → `stakeholder-synthesize` reads the file, produces patterns / contradictions / blind spots / suggested next conversations, with every claim cited to specific dated entries. Hands off to `feedback-frameworks` or `one-on-one-prep` when a natural next step appears.
+5. **Self.** Same shape, aimed at you. `self-reflect` covers behavior under pressure, communication, time/energy, fulfillment, advocating for yourself.
+
+A few things to know before you adopt this:
+
+- **The data lives outside the public repo.** The skill creates `~/voohy-reflections/` on first run, gitignores it, and warns you about privacy. The folder holds candid notes about real people — don't put it in Dropbox if you wouldn't put your journal there.
+- **It will not replace the Voohy app for daily use.** A CLI/IDE tool has more friction than a mobile app. Expect weekly or bi-weekly use, not daily. The skill version wins on *depth* — synthesis across files, hand-offs to feedback drafting and 1:1 prep, decision-log capture — and loses on *frequency*.
+- **Quality of synthesis depends on quality of input.** One-line entries produce shallow synthesis. The `things_to_consider` field is surfaced prominently to help — use it.
+- **Synthesis is honest about its evidence.** `stakeholder-synthesize` will not claim a pattern without citing dated entries. If your file is sparse, the synthesis will be tentative; if it's rich, the synthesis will be sharp.
 
 ## What these skills actually add over plain Claude
 
