@@ -19,13 +19,18 @@ awesome-skills-ai/
 ├── ai-technical-pm/          # Stack-agnostic version
 │   ├── skills/
 │   │   ├── ai-pm-frameworks/SKILL.md
+│   │   ├── coaching-mode/SKILL.md
 │   │   ├── decision-log/SKILL.md
 │   │   ├── demo-prep/SKILL.md
 │   │   ├── feedback-frameworks/SKILL.md
+│   │   ├── hiring-craft/SKILL.md
 │   │   ├── leadership-os/SKILL.md
 │   │   ├── metrics-design/SKILL.md
 │   │   ├── one-on-one-prep/SKILL.md
+│   │   ├── performance-management/SKILL.md
 │   │   ├── prioritization-frameworks/SKILL.md
+│   │   ├── report-career-architect/SKILL.md
+│   │   ├── report-promo-case/SKILL.md
 │   │   ├── self-reflect/SKILL.md
 │   │   ├── stakeholder-due/SKILL.md
 │   │   ├── stakeholder-reflect/
@@ -33,6 +38,7 @@ awesome-skills-ai/
 │   │   │   └── questions.json
 │   │   ├── stakeholder-register/SKILL.md
 │   │   ├── stakeholder-synthesize/SKILL.md
+│   │   ├── team-diagnosis/SKILL.md
 │   │   ├── wins-curate/SKILL.md
 │   │   ├── wins-due/SKILL.md
 │   │   └── wins-log/SKILL.md
@@ -45,6 +51,7 @@ awesome-skills-ai/
 │       ├── the-red-teamer.md
 │       ├── the-reducer.md
 │       ├── the-research-synthesizer.md
+│       ├── the-rfc-reviewer.md
 │       ├── the-scientist.md
 │       ├── the-spec-writer.md
 │       └── the-translator.md
@@ -57,18 +64,24 @@ awesome-skills-ai/
 | Skill | When it triggers |
 |---|---|
 | `ai-pm-frameworks` | Scoping AI features, build-vs-buy-vs-rule decisions, eval design, model selection, guardrail planning. |
+| `coaching-mode` | Forcing function that flips the assistant into ask-not-tell mode for development conversations with reports. Stays in question-mode for at least 5 turns, applies the GROW frame, pushes back when the user tries to prescribe instead of helping the report work it out. |
 | `decision-log` | Capturing meaningful product/technical decisions in an ADR-style format with reversibility, rationale, and revisit triggers. Especially load-bearing for AI decisions tied to specific model versions. |
 | `demo-prep` | Five-pass prep for high-stakes demos: headline, audience, pre-mortem, script, and Q&A — with extra hazard-handling for AI-feature demos. |
 | `feedback-frameworks` | Drafting and pressure-testing feedback for reports, peers, and stakeholders using the COIN structure (Connection → Observation → Impact → Next steps) and the SOLID quality checklist. |
+| `hiring-craft` | Treats hiring as craft, not vibes — designing interview loops with explicit signals, writing rubrics with behavioral anchors, and running calibrated debriefs (silent vote first, junior voices first, signal-by-signal walk-through). |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
 | `metrics-design` | Designs the metric tree for an AI feature — north star, leading/lagging, and the counter-metrics that catch Goodhart-style failures where you optimize the model into a worse product. |
 | `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
+| `performance-management` | Walks the underperformance ladder deliberately — coaching → formalized feedback → PIP → termination — with documentation, calibrated conversations, and the brilliant-jerk pattern handled directly. The hardest skill in management. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
+| `report-career-architect` | Designs a 12–18 month growth plan for a direct report — target state, capability gaps, sequenced experiences, *manager moves* (what the user has to stop doing to make room), risks, and observable success criteria. |
+| `report-promo-case` | Builds a panel-ready promotion packet for a direct report with cited evidence per dimension, calibrated solo-vs-shared credit, pre-empted objections, and gaps surfaced as pre-submission targets. The mirror image of `wins-curate` (which is for the user's own brag doc). |
 | `self-reflect` | Self-reflection on leadership, behavior under pressure, time/energy, fulfillment, and advocating for yourself — captured chronologically in a private file so insight compounds over time. |
 | `stakeholder-register` | Register a stakeholder (manager, peer, report, team) for ongoing reflection. Sets up a private folder at `~/voohy-work-reflections/` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`), creates a per-stakeholder file, and warns about privacy. |
 | `stakeholder-reflect` | Guide a single reflection session about a registered stakeholder using a question library spanning *ask*, *sense*, and *ask-and-sense* lenses. Surfaces the question's `things_to_consider`, picks cadence-appropriate questions, and writes a dated entry back. |
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
 | `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
+| `team-diagnosis` | Multi-dimensional team health check — delivery cadence, attrition risk, dependency tax, on-call burden, peer relationships, information flow, technical health, culture. Reads stakeholder files + retros + survey scores; produces a green/yellow/red read with cited evidence and top-3 risks worth acting on. |
 | `wins-log` | Capture a structured win at work — situation, action, impact, evidence, honest credit framing. Pushes back on vague impact claims and inflated solo claims. Front-of-funnel for the brag-doc / hype-doc bundle. |
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category (delivery / judgment / mentorship / recovery / range) because memory is selective. Accepts "honestly, nothing notable" without manufacturing fake wins. |
 | `wins-curate` | Turn the wins log into an audience-specific artifact: promo packet, behavioral interview stories (STAR), perf-review self-eval, salary-negotiation case, or year-in-review. Never invents wins; cites log entries; surfaces gaps as prep targets. |
@@ -79,6 +92,7 @@ awesome-skills-ai/
 |---|---|
 | `the-reducer` | Early discovery. Reduces ambiguity. Pushes back on "AI problems" that are actually UI problems. |
 | `the-research-synthesizer` | Clusters raw qualitative data — interview notes, support tickets, NPS verbatims — into themes, JTBDs, and product implications anchored to direct quotes. |
+| `the-rfc-reviewer` | Reviews engineering RFCs / design docs / architecture proposals like a senior staff engineer — problem clarity, alternatives, trade-offs, failure modes, observability, scaling, security. Especially valuable for EMs whose technical depth is in a different domain than the proposal, or who need a credible second opinion before approving. |
 | `the-spec-writer` | Turns a validated problem into a decision-ready PRD with concrete success metrics, scoped non-goals, and named seams between probabilistic and deterministic logic. |
 | `the-scientist` | Pre-development feasibility. Builds golden datasets and eval harnesses. Refuses to declare success on a single demo. |
 | `the-eval-designer` | Designs the smallest eval system that would actually catch a regression — golden set, metric class, LLM-as-judge rubric, production sampling, ship/rollback bars. |
@@ -110,7 +124,7 @@ cp -r /path/to/awesome-skills-ai/ai-technical-pm-php/skills/* .claude/skills/
 cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
 ```
 
-Verify with `/agents` inside Claude Code — the eleven subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`).
+Verify with `/agents` inside Claude Code — the twelve subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`).
 
 ## How it's meant to be used
 
@@ -130,6 +144,13 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 - *"I just shipped contract-summarization to GA — log it before I forget."* → `wins-log` captures it structurally (situation, action, impact, evidence, honest credit) and pushes back if the impact framing is vague.
 - *"Friday afternoon — did I do anything notable this week?"* → `wins-due` probes by category (judgment, recovery, mentorship, range) because the generic question gets blank stares.
 - *"I have a behavioral interview Tuesday. Build me 5 STAR stories from my wins log."* → `wins-curate` (interview-stories mode) picks story-shaped wins with real conflict, drafts 90-second answers, and flags likely follow-ups.
+- *"We're opening a Staff Eng req — design the loop and the rubric."* → `hiring-craft` walks signals → slot mapping → rubric with behavioral anchors → debrief discipline.
+- *"I have a report who's been underperforming for three months and I've been avoiding it."* → `performance-management` diagnoses the stage (coachable gap vs. PIP-territory), structures the conversation, and walks through the documentation discipline.
+- *"Help me coach Priya through whether to take the staff role — without telling her what to do."* → `coaching-mode` flips into ask-not-tell, applies GROW, and pushes back when the user catches themselves prescribing.
+- *"Build me a 12-month growth plan for Draymond."* → `report-career-architect` reads the stakeholder-reflect file and produces a sequenced plan with manager moves, risks, and observable success criteria.
+- *"Promo cycle — draft the case for Michelle."* → `report-promo-case` produces a panel-ready packet with cited evidence, calibrated solo-vs-shared credit, and gaps surfaced as pre-submission targets.
+- *"Before my skip-level update, give me a structured read on team health."* → `team-diagnosis` produces a green/yellow/red across eight dimensions with cited evidence and top-3 risks worth acting on.
+- *"My team submitted an RFC for a new event-streaming layer — give me a senior-engineer read before I approve."* → `the-rfc-reviewer` walks the doc through problem clarity, alternatives, trade-offs, failure modes, observability, and security with severity-ranked findings.
 - *"I need to brief the CEO on why our accuracy regressed."* → `the-translator` reframes the numbers.
 - *"Help me cut this 30-item backlog to what we can ship this quarter."* → `prioritization-frameworks` skill picks the right method and pressure-tests scoring assumptions.
 - *"Document why we picked Sonnet over Opus for this feature."* → `decision-log` skill captures it in a format that survives the next model migration.
@@ -210,6 +231,29 @@ This was originally a "Wins at Work" feature inside the [Voohy](https://voohy.co
 - **The skill defaults to *probing*, not cheerleading.** Self-promotion friction varies a lot by user — `wins-log` is calibrated for users who tend to undercount. If it pushes too hard for you, say so and it'll dial back.
 - **Calibration is non-negotiable for external artifacts.** A promo packet that overclaims solo credit on team work hurts the case more than a thinner-but-honest one. The curate skill enforces this.
 - **Composes naturally with perf-review prep.** `wins-curate (perf-review)` reads `wins.md` *plus* `self-reflect`'s growth language *plus* `stakeholder-synthesize`'s relationship signals — the three together produce a self-eval that has both delivery breadth and relational depth.
+
+## For engineering managers: the management-craft bundle
+
+Six skills (`hiring-craft`, `performance-management`, `coaching-mode`, `report-career-architect`, `report-promo-case`, `team-diagnosis`) and one agent (`the-rfc-reviewer`) form a tighter system aimed at the highest-stakes work an engineering manager does — the work most managers do loosely because nobody handed them a forcing function for it.
+
+These compose with the rest of the bundle but earn their keep on their own. The premise is simple: world-class EMs do a few things deliberately that average ones do by tribal habit. Hiring is a craft, not a vibes-check. Performance management has a ladder, not a single mode of "give more feedback." Coaching is asking, not telling. Promotions are panel-ready written cases, not pitches. Team health is multi-dimensional, not a vibe. And design-doc reviews can be rigorous without the user being a senior staff engineer themselves.
+
+### A typical year in the lifecycle
+
+1. **Hiring season.** *"We're opening a Staff Eng req."* → `hiring-craft` (loop design mode) maps signals to slots, writes the rubric with behavioral anchors, and structures the debrief discipline. Six weeks later: *"Help me run the debrief."* → same skill, debrief mode, with silent-vote-first and round-robin structure. After hire: `stakeholder-register` brings the new report into the reflection system from day one.
+2. **Onboarding into growth.** First 60 days: *"Build a 12-month growth plan for the new hire."* → `report-career-architect` reads what's accumulated in `stakeholder-reflect`, asks where they're growing toward, produces a sequenced plan with the *manager moves* (what the user has to stop doing) named explicitly.
+3. **Quarterly health check.** *"Before my skip-level update, give me a structured read on the team."* → `team-diagnosis` walks eight dimensions (delivery, attrition, dependency tax, on-call, peers, info flow, technical health, culture) with cited evidence and top-3 actionable risks.
+4. **The hard conversation.** *"I have a report who's been underperforming for three months."* → `performance-management` diagnoses the stage on the ladder, distinguishes coachable gap from PIP-territory, walks through the documentation discipline and the conversation script — composes with `feedback-frameworks` for the COIN delivery.
+5. **The development conversation.** *"Help me coach my report through whether to take the staff role."* → `coaching-mode` flips to ask-not-tell, applies GROW, pushes back when the user prescribes through leading questions.
+6. **Promo cycle.** *"Submit Draymond for staff this cycle."* → `report-promo-case` reads the year of stakeholder-reflect entries plus the executed growth plan, produces a panel-ready written case with cited evidence per dimension, surfaces gaps as pre-submission targets, pre-empts likely objections.
+7. **The doc on your desk.** *"My team submitted an RFC; I need a credible read."* → `the-rfc-reviewer` walks the doc through problem clarity, alternatives, trade-offs, failure modes, observability, scaling, and security — severity-ranked findings, calibrated to your confidence in the domain.
+
+### Things to know
+
+- **The skills compose tightly with the stakeholder bundle.** `report-career-architect` reads from `stakeholder-reflect` (managing-down). `report-promo-case` reads from both. `team-diagnosis` aggregates across the whole managing-down folder. `performance-management`'s documentation discipline is the same documentation discipline `stakeholder-reflect` was already producing.
+- **The opinionation is real.** `performance-management` will not let the user describe a Stage 3 problem in Stage 1 language. `coaching-mode` will not let the user prescribe in the first 5 turns. `hiring-craft` will not let the user run a debrief without silent votes first. If the forcing functions feel pushy, the principles section in each skill is the easy place to soften.
+- **`the-rfc-reviewer` is the only agent in the management-craft set.** RFC review benefits from a fresh context window — the doc is long, the review is multi-pass — which is what agents do better than skills.
+- **Underrepresented reports often get worse promo packets and weaker growth plans not because they don't deserve them, but because their managers feel less confident advocating with the same volume.** Several skills (`report-promo-case`, `report-career-architect`) call this out explicitly. Notice it; over-invest where you'd otherwise drift.
 
 ## What these skills actually add over plain Claude
 
