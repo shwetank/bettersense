@@ -126,6 +126,188 @@ cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
 
 Verify with `/agents` inside Claude Code — the twelve subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`).
 
+## Setup: data directory, environment, and scheduling
+
+The basic Install above gets the skills loaded. This section covers everything else: where private data lives, how the cadence-driven skills (`stakeholder-due`, `wins-due`, `self-reflect`, `team-diagnosis`) get wired to actually fire on schedule, and how to pair Claude Code's `/schedule` with your existing reminder system to make the cadence reliable.
+
+### Quick setup checklist (5 minutes)
+
+```
+☐ Skills installed (see Install section above)
+☐ Decide on data location: default ~/voohy-work-reflections/ or set $VOOHY_WORK_REFLECTIONS_HOME
+☐ Run /stakeholder-register once → creates the data directory + privacy README + .gitignore
+☐ Wire up the recurring schedules below (or skip if you only want on-demand use)
+☐ Add matching calendar reminders so you actually see the scheduled output
+☐ Verify with /agents and /schedule list (or by triggering one skill manually)
+```
+
+The rest of this section walks through each step with the exact commands.
+
+### 1. Data directory
+
+By default, all reflection data lives at `~/voohy-work-reflections/` — outside any repo, on your local machine only, gitignored by the skill on first run. Override with the env var if you want:
+
+```bash
+# Optional: choose a different location (e.g., an encrypted volume)
+export VOOHY_WORK_REFLECTIONS_HOME="$HOME/Encrypted/voohy-work-reflections"
+
+# Persist for future shells
+echo 'export VOOHY_WORK_REFLECTIONS_HOME="$HOME/Encrypted/voohy-work-reflections"' >> ~/.zshrc
+```
+
+You don't need to create the directory yourself — `stakeholder-register` does it on first run, with a privacy `README.md` and `.gitignore` inside. Just open Claude Code and:
+
+```
+register a stakeholder
+```
+
+That triggers `stakeholder-register`, which sets up the directory and walks you through your first registration.
+
+### 2. The cadence story (read this once)
+
+Claude Code skills are *stateless guides*. They fire when the user types something matching their `description`, or when explicitly invoked. Cadence — running a skill *automatically* every Monday or every Friday — is handled by Claude Code's `/schedule` skill, which creates routines that execute on a cron schedule.
+
+Three honest constraints to set expectations:
+
+- **Output of a scheduled run lives inside Claude Code.** When `/schedule` fires `/wins-due`, the output goes to a Claude Code session/artifact. You see it the next time you open Claude Code.
+- **No mobile push, no email, no SMS.** Claude Code is desktop / CLI / IDE. If you close Claude Code Friday afternoon and don't open it until Tuesday, the Friday `wins-due` output sits unread.
+- **The cadence is reliable in proportion to how often you open Claude Code.** Daily users get the full benefit. Weekly users see things drift. Monthly users should treat the skills as on-demand only.
+
+The fix for users who don't already live in Claude Code: pair every `/schedule` cadence with a calendar reminder in the system you *do* check (Google Calendar, Apple Reminders, etc.). The calendar grabs your attention; Claude Code does the work.
+
+### 3. Wire up scheduled skills
+
+Below are the skills that genuinely benefit from running on a schedule, with the exact commands to run *once* in Claude Code. Pick the ones that fit your workflow — none are required.
+
+#### Weekly Friday — wins nudge
+
+```
+/schedule "Every Friday at 4pm, run /wins-due and post the list"
+```
+
+Pair with a Friday 4pm calendar event titled **"Open Claude Code → log this week's wins"**. Together, they catch most weeks.
+
+#### Weekly Monday — stakeholder due-list
+
+```
+/schedule "Every Monday at 9am, run /stakeholder-due and post the list"
+```
+
+Pair with a Monday 9am calendar block (or recurring task in your task manager) titled **"Open Claude Code → review stakeholder due-list"**.
+
+#### Monthly first-of-the-month — self-reflection
+
+```
+/schedule "On the first Monday of every month at 10am, run /self-reflect"
+```
+
+Pair with a recurring monthly calendar event. `self-reflect` will pick a few cadence-appropriate questions and walk through them. If you skip a month, no harm done — the next run picks up.
+
+#### Quarterly — team health diagnosis
+
+```
+/schedule "On the first Monday of every quarter at 10am, run /team-diagnosis"
+```
+
+Pair with a quarterly OKR-planning week. Run this *before* you draft the next quarter's plan — the diagnosis often surfaces what the plan should address.
+
+#### Quarterly — review report growth plans
+
+```
+/schedule "On the first Monday of every quarter at 11am, run /report-career-architect for each report and surface the plan review prompts"
+```
+
+Less natural-language-flexible than the others; you may need to adjust the phrasing or run a more general "review growth plans" prompt. The point is the *quarterly recurrence*, not the exact format.
+
+#### Optional: Monthly — synthesize across managing-down
+
+```
+/schedule "On the 15th of every month at 10am, run /stakeholder-synthesize over managing-down for the last 30 days"
+```
+
+Useful if you manage 3+ reports — surfaces patterns across the team that no individual 1:1 would catch.
+
+### 4. Listing and managing your schedules
+
+Inside Claude Code:
+
+```
+/schedule list
+```
+
+Shows all routines you've created. To remove one:
+
+```
+/schedule delete <id-or-description>
+```
+
+You can also edit a routine to change its cadence — see the `/schedule` skill's own help for specifics.
+
+### 5. External reminder pairing (recommended)
+
+The single best thing you can do to make cadence reliable is to add **one recurring calendar event per `/schedule` routine** in the calendar / task system you actually check. The pattern:
+
+- The calendar event grabs your attention at the right moment.
+- The event's body says: *"Open Claude Code → /<skill-name>"*.
+- Claude Code already has the scheduled output ready when you open it.
+
+This is the closest you can get to the Voohy app's mobile-push experience, while still doing the depth work in Claude Code.
+
+### 6. Cadence cheat sheet
+
+| When | What fires (in Claude Code) | What you should pair externally |
+|---|---|---|
+| Every Friday, 4pm | `/wins-due` — surface forgotten wins from the week | Friday 4pm calendar block: *"Log wins"* |
+| Every Monday, 9am | `/stakeholder-due` — overdue stakeholder reflections | Monday 9am calendar block: *"Stakeholder reviews"* |
+| First Monday monthly | `/self-reflect` — leadership / behavior / energy | Monthly self-reflection time block |
+| First Monday quarterly | `/team-diagnosis` — team health check | Pre-OKR-planning week reminder |
+| First Monday quarterly | Growth-plan review per report | Per-report 1:1 in the plan-review week |
+| Mid-month monthly (optional) | `/stakeholder-synthesize` over managing-down | Mid-month management reading time |
+
+Skills not in this table are on-demand only — they fire when you describe a situation that matches them (a hire decision, a hard 1:1 prep, a new spec, a demo, a customer interview synthesis, an RFC review, etc.).
+
+### 7. Verify the setup
+
+Run each of these to confirm:
+
+```bash
+# Skills installed?
+ls ~/.claude/skills/        # or .claude/skills/ for project-scope
+
+# Agents installed?
+ls ~/.claude/agents/
+
+# Data directory exists with privacy README?
+ls -la ~/voohy-work-reflections/
+cat ~/voohy-work-reflections/README.md
+```
+
+Inside Claude Code:
+
+```
+/agents               # twelve subagents should appear
+/schedule list        # your routines should appear here
+```
+
+Trigger a skill manually as a smoke test:
+
+```
+let me reflect on my manager
+```
+
+…should auto-route to `stakeholder-reflect` (or to `stakeholder-register` if you haven't registered the manager yet).
+
+### 8. Maintenance
+
+The system is low-maintenance but not no-maintenance. Once a quarter:
+
+- Skim `~/voohy-work-reflections/` — anything stale, anyone you've stopped tracking actively, anyone you should have added?
+- Run `/schedule list` and prune routines you're no longer reading.
+- Run `/stakeholder-synthesize` once over your full file to look for patterns you've missed.
+- Re-read the question library at `~/.claude/skills/stakeholder-reflect/questions.json` — the prompts that landed for you 6 months ago may not be the ones that land now.
+
+If a `/schedule` cadence keeps producing output you ignore, kill it and re-think. A nudge you've stopped acting on is worse than no nudge — it teaches you to ignore the system.
+
 ## How it's meant to be used
 
 Drop into Claude Code and describe what you're working on the way you'd describe it to a teammate. The harness routes:
