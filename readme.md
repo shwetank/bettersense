@@ -62,7 +62,7 @@ awesome-skills-ai/
 | `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
 | `self-reflect` | Self-reflection on leadership, behavior under pressure, time/energy, fulfillment, and advocating for yourself — captured chronologically in a private file so insight compounds over time. |
-| `stakeholder-register` | Register a stakeholder (manager, peer, report, team) for ongoing reflection. Sets up a private folder at `~/voohy-reflections/`, creates a per-stakeholder file, and warns about privacy. |
+| `stakeholder-register` | Register a stakeholder (manager, peer, report, team) for ongoing reflection. Sets up a private folder at `~/voohy-work-reflections/` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`), creates a per-stakeholder file, and warns about privacy. |
 | `stakeholder-reflect` | Guide a single reflection session about a registered stakeholder using a question library spanning *ask*, *sense*, and *ask-and-sense* lenses. Surfaces the question's `things_to_consider`, picks cadence-appropriate questions, and writes a dated entry back. |
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
 | `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
@@ -129,10 +129,16 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 
 ## Stakeholder reflection: a worked example
 
-The five `stakeholder-*` and `self-reflect` skills are a tighter system than the rest of the bundle — they share private data at `~/voohy-reflections/` (configurable via `$VOOHY_HOME`) and are designed to be used together over months. Inspired by the stakeholder-reflection feature in [Voohy](https://voohy.com).
+The four `stakeholder-*` skills and `self-reflect` are a tighter system than the rest of the bundle — they share private data at `~/voohy-work-reflections/` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`) and are designed to be used together over months.
+
+### A note on origins
+
+This was originally a feature inside the [Voohy](https://voohy.com) app — the same idea: register your stakeholders by category, answer cadence-driven reflection questions, accumulate insight over time. The Claude Code version is a deliberate revamp, and on balance it works *better* in this shape than as in-app screens, because the reflection sessions can lean on the rest of the skills bundle. A reflection naturally hands off to `feedback-frameworks` when feedback emerges, to `one-on-one-prep` when a 1:1 is coming up, to `decision-log` when a relationship-shaping decision gets made. None of those compositions were possible inside an app's bounded UX. The honest tradeoff: a CLI/IDE tool has more friction than a mobile app, so expect weekly or bi-weekly use, not daily.
+
+### File layout
 
 ```
-~/voohy-reflections/                  # private, gitignored, on your local machine only
+~/voohy-work-reflections/             # private, gitignored, on your local machine only
 ├── stakeholders.json
 ├── managing-up/
 │   └── john-adams.md
@@ -148,18 +154,17 @@ The five `stakeholder-*` and `self-reflect` skills are a tighter system than the
     └── reflections.md
 ```
 
-A typical lifecycle:
+### A typical lifecycle
 
-1. **Register.** *"I just got a new VP. Add John Adams to managing-up."* → `stakeholder-register` creates `~/voohy-reflections/managing-up/john-adams.md` with frontmatter and waits to confirm before writing.
+1. **Register.** *"I just got a new VP. Add John Adams to managing-up."* → `stakeholder-register` creates `~/voohy-work-reflections/managing-up/john-adams.md` with frontmatter and waits to confirm before writing.
 2. **Reflect, weekly-ish.** *"Let me reflect on John."* → `stakeholder-reflect` loads the file, picks 2–3 questions appropriate to the moment (cadence-aware, balancing *ask* and *sense* lenses), surfaces the prompt's `things_to_consider`, and walks through a real conversation. Pushes back on one-line answers and identity-level labels. Writes a dated entry per question.
 3. **Stay current.** *"What's due this week?"* → `stakeholder-due` lists the overdue question × stakeholder pairs sorted by `due_ratio` (days_since / cadence). Or run it once via `/schedule "Every Monday at 9am, run /stakeholder-due"` to get a Monday-morning surfacing.
 4. **Synthesize, periodically.** *"Before John's quarterly skip-level, what do I know?"* → `stakeholder-synthesize` reads the file, produces patterns / contradictions / blind spots / suggested next conversations, with every claim cited to specific dated entries. Hands off to `feedback-frameworks` or `one-on-one-prep` when a natural next step appears.
 5. **Self.** Same shape, aimed at you. `self-reflect` covers behavior under pressure, communication, time/energy, fulfillment, advocating for yourself.
 
-A few things to know before you adopt this:
+### Things to know before adopting
 
-- **The data lives outside the public repo.** The skill creates `~/voohy-reflections/` on first run, gitignores it, and warns you about privacy. The folder holds candid notes about real people — don't put it in Dropbox if you wouldn't put your journal there.
-- **It will not replace the Voohy app for daily use.** A CLI/IDE tool has more friction than a mobile app. Expect weekly or bi-weekly use, not daily. The skill version wins on *depth* — synthesis across files, hand-offs to feedback drafting and 1:1 prep, decision-log capture — and loses on *frequency*.
+- **The data lives outside the public repo.** The skill creates `~/voohy-work-reflections/` on first run, gitignores it, and warns you about privacy. The folder holds candid notes about real people — don't put it in Dropbox if you wouldn't put your journal there. Override the path with `$VOOHY_WORK_REFLECTIONS_HOME` if you want it on an encrypted volume or somewhere else.
 - **Quality of synthesis depends on quality of input.** One-line entries produce shallow synthesis. The `things_to_consider` field is surfaced prominently to help — use it.
 - **Synthesis is honest about its evidence.** `stakeholder-synthesize` will not claim a pattern without citing dated entries. If your file is sparse, the synthesis will be tentative; if it's rich, the synthesis will be sharp.
 

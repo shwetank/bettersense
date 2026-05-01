@@ -1,6 +1,6 @@
 ---
 name: stakeholder-due
-description: Use when the user wants to know which stakeholder reflections are overdue. Trigger phrases include "what's due", "who haven't I thought about lately", "what's on my plate this week for stakeholder reflection", "stakeholder check-in", or any Monday-morning planning moment. Scans `~/voohy-reflections/`, computes which question × stakeholder pairs are overdue based on `suggested_freq` and last entry date, and outputs a prioritized list. Designed to be invoked on demand or fired weekly via `/schedule`.
+description: Use when the user wants to know which stakeholder reflections are overdue. Trigger phrases include "what's due", "who haven't I thought about lately", "what's on my plate this week for stakeholder reflection", "stakeholder check-in", or any Monday-morning planning moment. Scans `~/voohy-work-reflections/`, computes which question × stakeholder pairs are overdue based on `suggested_freq` and last entry date, and outputs a prioritized list. Designed to be invoked on demand or fired weekly via `/schedule`.
 ---
 
 # Stakeholder Due
@@ -16,7 +16,7 @@ Default: scan everything. The user can narrow:
 
 ## Loading
 
-1. Read `~/voohy-reflections/stakeholders.json` for the registered list.
+1. Read `~/voohy-work-reflections/stakeholders.json` for the registered list.
 2. Load `questions.json` from the `stakeholder-reflect` skill folder.
 3. For each registered stakeholder, read their file. For each question whose `stakeholder_categories` matches the stakeholder's category, find the most recent dated entry under the matching `## <prompt>` heading.
 

@@ -24,7 +24,7 @@ If the user gives an open-ended ask ("what's going on with my team?"), pick a de
 
 ## Loading
 
-1. Read `~/voohy-reflections/stakeholders.json` for the registry.
+1. Read `~/voohy-work-reflections/stakeholders.json` for the registry.
 2. Identify which files to load based on scope.
 3. Read each file in full. Within each file, read all `### YYYY-MM-DD` entries falling inside the time window.
 
