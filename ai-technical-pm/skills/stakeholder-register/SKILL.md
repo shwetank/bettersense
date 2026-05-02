@@ -91,7 +91,7 @@ Append to `~/voohy-work-reflections/stakeholders.json`:
 
 - **Don't over-collect at register time.** The registration form is a doorway, not an interview. Three questions, maybe four. The depth comes from the reflection sessions, not the intake.
 - **Confirm before writing.** Always show the user the file path and frontmatter you're about to create, and wait for a yes.
-- **Suggest the next step.** When done, tell the user how to start reflecting: *"Try `let me reflect on John` or run `stakeholder-due` to see what's on your plate."*
+- **Suggest the next step.** When done, tell the user how to start reflecting: *"Try `let me reflect on John` or run `stakeholder-due` to see what's on your plate. To list, edit, re-categorize, or archive stakeholders later, just describe what you want — the `stakeholder-manage` skill handles the lifecycle."*
 - **Privacy is non-negotiable.** Re-warn if you notice the user's `$VOOHY_WORK_REFLECTIONS_HOME` is inside a git repo that isn't already gitignoring it.
 
 ## Anti-patterns to flag

@@ -33,6 +33,7 @@ awesome-skills-ai/
 │   │   ├── report-promo-case/SKILL.md
 │   │   ├── self-reflect/SKILL.md
 │   │   ├── stakeholder-due/SKILL.md
+│   │   ├── stakeholder-manage/SKILL.md
 │   │   ├── stakeholder-reflect/
 │   │   │   ├── SKILL.md
 │   │   │   └── questions.json
@@ -78,6 +79,7 @@ awesome-skills-ai/
 | `report-promo-case` | Builds a panel-ready promotion packet for a direct report with cited evidence per dimension, calibrated solo-vs-shared credit, pre-empted objections, and gaps surfaced as pre-submission targets. The mirror image of `wins-curate` (which is for the user's own brag doc). |
 | `self-reflect` | Self-reflection on leadership, behavior under pressure, time/energy, fulfillment, and advocating for yourself — captured chronologically in a private file so insight compounds over time. |
 | `stakeholder-register` | Register a stakeholder (manager, peer, report, team) for ongoing reflection. Sets up a private folder at `~/voohy-work-reflections/` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`), creates a per-stakeholder file, and warns about privacy. |
+| `stakeholder-manage` | Lifecycle operations on already-registered stakeholders: list / edit / re-categorize after a reorg / rename / archive when someone leaves / delete. Preserves reflection history aggressively; defaults toward archive over delete; routes by natural-language intent. |
 | `stakeholder-reflect` | Guide a single reflection session about a registered stakeholder using a question library spanning *ask*, *sense*, and *ask-and-sense* lenses. Surfaces the question's `things_to_consider`, picks cadence-appropriate questions, and writes a dated entry back. |
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
 | `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
@@ -266,7 +268,27 @@ This is the closest you can get to the Voohy app's mobile-push experience, while
 
 Skills not in this table are on-demand only — they fire when you describe a situation that matches them (a hire decision, a hard 1:1 prep, a new spec, a demo, a customer interview synthesis, an RFC review, etc.).
 
-### 7. Verify the setup
+### 7. Stakeholder lifecycle (after the initial register)
+
+Reorgs happen, people change roles, colleagues leave. The `stakeholder-manage` skill handles every lifecycle operation after the initial `stakeholder-register`. It routes by natural language — there's no syntax to memorize. Some examples:
+
+| What you say | What happens |
+|---|---|
+| *"list my stakeholders"* | Shows all active stakeholders grouped by category, with last-reflected dates and ⚠ flags on anyone neglected for 14+ days. *"show archived"* extends the list. |
+| *"update Jill's role to Staff Eng II"* | In-place frontmatter edit. Adds a one-line audit note. |
+| *"Jill is my manager now"* | Re-categorizes. Moves the file across category folders. **All reflection history is preserved.** Captures a one-sentence reason for the audit log. The question pool shifts to managing-up on the next reflection. |
+| *"Jill changed her name to Jill Brown"* | Rename. Updates filename, frontmatter, registry. You choose whether the slug changes too. |
+| *"Draymond left for Stripe"* | Archive. File moves to `~/voohy-work-reflections/archive/managing-down/draymond-young.md`. Active reflection skills no longer surface them. You can still synthesize over the archive when retrospecting. |
+| *"delete Sam — registered them by mistake"* | Two-step confirmation. The skill strongly recommends archive first; if you persist, asks you to type the name to confirm. Used rarely. |
+
+Two design opinions worth knowing before you use it:
+
+- **Archive ≠ delete.** Most "remove" requests are actually archive. The skill defaults to archive and requires explicit override. Reflection history about a former colleague is often the most valuable record you'll have when calibrating future hires, references, or working with their replacement.
+- **Re-categorize preserves history.** When a peer becomes your manager, you don't restart the file. The 18 months of accumulated reflections are *more* relevant in the new relationship, not less. The audit log explains the transition; the entries underneath stay intact.
+
+The audit log lives in each stakeholder file as a `## Audit log` section between Background and Reflections. You can hand-edit it; the skill doesn't enforce.
+
+### 8. Verify the setup
 
 Run each of these to confirm:
 
@@ -297,7 +319,7 @@ let me reflect on my manager
 
 …should auto-route to `stakeholder-reflect` (or to `stakeholder-register` if you haven't registered the manager yet).
 
-### 8. Maintenance
+### 9. Maintenance
 
 The system is low-maintenance but not no-maintenance. Once a quarter:
 
@@ -322,6 +344,7 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 - *"What should we measure to know this AI feature is actually working?"* → `metrics-design` builds the four-layer tree with counter-metrics that catch the "engagement up, product worse" trap.
 - *"Sales needs a one-pager on how this works that won't oversell."* → `the-explainer` writes audience-calibrated capability + limitations + safety, with a what-to-say / what-not-to-say guide.
 - *"Help me reflect on my new manager so I actually know what they need from me."* → `stakeholder-register` sets up the file, `stakeholder-reflect` guides the first session, `stakeholder-due` surfaces what to revisit weekly.
+- *"Reorg happened — Jill is my manager now, and Draymond left for Stripe."* → `stakeholder-manage` re-categorizes Jill across folders (history preserved) and archives Draymond (file kept for retrospection, no longer surfaced in active reflections).
 - *"Before my reports' performance reviews, what do I actually know about each of them?"* → `stakeholder-synthesize` reads the files and produces dated, citation-backed reads — patterns, contradictions, blind spots — for each.
 - *"I just shipped contract-summarization to GA — log it before I forget."* → `wins-log` captures it structurally (situation, action, impact, evidence, honest credit) and pushes back if the impact framing is vague.
 - *"Friday afternoon — did I do anything notable this week?"* → `wins-due` probes by category (judgment, recovery, mentorship, range) because the generic question gets blank stares.
@@ -373,6 +396,7 @@ This was originally a feature inside the [Voohy](https://voohy.com) app — the 
 3. **Stay current.** *"What's due this week?"* → `stakeholder-due` lists the overdue question × stakeholder pairs sorted by `due_ratio` (days_since / cadence). Or run it once via `/schedule "Every Monday at 9am, run /stakeholder-due"` to get a Monday-morning surfacing.
 4. **Synthesize, periodically.** *"Before John's quarterly skip-level, what do I know?"* → `stakeholder-synthesize` reads the file, produces patterns / contradictions / blind spots / suggested next conversations, with every claim cited to specific dated entries. Hands off to `feedback-frameworks` or `one-on-one-prep` when a natural next step appears.
 5. **Self.** Same shape, aimed at you. `self-reflect` covers behavior under pressure, communication, time/energy, fulfillment, advocating for yourself.
+6. **Maintain.** *"Jill is my manager now"* / *"Draymond left for Stripe"* / *"list my stakeholders"* → `stakeholder-manage` handles the lifecycle: re-categorize across folders (history preserved), archive when someone leaves (file kept for retrospection), edit roles, list, rename. Defaults toward archive over delete.
 
 ### Things to know before adopting
 
