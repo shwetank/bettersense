@@ -31,6 +31,8 @@ awesome-skills-ai/
 │   │   ├── patterns-watch/SKILL.md
 │   │   ├── performance-management/SKILL.md
 │   │   ├── prioritization-frameworks/SKILL.md
+│   │   ├── product-pulse/SKILL.md
+│   │   ├── pulse-synthesize/SKILL.md
 │   │   ├── read-the-room/SKILL.md
 │   │   ├── report-career-architect/SKILL.md
 │   │   ├── report-promo-case/SKILL.md
@@ -42,6 +44,7 @@ awesome-skills-ai/
 │   │   │   └── questions.json
 │   │   ├── stakeholder-register/SKILL.md
 │   │   ├── stakeholder-synthesize/SKILL.md
+│   │   ├── strategy-doc/SKILL.md
 │   │   ├── team-diagnosis/SKILL.md
 │   │   ├── user-profile/SKILL.md
 │   │   ├── wins-curate/SKILL.md
@@ -82,6 +85,8 @@ awesome-skills-ai/
 | `patterns-watch` | Scheduled cross-cutting scan across the reflection ecosystem (stakeholder, wins, self) — surfaces unsolicited patterns the user hasn't asked about: attention gaps, contradictions between stated focus and actual logged work, trajectory shifts. Citation-disciplined; observation-not-prediction. Designed for weekly `/schedule`. |
 | `performance-management` | Walks the underperformance ladder deliberately — coaching → formalized feedback → PIP → termination — with documentation, calibrated conversations, and the brilliant-jerk pattern handled directly. The hardest skill in management. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
+| `product-pulse` | Single-page dated pulse report on product health — usage metrics, system performance, AI-feature signals (hallucination, refusal, eval drift), counter-metrics, follow-up investigation, provenance footer. Saves to `~/voohy-work-reflections/pulses/<area-slug>/` so the folder accumulates into product memory. Privacy-first; designed for daily/weekly `/schedule`. |
+| `pulse-synthesize` | Reads accumulated pulse reports for an area over a time window and surfaces trends, anomalies, regime shifts, and Goodhart-pattern warnings — with citations to specific dated pulses. Distinguishes trend from snapshot, refuses to forecast, surfaces coverage gaps honestly. |
 | `read-the-room` | Retrospective interpretation of a meeting / Slack thread / 1:1 / design review — surfaces who held back, where consensus is performative, what positions are masking what interests, what burnout signals are present. Reads are hypotheses to verify, not facts to act on. |
 | `report-career-architect` | Designs a 12–18 month growth plan for a direct report — target state, capability gaps, sequenced experiences, *manager moves* (what the user has to stop doing to make room), risks, and observable success criteria. |
 | `report-promo-case` | Builds a panel-ready promotion packet for a direct report with cited evidence per dimension, calibrated solo-vs-shared credit, pre-empted objections, and gaps surfaced as pre-submission targets. The mirror image of `wins-curate` (which is for the user's own brag doc). |
@@ -91,6 +96,7 @@ awesome-skills-ai/
 | `stakeholder-reflect` | Guide a single reflection session about a registered stakeholder using a question library spanning *ask*, *sense*, and *ask-and-sense* lenses. Surfaces the question's `things_to_consider`, picks cadence-appropriate questions, and writes a dated entry back. |
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
 | `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
+| `strategy-doc` | Interview-driven creation/update of a product/area strategy document — target problem, approach, personas, SMART metrics, 2-4 multi-month tracks, explicit "not working on" section, counter-metrics. Lives at `~/voohy-work-reflections/strategy/<area-slug>.md` and is read as an anchor by `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, and `pulse-synthesize`. Supports multiple products/areas. |
 | `team-diagnosis` | Multi-dimensional team health check — delivery cadence, attrition risk, dependency tax, on-call burden, peer relationships, information flow, technical health, culture. Reads stakeholder files + retros + survey scores; produces a green/yellow/red read with cited evidence and top-3 risks worth acting on. |
 | `user-profile` | Anchor file for the bundle. Single private `~/voohy-work-reflections/profile.md` capturing the user's role, level, communication style, current strategic focus, stack — read automatically by other skills so you never re-explain context. Inspired by the SOUL.md pattern. Supports multiple "hats" for users in mixed roles. |
 | `wins-log` | Capture a structured win at work — situation, action, impact, evidence, honest credit framing. Pushes back on vague impact claims and inflated solo claims. Front-of-funnel for the brag-doc / hype-doc bundle. |
@@ -136,7 +142,7 @@ cp -r /path/to/awesome-skills-ai/ai-technical-pm-php/skills/* .claude/skills/
 cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
 ```
 
-Verify with `/agents` inside Claude Code — the thirteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`, `/user-profile`).
+Verify with `/agents` inside Claude Code — the thirteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`, `/user-profile`, `/strategy-doc`, `/product-pulse`).
 
 ## Setup: data directory, environment, and scheduling
 
@@ -148,7 +154,8 @@ The basic Install above gets the skills loaded. This section covers everything e
 ☐ Skills installed (see Install section above)
 ☐ Decide on data location: default ~/voohy-work-reflections/ or set $VOOHY_WORK_REFLECTIONS_HOME
 ☐ Run /stakeholder-register once → creates the data directory + privacy README + .gitignore
-☐ Run /user-profile once → creates the anchor file other skills read for context
+☐ Run /user-profile once → creates the "who you are" anchor file
+☐ Run /strategy-doc once per product/area → creates the "what you're building" anchor (optional)
 ☐ Wire up the recurring schedules below (or skip if you only want on-demand use)
 ☐ Add matching calendar reminders so you actually see the scheduled output
 ☐ Verify with /agents and /schedule list (or by triggering one skill manually)
@@ -176,23 +183,43 @@ register a stakeholder
 
 That triggers `stakeholder-register`, which sets up the directory and walks you through your first registration.
 
-### 2. The anchor file (`profile.md`)
+### 2. Anchor files (`profile.md` and `strategy/<area>.md`)
 
-The bundle has one **anchor file** — `~/voohy-work-reflections/profile.md` — that captures who you are: role, level, company context, communication style, current strategic focus, and (if relevant) stack. It's a single short file you create once.
+The bundle has two anchor files. Both are read automatically by other skills when present, so you stop re-establishing context every session.
 
-The point: skills in the bundle that benefit from knowing you (`the-spec-writer`, `the-translator`, `the-explainer`, `report-promo-case`, `report-career-architect`, `metrics-design`, `coaching-mode`, `feedback-frameworks`) **read this file automatically when present** and tailor their outputs accordingly. You stop re-establishing context every session.
+#### `profile.md` — *who you are*
 
-To create it:
+`~/voohy-work-reflections/profile.md` captures your role, level, company context, communication style, current strategic focus, and (if relevant) stack. A single short file you create once.
+
+Skills that read it: `the-spec-writer`, `the-translator`, `the-explainer`, `report-promo-case`, `report-career-architect`, `metrics-design`, `coaching-mode`, `feedback-frameworks`.
+
+To create:
 
 ```
 set up my profile
 ```
 
-That triggers the `user-profile` skill, which interviews you (5–10 minutes), drafts the file, and confirms before writing. Update it on real role changes — not every week.
+Triggers `user-profile` — 5-10 minute interview, drafts the file, confirms before writing. Update on real role changes, not every week. Supports "alternate hats" for users with mixed roles (PM + EM, TPM + IC); the skill only asks if you bring it up.
 
-If you wear multiple hats (e.g. PM and EM, or TPM during programs and IC otherwise), the file supports an "alternate hats" section. The skill will only ask about hats if you bring them up.
+#### `strategy/<area-slug>.md` — *what you're building*
 
-If `profile.md` is missing, the skills work without it — outputs are just more generic. They won't pester you to set it up unless you raise the question.
+`~/voohy-work-reflections/strategy/<area-slug>.md` captures the strategic anchor for a product, area, or program: target problem, approach, personas, SMART metrics, 2-4 multi-month tracks, explicit "not working on" section, counter-metrics.
+
+Skills that read it: `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, `pulse-synthesize`.
+
+For single-product users, one file at `strategy/default.md` is fine. For users running multiple lines (PM with two products, TPM coordinating across three programs, EM owning multiple services), one file per area.
+
+To create:
+
+```
+draft a strategy doc for [area name]
+```
+
+Triggers `strategy-doc` — interview-driven, refusable on weak inputs ("vague metrics aren't ready"). Refresh on real triggers (planning round, missed bet, market shift), not on schedule.
+
+#### When to skip both
+
+If either file is missing, the relevant skills work without it — outputs are just more generic and harder to defend in planning conversations. The skills won't pester you to set them up unless you raise the question.
 
 ### 3. The cadence story (read this once)
 
@@ -266,6 +293,32 @@ Useful if you manage 3+ reports — surfaces patterns across the team that no in
 
 Scans across the whole reflection ecosystem (stakeholder, wins, self) and surfaces patterns you haven't asked about — attention gaps, contradictions between stated focus and actual logged work, trajectory shifts. Citation-disciplined; observation-not-prediction. Pair with a Sunday 6pm calendar block titled *"Open Claude Code → review weekly patterns"*. Most useful after you've been logging for 4+ weeks (patterns need volume).
 
+#### Daily/weekly — product pulse
+
+For most teams, weekly:
+
+```
+/schedule "Every Monday at 8am, run /product-pulse for the default area"
+```
+
+For fast-moving consumer products or during launch windows, daily:
+
+```
+/schedule "Every weekday at 8am, run /product-pulse for the default area"
+```
+
+Pair with a calendar reminder to actually open Claude Code at the firing time. Pulses pull from analytics MCPs (PostHog, Datadog, Stripe, etc.) when wired; otherwise, the user pastes recent metrics and the skill structures them. Each run produces a single-page dated report at `~/voohy-work-reflections/pulses/<area-slug>/`. The folder *is* your product memory — `pulse-synthesize` reads across it.
+
+Multi-area users: schedule one routine per area, each with its own `<area-slug>`.
+
+#### Monthly — pulse synthesis
+
+```
+/schedule "On the first Monday of every month at 11am, run /pulse-synthesize over the last 30 days for default area"
+```
+
+Reads across the month of pulses and surfaces trends, anomalies, regime shifts, and Goodhart-pattern flags. Especially useful before exec readouts, board meetings, or quarterly planning. Requires at least 4 pulses in the window — the skill says so honestly if there's not enough volume.
+
 ### 5. Listing and managing your schedules
 
 Inside Claude Code:
@@ -303,6 +356,8 @@ This is the closest you can get to the Voohy app's mobile-push experience, while
 | First Monday quarterly | Growth-plan review per report | Per-report 1:1 in the plan-review week |
 | Mid-month monthly (optional) | `/stakeholder-synthesize` over managing-down | Mid-month management reading time |
 | Every Sunday, 6pm | `/patterns-watch` — cross-cutting scan across all reflection files | Sunday 6pm block: *"Review weekly patterns"* |
+| Weekly Monday, 8am (or daily) | `/product-pulse` — single-page dated product health report | Monday 8am block: *"Read this week's pulse"* |
+| First Monday monthly | `/pulse-synthesize` — trends/anomalies across the month of pulses | Pre-readout / planning reading time |
 
 Skills not in this table are on-demand only — they fire when you describe a situation that matches them (a hire decision, a hard 1:1 prep, a new spec, a demo, a customer interview synthesis, an RFC review, etc.).
 
@@ -399,6 +454,9 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 - *"I'm running a multi-team program with a Q3 launch — map dependencies, design the gates, and draft the escalation if Platform slips."* → `the-program-manager` produces the dependency map, gates per phase with explicit criteria, and escalation framing pre-loaded with a recommendation.
 - *"Set up my profile so I stop re-explaining who I am every session."* → `user-profile` interviews you for role / level / strategic focus / communication style, drafts the anchor file, and other skills (spec writer, translator, explainer, promo case, career architect, metrics design, coaching, feedback) start reading it automatically.
 - *"Sunday evening — anything notable across all my reflections this week?"* → `patterns-watch` scans stakeholder + wins + self files, surfaces unsolicited patterns (attention gaps, contradictions between stated focus and actual logged work, trajectory shifts) with citations to specific dated entries.
+- *"Draft a strategy doc for the platform area I just took over."* → `strategy-doc` interviews you on target problem, approach, personas, SMART metrics, multi-month tracks, and (load-bearing) what you're explicitly *not* working on. Lives at `~/voohy-work-reflections/strategy/platform.md` and starts being read by spec writer / prioritization / metrics-design / pulse skills.
+- *"Run my Monday product pulse."* → `product-pulse` queries connected MCPs (PostHog, Datadog, Stripe), produces a one-page dated report with usage metrics, counter-metrics, AI-specific signals (hallucination/refusal/eval drift), and ≤3 follow-up investigations. Saves to the pulses folder for that area.
+- *"Before my exec readout, what's the trajectory across the last 8 weeks of pulses?"* → `pulse-synthesize` reads the folder and surfaces trends, anomalies, regime shifts — with citations to specific dated pulses. Refuses to forecast; calls out coverage gaps.
 - *"I need to brief the CEO on why our accuracy regressed."* → `the-translator` reframes the numbers.
 - *"Help me cut this 30-item backlog to what we can ship this quarter."* → `prioritization-frameworks` skill picks the right method and pressure-tests scoring assumptions.
 - *"Document why we picked Sonnet over Opus for this feature."* → `decision-log` skill captures it in a format that survives the next model migration.

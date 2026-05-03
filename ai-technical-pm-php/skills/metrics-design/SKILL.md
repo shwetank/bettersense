@@ -9,6 +9,8 @@ Design the metric tree for a feature so it can be steered in production, not jus
 
 **User profile:** If `~/voohy-work-reflections/profile.md` exists, read it before designing the tree. It carries the product/area context, the user's strategic focus, and what KPIs the org actually cares about — these shape what counts as "north star," what the natural lagging indicators are, and which counter-metrics matter most. The user shouldn't have to re-explain their product context every time.
 
+**Strategy doc:** If `~/voohy-work-reflections/strategy/<area-slug>.md` exists for this area, read it before designing the tree. The strategy's key metrics are usually the candidate north stars; the strategy's counter-metrics section composes directly with this skill's counter-metric framing. The metric tree shouldn't disagree with the strategy doc — if it does, surface the gap and ask which is right.
+
 ## When to apply
 
 Trigger on:

@@ -7,6 +7,8 @@ description: Use when the user is prioritizing a backlog, building a roadmap, cu
 
 Use this when the user has more potential work than capacity and needs to decide what to do next. The point of any framework here is **not the score** — it's that the framework forces hidden assumptions into a place where they can be challenged.
 
+**Strategy doc:** If `~/voohy-work-reflections/strategy/<area-slug>.md` exists for the relevant area, read it before scoring. Items that fit a strategic track score one way; items that don't fit any track are candidates for the "not working on" list, not for the backlog. Ranking against tracks beats ranking against impact-confidence-effort in isolation.
+
 ## Pick the right framework first
 
 Don't reflexively reach for RICE. Match the framework to the situation:
