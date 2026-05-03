@@ -28,6 +28,7 @@ awesome-skills-ai/
 │   │   ├── leadership-os/SKILL.md
 │   │   ├── metrics-design/SKILL.md
 │   │   ├── one-on-one-prep/SKILL.md
+│   │   ├── patterns-watch/SKILL.md
 │   │   ├── performance-management/SKILL.md
 │   │   ├── prioritization-frameworks/SKILL.md
 │   │   ├── read-the-room/SKILL.md
@@ -42,6 +43,7 @@ awesome-skills-ai/
 │   │   ├── stakeholder-register/SKILL.md
 │   │   ├── stakeholder-synthesize/SKILL.md
 │   │   ├── team-diagnosis/SKILL.md
+│   │   ├── user-profile/SKILL.md
 │   │   ├── wins-curate/SKILL.md
 │   │   ├── wins-due/SKILL.md
 │   │   └── wins-log/SKILL.md
@@ -77,6 +79,7 @@ awesome-skills-ai/
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
 | `metrics-design` | Designs the metric tree for an AI feature — north star, leading/lagging, and the counter-metrics that catch Goodhart-style failures where you optimize the model into a worse product. |
 | `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
+| `patterns-watch` | Scheduled cross-cutting scan across the reflection ecosystem (stakeholder, wins, self) — surfaces unsolicited patterns the user hasn't asked about: attention gaps, contradictions between stated focus and actual logged work, trajectory shifts. Citation-disciplined; observation-not-prediction. Designed for weekly `/schedule`. |
 | `performance-management` | Walks the underperformance ladder deliberately — coaching → formalized feedback → PIP → termination — with documentation, calibrated conversations, and the brilliant-jerk pattern handled directly. The hardest skill in management. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
 | `read-the-room` | Retrospective interpretation of a meeting / Slack thread / 1:1 / design review — surfaces who held back, where consensus is performative, what positions are masking what interests, what burnout signals are present. Reads are hypotheses to verify, not facts to act on. |
@@ -89,6 +92,7 @@ awesome-skills-ai/
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
 | `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
 | `team-diagnosis` | Multi-dimensional team health check — delivery cadence, attrition risk, dependency tax, on-call burden, peer relationships, information flow, technical health, culture. Reads stakeholder files + retros + survey scores; produces a green/yellow/red read with cited evidence and top-3 risks worth acting on. |
+| `user-profile` | Anchor file for the bundle. Single private `~/voohy-work-reflections/profile.md` capturing the user's role, level, communication style, current strategic focus, stack — read automatically by other skills so you never re-explain context. Inspired by the SOUL.md pattern. Supports multiple "hats" for users in mixed roles. |
 | `wins-log` | Capture a structured win at work — situation, action, impact, evidence, honest credit framing. Pushes back on vague impact claims and inflated solo claims. Front-of-funnel for the brag-doc / hype-doc bundle. |
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category (delivery / judgment / mentorship / recovery / range) because memory is selective. Accepts "honestly, nothing notable" without manufacturing fake wins. |
 | `wins-curate` | Turn the wins log into an audience-specific artifact: promo packet, behavioral interview stories (STAR), perf-review self-eval, salary-negotiation case, or year-in-review. Never invents wins; cites log entries; surfaces gaps as prep targets. |
@@ -132,7 +136,7 @@ cp -r /path/to/awesome-skills-ai/ai-technical-pm-php/skills/* .claude/skills/
 cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
 ```
 
-Verify with `/agents` inside Claude Code — the thirteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`).
+Verify with `/agents` inside Claude Code — the thirteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`, `/user-profile`).
 
 ## Setup: data directory, environment, and scheduling
 
@@ -144,6 +148,7 @@ The basic Install above gets the skills loaded. This section covers everything e
 ☐ Skills installed (see Install section above)
 ☐ Decide on data location: default ~/voohy-work-reflections/ or set $VOOHY_WORK_REFLECTIONS_HOME
 ☐ Run /stakeholder-register once → creates the data directory + privacy README + .gitignore
+☐ Run /user-profile once → creates the anchor file other skills read for context
 ☐ Wire up the recurring schedules below (or skip if you only want on-demand use)
 ☐ Add matching calendar reminders so you actually see the scheduled output
 ☐ Verify with /agents and /schedule list (or by triggering one skill manually)
@@ -171,7 +176,25 @@ register a stakeholder
 
 That triggers `stakeholder-register`, which sets up the directory and walks you through your first registration.
 
-### 2. The cadence story (read this once)
+### 2. The anchor file (`profile.md`)
+
+The bundle has one **anchor file** — `~/voohy-work-reflections/profile.md` — that captures who you are: role, level, company context, communication style, current strategic focus, and (if relevant) stack. It's a single short file you create once.
+
+The point: skills in the bundle that benefit from knowing you (`the-spec-writer`, `the-translator`, `the-explainer`, `report-promo-case`, `report-career-architect`, `metrics-design`, `coaching-mode`, `feedback-frameworks`) **read this file automatically when present** and tailor their outputs accordingly. You stop re-establishing context every session.
+
+To create it:
+
+```
+set up my profile
+```
+
+That triggers the `user-profile` skill, which interviews you (5–10 minutes), drafts the file, and confirms before writing. Update it on real role changes — not every week.
+
+If you wear multiple hats (e.g. PM and EM, or TPM during programs and IC otherwise), the file supports an "alternate hats" section. The skill will only ask about hats if you bring them up.
+
+If `profile.md` is missing, the skills work without it — outputs are just more generic. They won't pester you to set it up unless you raise the question.
+
+### 3. The cadence story (read this once)
 
 Claude Code skills are *stateless guides*. They fire when the user types something matching their `description`, or when explicitly invoked. Cadence — running a skill *automatically* every Monday or every Friday — is handled by Claude Code's `/schedule` skill, which creates routines that execute on a cron schedule.
 
@@ -183,7 +206,7 @@ Three honest constraints to set expectations:
 
 The fix for users who don't already live in Claude Code: pair every `/schedule` cadence with a calendar reminder in the system you *do* check (Google Calendar, Apple Reminders, etc.). The calendar grabs your attention; Claude Code does the work.
 
-### 3. Wire up scheduled skills
+### 4. Wire up scheduled skills
 
 Below are the skills that genuinely benefit from running on a schedule, with the exact commands to run *once* in Claude Code. Pick the ones that fit your workflow — none are required.
 
@@ -235,7 +258,15 @@ Less natural-language-flexible than the others; you may need to adjust the phras
 
 Useful if you manage 3+ reports — surfaces patterns across the team that no individual 1:1 would catch.
 
-### 4. Listing and managing your schedules
+#### Weekly Sunday — cross-cutting patterns watch
+
+```
+/schedule "Every Sunday at 6pm, run /patterns-watch"
+```
+
+Scans across the whole reflection ecosystem (stakeholder, wins, self) and surfaces patterns you haven't asked about — attention gaps, contradictions between stated focus and actual logged work, trajectory shifts. Citation-disciplined; observation-not-prediction. Pair with a Sunday 6pm calendar block titled *"Open Claude Code → review weekly patterns"*. Most useful after you've been logging for 4+ weeks (patterns need volume).
+
+### 5. Listing and managing your schedules
 
 Inside Claude Code:
 
@@ -251,7 +282,7 @@ Shows all routines you've created. To remove one:
 
 You can also edit a routine to change its cadence — see the `/schedule` skill's own help for specifics.
 
-### 5. External reminder pairing (recommended)
+### 6. External reminder pairing (recommended)
 
 The single best thing you can do to make cadence reliable is to add **one recurring calendar event per `/schedule` routine** in the calendar / task system you actually check. The pattern:
 
@@ -261,7 +292,7 @@ The single best thing you can do to make cadence reliable is to add **one recurr
 
 This is the closest you can get to the Voohy app's mobile-push experience, while still doing the depth work in Claude Code.
 
-### 6. Cadence cheat sheet
+### 7. Cadence cheat sheet
 
 | When | What fires (in Claude Code) | What you should pair externally |
 |---|---|---|
@@ -271,10 +302,11 @@ This is the closest you can get to the Voohy app's mobile-push experience, while
 | First Monday quarterly | `/team-diagnosis` — team health check | Pre-OKR-planning week reminder |
 | First Monday quarterly | Growth-plan review per report | Per-report 1:1 in the plan-review week |
 | Mid-month monthly (optional) | `/stakeholder-synthesize` over managing-down | Mid-month management reading time |
+| Every Sunday, 6pm | `/patterns-watch` — cross-cutting scan across all reflection files | Sunday 6pm block: *"Review weekly patterns"* |
 
 Skills not in this table are on-demand only — they fire when you describe a situation that matches them (a hire decision, a hard 1:1 prep, a new spec, a demo, a customer interview synthesis, an RFC review, etc.).
 
-### 7. Stakeholder lifecycle (after the initial register)
+### 8. Stakeholder lifecycle (after the initial register)
 
 Reorgs happen, people change roles, colleagues leave. The `stakeholder-manage` skill handles every lifecycle operation after the initial `stakeholder-register`. It routes by natural language — there's no syntax to memorize. Some examples:
 
@@ -294,7 +326,7 @@ Two design opinions worth knowing before you use it:
 
 The audit log lives in each stakeholder file as a `## Audit log` section between Background and Reflections. You can hand-edit it; the skill doesn't enforce.
 
-### 8. Verify the setup
+### 9. Verify the setup
 
 Run each of these to confirm:
 
@@ -325,7 +357,7 @@ let me reflect on my manager
 
 …should auto-route to `stakeholder-reflect` (or to `stakeholder-register` if you haven't registered the manager yet).
 
-### 9. Maintenance
+### 10. Maintenance
 
 The system is low-maintenance but not no-maintenance. Once a quarter:
 
@@ -365,6 +397,8 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 - *"That meeting ended with everyone nodding but I don't trust it. Help me read it."* → `read-the-room` interprets subtext (who held back, where consensus is performative, what positions are masking what interests) and produces hypotheses to verify directly — never claims as fact.
 - *"I need to drive an architecture change owned by the platform team without going to their VP. How?"* → `influence-without-authority` diagnoses positions vs. interests, suggests sequencing the coalition (early believers first, decider last), and stays opinionated about the legitimacy line between influence and manipulation.
 - *"I'm running a multi-team program with a Q3 launch — map dependencies, design the gates, and draft the escalation if Platform slips."* → `the-program-manager` produces the dependency map, gates per phase with explicit criteria, and escalation framing pre-loaded with a recommendation.
+- *"Set up my profile so I stop re-explaining who I am every session."* → `user-profile` interviews you for role / level / strategic focus / communication style, drafts the anchor file, and other skills (spec writer, translator, explainer, promo case, career architect, metrics design, coaching, feedback) start reading it automatically.
+- *"Sunday evening — anything notable across all my reflections this week?"* → `patterns-watch` scans stakeholder + wins + self files, surfaces unsolicited patterns (attention gaps, contradictions between stated focus and actual logged work, trajectory shifts) with citations to specific dated entries.
 - *"I need to brief the CEO on why our accuracy regressed."* → `the-translator` reframes the numbers.
 - *"Help me cut this 30-item backlog to what we can ship this quarter."* → `prioritization-frameworks` skill picks the right method and pressure-tests scoring assumptions.
 - *"Document why we picked Sonnet over Opus for this feature."* → `decision-log` skill captures it in a format that survives the next model migration.

@@ -7,6 +7,8 @@ description: Use when the user is designing the metric tree for a feature (espec
 
 Design the metric tree for a feature so it can be steered in production, not just declared successful at launch. Especially load-bearing for AI features, where it's easy to ship something that "improves engagement" while quietly making the product worse.
 
+**User profile:** If `~/voohy-work-reflections/profile.md` exists, read it before designing the tree. It carries the product/area context, the user's strategic focus, and what KPIs the org actually cares about — these shape what counts as "north star," what the natural lagging indicators are, and which counter-metrics matter most. The user shouldn't have to re-explain their product context every time.
+
 ## When to apply
 
 Trigger on:

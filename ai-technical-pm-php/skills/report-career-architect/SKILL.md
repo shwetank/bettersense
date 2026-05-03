@@ -155,6 +155,7 @@ When updating, archive the previous plan inside the file (don't lose history) an
 
 ## Composition with other skills
 
+- **`user-profile`** — if `~/voohy-work-reflections/profile.md` exists, read it before drafting. The user's level and management context shapes pacing and plausibility (a first-time manager designs different growth plans than a Director with 10 years of management experience). The user shouldn't have to re-establish their own context every cycle.
 - **`stakeholder-reflect` (managing-down)** — the source of accumulated observations the plan is built on. Read first.
 - **`coaching-mode`** — for the conversation that lands the plan with the report.
 - **`one-on-one-prep`** — quarterly 1:1 specifically to revisit the plan; integrate the review into the agenda.

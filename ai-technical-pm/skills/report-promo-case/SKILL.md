@@ -135,6 +135,7 @@ A "no this cycle" handled well preserves trust; a "yes" submitted on a thin case
 
 ## Composition with other skills
 
+- **`user-profile`** — if `~/voohy-work-reflections/profile.md` exists, read it before drafting. It carries the user's level, which calibrates *what bar to argue against* (a Director writing a Staff promo packet has a different framing than a manager writing a Senior packet). The user shouldn't have to re-explain.
 - **`stakeholder-reflect` (managing-down)** — primary source of evidence. Read the full file before drafting.
 - **`report-career-architect`** — the growth plan is the prequel to the promo case. Strong execution against a plan is the strongest single argument.
 - **`wins-curate`** — if the report maintains a self wins log, cross-reference. The two views should reinforce, not duplicate.

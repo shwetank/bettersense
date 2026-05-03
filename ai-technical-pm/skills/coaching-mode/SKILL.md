@@ -139,6 +139,7 @@ When switching, name it: *"I'm going to step out of coaching mode for a minute. 
 
 ## Composition with other skills
 
+- **`user-profile`** — if `~/voohy-work-reflections/profile.md` exists, read it before starting the session. The user's stated leadership style sets the default tone for coaching prompts (some managers want direct, some want gentler). Carries through across sessions so the coaching feels consistent with how the user actually leads.
 - **`one-on-one-prep`** — coaching conversations often happen in 1:1s. Pre-design the agenda; reserve time for coaching mode explicitly.
 - **`feedback-frameworks`** — coaching and feedback are different. If the conversation needs to land a hard truth, switch modes (and skills).
 - **`performance-management`** — Stage 1 coachable gaps are coaching territory; Stage 3 is not.
