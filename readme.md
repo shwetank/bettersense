@@ -24,11 +24,13 @@ awesome-skills-ai/
 │   │   ├── demo-prep/SKILL.md
 │   │   ├── feedback-frameworks/SKILL.md
 │   │   ├── hiring-craft/SKILL.md
+│   │   ├── influence-without-authority/SKILL.md
 │   │   ├── leadership-os/SKILL.md
 │   │   ├── metrics-design/SKILL.md
 │   │   ├── one-on-one-prep/SKILL.md
 │   │   ├── performance-management/SKILL.md
 │   │   ├── prioritization-frameworks/SKILL.md
+│   │   ├── read-the-room/SKILL.md
 │   │   ├── report-career-architect/SKILL.md
 │   │   ├── report-promo-case/SKILL.md
 │   │   ├── self-reflect/SKILL.md
@@ -48,6 +50,7 @@ awesome-skills-ai/
 │       ├── the-eval-designer.md
 │       ├── the-explainer.md
 │       ├── the-incident-responder.md
+│       ├── the-program-manager.md
 │       ├── the-prompt-critic.md
 │       ├── the-red-teamer.md
 │       ├── the-reducer.md
@@ -70,11 +73,13 @@ awesome-skills-ai/
 | `demo-prep` | Five-pass prep for high-stakes demos: headline, audience, pre-mortem, script, and Q&A — with extra hazard-handling for AI-feature demos. |
 | `feedback-frameworks` | Drafting and pressure-testing feedback for reports, peers, and stakeholders using the COIN structure (Connection → Observation → Impact → Next steps) and the SOLID quality checklist. |
 | `hiring-craft` | Treats hiring as craft, not vibes — designing interview loops with explicit signals, writing rubrics with behavioral anchors, and running calibrated debriefs (silent vote first, junior voices first, signal-by-signal walk-through). |
+| `influence-without-authority` | For TPMs, staff engineers, and senior ICs leading people who don't report to them. Diagnoses positions vs. interests, applies the currencies model, sequences coalitions, and is opinionated about legitimate vs. manipulative influence patterns. |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
 | `metrics-design` | Designs the metric tree for an AI feature — north star, leading/lagging, and the counter-metrics that catch Goodhart-style failures where you optimize the model into a worse product. |
 | `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
 | `performance-management` | Walks the underperformance ladder deliberately — coaching → formalized feedback → PIP → termination — with documentation, calibrated conversations, and the brilliant-jerk pattern handled directly. The hardest skill in management. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
+| `read-the-room` | Retrospective interpretation of a meeting / Slack thread / 1:1 / design review — surfaces who held back, where consensus is performative, what positions are masking what interests, what burnout signals are present. Reads are hypotheses to verify, not facts to act on. |
 | `report-career-architect` | Designs a 12–18 month growth plan for a direct report — target state, capability gaps, sequenced experiences, *manager moves* (what the user has to stop doing to make room), risks, and observable success criteria. |
 | `report-promo-case` | Builds a panel-ready promotion packet for a direct report with cited evidence per dimension, calibrated solo-vs-shared credit, pre-empted objections, and gaps surfaced as pre-submission targets. The mirror image of `wins-curate` (which is for the user's own brag doc). |
 | `self-reflect` | Self-reflection on leadership, behavior under pressure, time/energy, fulfillment, and advocating for yourself — captured chronologically in a private file so insight compounds over time. |
@@ -103,6 +108,7 @@ awesome-skills-ai/
 | `the-architect` | Production hardening. Designs the input filter → LLM → output guardrail "safety sandwich." Separates probabilistic from deterministic logic. |
 | `the-red-teamer` | Pre-launch and maintenance. Simulates prompt injection, exfiltration, jailbreaks, and out-of-distribution failures. |
 | `the-incident-responder` | AI-feature incident lead — stabilization, technical investigation, blameless postmortems, and feeding failures back into the eval set. |
+| `the-program-manager` | Multi-team, multi-month program management: dependency mapping, risk gates per launch phase, orphaned-problem adoption, rollout coordination across teams, audience-calibrated status comms, escalation framing. Distinct from `the-spec-writer` (feature-level) and `prioritization-frameworks` (backlog-level). |
 | `the-translator` | Stakeholder comms. Converts eval metrics and failure modes into honest business language without hype or false humility. |
 
 ## Install
@@ -126,7 +132,7 @@ cp -r /path/to/awesome-skills-ai/ai-technical-pm-php/skills/* .claude/skills/
 cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
 ```
 
-Verify with `/agents` inside Claude Code — the twelve subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`).
+Verify with `/agents` inside Claude Code — the thirteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`).
 
 ## Setup: data directory, environment, and scheduling
 
@@ -356,6 +362,9 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 - *"Promo cycle — draft the case for Michelle."* → `report-promo-case` produces a panel-ready packet with cited evidence, calibrated solo-vs-shared credit, and gaps surfaced as pre-submission targets.
 - *"Before my skip-level update, give me a structured read on team health."* → `team-diagnosis` produces a green/yellow/red across eight dimensions with cited evidence and top-3 risks worth acting on.
 - *"My team submitted an RFC for a new event-streaming layer — give me a senior-engineer read before I approve."* → `the-rfc-reviewer` walks the doc through problem clarity, alternatives, trade-offs, failure modes, observability, and security with severity-ranked findings.
+- *"That meeting ended with everyone nodding but I don't trust it. Help me read it."* → `read-the-room` interprets subtext (who held back, where consensus is performative, what positions are masking what interests) and produces hypotheses to verify directly — never claims as fact.
+- *"I need to drive an architecture change owned by the platform team without going to their VP. How?"* → `influence-without-authority` diagnoses positions vs. interests, suggests sequencing the coalition (early believers first, decider last), and stays opinionated about the legitimacy line between influence and manipulation.
+- *"I'm running a multi-team program with a Q3 launch — map dependencies, design the gates, and draft the escalation if Platform slips."* → `the-program-manager` produces the dependency map, gates per phase with explicit criteria, and escalation framing pre-loaded with a recommendation.
 - *"I need to brief the CEO on why our accuracy regressed."* → `the-translator` reframes the numbers.
 - *"Help me cut this 30-item backlog to what we can ship this quarter."* → `prioritization-frameworks` skill picks the right method and pressure-tests scoring assumptions.
 - *"Document why we picked Sonnet over Opus for this feature."* → `decision-log` skill captures it in a format that survives the next model migration.
@@ -460,6 +469,28 @@ These compose with the rest of the bundle but earn their keep on their own. The 
 - **The opinionation is real.** `performance-management` will not let the user describe a Stage 3 problem in Stage 1 language. `coaching-mode` will not let the user prescribe in the first 5 turns. `hiring-craft` will not let the user run a debrief without silent votes first. If the forcing functions feel pushy, the principles section in each skill is the easy place to soften.
 - **`the-rfc-reviewer` is the only agent in the management-craft set.** RFC review benefits from a fresh context window — the doc is long, the review is multi-pass — which is what agents do better than skills.
 - **Underrepresented reports often get worse promo packets and weaker growth plans not because they don't deserve them, but because their managers feel less confident advocating with the same volume.** Several skills (`report-promo-case`, `report-career-architect`) call this out explicitly. Notice it; over-invest where you'd otherwise drift.
+
+## For TPMs and senior ICs leading without authority
+
+Two skills (`read-the-room`, `influence-without-authority`) and one agent (`the-program-manager`) form a tighter set aimed at the work TPMs, staff engineers, and senior ICs do daily — moving outcomes through people who don't report to them, navigating cross-team programs, and reading the politics that determine whether anything actually ships. Inspired by the kinds of moves Eduardo Bouças and others have written about as the irreplaceable core of the TPM role.
+
+Most of the bundle assumes the user has authority somewhere — a manager over a team, a PM over a roadmap. This set assumes the opposite: you're leading because the work needs leading, not because the org chart says so.
+
+### A typical week in the lifecycle
+
+1. **The cross-team program kickoff.** *"I'm running a multi-team program — map dependencies and design the launch gates."* → `the-program-manager` produces the dependency map, surfaces orphaned dependencies, and gates each launch phase with explicit criteria (not vibes).
+2. **The orphaned problem.** *"Two teams are pointing at each other on this issue and it's blocking the program. Should I adopt it?"* → `the-program-manager` (orphan-adoption mode) walks through whether it's actually orphaned, why, and what boundaries to set before taking it on.
+3. **The skeptical principal engineer.** *"I need Mark's blessing on this approach but he's not sold and I can't go around him."* → `influence-without-authority` diagnoses Mark's stated position vs. underlying interest, designs a listening-conversation-first approach, and stays opinionated about the line between legitimate currencies (real reciprocity, real scarcity, real expertise) and manipulation (manufactured urgency, fake reciprocity).
+4. **The meeting that ended too smoothly.** *"Everyone agreed in the design review and I don't trust it."* → `read-the-room` interprets the subtext (who didn't speak, where consensus was performative, what positions might mask what interests), produces hypotheses to verify directly, and refuses to claim certainty.
+5. **The escalation framing.** *"Platform is going to slip and I need to escalate to the VP."* → `the-program-manager` (escalation mode) drafts the writeup with TL;DR, options, recommendation, cost-of-not-deciding, and "what I've already tried" — so the exec arrives with the work half done.
+6. **The cross-functional status update.** *"I need to write the same week's status for engineering, the cross-functional partners, and the exec sponsor."* → `the-program-manager` produces three differently-framed versions; composes with `the-translator` for the exec layer.
+
+### Things to know
+
+- **`read-the-room` is necessarily retrospective.** You bring the meeting to Claude after; the skill helps you see what you might have missed. It does *not* replace asking the person directly — every output ends with "hypotheses to verify."
+- **`influence-without-authority` is opinionated about manipulation.** It refuses to teach manufactured urgency, staged consensus, and fake reciprocity even when they'd "work." The premise is that all influence work is iterated and the cost-to-trust of manipulative tactics outpaces the short-term gain. If you want a tactically harder edge, the principles section is where to soften.
+- **`the-program-manager` is an agent, not a skill.** Programs carry a lot of state (dependencies, gates, risks, comms, escalations) and benefit from a fresh context window per invocation rather than competing with whatever else is in your session.
+- **The TPM set composes tightly with the stakeholder bundle.** A `read-the-room` output drops naturally into a `stakeholder-reflect` `sense`-category entry. An `influence-without-authority` move benefits from reading the target's stakeholder file first. `the-program-manager` composes with `team-diagnosis` (cross-team health), `decision-log` (program ADRs), and `the-rfc-reviewer` (constituent-team docs).
 
 ## What these skills actually add over plain Claude
 
