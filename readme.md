@@ -123,11 +123,40 @@ awesome-skills-ai/
 
 ## Install
 
-Pick the variant that fits your stack, then install at user scope (available in every project) or project scope.
+Two install paths. The script-based path is recommended (cleaner identification of bundle items, one-command uninstall, automatic updates when you `git pull`); the manual path stays documented for users who want full control.
 
-**User-level:**
+### Recommended: symlink-based install
+
 ```bash
 git clone https://github.com/<your-handle>/awesome-skills-ai.git
+cd awesome-skills-ai
+
+# Install the agnostic variant at user scope (available in every project):
+scripts/install.sh agnostic
+
+# …or the PHP variant:
+scripts/install.sh php
+
+# Project scope instead (just this repo):
+scripts/install.sh agnostic --scope=project
+```
+
+The script creates symlinks from `~/.claude/{skills,agents}/` (or `./.claude/...` for project scope) back into this repo. Three benefits:
+
+1. **Updates are free** — `git pull` updates your installed skills automatically.
+2. **You can identify bundle items at a glance** — any symlink in `~/.claude/skills/` or `~/.claude/agents/` pointing into this repo is from this bundle. Run:
+   ```bash
+   find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*awesome-skills-ai*"
+   ```
+3. **Clean uninstall** — `scripts/uninstall.sh` removes only items that are symlinks into this repo. Skills you wrote yourself or installed from elsewhere are untouched. Add `--hard-uninstall` if you previously installed via plain `cp` and want copies removed too (with per-item confirmation).
+
+The script will prompt before doing anything. Existing skills with the same name are skipped by default; pass `--force` to overwrite.
+
+### Alternative: manual `cp`
+
+If you prefer copies over symlinks (e.g. to vendor a frozen version of the bundle into your config and edit it independently):
+
+```bash
 cd awesome-skills-ai/ai-technical-pm-php   # or ai-technical-pm
 
 mkdir -p ~/.claude/skills ~/.claude/agents
@@ -135,14 +164,27 @@ cp -r skills/* ~/.claude/skills/
 cp agents/*.md ~/.claude/agents/
 ```
 
-**Project-level** — from the repo you want to use them in:
-```bash
-mkdir -p .claude/skills .claude/agents
-cp -r /path/to/awesome-skills-ai/ai-technical-pm-php/skills/* .claude/skills/
-cp /path/to/awesome-skills-ai/ai-technical-pm-php/agents/*.md .claude/agents/
-```
+Tradeoff: no automatic updates, and identifying bundle items later requires consulting [`MANIFEST.md`](MANIFEST.md) at the repo root.
+
+### Identifying bundle items
+
+The repo root [`MANIFEST.md`](MANIFEST.md) lists every skill and agent in the bundle by name with a one-line description. Use it as your reference for "is this skill mine, or part of this bundle?" — especially useful if you installed via `cp` and don't have the symlink trail to follow.
+
+### Verifying
 
 Verify with `/agents` inside Claude Code — the thirteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`, `/user-profile`, `/strategy-doc`, `/product-pulse`).
+
+### Uninstall
+
+```bash
+# From the repo root:
+scripts/uninstall.sh                  # removes symlinks into this repo from ~/.claude/
+scripts/uninstall.sh --scope=project  # removes from ./.claude/ instead
+scripts/uninstall.sh --dry-run        # show what would be removed, don't touch anything
+scripts/uninstall.sh --hard-uninstall # also offer to remove copies (one prompt per item)
+```
+
+Your reflection data at `~/voohy-work-reflections/` is **not** touched by uninstall. The data is yours; remove it manually if you want.
 
 ## Setup: data directory, environment, and scheduling
 
