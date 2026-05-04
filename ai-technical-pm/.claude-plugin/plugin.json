@@ -1,0 +1,8 @@
+{
+  "name": "voohy",
+  "description": "Opinionated Claude Code skills + agents for AI PMs, engineering managers, and TPMs.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Shwetank Dixit"
+  }
+}
