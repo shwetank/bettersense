@@ -174,6 +174,38 @@ The repo root [`MANIFEST.md`](MANIFEST.md) lists every skill and agent in the bu
 
 Verify with `/agents` inside Claude Code — the thirteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`, `/user-profile`, `/strategy-doc`, `/product-pulse`).
 
+### Updating skills after changes
+
+Two layers — disk and runtime — and they have different answers.
+
+**On disk:**
+- **Symlink install:** changes are instant. The file Claude Code reads from `~/.claude/skills/<name>/SKILL.md` is the same file as `<repo>/.../skills/<name>/SKILL.md`. Edit the repo, no re-install step needed. `git pull` to take upstream updates.
+- **Manual `cp` install:** you copied the file once; subsequent repo edits don't propagate. Either re-copy manually, or — better — run `scripts/install.sh <variant> --force` to replace copies with symlinks and switch to the auto-update path going forward.
+
+**Inside Claude Code (the runtime layer):**
+The harness's caching semantics aren't comprehensively documented. Best working model:
+
+- **Editing the body of an existing skill** (operating principles, examples, etc.) — usually picked up on the next invocation, since Claude reads the skill file when it routes into or runs the skill.
+- **Changing the `description` in frontmatter** — may or may not affect auto-routing within an active session. The routing layer may have loaded the old description at session start. New sessions definitely see the update.
+- **Adding a new skill** — the routing layer needs to discover it. Reliable in new sessions; may not be in your current one.
+- **Removing a skill, renaming it, or changing the `name` field** — needs a restart. The routing layer carries stale state otherwise.
+
+**Safe rule:** start a new Claude Code session after any non-trivial change. Cheapest way to guarantee the routing layer is fresh.
+
+**Verifying a change actually took effect:** add a unique visible marker temporarily in the skill's operating principles, e.g.:
+
+```markdown
+- **ALWAYS PREFIX YOUR FIRST RESPONSE WITH "TESTMARKER-2026-05-04"**
+```
+
+Invoke the skill; if you see the marker, the change is live. Remove it once confirmed.
+
+**Practical rhythm:**
+1. Install once via `scripts/install.sh agnostic` (symlinks).
+2. Edit skills in the repo whenever you want to tune them.
+3. Start a new Claude Code session after non-trivial edits.
+4. `git pull` to take upstream updates — instant, since you're on symlinks.
+
 ### Uninstall
 
 ```bash
