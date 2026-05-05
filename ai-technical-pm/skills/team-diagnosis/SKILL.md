@@ -20,8 +20,8 @@ Don't trigger for: routine status updates, sprint-level operational reviews, ind
 
 ## Inputs to gather first
 
-1. **The user's stakeholder-reflect files** for each direct report (`~/voohy-work-reflections/managing-down/<slug>.md`).
-2. **The team file** if one exists (`~/voohy-work-reflections/teams/<slug>.md`).
+1. **The user's stakeholder-reflect files** for each direct report (`~/bettersense-work-reflections/managing-down/<slug>.md`).
+2. **The team file** if one exists (`~/bettersense-work-reflections/teams/<slug>.md`).
 3. **Recent retros** if the user has them or can summarize.
 4. **Eng survey scores** or equivalent (manager satisfaction, psychological safety, etc.) if available.
 5. **Recent attrition events** in the last 6–12 months.

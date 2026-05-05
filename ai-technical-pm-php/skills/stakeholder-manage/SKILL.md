@@ -7,10 +7,10 @@ description: Use when the user wants to *change* something about an already-regi
 
 Lifecycle operations for the stakeholder bundle. The `stakeholder-register` skill handles initial *add*; this skill handles everything after — listing, editing, moving, renaming, archiving, deleting.
 
-The data layout lives at `~/voohy-work-reflections/` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`):
+The data layout lives at `~/bettersense-work-reflections/` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`):
 
 ```
-~/voohy-work-reflections/
+~/bettersense-work-reflections/
 ├── stakeholders.json                # registry: active + archived
 ├── managing-up/<slug>.md
 ├── managing-across/<slug>.md
@@ -93,7 +93,7 @@ The most consequential operation. Triggered by reorgs, role changes, or relation
 Flow:
 1. Confirm which stakeholder + new category.
 2. **Tell the user what will happen:**
-   > *"Moving John Adams from `managing-across` to `managing-up`. The file moves to `~/voohy-work-reflections/managing-up/john-adams.md`. All reflection history is preserved. The question pool will shift to managing-up questions on the next reflection. I'll add an audit note explaining the move — what's the context?"*
+   > *"Moving John Adams from `managing-across` to `managing-up`. The file moves to `~/bettersense-work-reflections/managing-up/john-adams.md`. All reflection history is preserved. The question pool will shift to managing-up questions on the next reflection. I'll add an audit note explaining the move — what's the context?"*
 3. Capture a one-sentence reason from the user (e.g., "reorg, John became my skip-level").
 4. Move the file across category folders.
 5. Update frontmatter `category`.

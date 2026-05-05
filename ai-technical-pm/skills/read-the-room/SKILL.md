@@ -29,7 +29,7 @@ Don't trigger when:
 To do real work, get:
 
 1. **The artifact.** Transcript if available, written notes, the Slack/email thread, or the user's verbal recap. The more raw the input, the better the read. Cleaned-up notes have already filtered out the signal.
-2. **Who was in the room.** Names, roles, the user's relationship to each. If any are registered in `~/voohy-work-reflections/`, *read those files* — past reflections are your context.
+2. **Who was in the room.** Names, roles, the user's relationship to each. If any are registered in `~/bettersense-work-reflections/`, *read those files* — past reflections are your context.
 3. **The user's own first interpretation.** Surface it explicitly so you can challenge it later. The user has already drawn conclusions; help them notice which ones are evidenced and which are projected.
 4. **What outcome they wanted from the room.** Did they get it? Was it agreed to easily? Was the easiness itself a flag?
 

@@ -40,7 +40,7 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `stakeholder-due` | Computes overdue stakeholder reflections based on `suggested_freq`. Designed for `/schedule`. |
 | `stakeholder-manage` | Lifecycle ops on registered stakeholders: list / edit / re-categorize / rename / archive / delete. |
 | `stakeholder-reflect` | Guided reflection session on one stakeholder using a curated question library (ships in `questions.json`). |
-| `stakeholder-register` | Register a new stakeholder. First-run setup of `~/voohy-work-reflections/`. |
+| `stakeholder-register` | Register a new stakeholder. First-run setup of `~/bettersense-work-reflections/`. |
 | `stakeholder-synthesize` | Cross-reflection synthesis for one stakeholder or category, with citation discipline. |
 | `strategy-doc` | Interview-driven creation of `strategy/<area>.md`. Anchor read by spec-writer / prioritization / metrics-design / pulse skills. |
 | `team-diagnosis` | Eight-dimension team health check with cited evidence and top-3 actionable risks. |
@@ -71,7 +71,7 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 
 The reflection-ecosystem skills create and maintain a private folder on the user's machine. These are user data, not bundle artifacts — keeping for reference:
 
-- `~/voohy-work-reflections/` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`)
+- `~/bettersense-work-reflections/` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`)
   - `profile.md` — created by `user-profile`
   - `strategy/<area-slug>.md` — created by `strategy-doc`
   - `stakeholders.json`, `managing-{up,across,down}/<slug>.md`, `teams/<slug>.md`, `archive/<category>/<slug>.md` — managed by the stakeholder skills

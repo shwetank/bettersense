@@ -1,13 +1,13 @@
 ---
 name: user-profile
-description: Use to create or update the user's anchor profile — a single private file (`~/voohy-work-reflections/profile.md`) that captures who the user is, what they do, what context other skills need to know about them. Read automatically by other skills in the bundle when present, so the user doesn't re-explain themselves every session. Trigger phrases include "set up my profile", "create my user profile", "update my profile", "I changed roles, refresh my profile", "what does my profile look like". Inspired by the `SOUL.md` pattern from agents like Hermes — explain yourself once, get tailored output forever.
+description: Use to create or update the user's anchor profile — a single private file (`~/bettersense-work-reflections/profile.md`) that captures who the user is, what they do, what context other skills need to know about them. Read automatically by other skills in the bundle when present, so the user doesn't re-explain themselves every session. Trigger phrases include "set up my profile", "create my user profile", "update my profile", "I changed roles, refresh my profile", "what does my profile look like". Inspired by the `SOUL.md` pattern from agents like Hermes — explain yourself once, get tailored output forever.
 ---
 
 # User Profile
 
 Most skills in this bundle work better when they know who the user is. Right now they don't — every session starts from a blank slate, and the user re-establishes context the skills already could have known. This skill creates a **single anchor file** that carries the user's standing context, which other skills read automatically when present.
 
-The file lives at `~/voohy-work-reflections/profile.md` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`). Same private root as the rest of the reflection bundle. Same `.gitignore`. Same privacy posture.
+The file lives at `~/bettersense-work-reflections/profile.md` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`). Same private root as the rest of the reflection bundle. Same `.gitignore`. Same privacy posture.
 
 ## When to apply
 
@@ -54,9 +54,9 @@ default_hat: pm
 [Languages, frameworks, observability stack, etc. Useful for `the-spec-writer`, `the-eval-designer`, `the-rfc-reviewer`, `the-prompt-critic`.]
 
 ## Cross-references
-- Stakeholder files: `~/voohy-work-reflections/managing-{up,across,down,teams}/`
-- Self-reflection: `~/voohy-work-reflections/self/reflections.md`
-- Wins log: `~/voohy-work-reflections/wins.md`
+- Stakeholder files: `~/bettersense-work-reflections/managing-{up,across,down,teams}/`
+- Self-reflection: `~/bettersense-work-reflections/self/reflections.md`
+- Wins log: `~/bettersense-work-reflections/wins.md`
 
 ---
 
@@ -100,7 +100,7 @@ Always update the `last_updated` date in frontmatter when writing.
 
 The convention (also referenced in the README's *anchor-file pattern* section):
 
-> **If `~/voohy-work-reflections/profile.md` exists, read it before doing your work.** Use the role, level, communication style, current strategic focus, stack, and any other relevant fields to tailor your output. Don't repeat questions the profile already answers.
+> **If `~/bettersense-work-reflections/profile.md` exists, read it before doing your work.** Use the role, level, communication style, current strategic focus, stack, and any other relevant fields to tailor your output. Don't repeat questions the profile already answers.
 
 Skills currently designed to read the profile when present:
 - `the-spec-writer` — spec format, scope assumptions, stack defaults

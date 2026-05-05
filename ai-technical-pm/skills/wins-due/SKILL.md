@@ -20,7 +20,7 @@ Skip:
 
 ## Loading
 
-1. Read `~/voohy-work-reflections/wins.md` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`).
+1. Read `~/bettersense-work-reflections/wins.md` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`).
 2. Find the most recent `## YYYY-MM-DD —` entry. Compute `days_since_last`.
 3. If the file doesn't exist, hand off to `wins-log` (which handles first-run setup).
 

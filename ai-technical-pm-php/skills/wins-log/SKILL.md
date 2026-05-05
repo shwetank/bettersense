@@ -1,23 +1,23 @@
 ---
 name: wins-log
-description: Use when the user wants to capture a "win at work" — something they shipped, judgment they exercised, someone they mentored, a fire they put out, a hard decision they got right. Trigger phrases include "I just shipped X", "log this win", "add to my brag doc", "I want to remember what I did this week", "I had a good week and want to capture it". Captures structured entries (situation, action, impact, evidence) to `~/voohy-work-reflections/wins.md` so they can be remixed later by `wins-curate` into a promo packet, interview stories, perf-review self-eval, salary case, or year-in-review.
+description: Use when the user wants to capture a "win at work" — something they shipped, judgment they exercised, someone they mentored, a fire they put out, a hard decision they got right. Trigger phrases include "I just shipped X", "log this win", "add to my brag doc", "I want to remember what I did this week", "I had a good week and want to capture it". Captures structured entries (situation, action, impact, evidence) to `~/bettersense-work-reflections/wins.md` so they can be remixed later by `wins-curate` into a promo packet, interview stories, perf-review self-eval, salary case, or year-in-review.
 ---
 
 # Wins Log
 
-Capture a single "win at work" in a structured form so it can be remixed later. The output is one entry, prepended (newest first) to `~/voohy-work-reflections/wins.md`.
+Capture a single "win at work" in a structured form so it can be remixed later. The output is one entry, prepended (newest first) to `~/bettersense-work-reflections/wins.md`.
 
 This is the front-of-funnel skill for the wins bundle (`wins-log`, `wins-due`, `wins-curate`). It works in two modes: **fresh** (the user just did something and wants to capture it) and **retroactive** (the user is logging something that happened recently — last week, last month).
 
 ## Data location
 
-`~/voohy-work-reflections/wins.md` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`). Same root as the stakeholder reflection skills.
+`~/bettersense-work-reflections/wins.md` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`). Same root as the stakeholder reflection skills.
 
 ## First-run setup
 
-If `~/voohy-work-reflections/wins.md` doesn't exist:
+If `~/bettersense-work-reflections/wins.md` doesn't exist:
 
-1. If `~/voohy-work-reflections/` itself doesn't exist, hand off to `stakeholder-register` first — that skill owns the root directory setup and the privacy warning. Resume here once it's done.
+1. If `~/bettersense-work-reflections/` itself doesn't exist, hand off to `stakeholder-register` first — that skill owns the root directory setup and the privacy warning. Resume here once it's done.
 2. Create `wins.md` with this frontmatter:
    ```markdown
    ---

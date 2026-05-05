@@ -9,7 +9,7 @@ Use this skill when the user is **preparing or rehearsing feedback for another p
 
 Default workflow: **draft with COIN → check against SOLID → revise**.
 
-**User profile:** If `~/voohy-work-reflections/profile.md` exists, read it before drafting. It carries the user's communication style and directness preference — calibrate the COIN draft accordingly (some users want directness up front; others lead with more relationship work). The profile also surfaces the user's role context, which shapes whether the recipient is a peer, report, or upward stakeholder.
+**User profile:** If `~/bettersense-work-reflections/profile.md` exists, read it before drafting. It carries the user's communication style and directness preference — calibrate the COIN draft accordingly (some users want directness up front; others lead with more relationship work). The profile also surfaces the user's role context, which shapes whether the recipient is a peer, report, or upward stakeholder.
 
 ## When to use this skill
 

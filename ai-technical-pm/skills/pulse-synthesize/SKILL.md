@@ -1,6 +1,6 @@
 ---
 name: pulse-synthesize
-description: Use to derive insight across accumulated product-pulse reports — trends, anomalies, inflection points, regime shifts. Trigger phrases include "what's been the pattern across pulses this quarter", "synthesize my product pulses for [area] over the last 8 weeks", "before my exec readout, what does the data say across the period", "is anything trending that I missed week to week". Reads `~/voohy-work-reflections/pulses/<area-slug>/` over a time window and produces a synthesis with citations to specific dated pulse reports. Citation-disciplined; never claims a trend without evidence; distinguishes signal from noise. The Every.to gap, closed.
+description: Use to derive insight across accumulated product-pulse reports — trends, anomalies, inflection points, regime shifts. Trigger phrases include "what's been the pattern across pulses this quarter", "synthesize my product pulses for [area] over the last 8 weeks", "before my exec readout, what does the data say across the period", "is anything trending that I missed week to week". Reads `~/bettersense-work-reflections/pulses/<area-slug>/` over a time window and produces a synthesis with citations to specific dated pulse reports. Citation-disciplined; never claims a trend without evidence; distinguishes signal from noise. The Every.to gap, closed.
 ---
 
 # Pulse Synthesize
@@ -41,9 +41,9 @@ If the user gives an open-ended ask, default to **trend + anomalies** and state 
 
 ## Loading
 
-1. Read `~/voohy-work-reflections/strategy/<area-slug>.md` if present — it's the interpretive frame.
-2. Read all pulse files in `~/voohy-work-reflections/pulses/<area-slug>/` falling within the time window. Sort chronologically.
-3. Optional: read `~/voohy-work-reflections/profile.md` for the user's strategic focus context.
+1. Read `~/bettersense-work-reflections/strategy/<area-slug>.md` if present — it's the interpretive frame.
+2. Read all pulse files in `~/bettersense-work-reflections/pulses/<area-slug>/` falling within the time window. Sort chronologically.
+3. Optional: read `~/bettersense-work-reflections/profile.md` for the user's strategic focus context.
 
 ## Synthesis discipline (the load-bearing part)
 

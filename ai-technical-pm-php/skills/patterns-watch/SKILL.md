@@ -22,7 +22,7 @@ Skip when:
 
 ## What it scans
 
-The full reflection ecosystem at `~/voohy-work-reflections/` (or `$VOOHY_WORK_REFLECTIONS_HOME`):
+The full reflection ecosystem at `~/bettersense-work-reflections/` (or `$BETTERSENSE_WORK_REFLECTIONS_HOME`):
 
 - `profile.md` (if present) — for the user's stated current strategic focus, growth area, communication style
 - `managing-up/<*>.md` — all active stakeholder files in this category

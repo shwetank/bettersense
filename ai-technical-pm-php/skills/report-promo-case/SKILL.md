@@ -19,7 +19,7 @@ This skill turns accumulated observations into a defensible, calibrated promo pa
 
 1. **Target level** the user is pitching for. Be specific (e.g., "Staff Eng" not "next level").
 2. **The published rubric / leveling guide** if the company has one. If not, what dimensions does the calibration committee actually weigh?
-3. **The report's stakeholder-reflect file** at `~/voohy-work-reflections/managing-down/<slug>.md`. Read the full file. Pay attention to entries on accomplishments, struggles, scope, and feedback received.
+3. **The report's stakeholder-reflect file** at `~/bettersense-work-reflections/managing-down/<slug>.md`. Read the full file. Pay attention to entries on accomplishments, struggles, scope, and feedback received.
 4. **The growth plan** from `report-career-architect` if it exists. The plan tells you what *should* have happened in the period; the file tells you what *did* happen. The gap is information.
 5. **The cycle's calibration norms.** Is the company tightening or loosening the bar this cycle? Are there caps? Has this team submitted recently?
 
@@ -135,7 +135,7 @@ A "no this cycle" handled well preserves trust; a "yes" submitted on a thin case
 
 ## Composition with other skills
 
-- **`user-profile`** — if `~/voohy-work-reflections/profile.md` exists, read it before drafting. It carries the user's level, which calibrates *what bar to argue against* (a Director writing a Staff promo packet has a different framing than a manager writing a Senior packet). The user shouldn't have to re-explain.
+- **`user-profile`** — if `~/bettersense-work-reflections/profile.md` exists, read it before drafting. It carries the user's level, which calibrates *what bar to argue against* (a Director writing a Staff promo packet has a different framing than a manager writing a Senior packet). The user shouldn't have to re-explain.
 - **`stakeholder-reflect` (managing-down)** — primary source of evidence. Read the full file before drafting.
 - **`report-career-architect`** — the growth plan is the prequel to the promo case. Strong execution against a plan is the strongest single argument.
 - **`wins-curate`** — if the report maintains a self wins log, cross-reference. The two views should reinforce, not duplicate.

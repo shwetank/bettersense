@@ -7,7 +7,7 @@
 #   - skills/agents you wrote yourself
 #   - skills/agents installed from other sources
 #   - skills/agents installed via plain `cp` instead of symlinks (use --hard-uninstall for that)
-#   - your reflection data at ~/voohy-work-reflections/ (your data, your call)
+#   - your reflection data at ~/bettersense-work-reflections/ (your data, your call)
 #
 # Usage:
 #   scripts/uninstall.sh [--scope=user|project] [--hard-uninstall] [--dry-run]
@@ -187,5 +187,5 @@ if [ $LEFT_ALONE -gt 0 ]; then
   fi
 fi
 echo
-echo "Your reflection data at ~/voohy-work-reflections/ was not touched."
+echo "Your reflection data at ~/bettersense-work-reflections/ was not touched."
 echo "If you want to remove that too, do it manually — it's your data."

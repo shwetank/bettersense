@@ -85,20 +85,20 @@ awesome-skills-ai/
 | `patterns-watch` | Scheduled cross-cutting scan across the reflection ecosystem (stakeholder, wins, self) — surfaces unsolicited patterns the user hasn't asked about: attention gaps, contradictions between stated focus and actual logged work, trajectory shifts. Citation-disciplined; observation-not-prediction. Designed for weekly `/schedule`. |
 | `performance-management` | Walks the underperformance ladder deliberately — coaching → formalized feedback → PIP → termination — with documentation, calibrated conversations, and the brilliant-jerk pattern handled directly. The hardest skill in management. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
-| `product-pulse` | Single-page dated pulse report on product health — usage metrics, system performance, AI-feature signals (hallucination, refusal, eval drift), counter-metrics, follow-up investigation, provenance footer. Saves to `~/voohy-work-reflections/pulses/<area-slug>/` so the folder accumulates into product memory. Privacy-first; designed for daily/weekly `/schedule`. |
+| `product-pulse` | Single-page dated pulse report on product health — usage metrics, system performance, AI-feature signals (hallucination, refusal, eval drift), counter-metrics, follow-up investigation, provenance footer. Saves to `~/bettersense-work-reflections/pulses/<area-slug>/` so the folder accumulates into product memory. Privacy-first; designed for daily/weekly `/schedule`. |
 | `pulse-synthesize` | Reads accumulated pulse reports for an area over a time window and surfaces trends, anomalies, regime shifts, and Goodhart-pattern warnings — with citations to specific dated pulses. Distinguishes trend from snapshot, refuses to forecast, surfaces coverage gaps honestly. |
 | `read-the-room` | Retrospective interpretation of a meeting / Slack thread / 1:1 / design review — surfaces who held back, where consensus is performative, what positions are masking what interests, what burnout signals are present. Reads are hypotheses to verify, not facts to act on. |
 | `report-career-architect` | Designs a 12–18 month growth plan for a direct report — target state, capability gaps, sequenced experiences, *manager moves* (what the user has to stop doing to make room), risks, and observable success criteria. |
 | `report-promo-case` | Builds a panel-ready promotion packet for a direct report with cited evidence per dimension, calibrated solo-vs-shared credit, pre-empted objections, and gaps surfaced as pre-submission targets. The mirror image of `wins-curate` (which is for the user's own brag doc). |
 | `self-reflect` | Self-reflection on leadership, behavior under pressure, time/energy, fulfillment, and advocating for yourself — captured chronologically in a private file so insight compounds over time. |
-| `stakeholder-register` | Register a stakeholder (manager, peer, report, team) for ongoing reflection. Sets up a private folder at `~/voohy-work-reflections/` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`), creates a per-stakeholder file, and warns about privacy. |
+| `stakeholder-register` | Register a stakeholder (manager, peer, report, team) for ongoing reflection. Sets up a private folder at `~/bettersense-work-reflections/` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`), creates a per-stakeholder file, and warns about privacy. |
 | `stakeholder-manage` | Lifecycle operations on already-registered stakeholders: list / edit / re-categorize after a reorg / rename / archive when someone leaves / delete. Preserves reflection history aggressively; defaults toward archive over delete; routes by natural-language intent. |
 | `stakeholder-reflect` | Guide a single reflection session about a registered stakeholder using a question library spanning *ask*, *sense*, and *ask-and-sense* lenses. Surfaces the question's `things_to_consider`, picks cadence-appropriate questions, and writes a dated entry back. |
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
 | `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
-| `strategy-doc` | Interview-driven creation/update of a product/area strategy document — target problem, approach, personas, SMART metrics, 2-4 multi-month tracks, explicit "not working on" section, counter-metrics. Lives at `~/voohy-work-reflections/strategy/<area-slug>.md` and is read as an anchor by `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, and `pulse-synthesize`. Supports multiple products/areas. |
+| `strategy-doc` | Interview-driven creation/update of a product/area strategy document — target problem, approach, personas, SMART metrics, 2-4 multi-month tracks, explicit "not working on" section, counter-metrics. Lives at `~/bettersense-work-reflections/strategy/<area-slug>.md` and is read as an anchor by `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, and `pulse-synthesize`. Supports multiple products/areas. |
 | `team-diagnosis` | Multi-dimensional team health check — delivery cadence, attrition risk, dependency tax, on-call burden, peer relationships, information flow, technical health, culture. Reads stakeholder files + retros + survey scores; produces a green/yellow/red read with cited evidence and top-3 risks worth acting on. |
-| `user-profile` | Anchor file for the bundle. Single private `~/voohy-work-reflections/profile.md` capturing the user's role, level, communication style, current strategic focus, stack — read automatically by other skills so you never re-explain context. Inspired by the SOUL.md pattern. Supports multiple "hats" for users in mixed roles. |
+| `user-profile` | Anchor file for the bundle. Single private `~/bettersense-work-reflections/profile.md` capturing the user's role, level, communication style, current strategic focus, stack — read automatically by other skills so you never re-explain context. Inspired by the SOUL.md pattern. Supports multiple "hats" for users in mixed roles. |
 | `wins-log` | Capture a structured win at work — situation, action, impact, evidence, honest credit framing. Pushes back on vague impact claims and inflated solo claims. Front-of-funnel for the brag-doc / hype-doc bundle. |
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category (delivery / judgment / mentorship / recovery / range) because memory is selective. Accepts "honestly, nothing notable" without manufacturing fake wins. |
 | `wins-curate` | Turn the wins log into an audience-specific artifact: promo packet, behavioral interview stories (STAR), perf-review self-eval, salary-negotiation case, or year-in-review. Never invents wins; cites log entries; surfaces gaps as prep targets. |
@@ -216,7 +216,7 @@ scripts/uninstall.sh --dry-run        # show what would be removed, don't touch 
 scripts/uninstall.sh --hard-uninstall # also offer to remove copies (one prompt per item)
 ```
 
-Your reflection data at `~/voohy-work-reflections/` is **not** touched by uninstall. The data is yours; remove it manually if you want.
+Your reflection data at `~/bettersense-work-reflections/` is **not** touched by uninstall. The data is yours; remove it manually if you want.
 
 ## Setup: data directory, environment, and scheduling
 
@@ -226,7 +226,7 @@ The basic Install above gets the skills loaded. This section covers everything e
 
 ```
 ☐ Skills installed (see Install section above)
-☐ Decide on data location: default ~/voohy-work-reflections/ or set $VOOHY_WORK_REFLECTIONS_HOME
+☐ Decide on data location: default ~/bettersense-work-reflections/ or set $BETTERSENSE_WORK_REFLECTIONS_HOME
 ☐ Run /stakeholder-register once → creates the data directory + privacy README + .gitignore
 ☐ Run /user-profile once → creates the "who you are" anchor file
 ☐ Run /strategy-doc once per product/area → creates the "what you're building" anchor (optional)
@@ -239,14 +239,14 @@ The rest of this section walks through each step with the exact commands.
 
 ### 1. Data directory
 
-By default, all reflection data lives at `~/voohy-work-reflections/` — outside any repo, on your local machine only, gitignored by the skill on first run. Override with the env var if you want:
+By default, all reflection data lives at `~/bettersense-work-reflections/` — outside any repo, on your local machine only, gitignored by the skill on first run. Override with the env var if you want:
 
 ```bash
 # Optional: choose a different location (e.g., an encrypted volume)
-export VOOHY_WORK_REFLECTIONS_HOME="$HOME/Encrypted/voohy-work-reflections"
+export BETTERSENSE_WORK_REFLECTIONS_HOME="$HOME/Encrypted/bettersense-work-reflections"
 
 # Persist for future shells
-echo 'export VOOHY_WORK_REFLECTIONS_HOME="$HOME/Encrypted/voohy-work-reflections"' >> ~/.zshrc
+echo 'export BETTERSENSE_WORK_REFLECTIONS_HOME="$HOME/Encrypted/bettersense-work-reflections"' >> ~/.zshrc
 ```
 
 You don't need to create the directory yourself — `stakeholder-register` does it on first run, with a privacy `README.md` and `.gitignore` inside. Just open Claude Code and:
@@ -263,7 +263,7 @@ The bundle has two anchor files. Both are read automatically by other skills whe
 
 #### `profile.md` — *who you are*
 
-`~/voohy-work-reflections/profile.md` captures your role, level, company context, communication style, current strategic focus, and (if relevant) stack. A single short file you create once.
+`~/bettersense-work-reflections/profile.md` captures your role, level, company context, communication style, current strategic focus, and (if relevant) stack. A single short file you create once.
 
 Skills that read it: `the-spec-writer`, `the-translator`, `the-explainer`, `report-promo-case`, `report-career-architect`, `metrics-design`, `coaching-mode`, `feedback-frameworks`.
 
@@ -277,7 +277,7 @@ Triggers `user-profile` — 5-10 minute interview, drafts the file, confirms bef
 
 #### `strategy/<area-slug>.md` — *what you're building*
 
-`~/voohy-work-reflections/strategy/<area-slug>.md` captures the strategic anchor for a product, area, or program: target problem, approach, personas, SMART metrics, 2-4 multi-month tracks, explicit "not working on" section, counter-metrics.
+`~/bettersense-work-reflections/strategy/<area-slug>.md` captures the strategic anchor for a product, area, or program: target problem, approach, personas, SMART metrics, 2-4 multi-month tracks, explicit "not working on" section, counter-metrics.
 
 Skills that read it: `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, `pulse-synthesize`.
 
@@ -301,7 +301,7 @@ Claude Code skills are *stateless guides*. They fire when the user types somethi
 
 **Important: `/schedule` is not a built-in Claude Code feature.** It's a separate skill (commonly installed from Anthropic's official plugin marketplace) that creates routines firing on a cron schedule. If `/schedule` is unknown in your Claude Code, you have two options:
 
-- **Install the `schedule` skill from Anthropic's marketplace.** Recommended — gives you the inside-Claude-Code commands shown below (`/schedule "Every Friday at 4pm, run /voohy:wins-due"` etc.).
+- **Install the `schedule` skill from Anthropic's marketplace.** Recommended — gives you the inside-Claude-Code commands shown below (`/schedule "Every Friday at 4pm, run /bettersense:wins-due"` etc.).
 - **Use OS-level scheduling** (cron / launchd / Task Scheduler) to invoke Claude Code headlessly with the skill as a prompt. Works without any extra plugin. See *OS-level scheduling fallback* below.
 
 Either way, three honest constraints to set expectations:
@@ -386,7 +386,7 @@ For fast-moving consumer products or during launch windows, daily:
 /schedule "Every weekday at 8am, run /product-pulse for the default area"
 ```
 
-Pair with a calendar reminder to actually open Claude Code at the firing time. Pulses pull from analytics MCPs (PostHog, Datadog, Stripe, etc.) when wired; otherwise, the user pastes recent metrics and the skill structures them. Each run produces a single-page dated report at `~/voohy-work-reflections/pulses/<area-slug>/`. The folder *is* your product memory — `pulse-synthesize` reads across it.
+Pair with a calendar reminder to actually open Claude Code at the firing time. Pulses pull from analytics MCPs (PostHog, Datadog, Stripe, etc.) when wired; otherwise, the user pastes recent metrics and the skill structures them. Each run produces a single-page dated report at `~/bettersense-work-reflections/pulses/<area-slug>/`. The folder *is* your product memory — `pulse-synthesize` reads across it.
 
 Multi-area users: schedule one routine per area, each with its own `<area-slug>`.
 
@@ -398,7 +398,7 @@ Multi-area users: schedule one routine per area, each with its own `<area-slug>`
 
 Reads across the month of pulses and surfaces trends, anomalies, regime shifts, and Goodhart-pattern flags. Especially useful before exec readouts, board meetings, or quarterly planning. Requires at least 4 pulses in the window — the skill says so honestly if there's not enough volume.
 
-> **Note on plugin namespace.** If you installed via the plugin path (`/plugin install voohy` or `--plugin-dir`), all skill names above need the `voohy:` prefix — e.g. `/voohy:wins-due` instead of `/wins-due`. The cron examples in the next section use the namespaced form. The standalone install uses the bare names.
+> **Note on plugin namespace.** If you installed via the plugin path (`/plugin install bettersense` or `--plugin-dir`), all skill names above need the `bettersense:` prefix — e.g. `/bettersense:wins-due` instead of `/wins-due`. The cron examples in the next section use the namespaced form. The standalone install uses the bare names.
 
 ### 5. OS-level scheduling fallback (no `/schedule` required)
 
@@ -411,16 +411,16 @@ If you don't have the `/schedule` skill installed and don't want to add it, OS-l
 crontab -e
 
 # Friday 4pm — wins nudge
-0 16 * * 5 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:wins-due" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+0 16 * * 5 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:wins-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Monday 9am — stakeholder due-list
-0 9 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:stakeholder-due" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+0 9 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:stakeholder-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Sunday 6pm — patterns watch
-0 18 * * 0 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:patterns-watch" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+0 18 * * 0 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:patterns-watch" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Monday 8am — product pulse (default area)
-0 8 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:product-pulse" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+0 8 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:product-pulse" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 ```
 
 **macOS (`launchd`):** for users who prefer `launchd` over cron. Create `.plist` files in `~/Library/LaunchAgents/`. The pattern is the same — invoke `claude -p "<command>"` on a schedule.
@@ -430,7 +430,7 @@ crontab -e
 **Caveats and tips for OS-level scheduling:**
 
 - **Verify the headless flag.** I'm assuming `claude -p "<prompt>"` is the right non-interactive invocation. Run `claude --help` in your terminal to confirm; if the flag is different (`-c`, `--prompt`, etc.), substitute it. If your Claude Code build doesn't support headless invocation at all, OS-level scheduling won't work — you'll need the `/schedule` skill or accept on-demand-only use.
-- **Read the log periodically.** Output goes to `~/voohy-work-reflections/scheduled-output.log` (or wherever you redirect). Pair every cron entry with a calendar reminder titled *"Read this week's scheduled output"* — same external-reminder pattern as before.
+- **Read the log periodically.** Output goes to `~/bettersense-work-reflections/scheduled-output.log` (or wherever you redirect). Pair every cron entry with a calendar reminder titled *"Read this week's scheduled output"* — same external-reminder pattern as before.
 - **Authentication.** If `claude -p` requires you to be logged in, your cron-driven runs need a fresh auth token. May fail silently otherwise.
 - **Debugging.** If a cron entry seems to not run, check `cron`'s own log (`grep CRON /var/log/syslog` on Linux, `log show --predicate 'process == "cron"'` on macOS). PATH issues are common — cron runs with a minimal environment, so use absolute paths if `claude` isn't found.
 
@@ -488,7 +488,7 @@ Reorgs happen, people change roles, colleagues leave. The `stakeholder-manage` s
 | *"update Jill's role to Staff Eng II"* | In-place frontmatter edit. Adds a one-line audit note. |
 | *"Jill is my manager now"* | Re-categorizes. Moves the file across category folders. **All reflection history is preserved.** Captures a one-sentence reason for the audit log. The question pool shifts to managing-up on the next reflection. |
 | *"Jill changed her name to Jill Brown"* | Rename. Updates filename, frontmatter, registry. You choose whether the slug changes too. |
-| *"Draymond left for Stripe"* | Archive. File moves to `~/voohy-work-reflections/archive/managing-down/draymond-young.md`. Active reflection skills no longer surface them. You can still synthesize over the archive when retrospecting. |
+| *"Draymond left for Stripe"* | Archive. File moves to `~/bettersense-work-reflections/archive/managing-down/draymond-young.md`. Active reflection skills no longer surface them. You can still synthesize over the archive when retrospecting. |
 | *"delete Sam — registered them by mistake"* | Two-step confirmation. The skill strongly recommends archive first; if you persist, asks you to type the name to confirm. Used rarely. |
 
 Two design opinions worth knowing before you use it:
@@ -510,8 +510,8 @@ ls ~/.claude/skills/        # or .claude/skills/ for project-scope
 ls ~/.claude/agents/
 
 # Data directory exists with privacy README?
-ls -la ~/voohy-work-reflections/
-cat ~/voohy-work-reflections/README.md
+ls -la ~/bettersense-work-reflections/
+cat ~/bettersense-work-reflections/README.md
 ```
 
 Inside Claude Code:
@@ -533,7 +533,7 @@ let me reflect on my manager
 
 The system is low-maintenance but not no-maintenance. Once a quarter:
 
-- Skim `~/voohy-work-reflections/` — anything stale, anyone you've stopped tracking actively, anyone you should have added?
+- Skim `~/bettersense-work-reflections/` — anything stale, anyone you've stopped tracking actively, anyone you should have added?
 - Run `/schedule list` and prune routines you're no longer reading.
 - Run `/stakeholder-synthesize` once over your full file to look for patterns you've missed.
 - Re-read the question library at `~/.claude/skills/stakeholder-reflect/questions.json` — the prompts that landed for you 6 months ago may not be the ones that land now.
@@ -571,7 +571,7 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 - *"I'm running a multi-team program with a Q3 launch — map dependencies, design the gates, and draft the escalation if Platform slips."* → `the-program-manager` produces the dependency map, gates per phase with explicit criteria, and escalation framing pre-loaded with a recommendation.
 - *"Set up my profile so I stop re-explaining who I am every session."* → `user-profile` interviews you for role / level / strategic focus / communication style, drafts the anchor file, and other skills (spec writer, translator, explainer, promo case, career architect, metrics design, coaching, feedback) start reading it automatically.
 - *"Sunday evening — anything notable across all my reflections this week?"* → `patterns-watch` scans stakeholder + wins + self files, surfaces unsolicited patterns (attention gaps, contradictions between stated focus and actual logged work, trajectory shifts) with citations to specific dated entries.
-- *"Draft a strategy doc for the platform area I just took over."* → `strategy-doc` interviews you on target problem, approach, personas, SMART metrics, multi-month tracks, and (load-bearing) what you're explicitly *not* working on. Lives at `~/voohy-work-reflections/strategy/platform.md` and starts being read by spec writer / prioritization / metrics-design / pulse skills.
+- *"Draft a strategy doc for the platform area I just took over."* → `strategy-doc` interviews you on target problem, approach, personas, SMART metrics, multi-month tracks, and (load-bearing) what you're explicitly *not* working on. Lives at `~/bettersense-work-reflections/strategy/platform.md` and starts being read by spec writer / prioritization / metrics-design / pulse skills.
 - *"Run my Monday product pulse."* → `product-pulse` queries connected MCPs (PostHog, Datadog, Stripe), produces a one-page dated report with usage metrics, counter-metrics, AI-specific signals (hallucination/refusal/eval drift), and ≤3 follow-up investigations. Saves to the pulses folder for that area.
 - *"Before my exec readout, what's the trajectory across the last 8 weeks of pulses?"* → `pulse-synthesize` reads the folder and surfaces trends, anomalies, regime shifts — with citations to specific dated pulses. Refuses to forecast; calls out coverage gaps.
 - *"I need to brief the CEO on why our accuracy regressed."* → `the-translator` reframes the numbers.
@@ -582,7 +582,7 @@ Drop into Claude Code and describe what you're working on the way you'd describe
 
 ## Stakeholder reflection: a worked example
 
-The four `stakeholder-*` skills and `self-reflect` are a tighter system than the rest of the bundle — they share private data at `~/voohy-work-reflections/` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`) and are designed to be used together over months.
+The four `stakeholder-*` skills and `self-reflect` are a tighter system than the rest of the bundle — they share private data at `~/bettersense-work-reflections/` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`) and are designed to be used together over months.
 
 ### A note on origins
 
@@ -591,7 +591,7 @@ This was originally a feature inside the [Voohy](https://voohy.com) app — the 
 ### File layout
 
 ```
-~/voohy-work-reflections/             # private, gitignored, on your local machine only
+~/bettersense-work-reflections/             # private, gitignored, on your local machine only
 ├── stakeholders.json
 ├── managing-up/
 │   └── john-adams.md
@@ -609,7 +609,7 @@ This was originally a feature inside the [Voohy](https://voohy.com) app — the 
 
 ### A typical lifecycle
 
-1. **Register.** *"I just got a new VP. Add John Adams to managing-up."* → `stakeholder-register` creates `~/voohy-work-reflections/managing-up/john-adams.md` with frontmatter and waits to confirm before writing.
+1. **Register.** *"I just got a new VP. Add John Adams to managing-up."* → `stakeholder-register` creates `~/bettersense-work-reflections/managing-up/john-adams.md` with frontmatter and waits to confirm before writing.
 2. **Reflect, weekly-ish.** *"Let me reflect on John."* → `stakeholder-reflect` loads the file, picks 2–3 questions appropriate to the moment (cadence-aware, balancing *ask* and *sense* lenses), surfaces the prompt's `things_to_consider`, and walks through a real conversation. Pushes back on one-line answers and identity-level labels. Writes a dated entry per question.
 3. **Stay current.** *"What's due this week?"* → `stakeholder-due` lists the overdue question × stakeholder pairs sorted by `due_ratio` (days_since / cadence). Or run it once via `/schedule "Every Monday at 9am, run /stakeholder-due"` to get a Monday-morning surfacing.
 4. **Synthesize, periodically.** *"Before John's quarterly skip-level, what do I know?"* → `stakeholder-synthesize` reads the file, produces patterns / contradictions / blind spots / suggested next conversations, with every claim cited to specific dated entries. Hands off to `feedback-frameworks` or `one-on-one-prep` when a natural next step appears.
@@ -618,7 +618,7 @@ This was originally a feature inside the [Voohy](https://voohy.com) app — the 
 
 ### Things to know before adopting
 
-- **The data lives outside the public repo.** The skill creates `~/voohy-work-reflections/` on first run, gitignores it, and warns you about privacy. The folder holds candid notes about real people — don't put it in Dropbox if you wouldn't put your journal there. Override the path with `$VOOHY_WORK_REFLECTIONS_HOME` if you want it on an encrypted volume or somewhere else.
+- **The data lives outside the public repo.** The skill creates `~/bettersense-work-reflections/` on first run, gitignores it, and warns you about privacy. The folder holds candid notes about real people — don't put it in Dropbox if you wouldn't put your journal there. Override the path with `$BETTERSENSE_WORK_REFLECTIONS_HOME` if you want it on an encrypted volume or somewhere else.
 - **Quality of synthesis depends on quality of input.** One-line entries produce shallow synthesis. The `things_to_consider` field is surfaced prominently to help — use it.
 - **Synthesis is honest about its evidence.** `stakeholder-synthesize` will not claim a pattern without citing dated entries. If your file is sparse, the synthesis will be tentative; if it's rich, the synthesis will be sharp.
 
@@ -633,7 +633,7 @@ This was originally a "Wins at Work" feature inside the [Voohy](https://voohy.co
 ### File layout
 
 ```
-~/voohy-work-reflections/
+~/bettersense-work-reflections/
 ├── stakeholders.json
 ├── managing-up/...
 ├── managing-across/...
@@ -733,7 +733,7 @@ Honest counterpoints:
 - **For routine work, they're overkill.** Writing a normal status update? Don't summon a framework. The skills earn their keep at decision points and high-stakes moments — not everywhere.
 - **They don't replace judgment.** `the-spec-writer` will produce a beautifully structured spec for a terrible idea. The skills make you faster and more rigorous; they don't make the underlying call for you.
 - **Some are stronger than others.** `prioritization-frameworks` is closer to a high-quality reference card — useful, but you could get most of the value by reading one blog post once. `the-reducer`, `the-incident-responder`, and `feedback-frameworks` are the ones whose opinionatedness genuinely changes what you do.
-- **Cross-skill composition is informational, not executional.** When `coaching-mode` says *"composes with `feedback-frameworks`"*, that's a signpost — not an auto-load. Inside one skill's session, Claude knows the other skill exists and can mimic its structure approximately, but it does not actually load the other skill's body. To get the full discipline of the second skill (forcing functions, anti-pattern checks, the entire structure), you need to **explicitly invoke it** in a new turn (`/voohy:feedback-frameworks` if you installed via plugin, `/feedback-frameworks` if standalone). What you get inside the original skill is a reasonable shorthand; what you get from explicit invocation is the full treatment. This is true under both plugin and standalone install — it's how Claude Code's skill system works in practice.
+- **Cross-skill composition is informational, not executional.** When `coaching-mode` says *"composes with `feedback-frameworks`"*, that's a signpost — not an auto-load. Inside one skill's session, Claude knows the other skill exists and can mimic its structure approximately, but it does not actually load the other skill's body. To get the full discipline of the second skill (forcing functions, anti-pattern checks, the entire structure), you need to **explicitly invoke it** in a new turn (`/bettersense:feedback-frameworks` if you installed via plugin, `/feedback-frameworks` if standalone). What you get inside the original skill is a reasonable shorthand; what you get from explicit invocation is the full treatment. This is true under both plugin and standalone install — it's how Claude Code's skill system works in practice.
 
 The test for whether this collection is right for you: do you currently open Claude when you face these situations, and do you wish your version of Claude already knew the framework you'd want to apply? If yes, the skill format pays for itself by removing the prompt-engineering tax every time. If you're unsure, start with `the-reducer` and `feedback-frameworks` — see whether they actually change your behavior before installing the rest.
 

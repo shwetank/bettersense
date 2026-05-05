@@ -1,6 +1,6 @@
 # Voohy — Claude Code plugin
 
-Opinionated skills and agents for **AI PMs, engineering managers, and TPMs**. Once installed, all skills and agents are namespaced under `voohy:` (e.g., `/voohy:coaching-mode`, `/voohy:wins-log`).
+Opinionated skills and agents for **AI PMs, engineering managers, and TPMs**. Once installed, all skills and agents are namespaced under `bettersense:` (e.g., `/bettersense:coaching-mode`, `/bettersense:wins-log`).
 
 **30 skills + 13 agents** organized around five lenses:
 
@@ -17,7 +17,7 @@ Opinionated skills and agents for **AI PMs, engineering managers, and TPMs**. On
 If installed via a marketplace:
 
 ```
-/plugin install voohy
+/plugin install bettersense
 ```
 
 For local development or if you've cloned this repo:
@@ -36,9 +36,9 @@ If you'd rather drop the skills directly into `~/.claude/` without the plugin na
 
 ```
 ☐ Install (above)
-☐ Run `/voohy:user-profile` once → creates the "who you are" anchor file
-☐ Run `/voohy:strategy-doc` once per product/area (optional but recommended) → creates the "what you're building" anchor
-☐ Run `/voohy:stakeholder-register` to register your first stakeholder → creates the data directory at ~/voohy-work-reflections/
+☐ Run `/bettersense:user-profile` once → creates the "who you are" anchor file
+☐ Run `/bettersense:strategy-doc` once per product/area (optional but recommended) → creates the "what you're building" anchor
+☐ Run `/bettersense:stakeholder-register` to register your first stakeholder → creates the data directory at ~/bettersense-work-reflections/
 ☐ Wire scheduled skills (via `/schedule` if installed, or OS-level cron — see Cadence below)
 ```
 
@@ -51,21 +51,21 @@ Several skills are designed to fire on a schedule. **Important: `/schedule` is n
 **If you have `/schedule` installed:**
 
 ```
-/schedule "Every Friday at 4pm, run /voohy:wins-due and post the list"
-/schedule "Every Monday at 9am, run /voohy:stakeholder-due and post the list"
-/schedule "Every Sunday at 6pm, run /voohy:patterns-watch"
-/schedule "Every Monday at 8am, run /voohy:product-pulse for the default area"
-/schedule "On the first Monday of every month at 10am, run /voohy:self-reflect"
+/schedule "Every Friday at 4pm, run /bettersense:wins-due and post the list"
+/schedule "Every Monday at 9am, run /bettersense:stakeholder-due and post the list"
+/schedule "Every Sunday at 6pm, run /bettersense:patterns-watch"
+/schedule "Every Monday at 8am, run /bettersense:product-pulse for the default area"
+/schedule "On the first Monday of every month at 10am, run /bettersense:self-reflect"
 ```
 
 **If `/schedule` is unknown** (you'll see "Unknown slash command"), use OS-level scheduling instead — cron on macOS/Linux, Task Scheduler on Windows. Example cron entries:
 
 ```bash
 # Friday 4pm — wins nudge
-0 16 * * 5 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:wins-due" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+0 16 * * 5 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:wins-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Monday 9am — stakeholder due-list
-0 9 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:stakeholder-due" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+0 9 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:stakeholder-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 ```
 
 Verify your Claude Code supports headless invocation (`claude -p "<prompt>"`) before relying on this — run `claude --help` if unsure.
@@ -88,13 +88,13 @@ For deeper rationale, worked examples, three real-life scenarios, and the design
 
 ## Where the data lives
 
-This plugin creates a private folder at `~/voohy-work-reflections/` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`) for stakeholder reflections, wins log, self-reflection, pulse reports, and the anchor files. The folder is gitignored on first run and lives only on your local machine.
+This plugin creates a private folder at `~/bettersense-work-reflections/` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`) for stakeholder reflections, wins log, self-reflection, pulse reports, and the anchor files. The folder is gitignored on first run and lives only on your local machine.
 
 **Uninstalling the plugin does not delete this folder.** It's your data; remove it manually if you want.
 
 ## Updates
 
-If installed via marketplace: `/plugin update voohy`.
+If installed via marketplace: `/plugin update bettersense`.
 
 If installed via `--plugin-dir` pointing at your git clone: `git pull` in this repo, then `/reload-plugins` (or restart Claude Code). For non-trivial changes, restart the session — the routing layer may carry stale state otherwise. See the root README's *Updating skills after changes* section for the full picture.
 
@@ -103,16 +103,16 @@ If installed via `--plugin-dir` pointing at your git clone: `git pull` in this r
 - **Won't replace mobile-app reflection tools for daily use.** Claude Code is desktop/CLI/IDE; the cadence story works as well as your habit of opening Claude Code. The plugin wins on *depth* (citation discipline, structured forcing functions) and loses on *frequency* compared to a phone-first journaling app.
 - **Quality of reflection synthesis depends on quality of input.** One-line entries → shallow synthesis. The skills push back on vague inputs but can't manufacture insight from nothing.
 - **Opinionation is real.** `performance-management` won't let you describe a Stage 3 problem in Stage 1 language. `coaching-mode` won't let you prescribe in the first 5 turns. `hiring-craft` won't let you run a debrief without silent votes first. If the forcing functions feel pushy, the operating-principles section in each skill is the easy place to soften.
-- **Cross-skill composition is informational, not executional.** When `coaching-mode` says *"composes with `feedback-frameworks`"*, that's a signpost, not an auto-load. Inside one skill's session, Claude knows the other skill exists and approximates its structure but doesn't load the full skill body. **For the full discipline of the second skill, invoke it explicitly in a new turn** (e.g., `/voohy:feedback-frameworks` after the coaching session ends). What you get inside the original skill is a reasonable shorthand; what you get from explicit invocation is the full treatment.
+- **Cross-skill composition is informational, not executional.** When `coaching-mode` says *"composes with `feedback-frameworks`"*, that's a signpost, not an auto-load. Inside one skill's session, Claude knows the other skill exists and approximates its structure but doesn't load the full skill body. **For the full discipline of the second skill, invoke it explicitly in a new turn** (e.g., `/bettersense:feedback-frameworks` after the coaching session ends). What you get inside the original skill is a reasonable shorthand; what you get from explicit invocation is the full treatment.
 - **`/schedule` is not a built-in Claude Code feature.** It's a separate skill commonly installed from Anthropic's marketplace. If unavailable, use OS-level scheduling (cron / launchd / Task Scheduler) — see the Cadence section above.
 
 ## Troubleshooting
 
-- **`/voohy:` prefix doesn't tab-complete:** the plugin may still be loaded; tab-completion is unreliable in some environments. Try invoking a skill explicitly (`/voohy:wins-log`) to confirm.
-- **`/plugin info voohy` shows nothing:** plugins loaded via `--plugin-dir` aren't surfaced in the persistent plugin manager — that's expected, not a bug. Verify by invoking a skill instead.
-- **"Unknown slash command: voohy:..."** — the plugin isn't loaded. Restart Claude Code with `--plugin-dir` pointing at this directory.
+- **`/bettersense:` prefix doesn't tab-complete:** the plugin may still be loaded; tab-completion is unreliable in some environments. Try invoking a skill explicitly (`/bettersense:wins-log`) to confirm.
+- **`/plugin info bettersense` shows nothing:** plugins loaded via `--plugin-dir` aren't surfaced in the persistent plugin manager — that's expected, not a bug. Verify by invoking a skill instead.
+- **"Unknown slash command: bettersense:..."** — the plugin isn't loaded. Restart Claude Code with `--plugin-dir` pointing at this directory.
 - **Manifest schema validation fails silently** — Claude Code v2.0.30 and earlier may reject `author.email`, `license`, or other fields not in the docs' minimal example. Keep `plugin.json` to the minimum (`name`, `description`, `version`, `author.name`).
-- **A skill auto-routes to a different skill than expected:** the skill descriptions are designed to disambiguate, but with 30 skills there can be edge cases. Invoke the specific skill with `/voohy:<skill-name>` to override routing.
+- **A skill auto-routes to a different skill than expected:** the skill descriptions are designed to disambiguate, but with 30 skills there can be edge cases. Invoke the specific skill with `/bettersense:<skill-name>` to override routing.
 - **Composition handoffs (skill A suggests skill B) feel partial:** that's the soft-handoff behavior described in *Honest tradeoffs* above. Explicitly invoke skill B in a new turn for the full treatment.
 
 ## License

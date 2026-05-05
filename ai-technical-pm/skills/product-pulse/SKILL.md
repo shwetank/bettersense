@@ -1,6 +1,6 @@
 ---
 name: product-pulse
-description: Use to produce a single-page dated pulse report on product health — usage metrics, system performance, AI-feature signals (hallucination, refusal, eval drift), counter-metrics, and follow-up investigation. Trigger phrases include "run a pulse on [area]", "give me a product health snapshot", "weekly product pulse", "what does the data say this week". Reads strategy.md to know what to watch and which counter-metrics matter. Saves to `~/voohy-work-reflections/pulses/<area-slug>/pulse-YYYY-MM-DD.md` so the folder accumulates into product memory over time. Designed for daily/weekly `/schedule` cadence. Privacy-first — defaults to aggregated/redacted data; surfaces provenance.
+description: Use to produce a single-page dated pulse report on product health — usage metrics, system performance, AI-feature signals (hallucination, refusal, eval drift), counter-metrics, and follow-up investigation. Trigger phrases include "run a pulse on [area]", "give me a product health snapshot", "weekly product pulse", "what does the data say this week". Reads strategy.md to know what to watch and which counter-metrics matter. Saves to `~/bettersense-work-reflections/pulses/<area-slug>/pulse-YYYY-MM-DD.md` so the folder accumulates into product memory over time. Designed for daily/weekly `/schedule` cadence. Privacy-first — defaults to aggregated/redacted data; surfaces provenance.
 ---
 
 # Product Pulse
@@ -12,18 +12,18 @@ This skill produces one pulse. `pulse-synthesize` reads the folder over time. `s
 ## Where pulses live
 
 ```
-~/voohy-work-reflections/pulses/<area-slug>/pulse-YYYY-MM-DD.md
+~/bettersense-work-reflections/pulses/<area-slug>/pulse-YYYY-MM-DD.md
 ```
 
 For single-product users, `area-slug` defaults to `default`. Multi-product users get one folder per area, mirroring the structure used by `strategy-doc`.
 
-If `~/voohy-work-reflections/` doesn't exist, hand off to `stakeholder-register` for root setup.
+If `~/bettersense-work-reflections/` doesn't exist, hand off to `stakeholder-register` for root setup.
 
 ## Inputs
 
 The skill needs three things to produce a useful pulse:
 
-1. **Strategy doc** at `~/voohy-work-reflections/strategy/<area-slug>.md` — read it for what to watch (key metrics) and what to flag against (counter-metrics). If missing, the pulse runs but with a generic "all metrics" lens; surface the gap.
+1. **Strategy doc** at `~/bettersense-work-reflections/strategy/<area-slug>.md` — read it for what to watch (key metrics) and what to flag against (counter-metrics). If missing, the pulse runs but with a generic "all metrics" lens; surface the gap.
 2. **Data sources** — depends on what's accessible:
    - **MCPs available** (PostHog, Mixpanel, Amplitude, Datadog, Sentry, Logfire, Stripe, Paddle, etc.) — query directly through the MCP integrations. List what was queried and when in the pulse.
    - **No MCPs** — the user pastes / dumps recent metric numbers, and the skill structures them. Less ideal but works as a starting point.

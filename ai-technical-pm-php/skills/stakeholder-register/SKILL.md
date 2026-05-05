@@ -1,6 +1,6 @@
 ---
 name: stakeholder-register
-description: Use when the user wants to register a new stakeholder for ongoing reflection — a manager, peer, direct report, or team. Trigger phrases include "add a new stakeholder", "register Jill in managing-across", "I just got a new manager", "I'm now leading the X team", "let me set up reflection for [name]". Creates a persistent file at `~/voohy-work-reflections/<category>/<slug>.md` that the `stakeholder-reflect`, `stakeholder-due`, and `stakeholder-synthesize` skills will use.
+description: Use when the user wants to register a new stakeholder for ongoing reflection — a manager, peer, direct report, or team. Trigger phrases include "add a new stakeholder", "register Jill in managing-across", "I just got a new manager", "I'm now leading the X team", "let me set up reflection for [name]". Creates a persistent file at `~/bettersense-work-reflections/<category>/<slug>.md` that the `stakeholder-reflect`, `stakeholder-due`, and `stakeholder-synthesize` skills will use.
 ---
 
 # Stakeholder Register
@@ -9,10 +9,10 @@ Register a stakeholder so the user can reflect on them over time. This skill is 
 
 ## Data location
 
-All stakeholder data lives at `$VOOHY_WORK_REFLECTIONS_HOME` (default: `~/voohy-work-reflections/`), **outside the public repo**.
+All stakeholder data lives at `$BETTERSENSE_WORK_REFLECTIONS_HOME` (default: `~/bettersense-work-reflections/`), **outside the public repo**.
 
 ```
-~/voohy-work-reflections/
+~/bettersense-work-reflections/
 ├── stakeholders.json        # registry: who exists in which category
 ├── managing-up/<slug>.md
 ├── managing-across/<slug>.md
@@ -23,14 +23,14 @@ All stakeholder data lives at `$VOOHY_WORK_REFLECTIONS_HOME` (default: `~/voohy-
 
 ## On first run
 
-If `~/voohy-work-reflections/` does not exist:
+If `~/bettersense-work-reflections/` does not exist:
 
 1. Create the directory and category subdirectories (`managing-up`, `managing-across`, `managing-down`, `teams`).
 2. Initialize `stakeholders.json` as `{"version": 1, "stakeholders": []}`.
 3. Add a `.gitignore` at the root containing `*` so the directory is git-ignored if the user happens to drop it inside a repo. Also create a `README.md` at the root that says:
    > Private. Contains candid reflections about real people. Do not commit, share, or back up to public locations. Encrypt the parent disk if you can.
 4. **Warn the user explicitly** before writing the first stakeholder file:
-   > I'm about to create `~/voohy-work-reflections/`, which will hold candid notes about real people. This will live on your local machine only. Confirm the location, or set `$VOOHY_WORK_REFLECTIONS_HOME` if you want a different one (e.g. an encrypted volume or a Dropbox folder).
+   > I'm about to create `~/bettersense-work-reflections/`, which will hold candid notes about real people. This will live on your local machine only. Confirm the location, or set `$BETTERSENSE_WORK_REFLECTIONS_HOME` if you want a different one (e.g. an encrypted volume or a Dropbox folder).
    Wait for confirmation before proceeding.
 
 ## The register flow
@@ -70,7 +70,7 @@ cadence_overrides: {}
 
 ## Update the registry
 
-Append to `~/voohy-work-reflections/stakeholders.json`:
+Append to `~/bettersense-work-reflections/stakeholders.json`:
 
 ```json
 {
@@ -92,7 +92,7 @@ Append to `~/voohy-work-reflections/stakeholders.json`:
 - **Don't over-collect at register time.** The registration form is a doorway, not an interview. Three questions, maybe four. The depth comes from the reflection sessions, not the intake.
 - **Confirm before writing.** Always show the user the file path and frontmatter you're about to create, and wait for a yes.
 - **Suggest the next step.** When done, tell the user how to start reflecting: *"Try `let me reflect on John` or run `stakeholder-due` to see what's on your plate. To list, edit, re-categorize, or archive stakeholders later, just describe what you want — the `stakeholder-manage` skill handles the lifecycle."*
-- **Privacy is non-negotiable.** Re-warn if you notice the user's `$VOOHY_WORK_REFLECTIONS_HOME` is inside a git repo that isn't already gitignoring it.
+- **Privacy is non-negotiable.** Re-warn if you notice the user's `$BETTERSENSE_WORK_REFLECTIONS_HOME` is inside a git repo that isn't already gitignoring it.
 
 ## Anti-patterns to flag
 

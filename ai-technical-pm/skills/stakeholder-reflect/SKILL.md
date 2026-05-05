@@ -5,11 +5,11 @@ description: Use when the user wants to reflect on a registered stakeholder — 
 
 # Stakeholder Reflect
 
-Guide a single reflection session about a registered stakeholder. The output is a dated entry appended to `~/voohy-work-reflections/<category>/<slug>.md` for one or more questions from the question library.
+Guide a single reflection session about a registered stakeholder. The output is a dated entry appended to `~/bettersense-work-reflections/<category>/<slug>.md` for one or more questions from the question library.
 
 ## Inputs you need
 
-1. **Which stakeholder.** Either named explicitly ("John") or implied ("my manager"). Resolve via `~/voohy-work-reflections/stakeholders.json`.
+1. **Which stakeholder.** Either named explicitly ("John") or implied ("my manager"). Resolve via `~/bettersense-work-reflections/stakeholders.json`.
 2. **Time available.** Optional. If the user says "quick" or "just one question," pick exactly one. Default to 2–3 questions, ~10–15 minutes of dialogue.
 3. **Anything specific on their mind.** Optional. If the user says *"specifically I want to think about her morale"*, prioritize matching questions over the cadence picker.
 
@@ -19,7 +19,7 @@ If the named stakeholder isn't registered yet, hand off to the `stakeholder-regi
 
 Before asking anything:
 
-1. Read `~/voohy-work-reflections/<category>/<slug>.md` in full.
+1. Read `~/bettersense-work-reflections/<category>/<slug>.md` in full.
 2. Load `questions.json` (in this skill's folder).
 3. Filter questions: `stakeholder_categories` must include the stakeholder's category.
 4. For each candidate question, read the existing entries (if any) for that question in the file. Note the most recent entry date.

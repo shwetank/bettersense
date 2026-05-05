@@ -1,6 +1,6 @@
 ---
 name: strategy-doc
-description: Use to create or update a product/area strategy document — target problem, approach, personas, key metrics (3-5 SMART), 2-4 multi-month strategic tracks, and an explicit "not working on" section. Trigger phrases include "draft a strategy doc for [product/area]", "I need a strategy.md for the platform team", "interview me about my strategy", "update my strategy doc", "what's in my strategy doc". Lives at `~/voohy-work-reflections/strategy/<area-slug>.md` and is read as an anchor by `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, and `pulse-synthesize`. Inspired by Every.to's `/ce:strategy` pattern but composes more deeply with the rest of the bundle and supports multiple products/areas.
+description: Use to create or update a product/area strategy document — target problem, approach, personas, key metrics (3-5 SMART), 2-4 multi-month strategic tracks, and an explicit "not working on" section. Trigger phrases include "draft a strategy doc for [product/area]", "I need a strategy.md for the platform team", "interview me about my strategy", "update my strategy doc", "what's in my strategy doc". Lives at `~/bettersense-work-reflections/strategy/<area-slug>.md` and is read as an anchor by `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, and `pulse-synthesize`. Inspired by Every.to's `/ce:strategy` pattern but composes more deeply with the rest of the bundle and supports multiple products/areas.
 ---
 
 # Strategy Doc
@@ -11,11 +11,11 @@ This skill creates or updates the doc. It also makes the doc *useful* by ensurin
 
 ## Where it lives
 
-`~/voohy-work-reflections/strategy/<area-slug>.md` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`).
+`~/bettersense-work-reflections/strategy/<area-slug>.md` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`).
 
-For users running one product, `~/voohy-work-reflections/strategy/default.md` is fine. For users running multiple lines (a PM with two product areas, a TPM coordinating across three programs, an EM whose team owns multiple services), one file per area. The directory structure mirrors the stakeholder bundle's per-category folders.
+For users running one product, `~/bettersense-work-reflections/strategy/default.md` is fine. For users running multiple lines (a PM with two product areas, a TPM coordinating across three programs, an EM whose team owns multiple services), one file per area. The directory structure mirrors the stakeholder bundle's per-category folders.
 
-If `~/voohy-work-reflections/` itself doesn't exist, hand off to `stakeholder-register` first — it owns the root setup and privacy warning.
+If `~/bettersense-work-reflections/` itself doesn't exist, hand off to `stakeholder-register` first — it owns the root setup and privacy warning.
 
 ## When to apply
 
@@ -97,8 +97,8 @@ is succeeding while customer N+1 isn't. Spell these out.]
 - ...
 
 ## Cross-references
-- Profile: `~/voohy-work-reflections/profile.md`
-- Pulses: `~/voohy-work-reflections/pulses/<area-slug>/`
+- Profile: `~/bettersense-work-reflections/profile.md`
+- Pulses: `~/bettersense-work-reflections/pulses/<area-slug>/`
 - Stakeholders connected to this area: [optional list with slug references]
 ```
 
@@ -132,7 +132,7 @@ If `revisit_by` has passed, surface that on any invocation: *"Your strategy was 
 
 The convention (also documented in the README):
 
-> **If `~/voohy-work-reflections/strategy/<area-slug>.md` exists, read it before doing your work.** Use the target problem, approach, personas, metrics, and tracks to anchor your output. If multiple strategy files exist, ask the user which area applies (or default to the one matching their current focus).
+> **If `~/bettersense-work-reflections/strategy/<area-slug>.md` exists, read it before doing your work.** Use the target problem, approach, personas, metrics, and tracks to anchor your output. If multiple strategy files exist, ask the user which area applies (or default to the one matching their current focus).
 
 Skills currently designed to read strategy when present:
 - **`the-spec-writer`** — specs anchor to a strategic track, not free-floating

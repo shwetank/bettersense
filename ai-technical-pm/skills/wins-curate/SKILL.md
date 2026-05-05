@@ -1,6 +1,6 @@
 ---
 name: wins-curate
-description: Use to turn the wins log into an audience-specific artifact — promo packet, behavioral interview stories (STAR), perf-review self-eval, salary negotiation case, or a personal year-in-review. Trigger phrases include "build my promo packet", "I have a behavioral interview Tuesday", "draft my self-eval for the perf review", "make a case for a raise", "year in review for me". Reads `~/voohy-work-reflections/wins.md`, picks and remixes entries for the chosen audience, and produces a usable artifact. Never invents wins — only curates from what's logged. Composes with `stakeholder-synthesize` and `self-reflect` for perf-review prep.
+description: Use to turn the wins log into an audience-specific artifact — promo packet, behavioral interview stories (STAR), perf-review self-eval, salary negotiation case, or a personal year-in-review. Trigger phrases include "build my promo packet", "I have a behavioral interview Tuesday", "draft my self-eval for the perf review", "make a case for a raise", "year in review for me". Reads `~/bettersense-work-reflections/wins.md`, picks and remixes entries for the chosen audience, and produces a usable artifact. Never invents wins — only curates from what's logged. Composes with `stakeholder-synthesize` and `self-reflect` for perf-review prep.
 ---
 
 # Wins Curate
@@ -29,10 +29,10 @@ If the user says "all of them," push back: each artifact has a different shape a
 
 ## Loading
 
-1. Read `~/voohy-work-reflections/wins.md` (configurable via `$VOOHY_WORK_REFLECTIONS_HOME`).
+1. Read `~/bettersense-work-reflections/wins.md` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`).
 2. Filter entries to the time window.
 3. Read the structured fields per entry — type, scope, collaborators, credit framing, impact, evidence.
-4. For perf-review mode, also read `~/voohy-work-reflections/self/reflections.md` (if it exists) and any registered stakeholders' files (via `stakeholders.json`) — composition.
+4. For perf-review mode, also read `~/bettersense-work-reflections/self/reflections.md` (if it exists) and any registered stakeholders' files (via `stakeholders.json`) — composition.
 
 ## Mode: `promo-packet`
 
