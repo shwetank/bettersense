@@ -39,14 +39,16 @@ If you'd rather drop the skills directly into `~/.claude/` without the plugin na
 ☐ Run `/voohy:user-profile` once → creates the "who you are" anchor file
 ☐ Run `/voohy:strategy-doc` once per product/area (optional but recommended) → creates the "what you're building" anchor
 ☐ Run `/voohy:stakeholder-register` to register your first stakeholder → creates the data directory at ~/voohy-work-reflections/
-☐ Wire scheduled skills via /schedule (see Cadence below)
+☐ Wire scheduled skills (via `/schedule` if installed, or OS-level cron — see Cadence below)
 ```
 
 The anchor files (`profile.md`, `strategy/<area>.md`) are the most important setup step. Eight other skills read them to tailor outputs to you — without them, the skills work but produce more generic results.
 
 ## Cadence (the scheduled skills)
 
-Several skills are designed to fire on a schedule via Claude Code's `/schedule`. Wire them once and pair each with a calendar reminder:
+Several skills are designed to fire on a schedule. **Important: `/schedule` is not a built-in Claude Code feature** — it's a separate skill commonly installed from Anthropic's official marketplace. Two paths:
+
+**If you have `/schedule` installed:**
 
 ```
 /schedule "Every Friday at 4pm, run /voohy:wins-due and post the list"
@@ -56,7 +58,21 @@ Several skills are designed to fire on a schedule via Claude Code's `/schedule`.
 /schedule "On the first Monday of every month at 10am, run /voohy:self-reflect"
 ```
 
-Output of scheduled runs lands inside Claude Code — not on your phone. Pair each `/schedule` with a recurring calendar event titled *"Open Claude Code → review [skill]"* so you actually see it. Honest constraint: cadence reliability scales with how often you open Claude Code.
+**If `/schedule` is unknown** (you'll see "Unknown slash command"), use OS-level scheduling instead — cron on macOS/Linux, Task Scheduler on Windows. Example cron entries:
+
+```bash
+# Friday 4pm — wins nudge
+0 16 * * 5 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:wins-due" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+
+# Monday 9am — stakeholder due-list
+0 9 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:stakeholder-due" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+```
+
+Verify your Claude Code supports headless invocation (`claude -p "<prompt>"`) before relying on this — run `claude --help` if unsure.
+
+Output of scheduled runs lands inside Claude Code (or in the log file you redirect to) — not on your phone. Pair each schedule with a recurring calendar event titled *"Open Claude Code → review [skill]"* so you actually see it. Honest constraint: cadence reliability scales with how often you open Claude Code.
+
+See the [root README](../readme.md) section *5. OS-level scheduling fallback* for more cron / launchd / Task Scheduler patterns.
 
 ## What each skill does
 
@@ -84,15 +100,20 @@ If installed via `--plugin-dir` pointing at your git clone: `git pull` in this r
 
 ## Honest tradeoffs
 
-- **Won't replace mobile-app reflection tools for daily use.** Claude Code is desktop/CLI/IDE; the cadence story works as well as your habit of opening Claude Code. The plugin wins on *depth* (composition across skills, citation discipline) and loses on *frequency* compared to a phone-first journaling app.
+- **Won't replace mobile-app reflection tools for daily use.** Claude Code is desktop/CLI/IDE; the cadence story works as well as your habit of opening Claude Code. The plugin wins on *depth* (citation discipline, structured forcing functions) and loses on *frequency* compared to a phone-first journaling app.
 - **Quality of reflection synthesis depends on quality of input.** One-line entries → shallow synthesis. The skills push back on vague inputs but can't manufacture insight from nothing.
 - **Opinionation is real.** `performance-management` won't let you describe a Stage 3 problem in Stage 1 language. `coaching-mode` won't let you prescribe in the first 5 turns. `hiring-craft` won't let you run a debrief without silent votes first. If the forcing functions feel pushy, the operating-principles section in each skill is the easy place to soften.
+- **Cross-skill composition is informational, not executional.** When `coaching-mode` says *"composes with `feedback-frameworks`"*, that's a signpost, not an auto-load. Inside one skill's session, Claude knows the other skill exists and approximates its structure but doesn't load the full skill body. **For the full discipline of the second skill, invoke it explicitly in a new turn** (e.g., `/voohy:feedback-frameworks` after the coaching session ends). What you get inside the original skill is a reasonable shorthand; what you get from explicit invocation is the full treatment.
+- **`/schedule` is not a built-in Claude Code feature.** It's a separate skill commonly installed from Anthropic's marketplace. If unavailable, use OS-level scheduling (cron / launchd / Task Scheduler) — see the Cadence section above.
 
 ## Troubleshooting
 
-- **`/voohy:` prefix doesn't tab-complete:** the plugin isn't loaded. Verify with `/plugin info voohy` or restart Claude Code with `--plugin-dir` pointing at this directory.
+- **`/voohy:` prefix doesn't tab-complete:** the plugin may still be loaded; tab-completion is unreliable in some environments. Try invoking a skill explicitly (`/voohy:wins-log`) to confirm.
+- **`/plugin info voohy` shows nothing:** plugins loaded via `--plugin-dir` aren't surfaced in the persistent plugin manager — that's expected, not a bug. Verify by invoking a skill instead.
+- **"Unknown slash command: voohy:..."** — the plugin isn't loaded. Restart Claude Code with `--plugin-dir` pointing at this directory.
+- **Manifest schema validation fails silently** — Claude Code v2.0.30 and earlier may reject `author.email`, `license`, or other fields not in the docs' minimal example. Keep `plugin.json` to the minimum (`name`, `description`, `version`, `author.name`).
 - **A skill auto-routes to a different skill than expected:** the skill descriptions are designed to disambiguate, but with 30 skills there can be edge cases. Invoke the specific skill with `/voohy:<skill-name>` to override routing.
-- **Composition handoffs (skill A suggests skill B) don't trigger:** explicitly invoke skill B by name. If this happens consistently, [open an issue](../../../../issues) — the cross-references in skill bodies may need namespace prefixing.
+- **Composition handoffs (skill A suggests skill B) feel partial:** that's the soft-handoff behavior described in *Honest tradeoffs* above. Explicitly invoke skill B in a new turn for the full treatment.
 
 ## License
 

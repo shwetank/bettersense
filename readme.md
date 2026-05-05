@@ -297,15 +297,20 @@ If either file is missing, the relevant skills work without it — outputs are j
 
 ### 3. The cadence story (read this once)
 
-Claude Code skills are *stateless guides*. They fire when the user types something matching their `description`, or when explicitly invoked. Cadence — running a skill *automatically* every Monday or every Friday — is handled by Claude Code's `/schedule` skill, which creates routines that execute on a cron schedule.
+Claude Code skills are *stateless guides*. They fire when the user types something matching their `description`, or when explicitly invoked. Cadence — running a skill *automatically* every Monday or every Friday — needs an external scheduler.
 
-Three honest constraints to set expectations:
+**Important: `/schedule` is not a built-in Claude Code feature.** It's a separate skill (commonly installed from Anthropic's official plugin marketplace) that creates routines firing on a cron schedule. If `/schedule` is unknown in your Claude Code, you have two options:
 
-- **Output of a scheduled run lives inside Claude Code.** When `/schedule` fires `/wins-due`, the output goes to a Claude Code session/artifact. You see it the next time you open Claude Code.
-- **No mobile push, no email, no SMS.** Claude Code is desktop / CLI / IDE. If you close Claude Code Friday afternoon and don't open it until Tuesday, the Friday `wins-due` output sits unread.
-- **The cadence is reliable in proportion to how often you open Claude Code.** Daily users get the full benefit. Weekly users see things drift. Monthly users should treat the skills as on-demand only.
+- **Install the `schedule` skill from Anthropic's marketplace.** Recommended — gives you the inside-Claude-Code commands shown below (`/schedule "Every Friday at 4pm, run /voohy:wins-due"` etc.).
+- **Use OS-level scheduling** (cron / launchd / Task Scheduler) to invoke Claude Code headlessly with the skill as a prompt. Works without any extra plugin. See *OS-level scheduling fallback* below.
 
-The fix for users who don't already live in Claude Code: pair every `/schedule` cadence with a calendar reminder in the system you *do* check (Google Calendar, Apple Reminders, etc.). The calendar grabs your attention; Claude Code does the work.
+Either way, three honest constraints to set expectations:
+
+- **Output of a scheduled run lives inside Claude Code (or in a log file you choose).** No mobile push, no email, no SMS by default — Claude Code is desktop/CLI/IDE.
+- **If you close Claude Code Friday afternoon and don't open it until Tuesday**, the Friday `wins-due` output sits unread.
+- **Cadence reliability scales with how often you open Claude Code.** Daily users get the full benefit. Weekly users see things drift. Monthly users should treat the skills as on-demand only.
+
+The fix for users who don't already live in Claude Code: pair every cadence with a calendar reminder in the system you *do* check (Google Calendar, Apple Reminders, etc.). The calendar grabs your attention; Claude Code does the work.
 
 ### 4. Wire up scheduled skills
 
@@ -393,7 +398,45 @@ Multi-area users: schedule one routine per area, each with its own `<area-slug>`
 
 Reads across the month of pulses and surfaces trends, anomalies, regime shifts, and Goodhart-pattern flags. Especially useful before exec readouts, board meetings, or quarterly planning. Requires at least 4 pulses in the window — the skill says so honestly if there's not enough volume.
 
-### 5. Listing and managing your schedules
+> **Note on plugin namespace.** If you installed via the plugin path (`/plugin install voohy` or `--plugin-dir`), all skill names above need the `voohy:` prefix — e.g. `/voohy:wins-due` instead of `/wins-due`. The cron examples in the next section use the namespaced form. The standalone install uses the bare names.
+
+### 5. OS-level scheduling fallback (no `/schedule` required)
+
+If you don't have the `/schedule` skill installed and don't want to add it, OS-level scheduling works for everyone. You invoke `claude` headlessly with the skill as a prompt, redirect output to a log file you can check later (or read inside Claude Code).
+
+**macOS / Linux (cron):**
+
+```bash
+# Edit your crontab
+crontab -e
+
+# Friday 4pm — wins nudge
+0 16 * * 5 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:wins-due" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+
+# Monday 9am — stakeholder due-list
+0 9 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:stakeholder-due" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+
+# Sunday 6pm — patterns watch
+0 18 * * 0 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:patterns-watch" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+
+# Monday 8am — product pulse (default area)
+0 8 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/voohy:product-pulse" >> ~/voohy-work-reflections/scheduled-output.log 2>&1
+```
+
+**macOS (`launchd`):** for users who prefer `launchd` over cron. Create `.plist` files in `~/Library/LaunchAgents/`. The pattern is the same — invoke `claude -p "<command>"` on a schedule.
+
+**Windows (Task Scheduler):** create a scheduled task that runs `claude` with the `-p` flag and the skill prompt. Same pattern, different UI.
+
+**Caveats and tips for OS-level scheduling:**
+
+- **Verify the headless flag.** I'm assuming `claude -p "<prompt>"` is the right non-interactive invocation. Run `claude --help` in your terminal to confirm; if the flag is different (`-c`, `--prompt`, etc.), substitute it. If your Claude Code build doesn't support headless invocation at all, OS-level scheduling won't work — you'll need the `/schedule` skill or accept on-demand-only use.
+- **Read the log periodically.** Output goes to `~/voohy-work-reflections/scheduled-output.log` (or wherever you redirect). Pair every cron entry with a calendar reminder titled *"Read this week's scheduled output"* — same external-reminder pattern as before.
+- **Authentication.** If `claude -p` requires you to be logged in, your cron-driven runs need a fresh auth token. May fail silently otherwise.
+- **Debugging.** If a cron entry seems to not run, check `cron`'s own log (`grep CRON /var/log/syslog` on Linux, `log show --predicate 'process == "cron"'` on macOS). PATH issues are common — cron runs with a minimal environment, so use absolute paths if `claude` isn't found.
+
+OS-level scheduling is less integrated than `/schedule` (no `/schedule list` to see your routines, no inside-Claude-Code management) but works without any extra plugin and is portable across machines.
+
+### 6. Listing and managing your schedules
 
 Inside Claude Code:
 
@@ -409,7 +452,7 @@ Shows all routines you've created. To remove one:
 
 You can also edit a routine to change its cadence — see the `/schedule` skill's own help for specifics.
 
-### 6. External reminder pairing (recommended)
+### 7. External reminder pairing (recommended)
 
 The single best thing you can do to make cadence reliable is to add **one recurring calendar event per `/schedule` routine** in the calendar / task system you actually check. The pattern:
 
@@ -419,7 +462,7 @@ The single best thing you can do to make cadence reliable is to add **one recurr
 
 This is the closest you can get to the Voohy app's mobile-push experience, while still doing the depth work in Claude Code.
 
-### 7. Cadence cheat sheet
+### 8. Cadence cheat sheet
 
 | When | What fires (in Claude Code) | What you should pair externally |
 |---|---|---|
@@ -435,7 +478,7 @@ This is the closest you can get to the Voohy app's mobile-push experience, while
 
 Skills not in this table are on-demand only — they fire when you describe a situation that matches them (a hire decision, a hard 1:1 prep, a new spec, a demo, a customer interview synthesis, an RFC review, etc.).
 
-### 8. Stakeholder lifecycle (after the initial register)
+### 9. Stakeholder lifecycle (after the initial register)
 
 Reorgs happen, people change roles, colleagues leave. The `stakeholder-manage` skill handles every lifecycle operation after the initial `stakeholder-register`. It routes by natural language — there's no syntax to memorize. Some examples:
 
@@ -455,7 +498,7 @@ Two design opinions worth knowing before you use it:
 
 The audit log lives in each stakeholder file as a `## Audit log` section between Background and Reflections. You can hand-edit it; the skill doesn't enforce.
 
-### 9. Verify the setup
+### 10. Verify the setup
 
 Run each of these to confirm:
 
@@ -486,7 +529,7 @@ let me reflect on my manager
 
 …should auto-route to `stakeholder-reflect` (or to `stakeholder-register` if you haven't registered the manager yet).
 
-### 10. Maintenance
+### 11. Maintenance
 
 The system is low-maintenance but not no-maintenance. Once a quarter:
 
@@ -690,6 +733,7 @@ Honest counterpoints:
 - **For routine work, they're overkill.** Writing a normal status update? Don't summon a framework. The skills earn their keep at decision points and high-stakes moments — not everywhere.
 - **They don't replace judgment.** `the-spec-writer` will produce a beautifully structured spec for a terrible idea. The skills make you faster and more rigorous; they don't make the underlying call for you.
 - **Some are stronger than others.** `prioritization-frameworks` is closer to a high-quality reference card — useful, but you could get most of the value by reading one blog post once. `the-reducer`, `the-incident-responder`, and `feedback-frameworks` are the ones whose opinionatedness genuinely changes what you do.
+- **Cross-skill composition is informational, not executional.** When `coaching-mode` says *"composes with `feedback-frameworks`"*, that's a signpost — not an auto-load. Inside one skill's session, Claude knows the other skill exists and can mimic its structure approximately, but it does not actually load the other skill's body. To get the full discipline of the second skill (forcing functions, anti-pattern checks, the entire structure), you need to **explicitly invoke it** in a new turn (`/voohy:feedback-frameworks` if you installed via plugin, `/feedback-frameworks` if standalone). What you get inside the original skill is a reasonable shorthand; what you get from explicit invocation is the full treatment. This is true under both plugin and standalone install — it's how Claude Code's skill system works in practice.
 
 The test for whether this collection is right for you: do you currently open Claude when you face these situations, and do you wish your version of Claude already knew the framework you'd want to apply? If yes, the skill format pays for itself by removing the prompt-engineering tax every time. If you're unsure, start with `the-reducer` and `feedback-frameworks` — see whether they actually change your behavior before installing the rest.
 
