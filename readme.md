@@ -752,4 +752,11 @@ Skills and agents are intentionally small and composable. If you have a mode tha
 
 ## License
 
-MIT.
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) — Creative Commons Attribution-ShareAlike 4.0 International.
+
+Copyright © 2025 Shwetank Dixit / [bettersense.ai](https://bettersense.ai)
+
+**You can:** use, share, and adapt this material for any purpose, including commercially.  
+**You must:** credit the author and link to the original, and release any derivative works under the same CC BY-SA 4.0 license.
+
+Pull requests welcome. Contributors agree their submissions are licensed under CC BY-SA 4.0. The maintainer retains the right to accept, reject, or modify contributions at their discretion. See [`LICENSE`](./LICENSE) for the full text.

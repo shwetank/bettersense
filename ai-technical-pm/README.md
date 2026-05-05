@@ -117,4 +117,4 @@ If installed via `--plugin-dir` pointing at your git clone: `git pull` in this r
 
 ## License
 
-MIT. See the root repo for the full license file.
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) — use and adapt freely, credit required, derivatives must stay CC BY-SA 4.0. See the [`LICENSE`](../LICENSE) file at the repo root for full terms.
