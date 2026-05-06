@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# uninstall.sh — Remove the awesome-skills-ai bundle from your Claude Code config.
+# uninstall.sh — Remove the bettersense bundle from your Claude Code config.
 #
 # Safe by design: removes only items in ~/.claude/{skills,agents}/ that are
 # symlinks pointing into THIS repo. Will not touch:

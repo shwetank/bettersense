@@ -1,4 +1,4 @@
-# awesome-skills-ai
+# bettersense
 
 A growing collection of [Claude Code](https://claude.com/claude-code) **skills** and **subagents** designed for AI Product Managers — the people responsible for shipping reliable, useful products on top of probabilistic systems.
 
@@ -15,7 +15,7 @@ Each skill is a reusable framework Claude consults when context matches. Each su
 The repo currently ships two bundles. They share the same conceptual structure; the `-php` variant adds a concrete prototyping stack (PHP 8 + FlightPHP + HTMX + Alpine.js + Tailwind CDN + ApexCharts) so generated prototypes are runnable.
 
 ```
-awesome-skills-ai/
+bettersense/
 ├── ai-technical-pm/          # Stack-agnostic version
 │   ├── skills/
 │   │   ├── ai-pm-frameworks/SKILL.md
@@ -128,8 +128,8 @@ Two install paths. The script-based path is recommended (cleaner identification 
 ### Recommended: symlink-based install
 
 ```bash
-git clone https://github.com/<your-handle>/awesome-skills-ai.git
-cd awesome-skills-ai
+git clone https://github.com/<your-handle>/bettersense.git
+cd bettersense
 
 # Install the agnostic variant at user scope (available in every project):
 scripts/install.sh agnostic
@@ -146,7 +146,7 @@ The script creates symlinks from `~/.claude/{skills,agents}/` (or `./.claude/...
 1. **Updates are free** — `git pull` updates your installed skills automatically.
 2. **You can identify bundle items at a glance** — any symlink in `~/.claude/skills/` or `~/.claude/agents/` pointing into this repo is from this bundle. Run:
    ```bash
-   find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*awesome-skills-ai*"
+   find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*bettersense*"
    ```
 3. **Clean uninstall** — `scripts/uninstall.sh` removes only items that are symlinks into this repo. Skills you wrote yourself or installed from elsewhere are untouched. Add `--hard-uninstall` if you previously installed via plain `cp` and want copies removed too (with per-item confirmation).
 
@@ -157,7 +157,7 @@ The script will prompt before doing anything. Existing skills with the same name
 If you prefer copies over symlinks (e.g. to vendor a frozen version of the bundle into your config and edit it independently):
 
 ```bash
-cd awesome-skills-ai/ai-technical-pm-php   # or ai-technical-pm
+cd bettersense/ai-technical-pm-php   # or ai-technical-pm
 
 mkdir -p ~/.claude/skills ~/.claude/agents
 cp -r skills/* ~/.claude/skills/
@@ -411,16 +411,16 @@ If you don't have the `/schedule` skill installed and don't want to add it, OS-l
 crontab -e
 
 # Friday 4pm — wins nudge
-0 16 * * 5 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:wins-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 16 * * 5 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:wins-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Monday 9am — stakeholder due-list
-0 9 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:stakeholder-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 9 * * 1 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:stakeholder-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Sunday 6pm — patterns watch
-0 18 * * 0 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:patterns-watch" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 18 * * 0 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:patterns-watch" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Monday 8am — product pulse (default area)
-0 8 * * 1 cd ~/git/awesome-skills-ai && claude --plugin-dir ./ai-technical-pm -p "/bettersense:product-pulse" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 8 * * 1 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:product-pulse" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 ```
 
 **macOS (`launchd`):** for users who prefer `launchd` over cron. Create `.plist` files in `~/Library/LaunchAgents/`. The pattern is the same — invoke `claude -p "<command>"` on a schedule.

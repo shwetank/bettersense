@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# install.sh — Install the awesome-skills-ai bundle into your Claude Code config.
+# install.sh — Install the bettersense bundle into your Claude Code config.
 #
 # Creates symlinks from your Claude config directory back into this repo.
 # Symlinks (not copies) so:
@@ -84,7 +84,7 @@ mkdir -p "$TARGET_SKILLS" "$TARGET_AGENTS"
 # ---------- pre-flight ----------
 
 echo
-echo "Bundle:    awesome-skills-ai ($VARIANT variant)"
+echo "Bundle:    bettersense ($VARIANT variant)"
 echo "Source:    $SOURCE_DIR"
 echo "Target:    $TARGET_BASE"
 echo "Force:     $([ $FORCE -eq 1 ] && echo yes || echo no)"

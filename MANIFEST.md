@@ -1,4 +1,4 @@
-# Manifest — `awesome-skills-ai`
+# Manifest — `bettersense`
 
 This file lists every skill and agent that ships with this bundle. Use it to identify which items in `~/.claude/skills/` and `~/.claude/agents/` came from this repo (vs. skills you wrote yourself or installed from other sources).
 
@@ -9,7 +9,7 @@ The bundle contains **30 skills** and **13 agents**. Both `ai-technical-pm/` and
 If you installed via `scripts/install.sh` (symlink-based — see `README.md`), every bundle item in `~/.claude/skills/` or `~/.claude/agents/` is a symlink pointing into this repo. To list them:
 
 ```bash
-find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*awesome-skills-ai*"
+find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*bettersense*"
 ```
 
 If you installed via plain `cp` (the legacy install path), this manifest is your reference. Match folder/file names below against what you have in `~/.claude/`.
