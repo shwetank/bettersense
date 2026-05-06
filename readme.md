@@ -17,11 +17,9 @@ Each skill is a reusable framework Claude consults when context matches. Each su
 
 ## What's inside
 
-The repo currently ships two bundles. They share the same conceptual structure; the `-php` variant adds a concrete prototyping stack (PHP 8 + FlightPHP + HTMX + Alpine.js + Tailwind CDN + ApexCharts) so generated prototypes are runnable.
-
 ```
 bettersense/
-├── ai-technical-pm/          # Stack-agnostic version
+├── ai-technical-pm/
 │   ├── skills/
 │   │   ├── ai-pm-frameworks/SKILL.md
 │   │   ├── coaching-mode/SKILL.md
@@ -69,8 +67,6 @@ bettersense/
 │       ├── the-scientist.md
 │       ├── the-spec-writer.md
 │       └── the-translator.md
-└── ai-technical-pm-php/      # Same skills + agents, with a PHP prototyping stack baked in
-    └── ...
 ```
 
 ### Skills
@@ -136,11 +132,8 @@ Two install paths. The script-based path is recommended (cleaner identification 
 git clone https://github.com/shwetank/bettersense.git
 cd bettersense
 
-# Install the agnostic variant at user scope (available in every project):
+# Install at user scope (available in every project):
 scripts/install.sh agnostic
-
-# …or the PHP variant:
-scripts/install.sh php
 
 # Project scope instead (just this repo):
 scripts/install.sh agnostic --scope=project
@@ -162,7 +155,7 @@ The script will prompt before doing anything. Existing skills with the same name
 If you prefer copies over symlinks (e.g. to vendor a frozen version of the bundle into your config and edit it independently):
 
 ```bash
-cd bettersense/ai-technical-pm-php   # or ai-technical-pm
+cd bettersense/ai-technical-pm
 
 mkdir -p ~/.claude/skills ~/.claude/agents
 cp -r skills/* ~/.claude/skills/

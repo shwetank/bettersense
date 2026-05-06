@@ -2,7 +2,7 @@
 
 This file lists every skill and agent that ships with this bundle. Use it to identify which items in `~/.claude/skills/` and `~/.claude/agents/` came from this repo (vs. skills you wrote yourself or installed from other sources).
 
-The bundle contains **30 skills** and **13 agents**. Both `ai-technical-pm/` and `ai-technical-pm-php/` variants ship the same set; the only difference is that the PHP variant adds a concrete prototyping stack (PHP 8 + FlightPHP + HTMX + Alpine.js + Tailwind CDN + ApexCharts) inside `ai-pm-frameworks`.
+The bundle contains **30 skills** and **13 agents**, all inside `ai-technical-pm/`.
 
 ## How to identify bundle items in your Claude Code install
 
@@ -18,7 +18,7 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 
 | Name | One-line description |
 |---|---|
-| `ai-pm-frameworks` | AI PM craft: build-vs-buy-vs-rule, eval design, model selection, guardrails. The PHP variant adds the prototyping stack. |
+| `ai-pm-frameworks` | AI PM craft: build-vs-buy-vs-rule, eval design, model selection, guardrails. Prototyping stack read from user profile. |
 | `coaching-mode` | Forcing function: ask-not-tell mode for development conversations. GROW frame. |
 | `decision-log` | ADR-style capture of meaningful product/technical decisions. Especially for AI decisions tied to specific model versions. |
 | `demo-prep` | Five-pass prep for high-stakes demos with extra hazard-handling for AI features. |

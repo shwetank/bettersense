@@ -60,22 +60,16 @@ fi
 BUNDLE_SKILL_NAMES=()
 BUNDLE_AGENT_NAMES=()
 
-for variant in ai-technical-pm ai-technical-pm-php; do
-  if [ -d "$REPO_ROOT/$variant/skills" ]; then
-    while IFS= read -r d; do
-      BUNDLE_SKILL_NAMES+=("$(basename "$d")")
-    done < <(find "$REPO_ROOT/$variant/skills" -maxdepth 1 -mindepth 1 -type d)
-  fi
-  if [ -d "$REPO_ROOT/$variant/agents" ]; then
-    while IFS= read -r f; do
-      BUNDLE_AGENT_NAMES+=("$(basename "$f")")
-    done < <(find "$REPO_ROOT/$variant/agents" -maxdepth 1 -name "*.md")
-  fi
-done
-
-# Deduplicate (both variants ship the same names).
-BUNDLE_SKILL_NAMES=($(printf "%s\n" "${BUNDLE_SKILL_NAMES[@]}" | sort -u))
-BUNDLE_AGENT_NAMES=($(printf "%s\n" "${BUNDLE_AGENT_NAMES[@]}" | sort -u))
+if [ -d "$REPO_ROOT/ai-technical-pm/skills" ]; then
+  while IFS= read -r d; do
+    BUNDLE_SKILL_NAMES+=("$(basename "$d")")
+  done < <(find "$REPO_ROOT/ai-technical-pm/skills" -maxdepth 1 -mindepth 1 -type d)
+fi
+if [ -d "$REPO_ROOT/ai-technical-pm/agents" ]; then
+  while IFS= read -r f; do
+    BUNDLE_AGENT_NAMES+=("$(basename "$f")")
+  done < <(find "$REPO_ROOT/ai-technical-pm/agents" -maxdepth 1 -name "*.md")
+fi
 
 # ---------- pre-flight ----------
 

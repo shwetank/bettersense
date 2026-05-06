@@ -10,31 +10,21 @@
 #   3. Uninstall is clean — see scripts/uninstall.sh.
 #
 # Usage:
-#   scripts/install.sh <variant> [--scope=user|project] [--force]
+#   scripts/install.sh [--scope=user|project] [--force]
 #
-#   <variant>          Required. One of: agnostic | php
 #   --scope=user       Default. Installs to ~/.claude/{skills,agents}/
 #   --scope=project    Installs to ./.claude/{skills,agents}/ (current dir)
 #   --force            Overwrite existing skills/agents with the same name
 #                      (default behavior is to skip with a warning)
 #
 # Examples:
-#   scripts/install.sh agnostic
-#   scripts/install.sh php --scope=project
-#   scripts/install.sh agnostic --force
+#   scripts/install.sh
+#   scripts/install.sh --scope=project
+#   scripts/install.sh --force
 
 set -euo pipefail
 
 # ---------- argument parsing ----------
-
-if [ $# -lt 1 ]; then
-  echo "Usage: $0 <variant> [--scope=user|project] [--force]" >&2
-  echo "  <variant>: agnostic | php" >&2
-  exit 1
-fi
-
-VARIANT="$1"
-shift
 
 SCOPE="user"
 FORCE=0
@@ -48,11 +38,7 @@ for arg in "$@"; do
   esac
 done
 
-case "$VARIANT" in
-  agnostic) BUNDLE_DIR="ai-technical-pm" ;;
-  php) BUNDLE_DIR="ai-technical-pm-php" ;;
-  *) echo "Unknown variant: $VARIANT (expected 'agnostic' or 'php')" >&2; exit 1 ;;
-esac
+BUNDLE_DIR="ai-technical-pm"
 
 # ---------- paths ----------
 
@@ -84,7 +70,7 @@ mkdir -p "$TARGET_SKILLS" "$TARGET_AGENTS"
 # ---------- pre-flight ----------
 
 echo
-echo "Bundle:    bettersense ($VARIANT variant)"
+echo "Bundle:    bettersense"
 echo "Source:    $SOURCE_DIR"
 echo "Target:    $TARGET_BASE"
 echo "Force:     $([ $FORCE -eq 1 ] && echo yes || echo no)"
