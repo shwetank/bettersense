@@ -38,14 +38,11 @@ for arg in "$@"; do
   esac
 done
 
-BUNDLE_DIR="plugin"
-
 # ---------- paths ----------
 
-# Resolve the repo root from this script's location.
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 REPO_ROOT="$( cd "$SCRIPT_DIR/.." && pwd )"
-SOURCE_DIR="$REPO_ROOT/$BUNDLE_DIR"
+SOURCE_DIR="$REPO_ROOT/plugin"
 
 if [ ! -d "$SOURCE_DIR/skills" ] || [ ! -d "$SOURCE_DIR/agents" ]; then
   echo "Error: bundle directory not found at $SOURCE_DIR" >&2

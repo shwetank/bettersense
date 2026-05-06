@@ -1,6 +1,6 @@
-# Voohy — Claude Code plugin
+# bettersense — Claude Code plugin
 
-Opinionated skills and agents for **AI PMs, engineering managers, and TPMs**. Once installed, all skills and agents are namespaced under `bettersense:` (e.g., `/bettersense:coaching-mode`, `/bettersense:wins-log`).
+Opinionated skills and agents for **AI PMs, engineering managers, TPMs, and senior ICs leading without authority**. Once installed, all skills and agents are namespaced under `bettersense:` (e.g., `/bettersense:coaching-mode`, `/bettersense:wins-log`).
 
 **30 skills + 13 agents** organized around five lenses:
 

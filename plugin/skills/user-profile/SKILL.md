@@ -129,6 +129,7 @@ When a user invokes a skill, the skill defaults to the `default_hat` from frontm
 - **Keep it short.** A 2-page profile is too long; nothing in it gets read. Aim for ~30 lines of content. The depth lives in the rest of the bundle.
 - **Don't capture what the bundle already captures.** Stakeholder names belong in the stakeholder files, not the profile. Reflection content belongs in `self-reflect`. Wins belong in the wins log. The profile is *standing context*, not active record.
 - **Privacy is non-negotiable.** Same posture as the rest of the bundle — local file, gitignored, never auto-shared. If pointed at a hosted model, the contents go through that provider. Disclose this on first-run.
+- **Root directory ownership.** `stakeholder-register` owns the creation of `~/bettersense-work-reflections/`, the `.gitignore`, and the privacy warning. If `user-profile` runs first and the root directory doesn't exist yet, create it and the `.gitignore` silently as part of the profile write — but do not re-issue the full privacy ceremony. If the directory already exists, skip creation entirely. The privacy warning only needs to fire once, and `stakeholder-register` is the canonical place for it.
 
 ## Anti-patterns to flag
 
