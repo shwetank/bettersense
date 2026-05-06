@@ -1,0 +1,197 @@
+/* ─────────────────────────────────────────────────────────
+   bettersense.ai — Starlight custom theme
+   Fonts: Bricolage Grotesque (headings) + Inter (body)
+   Palette: near-black bg · warm off-white text · muted gold accent
+   ───────────────────────────────────────────────────────── */
+
+/* ── Base font stacks ─────────────────────────────────── */
+/* Fonts loaded via Google Fonts in astro.config.mjs head[] */
+
+:root {
+  --sl-font: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --sl-font-headings: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Dark theme (primary) ─────────────────────────────── */
+
+:root[data-theme='dark'] {
+  /* Backgrounds */
+  --sl-color-bg: #111110;
+  --sl-color-bg-nav: #0e0d0c;
+  --sl-color-bg-sidebar: #111110;
+  --sl-color-bg-inline-code: #1e1c1a;
+  --sl-color-bg-accent: #1a1714;
+
+  /* Borders / hairlines */
+  --sl-color-hairline: #252220;
+  --sl-color-hairline-light: #1e1c1a;
+  --sl-color-hairline-shade: #1a1816;
+
+  /* Text */
+  --sl-color-white: #f4ede4;
+  --sl-color-text: #d4c9bf;
+  --sl-color-text-invert: #111110;
+  --sl-color-gray-1: #e8ded4;
+  --sl-color-gray-2: #c0b5aa;
+  --sl-color-gray-3: #8a7e74;
+  --sl-color-gray-4: #4a433d;
+  --sl-color-gray-5: #2a2420;
+  --sl-color-gray-6: #1a1614;
+
+  /* Accent — muted warm gold */
+  --sl-color-accent-low: #2a1f0e;
+  --sl-color-accent: #c9a46e;
+  --sl-color-accent-high: #e8cfa0;
+  --sl-color-text-accent: #c9a46e;
+
+  /* Code blocks */
+  --sl-color-code-bg: #181614;
+  --sl-color-code-text: #e8ded4;
+
+  /* Selection */
+  --sl-color-selection-bg: rgba(201, 164, 110, 0.18);
+}
+
+/* ── Light theme ──────────────────────────────────────── */
+
+:root[data-theme='light'] {
+  --sl-color-bg: #faf8f5;
+  --sl-color-bg-nav: #f5f2ed;
+  --sl-color-bg-sidebar: #faf8f5;
+  --sl-color-bg-inline-code: #f0ebe3;
+
+  --sl-color-hairline: #e0d8ce;
+  --sl-color-hairline-light: #e8e2d8;
+
+  --sl-color-white: #1a1410;
+  --sl-color-text: #3a3028;
+  --sl-color-gray-1: #2a2018;
+  --sl-color-gray-2: #4a4038;
+  --sl-color-gray-3: #7a7068;
+  --sl-color-gray-4: #b0a898;
+  --sl-color-gray-5: #d8d0c4;
+  --sl-color-gray-6: #f0ece6;
+
+  --sl-color-accent-low: #fdf5e6;
+  --sl-color-accent: #a87840;
+  --sl-color-accent-high: #7a5020;
+  --sl-color-text-accent: #8a6030;
+}
+
+/* ── Typography ──────────────────────────────────────── */
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4,
+.sl-markdown-content h5,
+.sl-markdown-content h6,
+.page-title,
+[class*='HeroTitle'] {
+  font-family: var(--sl-font-headings);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Slightly looser line height for body */
+.sl-markdown-content p,
+.sl-markdown-content li {
+  line-height: 1.75;
+}
+
+/* ── Sidebar ─────────────────────────────────────────── */
+
+nav.sidebar {
+  --sl-sidebar-width: 17rem;
+}
+
+/* Group labels */
+.group-label span,
+details > summary .group-label span {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--sl-color-gray-3);
+}
+
+/* Active link indicator — left border, not just color */
+[aria-current='page'] {
+  border-left: 2px solid var(--sl-color-accent);
+  padding-left: calc(var(--sl-nav-pad-x) - 2px);
+  color: var(--sl-color-accent-high) !important;
+  background: var(--sl-color-accent-low);
+}
+
+/* ── Header / nav bar ─────────────────────────────────── */
+
+header.header {
+  border-bottom: 1px solid var(--sl-color-hairline);
+  background: var(--sl-color-bg-nav);
+}
+
+/* Site title font */
+.site-title {
+  font-family: var(--sl-font-headings);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-size: 1.1rem;
+}
+
+/* ── Code blocks ─────────────────────────────────────── */
+
+/* Inline code */
+:not(pre) > code {
+  background: var(--sl-color-bg-inline-code);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  font-size: 0.88em;
+}
+
+/* Code block shell */
+figure.code-block,
+.expressive-code,
+.expressive-code .frame {
+  border-radius: 8px;
+  border: 1px solid var(--sl-color-hairline) !important;
+}
+
+/* ── Aside / callout ─────────────────────────────────── */
+
+.starlight-aside {
+  border-radius: 6px;
+  border-left-width: 3px;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+
+.sl-markdown-content table {
+  font-size: 0.9rem;
+}
+
+.sl-markdown-content thead th {
+  font-family: var(--sl-font-headings);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sl-color-gray-2);
+  border-bottom: 2px solid var(--sl-color-hairline);
+}
+
+.sl-markdown-content tbody tr:hover {
+  background: var(--sl-color-bg-accent);
+}
+
+/* ── Content max-width — a bit wider than Starlight default ── */
+
+.content-panel {
+  max-width: 52rem;
+}
+
+/* ── Scrollbar (dark only) ───────────────────────────── */
+
+:root[data-theme='dark'] * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sl-color-gray-4) transparent;
+}

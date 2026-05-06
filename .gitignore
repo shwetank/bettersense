@@ -18,3 +18,8 @@ Icon
 .com.apple.timemachine.donotpresent
 # bettersense-work-reflections is private user data — never commit
 bettersense-work-reflections/
+
+### Site build artifacts — never commit
+site/node_modules/
+site/dist/
+site/.astro/

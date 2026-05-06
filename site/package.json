@@ -1,0 +1,19 @@
+{
+  "name": "site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.38.5",
+    "@fontsource-variable/bricolage-grotesque": "^5.2.10",
+    "@fontsource-variable/inter": "^5.2.8",
+    "astro": "^6.2.2",
+    "sharp": "^0.34.5"
+  }
+}

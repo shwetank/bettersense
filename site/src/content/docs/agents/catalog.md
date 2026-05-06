@@ -1,0 +1,112 @@
+---
+title: Agent catalog
+description: All 13 bettersense agents — what each one does and when to use it.
+---
+
+## `the-architect`
+
+Use when scaling an AI prototype toward production and needing reliability, cost-efficiency, and clean separation between probabilistic and deterministic logic. Trigger for system design, guardrail design, fallback strategy, or when the question is *"how do we run this in production?"*
+
+Best for: production architecture decisions, LLM call structure, safety sandwiches, cost modeling.
+
+---
+
+## `the-eval-designer`
+
+Use when designing an evaluation system for an LLM or ML feature — golden datasets, metrics, LLM-as-judge rubrics, regression suites, or production sampling strategies. Trigger when the question is *"how do I measure if this is good?"* or when shipping an AI feature without a clear eval in place.
+
+Best for: before committing engineering to an AI feature, after a model regression, when "it feels right" is the current evaluation strategy.
+
+---
+
+## `the-explainer`
+
+Use to write internal or external explanations of how an AI feature works — sales enablement, customer-facing help docs, exec briefings, support runbooks, FAQ, security/legal review materials. Calibrates technical depth to audience. Includes the limitations and safety story, not just the capability story.
+
+Best for: launch enablement, customer trust docs, "explain this to my CEO" situations.
+
+---
+
+## `the-incident-responder`
+
+Use during or after an AI-feature incident — model regression, sudden hallucination spike, eval drop, guardrail bypass, cost or latency anomaly, customer-reported wrong answer that escalated. Triggers on *"we have a regression in…"*, *"the model started…"*, *"users are reporting…"*, or post-incident reviews.
+
+Best for: Tuesday-at-11am when CS forwards a screenshot and launch is Friday. The structure under panic is the value.
+
+---
+
+## `the-program-manager`
+
+Use for multi-team, multi-month technical program management — dependency mapping, risk gates per launch phase, adopting orphaned cross-team problems, designing rollout plans with go/no-go criteria, drafting status comms for different audiences, framing escalations.
+
+Distinct from `the-spec-writer` (feature-level) and `prioritization-frameworks` (backlog-level). Trigger when you're running a program, not a single-team feature.
+
+Best for: Q-launch programs, cross-team dependency management, escalation framing to a VP.
+
+---
+
+## `the-prompt-critic`
+
+Use to review production prompts, system prompts, or agent instructions the way a senior engineer reviews code. Trigger when sharing a prompt and asking *"is this good?"*, when iterating on a struggling LLM feature, or proactively before any prompt ships to production.
+
+Best for: prompt review, system prompt hardening, identifying injection risks and edge cases.
+
+---
+
+## `the-red-teamer`
+
+Use proactively before launch and during maintenance of an AI feature to find failure modes not yet considered. Trigger when reviewing prompts, agent tool wiring, or LLM-facing endpoints for prompt injection, data exfiltration, jailbreaks, or out-of-distribution failures.
+
+Best for: pre-launch security review, finding the failure modes you'll hit at scale before users find them.
+
+---
+
+## `the-reducer`
+
+Use in early-stage AI product discovery when you have a vague or ambiguous problem and haven't yet decided whether AI is the right solution. Trigger phrases: *"we should add AI to…"*, *"users are complaining about…"*, or any new feature pitch where the problem is fuzzier than the proposed solution.
+
+Best for: the Friday-afternoon "can we throw an LLM at search?" message. Defaults to "no AI" and works to earn its way back to yes.
+
+---
+
+## `the-research-synthesizer`
+
+Use to cluster raw qualitative data — interview notes, support tickets, NPS verbatims, sales call transcripts, user feedback — into themes, jobs-to-be-done, and prioritized insights. Trigger when you have unstructured user-voice data and ask *"what does this tell us?"*
+
+Best for: synthesis after user interviews, making sense of a dump of support tickets, pre-planning discovery.
+
+---
+
+## `the-rfc-reviewer`
+
+Use to review engineering RFCs, design docs, technical proposals, or architecture write-ups the way a senior staff engineer would. Trigger when someone shares a doc for review, when you need a second opinion before approving a proposal, or when reviewing your own RFC before publishing.
+
+Best for: EMs who want a credible technical read before signing off, especially when the domain is outside their deepest expertise. The fresh context window is essential for long docs.
+
+---
+
+## `the-scientist`
+
+Use for pre-development feasibility and prototyping of an AI feature. Trigger when validating whether an LLM or ML approach actually works before committing engineering resources — building rapid prototypes, golden datasets, or eval baselines.
+
+Best for: the question *"does this even work?"* before you write a spec.
+
+---
+
+## `the-spec-writer`
+
+Use to turn a validated problem into a written product spec or PRD. Trigger: *"draft a PRD for…"*, *"write a spec on…"*, *"I need a one-pager on…"*. Also use when reviewing an existing spec for gaps.
+
+Reads `profile.md` and `strategy/<area>.md` when present — specs anchor to strategic tracks, not free-floating. The spec writer will ask which track applies if not stated.
+
+Best for: after `the-reducer` has confirmed this is the right problem, after `the-scientist` has confirmed the approach works.
+
+---
+
+## `the-translator`
+
+Use when converting technical AI results (eval metrics, latency numbers, failure modes, model trade-offs) into business-language updates for executives, stakeholders, or investor demos. Trigger for status updates, demo prep, exec summaries, or post-incident comms.
+
+Reads `profile.md` when present — uses your communication style and audience defaults. Composes with `the-incident-responder` for post-incident comms.
+
+Best for: *"I need to brief the CEO on why our accuracy regressed"*, pre-exec readout prep, investor update on AI feature performance.
