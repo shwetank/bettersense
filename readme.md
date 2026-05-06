@@ -128,7 +128,7 @@ Two install paths. The script-based path is recommended (cleaner identification 
 ### Recommended: symlink-based install
 
 ```bash
-git clone https://github.com/<your-handle>/bettersense.git
+git clone https://github.com/shwetank/bettersense.git
 cd bettersense
 
 # Install the agnostic variant at user scope (available in every project):
