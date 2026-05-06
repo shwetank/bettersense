@@ -1,12 +1,17 @@
 # bettersense
 
-A growing collection of [Claude Code](https://claude.com/claude-code) **skills** and **subagents** designed for AI Product Managers — the people responsible for shipping reliable, useful products on top of probabilistic systems.
+A growing collection of [Claude Code](https://claude.com/claude-code) **skills** and **subagents** for the people responsible for building and leading in the age of AI — AI Product Managers, Engineering Managers, TPMs, and senior ICs leading without authority.
 
-These aren't generic productivity prompts. They encode the actual frameworks, mental models, and operational modes an AI PM uses day-to-day: deciding *whether* a problem deserves AI in the first place, building eval harnesses before committing engineering, designing safety sandwiches around LLM calls, red-teaming before launch, and translating model metrics into business outcomes — alongside a leadership operating system for managing up, down, and across.
+These aren't generic productivity prompts. They encode the actual frameworks, mental models, and operational modes that technical leaders use day-to-day:
+
+- **AI PMs**: deciding *whether* a problem deserves AI in the first place, building eval harnesses before committing engineering, designing safety sandwiches around LLM calls, red-teaming before launch, translating model metrics into business outcomes
+- **Engineering managers**: coaching without prescribing, running performance conversations, building promotion cases, designing growth plans for reports, diagnosing team health
+- **TPMs and senior ICs**: leading across teams that don't report to you, influencing without authority, managing multi-team programs, navigating stakeholder complexity
+- **All of the above**: stakeholder reflection, wins logging, self-reflection, cadence-driven insight that accumulates over months
 
 ## Why this exists
 
-Most "AI for PMs" tooling either over-promises ("AI writes your PRD!") or under-delivers (a chatbot that doesn't know what an eval harness is). This repo takes a different bet: give Claude Code a small, opinionated set of skills and subagents that match how a working AI PM actually thinks, and let the harness route to the right one automatically based on what you're doing.
+Most "AI for technical leaders" tooling either over-promises ("AI writes your PRD!") or under-delivers (a chatbot that doesn't know what an eval harness is). This repo takes a different bet: give Claude Code a small, opinionated set of skills and subagents that match how working technical leaders actually think, and let the harness route to the right one automatically based on what you're doing.
 
 Each skill is a reusable framework Claude consults when context matches. Each subagent is a focused operational mode you can invoke explicitly or let Claude delegate to.
 
@@ -748,7 +753,7 @@ A few opinions baked into how these are written:
 
 ## Contributing
 
-Skills and agents are intentionally small and composable. If you have a mode that's been missing from your own AI PM workflow — a procurement-savvy `the-vendor-evaluator`, a `the-rollout-planner` for staged launches, etc. — open a PR. Each new agent should be one file with proper frontmatter (`name`, `description`, `tools`) and a tightly scoped system prompt.
+Skills and agents are intentionally small and composable. If you have a mode that's been missing from your workflow — a procurement-savvy `the-vendor-evaluator`, a `the-rollout-planner` for staged launches, an EM-focused `the-team-health-monitor`, etc. — open a PR. Each new agent should be one file with proper frontmatter (`name`, `description`, `tools`) and a tightly scoped system prompt.
 
 ## License
 
