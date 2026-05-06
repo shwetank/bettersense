@@ -133,10 +133,10 @@ git clone https://github.com/shwetank/bettersense.git
 cd bettersense
 
 # Install at user scope (available in every project):
-scripts/install.sh agnostic
+scripts/install.sh
 
 # Project scope instead (just this repo):
-scripts/install.sh agnostic --scope=project
+scripts/install.sh --scope=project
 ```
 
 The script creates symlinks from `~/.claude/{skills,agents}/` (or `./.claude/...` for project scope) back into this repo. Three benefits:
@@ -199,7 +199,7 @@ The harness's caching semantics aren't comprehensively documented. Best working 
 Invoke the skill; if you see the marker, the change is live. Remove it once confirmed.
 
 **Practical rhythm:**
-1. Install once via `scripts/install.sh agnostic` (symlinks).
+1. Install once via `scripts/install.sh` (symlinks).
 2. Edit skills in the repo whenever you want to tune them.
 3. Start a new Claude Code session after non-trivial edits.
 4. `git pull` to take upstream updates — instant, since you're on symlinks.
