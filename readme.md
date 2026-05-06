@@ -292,6 +292,21 @@ Triggers `user-profile` — 5-10 minute interview, drafts the file, confirms bef
 
 Skills that read it: `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, `pulse-synthesize`.
 
+**You never need to invent a slug.** Just describe your area in plain language when you invoke the skill — Claude generates the slug from what you say. For example:
+
+| What you say | File created |
+|---|---|
+| *"the onboarding flow"* | `strategy/onboarding.md` |
+| *"the platform team's services"* | `strategy/platform.md` |
+| *"our mobile app"* | `strategy/mobile-app.md` |
+| *"the checkout redesign"* | `strategy/checkout.md` |
+| *"the search feature"* | `strategy/search.md` |
+| *"growth and acquisition"* | `strategy/growth.md` |
+| *"developer experience"* | `strategy/developer-experience.md` |
+| *"the AI features we're shipping this half"* | `strategy/ai-features.md` |
+
+The skill always confirms the slug with you before writing — one quick confirmation prevents a month of pulse reports accumulating in the wrong folder. And if a file already exists for that slug, the skill surfaces it first and asks whether you want to refresh it or create a separate file for a genuinely different area. It never silently overwrites.
+
 For single-product users, one file at `strategy/default.md` is fine. For users running multiple lines (PM with two products, TPM coordinating across three programs, EM owning multiple services), one file per area.
 
 To create:
@@ -397,9 +412,9 @@ For fast-moving consumer products or during launch windows, daily:
 /schedule "Every weekday at 8am, run /product-pulse for the default area"
 ```
 
-Pair with a calendar reminder to actually open Claude Code at the firing time. Pulses pull from analytics MCPs (PostHog, Datadog, Stripe, etc.) when wired; otherwise, the user pastes recent metrics and the skill structures them. Each run produces a single-page dated report at `~/bettersense-work-reflections/pulses/<area-slug>/`. The folder *is* your product memory — `pulse-synthesize` reads across it.
+Pair with a calendar reminder to actually open Claude Code at the firing time. Pulses pull from analytics MCPs (PostHog, Datadog, Stripe, etc.) when wired; otherwise, the user pastes recent metrics and the skill structures them. Each run produces a single-page dated report at `~/bettersense-work-reflections/pulses/<area>/` (e.g. `pulses/onboarding/`, `pulses/platform/`). The folder *is* your product memory — `pulse-synthesize` reads across it.
 
-Multi-area users: schedule one routine per area, each with its own `<area-slug>`.
+Multi-area users: schedule one routine per area, naming the area in plain language each time.
 
 #### Monthly — pulse synthesis
 

@@ -102,11 +102,23 @@ is succeeding while customer N+1 isn't. Spell these out.]
 - Stakeholders connected to this area: [optional list with slug references]
 ```
 
+## Slug confirmation and collision detection
+
+Before writing anything, always tell the user what file you're about to create or update. This prevents silent overwrites and ambiguity between areas with similar names.
+
+The flow:
+1. Infer the slug from what the user said (e.g. "the onboarding flow" → `onboarding`, "enterprise onboarding" → `onboarding-enterprise`).
+2. Check whether `strategy/<slug>.md` already exists.
+   - **Exists:** Surface the file briefly — area name, `last_updated`, one-line summary of the target problem. Then ask: *"There's already a strategy doc for [area] (last updated [date]). Do you want to refresh it, update a specific section, or is this a genuinely different area I should create a new file for?"* Wait for the answer before proceeding.
+   - **Doesn't exist:** Confirm the slug before starting the interview: *"I'll create `strategy/onboarding.md` — sound right?"* One quick confirm prevents a month of pulses building up in the wrong folder.
+
+This matters because slugs propagate: `product-pulse` saves to `pulses/<slug>/`, `pulse-synthesize` reads from there, and getting the slug wrong on day one silently forks your product memory.
+
 ## The interview flow (for a new strategy)
 
 When invoked for first-run creation, walk through these in order. Push for specificity at each step — vague strategy is worse than no strategy.
 
-1. **Area name and slug** — what to call this. (Defaults to `default` for single-product users.)
+1. **Area name and slug** — confirm the slug (as above) before continuing.
 2. **Target problem** — *"In one paragraph: who's hurting, what they're trying to do, what's blocking them, and why now?"* Push back on solution-first framing.
 3. **Approach** — *"Strategic shape of the answer, not the spec. What's the bet?"*
 4. **Personas** — *"Who specifically are you optimizing for? In priority order. 1-3 max."* Force specificity.
