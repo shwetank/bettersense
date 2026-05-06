@@ -124,9 +124,22 @@ bettersense/
 
 ## Install
 
-Two install paths. The script-based path is recommended (cleaner identification of bundle items, one-command uninstall, automatic updates when you `git pull`); the manual path stays documented for users who want full control.
+Three install paths, in order of preference.
 
-### Recommended: symlink-based install
+### Plugin marketplace (easiest)
+
+If you're using Claude Code and want a one-command install with automatic updates:
+
+```
+/plugin marketplace add shwetank/bettersense
+/plugin install bettersense@bettersense
+```
+
+Then verify with `/agents` — you should see 13 subagents. Skills are namespaced under `bettersense:` (e.g. `/bettersense:wins-log`).
+
+To update later: `/plugin marketplace update bettersense`
+
+### Symlink-based install (recommended for development / standalone)
 
 ```bash
 git clone https://github.com/shwetank/bettersense.git

@@ -12,25 +12,26 @@ Opinionated skills and agents for **AI PMs, engineering managers, TPMs, and seni
 
 ## Install
 
-### As a plugin (recommended)
-
-If installed via a marketplace:
+### Via marketplace (easiest)
 
 ```
-/plugin install bettersense
+/plugin marketplace add shwetank/bettersense
+/plugin install bettersense@bettersense
 ```
 
-For local development or if you've cloned this repo:
+Verify with `/agents` — you should see 13 subagents. Update later with `/plugin marketplace update bettersense`.
+
+### Via `--plugin-dir` (local development)
 
 ```bash
 claude --plugin-dir /path/to/bettersense/plugin
 ```
 
-After installation, run `/reload-plugins` (or restart Claude Code), then verify with `/agents` — you should see 13 subagents.
+Run `/reload-plugins` after changes. Skills pick up immediately; non-trivial changes (new agents, hooks) may need a session restart.
 
-### As standalone (alternative)
+### As standalone (no namespace prefix)
 
-If you'd rather drop the skills directly into `~/.claude/` without the plugin namespace prefix, see the [root README](../readme.md) for the symlink-based install via `scripts/install.sh`.
+If you'd rather use skills without the `bettersense:` prefix, see the [root README](../readme.md) for the symlink-based install via `scripts/install.sh`.
 
 ## First-time setup (5 minutes)
 

@@ -1,0 +1,22 @@
+{
+  "name": "bettersense",
+  "description": "Opinionated Claude Code skills and agents for AI PMs, Engineering Managers, TPMs, and senior ICs leading without authority.",
+  "owner": {
+    "name": "Shwetank Dixit"
+  },
+  "plugins": [
+    {
+      "name": "bettersense",
+      "source": "./plugin",
+      "description": "30 skills + 13 agents for technical leaders building and leading in the age of AI. Covers AI product craft, people leadership, stakeholder reflection, program coordination, and longitudinal self-reflection.",
+      "author": {
+        "name": "Shwetank Dixit"
+      },
+      "homepage": "https://bettersense.ai",
+      "repository": "https://github.com/shwetank/bettersense",
+      "license": "CC-BY-SA-4.0",
+      "category": "productivity",
+      "keywords": ["ai-pm", "engineering-manager", "tpm", "leadership", "reflection", "skills"]
+    }
+  ]
+}
