@@ -5,7 +5,9 @@ description: A complete map of where bettersense reads from and writes to on you
 
 ## Plugin files (installed, not private)
 
-These are the skill and agent definition files. They live wherever you installed the bundle:
+These are the skill and agent definition files. They live wherever you installed the bundle.
+
+**macOS / Linux / WSL:**
 
 | Install method | Location |
 |---|---|
@@ -14,7 +16,17 @@ These are the skill and agent definition files. They live wherever you installed
 | Manual `cp` (user scope) | `~/.claude/skills/` and `~/.claude/agents/` |
 | `--plugin-dir` (ephemeral) | Wherever you pointed `--plugin-dir` |
 
-Symlink installs point back into the repo: `~/.claude/skills/wins-log` → `/path/to/bettersense/plugin/skills/wins-log/`.
+**Windows (PowerShell, native):**
+
+| Install method | Location |
+|---|---|
+| Marketplace / symlink (user scope) | `$HOME\.claude\skills\` and `$HOME\.claude\agents\` |
+| Symlink (project scope) | `.\.claude\skills\` and `.\.claude\agents\` |
+| Manual copy (user scope) | `$HOME\.claude\skills\` and `$HOME\.claude\agents\` |
+
+On Windows, `$HOME` resolves to `C:\Users\<YourName>`. The `.claude` directory in your home folder is where Claude Code reads installed skills, regardless of platform.
+
+Symlink installs (macOS/Linux/WSL) point back into the repo: `~/.claude/skills/wins-log` → `/path/to/bettersense/plugin/skills/wins-log/`.
 
 ---
 

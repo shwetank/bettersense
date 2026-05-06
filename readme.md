@@ -141,6 +141,8 @@ To update later: `/plugin marketplace update bettersense`
 
 ### Symlink-based install (recommended for development / standalone)
 
+**macOS / Linux / WSL:**
+
 ```bash
 git clone https://github.com/shwetank/bettersense.git
 cd bettersense
@@ -152,27 +154,48 @@ scripts/install.sh
 scripts/install.sh --scope=project
 ```
 
+**Windows (PowerShell):** Requires Developer Mode (Settings → System → Developer Mode) or admin elevation for symlink creation.
+
+```powershell
+git clone https://github.com/shwetank/bettersense.git
+cd bettersense
+.\scripts\install.ps1           # user scope
+.\scripts\install.ps1 -Scope project
+```
+
 The script creates symlinks from `~/.claude/{skills,agents}/` (or `./.claude/...` for project scope) back into this repo. Three benefits:
 
 1. **Updates are free** — `git pull` updates your installed skills automatically.
-2. **You can identify bundle items at a glance** — any symlink in `~/.claude/skills/` or `~/.claude/agents/` pointing into this repo is from this bundle. Run:
+2. **You can identify bundle items at a glance** — macOS/Linux:
    ```bash
    find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*bettersense*"
    ```
-3. **Clean uninstall** — `scripts/uninstall.sh` removes only items that are symlinks into this repo. Skills you wrote yourself or installed from elsewhere are untouched. Add `--hard-uninstall` if you previously installed via plain `cp` and want copies removed too (with per-item confirmation).
+   Windows (PowerShell):
+   ```powershell
+   Get-ChildItem "$HOME\.claude\skills","$HOME\.claude\agents" | Where-Object { $_.LinkType -eq 'SymbolicLink' -and $_.Target -like '*bettersense*' }
+   ```
+3. **Clean uninstall** — `scripts/uninstall.sh` (or `uninstall.ps1` on Windows) removes only items that are symlinks into this repo. Skills you wrote yourself or installed from elsewhere are untouched.
 
-The script will prompt before doing anything. Existing skills with the same name are skipped by default; pass `--force` to overwrite.
+The script will prompt before doing anything. Existing skills with the same name are skipped by default; pass `--force` (bash) or `-Force` (PowerShell) to overwrite.
 
-### Alternative: manual `cp`
+### Alternative: manual copy
 
-If you prefer copies over symlinks (e.g. to vendor a frozen version of the bundle into your config and edit it independently):
+If you prefer copies over symlinks (no admin needed, frozen snapshot):
 
+**macOS / Linux / WSL:**
 ```bash
 cd bettersense/plugin
-
 mkdir -p ~/.claude/skills ~/.claude/agents
 cp -r skills/* ~/.claude/skills/
 cp agents/*.md ~/.claude/agents/
+```
+
+**Windows (PowerShell):**
+```powershell
+cd bettersense\plugin
+New-Item -ItemType Directory -Force "$HOME\.claude\skills","$HOME\.claude\agents"
+Copy-Item -Recurse skills\* "$HOME\.claude\skills\"
+Copy-Item agents\*.md "$HOME\.claude\agents\"
 ```
 
 Tradeoff: no automatic updates, and identifying bundle items later requires consulting [`MANIFEST.md`](MANIFEST.md) at the repo root.
@@ -219,15 +242,23 @@ Invoke the skill; if you see the marker, the change is live. Remove it once conf
 
 ### Uninstall
 
+**macOS / Linux / WSL:**
 ```bash
-# From the repo root:
-scripts/uninstall.sh                  # removes symlinks into this repo from ~/.claude/
+scripts/uninstall.sh                  # removes symlinks from ~/.claude/
 scripts/uninstall.sh --scope=project  # removes from ./.claude/ instead
-scripts/uninstall.sh --dry-run        # show what would be removed, don't touch anything
+scripts/uninstall.sh --dry-run        # preview without removing
 scripts/uninstall.sh --hard-uninstall # also offer to remove copies (one prompt per item)
 ```
 
-Your reflection data at `~/bettersense-work-reflections/` is **not** touched by uninstall. The data is yours; remove it manually if you want.
+**Windows (PowerShell):**
+```powershell
+.\scripts\uninstall.ps1
+.\scripts\uninstall.ps1 -Scope project
+.\scripts\uninstall.ps1 -WhatIf        # preview without removing
+.\scripts\uninstall.ps1 -HardUninstall # also offer to remove copies
+```
+
+Your reflection data at `~/bettersense-work-reflections/` (or `$HOME\bettersense-work-reflections\` on Windows) is **not** touched by uninstall. The data is yours; remove it manually if you want.
 
 ## Setup: data directory, environment, and scheduling
 
@@ -250,14 +281,29 @@ The rest of this section walks through each step with the exact commands.
 
 ### 1. Data directory
 
-By default, all reflection data lives at `~/bettersense-work-reflections/` — outside any repo, on your local machine only, gitignored by the skill on first run. Override with the env var if you want:
+By default, all reflection data lives at `~/bettersense-work-reflections/` (macOS/Linux) or `$HOME\bettersense-work-reflections\` (Windows) — outside any repo, on your local machine only, gitignored by the skill on first run. Override with the env var if you want a different location (e.g. an encrypted volume):
+
+**macOS / Linux / WSL:**
 
 ```bash
-# Optional: choose a different location (e.g., an encrypted volume)
 export BETTERSENSE_WORK_REFLECTIONS_HOME="$HOME/Encrypted/bettersense-work-reflections"
 
-# Persist for future shells
+# Persist across sessions — add to ~/.zshrc (macOS) or ~/.bashrc (Linux/WSL)
 echo 'export BETTERSENSE_WORK_REFLECTIONS_HOME="$HOME/Encrypted/bettersense-work-reflections"' >> ~/.zshrc
+```
+
+**Windows (PowerShell):**
+
+```powershell
+# Current session only
+$env:BETTERSENSE_WORK_REFLECTIONS_HOME = "$HOME\Encrypted\bettersense-work-reflections"
+
+# Persist across sessions (writes to user environment)
+[System.Environment]::SetEnvironmentVariable(
+    'BETTERSENSE_WORK_REFLECTIONS_HOME',
+    "$HOME\Encrypted\bettersense-work-reflections",
+    'User'
+)
 ```
 
 You don't need to create the directory yourself — `stakeholder-register` does it on first run, with a privacy `README.md` and `.gitignore` inside. Just open Claude Code and:
@@ -428,39 +474,164 @@ Reads across the month of pulses and surfaces trends, anomalies, regime shifts, 
 
 ### 5. OS-level scheduling fallback (no `/schedule` required)
 
-If you don't have the `/schedule` skill installed and don't want to add it, OS-level scheduling works for everyone. You invoke `claude` headlessly with the skill as a prompt, redirect output to a log file you can check later (or read inside Claude Code).
+If you don't have the `/schedule` skill installed and don't want to add it, OS-level scheduling works on every platform. You invoke `claude` headlessly with the skill as a prompt, and redirect output to a log file you can check later.
 
-**macOS / Linux (cron):**
+Create the log directory first:
+
+```bash
+# macOS / Linux / WSL
+mkdir -p ~/bettersense-logs
+
+# Windows (PowerShell)
+New-Item -ItemType Directory -Force "$HOME\bettersense-logs"
+```
+
+---
+
+**macOS / Linux / WSL — cron:**
 
 ```bash
 # Edit your crontab
 crontab -e
 
 # Friday 4pm — wins nudge
-0 16 * * 5 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:wins-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 16 * * 5  claude -p "run /bettersense:wins-due" >> ~/bettersense-logs/wins-due.log 2>&1
 
 # Monday 9am — stakeholder due-list
-0 9 * * 1 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:stakeholder-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 9  * * 1  claude -p "run /bettersense:stakeholder-due" >> ~/bettersense-logs/stakeholder-due.log 2>&1
 
 # Sunday 6pm — patterns watch
-0 18 * * 0 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:patterns-watch" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 18 * * 0  claude -p "run /bettersense:patterns-watch" >> ~/bettersense-logs/patterns-watch.log 2>&1
 
 # Monday 8am — product pulse (default area)
-0 8 * * 1 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:product-pulse" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 8  * * 1  claude -p "run /bettersense:product-pulse" >> ~/bettersense-logs/product-pulse.log 2>&1
 ```
 
-**macOS (`launchd`):** for users who prefer `launchd` over cron. Create `.plist` files in `~/Library/LaunchAgents/`. The pattern is the same — invoke `claude -p "<command>"` on a schedule.
+If `claude` isn't found by cron, use the absolute path: run `which claude` in your terminal and substitute (e.g. `/usr/local/bin/claude`).
 
-**Windows (Task Scheduler):** create a scheduled task that runs `claude` with the `-p` flag and the skill prompt. Same pattern, different UI.
+---
 
-**Caveats and tips for OS-level scheduling:**
+**macOS — launchd (alternative to cron):**
 
-- **Verify the headless flag.** I'm assuming `claude -p "<prompt>"` is the right non-interactive invocation. Run `claude --help` in your terminal to confirm; if the flag is different (`-c`, `--prompt`, etc.), substitute it. If your Claude Code build doesn't support headless invocation at all, OS-level scheduling won't work — you'll need the `/schedule` skill or accept on-demand-only use.
-- **Read the log periodically.** Output goes to `~/bettersense-work-reflections/scheduled-output.log` (or wherever you redirect). Pair every cron entry with a calendar reminder titled *"Read this week's scheduled output"* — same external-reminder pattern as before.
-- **Authentication.** If `claude -p` requires you to be logged in, your cron-driven runs need a fresh auth token. May fail silently otherwise.
-- **Debugging.** If a cron entry seems to not run, check `cron`'s own log (`grep CRON /var/log/syslog` on Linux, `log show --predicate 'process == "cron"'` on macOS). PATH issues are common — cron runs with a minimal environment, so use absolute paths if `claude` isn't found.
+launchd survives sleep/wake cycles and respects login sessions better than cron. Create a `.plist` at `~/Library/LaunchAgents/ai.bettersense.wins-due.plist`:
 
-OS-level scheduling is less integrated than `/schedule` (no `/schedule list` to see your routines, no inside-Claude-Code management) but works without any extra plugin and is portable across machines.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>ai.bettersense.wins-due</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/claude</string>
+    <string>-p</string>
+    <string>run /bettersense:wins-due</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Weekday</key><integer>5</integer>
+    <key>Hour</key><integer>16</integer>
+    <key>Minute</key><integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/YOUR_USERNAME/bettersense-logs/wins-due.log</string>
+  <key>RunAtLoad</key><false/>
+</dict>
+</plist>
+```
+
+Replace `/usr/local/bin/claude` with `which claude` output and `YOUR_USERNAME` with your macOS username. Load it:
+
+```bash
+launchctl load ~/Library/LaunchAgents/ai.bettersense.wins-due.plist
+launchctl list | grep bettersense  # verify
+```
+
+Duplicate the file for each skill, changing the `Label`, `ProgramArguments`, `StartCalendarInterval`, and `StandardOutPath` fields.
+
+---
+
+**Linux — systemd user timers (alternative to cron):**
+
+More observable than cron — you can check status, last run time, and logs.
+
+Create `~/.config/systemd/user/bettersense-wins.service`:
+
+```ini
+[Unit]
+Description=bettersense wins nudge
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/claude -p "run /bettersense:wins-due"
+StandardOutput=append:%h/bettersense-logs/wins-due.log
+StandardError=append:%h/bettersense-logs/wins-due.log
+```
+
+Create `~/.config/systemd/user/bettersense-wins.timer`:
+
+```ini
+[Unit]
+Description=Run bettersense wins nudge every Friday
+
+[Timer]
+OnCalendar=Fri *-*-* 16:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+Enable and start:
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable --now bettersense-wins.timer
+systemctl --user list-timers  # verify
+```
+
+Use `%h` (expands to home directory) rather than `~` inside systemd unit files.
+
+---
+
+**Windows — Task Scheduler (PowerShell):**
+
+```powershell
+$action = New-ScheduledTaskAction `
+    -Execute "claude" `
+    -Argument "-p `"run /bettersense:wins-due`""
+
+$trigger = New-ScheduledTaskTrigger `
+    -Weekly -DaysOfWeek Friday -At "4:00PM"
+
+$settings = New-ScheduledTaskSettingsSet `
+    -StartWhenAvailable -RunOnlyIfNetworkAvailable
+
+Register-ScheduledTask `
+    -TaskName "bettersense-wins-due" `
+    -Action $action `
+    -Trigger $trigger `
+    -Settings $settings `
+    -Description "bettersense weekly wins nudge"
+```
+
+Repeat for each skill, changing `-TaskName`, `-Argument`, and `-Trigger`. To list all registered bettersense tasks:
+
+```powershell
+Get-ScheduledTask | Where-Object { $_.TaskName -like 'bettersense*' }
+```
+
+Prefer Task Scheduler over Windows Subsystem for Linux scheduling if you installed Claude Code natively on Windows. If you're running everything inside WSL, use the cron/systemd instructions above inside your WSL environment.
+
+---
+
+**Caveats that apply to all platforms:**
+
+- **Verify the headless flag.** `claude -p "<prompt>"` is the non-interactive invocation. Run `claude --help` to confirm. If headless isn't supported, OS-level scheduling won't work — use the `/schedule` skill or on-demand-only.
+- **Authentication.** If `claude -p` requires you to be logged in, scheduled runs need a valid session token. May fail silently if the token has expired.
+- **Debugging cron:** `grep CRON /var/log/syslog` (Linux) or `log show --predicate 'process == "cron"'` (macOS). PATH issues are common — cron runs with a minimal environment.
+
+OS-level scheduling is less integrated than `/schedule` (no `/schedule list` to manage routines inside Claude Code) but works without any extra plugin and is portable across machines.
 
 ### 6. Listing and managing your schedules
 
