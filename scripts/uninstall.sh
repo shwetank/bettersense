@@ -60,15 +60,15 @@ fi
 BUNDLE_SKILL_NAMES=()
 BUNDLE_AGENT_NAMES=()
 
-if [ -d "$REPO_ROOT/ai-technical-pm/skills" ]; then
+if [ -d "$REPO_ROOT/plugin/skills" ]; then
   while IFS= read -r d; do
     BUNDLE_SKILL_NAMES+=("$(basename "$d")")
-  done < <(find "$REPO_ROOT/ai-technical-pm/skills" -maxdepth 1 -mindepth 1 -type d)
+  done < <(find "$REPO_ROOT/plugin/skills" -maxdepth 1 -mindepth 1 -type d)
 fi
-if [ -d "$REPO_ROOT/ai-technical-pm/agents" ]; then
+if [ -d "$REPO_ROOT/plugin/agents" ]; then
   while IFS= read -r f; do
     BUNDLE_AGENT_NAMES+=("$(basename "$f")")
-  done < <(find "$REPO_ROOT/ai-technical-pm/agents" -maxdepth 1 -name "*.md")
+  done < <(find "$REPO_ROOT/plugin/agents" -maxdepth 1 -name "*.md")
 fi
 
 # ---------- pre-flight ----------

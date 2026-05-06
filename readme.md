@@ -19,7 +19,7 @@ Each skill is a reusable framework Claude consults when context matches. Each su
 
 ```
 bettersense/
-├── ai-technical-pm/
+├── plugin/
 │   ├── skills/
 │   │   ├── ai-pm-frameworks/SKILL.md
 │   │   ├── coaching-mode/SKILL.md
@@ -155,7 +155,7 @@ The script will prompt before doing anything. Existing skills with the same name
 If you prefer copies over symlinks (e.g. to vendor a frozen version of the bundle into your config and edit it independently):
 
 ```bash
-cd bettersense/ai-technical-pm
+cd bettersense/plugin
 
 mkdir -p ~/.claude/skills ~/.claude/agents
 cp -r skills/* ~/.claude/skills/
@@ -409,16 +409,16 @@ If you don't have the `/schedule` skill installed and don't want to add it, OS-l
 crontab -e
 
 # Friday 4pm — wins nudge
-0 16 * * 5 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:wins-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 16 * * 5 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:wins-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Monday 9am — stakeholder due-list
-0 9 * * 1 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:stakeholder-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 9 * * 1 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:stakeholder-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Sunday 6pm — patterns watch
-0 18 * * 0 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:patterns-watch" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 18 * * 0 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:patterns-watch" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Monday 8am — product pulse (default area)
-0 8 * * 1 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:product-pulse" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 8 * * 1 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:product-pulse" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 ```
 
 **macOS (`launchd`):** for users who prefer `launchd` over cron. Create `.plist` files in `~/Library/LaunchAgents/`. The pattern is the same — invoke `claude -p "<command>"` on a schedule.

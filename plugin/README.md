@@ -23,7 +23,7 @@ If installed via a marketplace:
 For local development or if you've cloned this repo:
 
 ```bash
-claude --plugin-dir /path/to/bettersense/ai-technical-pm
+claude --plugin-dir /path/to/bettersense/plugin
 ```
 
 After installation, run `/reload-plugins` (or restart Claude Code), then verify with `/agents` — you should see 13 subagents.
@@ -62,10 +62,10 @@ Several skills are designed to fire on a schedule. **Important: `/schedule` is n
 
 ```bash
 # Friday 4pm — wins nudge
-0 16 * * 5 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:wins-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 16 * * 5 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:wins-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 
 # Monday 9am — stakeholder due-list
-0 9 * * 1 cd ~/git/bettersense && claude --plugin-dir ./ai-technical-pm -p "/bettersense:stakeholder-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
+0 9 * * 1 cd ~/git/bettersense && claude --plugin-dir ./plugin -p "/bettersense:stakeholder-due" >> ~/bettersense-work-reflections/scheduled-output.log 2>&1
 ```
 
 Verify your Claude Code supports headless invocation (`claude -p "<prompt>"`) before relying on this — run `claude --help` if unsure.

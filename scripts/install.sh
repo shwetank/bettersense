@@ -38,7 +38,7 @@ for arg in "$@"; do
   esac
 done
 
-BUNDLE_DIR="ai-technical-pm"
+BUNDLE_DIR="plugin"
 
 # ---------- paths ----------
 

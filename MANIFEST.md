@@ -2,7 +2,7 @@
 
 This file lists every skill and agent that ships with this bundle. Use it to identify which items in `~/.claude/skills/` and `~/.claude/agents/` came from this repo (vs. skills you wrote yourself or installed from other sources).
 
-The bundle contains **30 skills** and **13 agents**, all inside `ai-technical-pm/`.
+The bundle contains **30 skills** and **13 agents**, all inside `plugin/`.
 
 ## How to identify bundle items in your Claude Code install
 
