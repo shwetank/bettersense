@@ -3,7 +3,7 @@ title: Skills overview
 description: The full skill catalog organized by category, plus the anchor-file pattern that makes skills compound over time.
 ---
 
-bettersense has 30 skills organized into five categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
+bettersense has 32 skills organized into five categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
 
 ## The anchor-file pattern
 
@@ -44,11 +44,12 @@ Neither is required. Skills work without them — outputs are just more generic 
 
 ---
 
-### Strategy (4 skills)
+### Strategy (5 skills)
 
 | Skill | What it does |
 |---|---|
 | `strategy-doc` | Interview-driven strategy doc — target problem, personas, SMART metrics, tracks, "not working on", counter-metrics. |
+| `impact-audit` | Stress-test whether a team's work is connected to something the business cares about — budget test, death spiral check, goal distance check. Run before strategy-doc or prioritization. |
 | `product-pulse` | Dated one-page pulse report — usage, system health, AI signals, counter-metrics, ≤3 follow-up investigations. |
 | `pulse-synthesize` | Read accumulated pulse reports over a time window and surface trends, anomalies, regime shifts — with citations. |
 | `user-profile` | Anchor file — who you are. Created once, read automatically by 8+ skills. |
@@ -73,7 +74,7 @@ Neither is required. Skills work without them — outputs are just more generic 
 
 ---
 
-### People leadership (8 skills)
+### People leadership (9 skills)
 
 | Skill | What it does |
 |---|---|
@@ -85,6 +86,7 @@ Neither is required. Skills work without them — outputs are just more generic 
 | `report-career-architect` | 12-18 month growth plan for a report — gaps, sequenced experiences, manager moves, risks. |
 | `report-promo-case` | Panel-ready promotion packet with cited evidence, calibrated solo/shared credit, pre-empted objections. |
 | `team-diagnosis` | Multi-dimensional team health check across eight dimensions — green/yellow/red with cited evidence and top-3 risks. |
+| `engineering-health` | Engineering systems diagnostic — SPACE-based productivity read, onboarding time as a leading indicator, DevEx friction identification, platform investment case. Runs after team-diagnosis when technical health needs a deeper look. |
 
 [Full people leadership docs →](/skills/people-leadership)
 

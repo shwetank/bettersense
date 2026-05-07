@@ -25,8 +25,10 @@ bettersense/
 │   │   ├── coaching-mode/SKILL.md
 │   │   ├── decision-log/SKILL.md
 │   │   ├── demo-prep/SKILL.md
+│   │   ├── engineering-health/SKILL.md
 │   │   ├── feedback-frameworks/SKILL.md
 │   │   ├── hiring-craft/SKILL.md
+│   │   ├── impact-audit/SKILL.md
 │   │   ├── influence-without-authority/SKILL.md
 │   │   ├── leadership-os/SKILL.md
 │   │   ├── metrics-design/SKILL.md
@@ -77,8 +79,10 @@ bettersense/
 | `coaching-mode` | Forcing function that flips the assistant into ask-not-tell mode for development conversations with reports. Stays in question-mode for at least 5 turns, applies the GROW frame, pushes back when the user tries to prescribe instead of helping the report work it out. |
 | `decision-log` | Capturing meaningful product/technical decisions in an ADR-style format with reversibility, rationale, and revisit triggers. Especially load-bearing for AI decisions tied to specific model versions. |
 | `demo-prep` | Five-pass prep for high-stakes demos: headline, audience, pre-mortem, script, and Q&A — with extra hazard-handling for AI-feature demos. |
+| `engineering-health` | Assesses the engineering systems layer — SPACE-based productivity diagnostic, onboarding time as a leading indicator, developer experience friction identification, and making the case for platform investment. Designed to run alongside or after `team-diagnosis`. |
 | `feedback-frameworks` | Drafting and pressure-testing feedback for reports, peers, and stakeholders using the COIN structure (Connection → Observation → Impact → Next steps) and the SOLID quality checklist. |
 | `hiring-craft` | Treats hiring as craft, not vibes — designing interview loops with explicit signals, writing rubrics with behavioral anchors, and running calibrated debriefs (silent vote first, junior voices first, signal-by-signal walk-through). |
+| `impact-audit` | Stress-tests whether a team's work is actually connected to something the business cares about — runs the budget test, death spiral check, and goal distance check. Designed to run before `strategy-doc` or `prioritization-frameworks`, when the question is "are we even pointed at the right thing?" |
 | `influence-without-authority` | For TPMs, staff engineers, and senior ICs leading people who don't report to them. Diagnoses positions vs. interests, applies the currencies model, sequences coalitions, and is opinionated about legitimate vs. manipulative influence patterns. |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
 | `metrics-design` | Designs the metric tree for an AI feature — north star, leading/lagging, and the counter-metrics that catch Goodhart-style failures where you optimize the model into a worse product. |
@@ -856,7 +860,7 @@ This was originally a "Wins at Work" feature inside the [Voohy](https://voohy.co
 
 ## For engineering managers: the management-craft bundle
 
-Six skills (`hiring-craft`, `performance-management`, `coaching-mode`, `report-career-architect`, `report-promo-case`, `team-diagnosis`) and one agent (`the-rfc-reviewer`) form a tighter system aimed at the highest-stakes work an engineering manager does — the work most managers do loosely because nobody handed them a forcing function for it.
+Seven skills (`hiring-craft`, `performance-management`, `coaching-mode`, `report-career-architect`, `report-promo-case`, `team-diagnosis`, `engineering-health`) and one agent (`the-rfc-reviewer`) form a tighter system aimed at the highest-stakes work an engineering manager does — the work most managers do loosely because nobody handed them a forcing function for it.
 
 These compose with the rest of the bundle but earn their keep on their own. The premise is simple: world-class EMs do a few things deliberately that average ones do by tribal habit. Hiring is a craft, not a vibes-check. Performance management has a ladder, not a single mode of "give more feedback." Coaching is asking, not telling. Promotions are panel-ready written cases, not pitches. Team health is multi-dimensional, not a vibe. And design-doc reviews can be rigorous without the user being a senior staff engineer themselves.
 
@@ -864,7 +868,7 @@ These compose with the rest of the bundle but earn their keep on their own. The 
 
 1. **Hiring season.** *"We're opening a Staff Eng req."* → `hiring-craft` (loop design mode) maps signals to slots, writes the rubric with behavioral anchors, and structures the debrief discipline. Six weeks later: *"Help me run the debrief."* → same skill, debrief mode, with silent-vote-first and round-robin structure. After hire: `stakeholder-register` brings the new report into the reflection system from day one.
 2. **Onboarding into growth.** First 60 days: *"Build a 12-month growth plan for the new hire."* → `report-career-architect` reads what's accumulated in `stakeholder-reflect`, asks where they're growing toward, produces a sequenced plan with the *manager moves* (what the user has to stop doing) named explicitly.
-3. **Quarterly health check.** *"Before my skip-level update, give me a structured read on the team."* → `team-diagnosis` walks eight dimensions (delivery, attrition, dependency tax, on-call, peers, info flow, technical health, culture) with cited evidence and top-3 actionable risks.
+3. **Quarterly health check.** *"Before my skip-level update, give me a structured read on the team."* → `team-diagnosis` walks eight dimensions (delivery, attrition, dependency tax, on-call, peers, info flow, technical health, culture) with cited evidence and top-3 actionable risks. When the diagnosis flags technical health as red, `engineering-health` goes deeper: SPACE-based productivity diagnostic, onboarding time as a leading indicator, developer experience friction, and how to make the case for platform investment.
 4. **The hard conversation.** *"I have a report who's been underperforming for three months."* → `performance-management` diagnoses the stage on the ladder, distinguishes coachable gap from PIP-territory, walks through the documentation discipline and the conversation script — composes with `feedback-frameworks` for the COIN delivery.
 5. **The development conversation.** *"Help me coach my report through whether to take the staff role."* → `coaching-mode` flips to ask-not-tell, applies GROW, pushes back when the user prescribes through leading questions.
 6. **Promo cycle.** *"Submit Draymond for staff this cycle."* → `report-promo-case` reads the year of stakeholder-reflect entries plus the executed growth plan, produces a panel-ready written case with cited evidence per dimension, surfaces gaps as pre-submission targets, pre-empts likely objections.

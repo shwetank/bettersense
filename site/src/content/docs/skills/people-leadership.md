@@ -1,9 +1,9 @@
 ---
 title: People leadership
-description: Eight skills for engineering managers and technical leaders — coaching, feedback, performance, hiring, promotions, and team health.
+description: Nine skills for engineering managers and technical leaders — coaching, feedback, performance, hiring, promotions, team health, and engineering systems.
 ---
 
-Six of these skills (`hiring-craft`, `performance-management`, `coaching-mode`, `report-career-architect`, `report-promo-case`, `team-diagnosis`) form a tighter set aimed at the highest-stakes work an engineering manager does — the work most managers do loosely because nobody handed them a forcing function for it.
+Seven of these skills (`hiring-craft`, `performance-management`, `coaching-mode`, `report-career-architect`, `report-promo-case`, `team-diagnosis`, `engineering-health`) form a tighter set aimed at the highest-stakes work an engineering manager does — the work most managers do loosely because nobody handed them a forcing function for it.
 
 **The opinionation is real.** `performance-management` will not let you describe a Stage 3 problem in Stage 1 language. `coaching-mode` will not let you prescribe in the first 5 turns. `hiring-craft` will not let you run a debrief without silent votes first.
 
@@ -151,4 +151,46 @@ Multi-dimensional team health check across eight dimensions:
 
 Output: green / yellow / red across all eight, with cited evidence and top-3 risks worth acting on this quarter.
 
-Reads from `stakeholder-reflect` (managing-down) and composes with `report-career-architect` for individual context.
+Reads from `stakeholder-reflect` (managing-down) and composes with `report-career-architect` for individual context. When the technical health dimension comes up red, trigger `engineering-health` for the deeper systems read.
+
+---
+
+## `engineering-health`
+
+**Triggers:** "is my team actually productive?", "assess developer experience on my team", "how do I measure engineering productivity?", "I need to justify platform team investment", "our onboarding is too slow"
+
+Reads the **engineering systems layer** — not team morale or culture (that's `team-diagnosis`), but whether the tooling, processes, and infrastructure support the people building in them. Inspired by Nicole Forsgren's DORA and SPACE research.
+
+### The core principle: constellation, not solo metrics
+
+Any single metric will mislead. PR count punishes senior engineers doing architecture and mentorship. Lines of code rewards verbosity. Use at least three categories of signal together.
+
+### The SPACE diagnostic
+
+| Dimension | What it reads |
+|---|---|
+| **S**atisfaction | Ask directly: where do you feel friction? People can surface problems dashboards miss — especially at system handoff points. |
+| **P**erformance (outcomes) | Build stability, deployment success rate, security outcomes, incident rate. What is the system producing? |
+| **A**ctivity | PR counts, commits, deployments. Useful in context, misleading in isolation. Senior-heavy teams will have lower raw counts. |
+| **C**ommunication & collaboration | Meeting load, API reliability, PR review time, whether information reaches people who need it. |
+| **E**fficiency & flow | Build time, time waiting for PR review, deployment pipeline duration, time to provision an environment. DORA's four metrics (deployment frequency, lead time, change failure rate, time to restore) are a well-validated instance of this category. |
+
+### Onboarding time as a leading indicator
+
+Time to first meaningful commit from a new hire is one of the most reliable signals of how navigable the engineering system is. A long ramp isn't a people problem — it's a systems problem.
+
+**What good looks like:** A trivial-but-real PR (fix a title, add a test, update a doc) within the first one or two weeks. Research at Microsoft found this kind of early commit increases productivity by 30–50% across the rest of the year.
+
+**The internal transfer test:** If moving to a new team within the same company takes nearly as long as starting fresh, that's a red flag. The tooling, documentation, and context aren't portable.
+
+### Developer experience friction
+
+Where dashboards say "fine" but the lived experience is painful. The skill asks directly: *"What's the most annoying thing about getting work done right now?"* and *"Where do you find yourself doing repetitive manual steps that shouldn't be manual?"*
+
+Common patterns: access approval bottlenecks, systems that appear integrated but require manual coordination at every handoff, tooling fast for reporting but slow for the developer.
+
+### Making the case for platform investment
+
+When the diagnosis shows engineering systems are the bottleneck: use data and story together. Numbers alone are abstract; stories alone are dismissed as one-offs. 
+
+Key move: be explicit about what "good enough" looks like before asking for investment. Pre-empts the "bottomless problem" objection and frames the conversation as a scoped, tractable investment rather than an open-ended budget request.

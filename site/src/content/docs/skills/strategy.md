@@ -1,9 +1,47 @@
 ---
 title: Strategy
-description: Skills for creating strategic anchors, running product pulse reports, and synthesizing trends over time.
+description: Skills for stress-testing strategic alignment, creating strategic anchors, running product pulse reports, and synthesizing trends over time.
 ---
 
-Four skills form the strategy layer: one for creating the anchor, one for recurring health checks, one for synthesizing trends, and one for your personal profile. Together they give the rest of the bundle the context it needs to produce output that's calibrated to your situation.
+Five skills form the strategy layer: a pre-strategy diagnostic, an anchor for what you're building, recurring health checks, trend synthesis, and your personal profile. Together they give the rest of the bundle the context it needs to produce output that's calibrated to your situation.
+
+---
+
+## `impact-audit`
+
+**Triggers:** "are we doing the right work?", "I'm worried my team isn't driving real impact", "help me check if my team is aligned", "I'm worried about layoffs", "stress-test our goals"
+
+Runs a diagnostic on whether a team's work is genuinely connected to business outcomes. Run this *before* `strategy-doc` or `prioritization-frameworks` — it answers "are we even pointed at the right thing?" Inspired by Matt LeMay's *Impact First Product Teams* framework.
+
+### The three diagnostic questions
+
+**1. The budget stress test**
+
+> "If the person who controls your team's budget had to justify it from scratch today, could they? Would they?"
+
+Watch for hedged answers: "I think so," "probably," "I mean…" — those are the signal. A confident yes means move on; anything less means spend time here.
+
+*(In large orgs — Google, Microsoft, Philips-scale — substitute "the exec who controls your budget" for "CEO." The principle is the same: someone with authority should be able to justify the team without hesitation.)*
+
+**2. The death spiral check**
+
+Teams fall into low-impact work gradually. It starts with small, safe additions that invite no scrutiny — and compounds: the product gets crowded, complexity grows, doing anything high-impact gets harder.
+
+Ask: *"What has your team shipped in the last two quarters? Would those things be missed if they hadn't been built?"*
+
+Listen for: work that was "requested" but where business impact is unclear, features that shipped but outcomes were never tracked, a roadmap driven by stakeholder asks rather than a goal.
+
+**3. The goal distance check**
+
+> "Can you state your team's primary goal and connect it to a real business outcome in one step?"
+
+One step means one mathematical operator. "We convert single-product users to multi-product — each conversion is worth £X in lifetime value, so our goal contributes £Y" ✓. "We improve onboarding which improves retention which improves revenue" ✗ (too many steps).
+
+### If the audit surfaces problems
+
+1. Set team goals no more than one step from the nearest meaningful business goal
+2. Keep impact first at every stage, not just goal-setting — when scoping sprints, keep asking: how does this connect to the goal?
+3. Express impact in the same unit as your goal — if the goal is users converted, estimate in users converted, not abstract scores
 
 ---
 
