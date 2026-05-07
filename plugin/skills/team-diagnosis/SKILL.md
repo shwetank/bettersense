@@ -80,6 +80,8 @@ Where is the codebase / infrastructure / ops health degrading? Look for:
 - Tech debt that gets discussed but not addressed
 - Velocity slowing not because of people but because of system friction
 - Specific systems people dread touching
+- **Onboarding time** — how long does it take a new hire to make their first meaningful commit? A long ramp is often the clearest signal that the engineering system is hard to navigate, not that the people are slow. A secondary check: does internal transfer onboarding take nearly as long as new-hire onboarding? If so, the tooling, docs, and context don't travel and have to be re-learned each time.
+- **Developer experience friction** — where are the manual handoffs that look automated? What do developers say it *feels like* to do the work? The places where dashboards look fine but the lived experience is painful (approval bottlenecks, broken integrations between systems, repetitive setup) often don't surface without asking directly. If a deeper diagnosis is needed here, trigger `engineering-health`.
 
 ### 8. Culture and norms
 The hardest to measure but the highest-leverage. Look for:
