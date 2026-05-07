@@ -34,8 +34,13 @@ Default picker (when the user gave no specific topic):
 4. Deprioritize questions answered in the last 3 days regardless of cadence.
 5. Take the top N (default 2; 3 if the user said they have time; 1 if "quick").
 
-Show the picks to the user before drilling in:
-> *"Here's what feels worth thinking about for John today: 1) What's been their feedback to you (you haven't logged on this in 5 weeks), 2) What questions from them can you anticipate (weekly cadence, last logged 11 days ago). Sound right, or want to swap one?"*
+Show the picks to the user before drilling in. Always include a one-line plain-language explanation of the mode labels — users are rarely familiar with the ask/sense/askandsense distinction and will be confused without it:
+- **ask** — you need to get this directly from them; the point of reflecting now is to plan the question or log what you already heard
+- **sense** — their stated answer would be unreliable here; read their behavior, tone, and choices instead
+- **askandsense** — some of this you get by asking, some only by watching; cover both
+
+Then present the picks:
+> *"Here's what feels worth thinking about for John today: 1) What's been their feedback to you — this is an **ask/sense** question, meaning you'll need to combine what they've told you with what you've observed (you haven't logged on this in 5 weeks). 2) What questions from them can you anticipate — this is a **sense** question, meaning you work out the answer yourself by reading their patterns, not by asking them (weekly cadence, last logged 11 days ago). Sound right, or want to swap one?"*
 
 If the user redirected to a topic, skip the picker and find the closest matching questions in the library.
 
