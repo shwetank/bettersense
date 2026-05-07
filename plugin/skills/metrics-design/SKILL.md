@@ -71,7 +71,7 @@ A subset of counter-metrics with explicit thresholds: "if hallucination rate > 5
 
 When they ask for a metric tree:
 
-1. **Force the north-star sentence first.** Get them to write one sentence: "If this feature works, [user] will be able to [outcome] [measurable change]." Push back on outputs disguised as outcomes.
+1. **Force the north-star sentence first.** Get them to write one sentence: "If this feature works, [user] will be able to [outcome] [measurable change]." Push back on outputs disguised as outcomes. One caveat: if the team genuinely cannot measure the outcome within their goal cycle, an honest output goal they can actually track is better than an outcome goal that sits at 0% for an entire quarter. The point of the metric is to get feedback — an unmeasurable outcome goal is alibi progress, not real progress.
 2. **Build the tree top-down,** but verify it bottom-up: would the leading indicators actually predict the lagging ones? Is there a plausible mechanism?
 3. **Insist on counter-metrics.** If the user offers none, name three from the list above and ask which apply. Don't let this section be skipped.
 4. **Set thresholds.** For each metric: "what's a win," "what's neutral," "what triggers a rollback or rethink." Vague thresholds invite revisionism.
