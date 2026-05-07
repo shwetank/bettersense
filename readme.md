@@ -274,6 +274,12 @@ Your reflection data at `~/bettersense-work-reflections/` (or `$HOME\bettersense
 
 The basic Install above gets the skills loaded. This section covers everything else: where private data lives, how the cadence-driven skills (`stakeholder-due`, `wins-due`, `self-reflect`, `team-diagnosis`) get wired to actually fire on schedule, and how to pair Claude Code's `/schedule` with your existing reminder system to make the cadence reliable.
 
+### Best experience: Claude Code Desktop app
+
+The cadence-driven skills (`stakeholder-due`, `wins-due`, `self-reflect`, `patterns-watch`, `product-pulse`) give you their full value only when they run on a schedule — and the **Claude Code Desktop app** is the easiest way to set that up. Desktop Routines run on your machine, have full access to `~/bettersense-work-reflections/`, and persist indefinitely with no expiry.
+
+If you use Claude Code in the terminal instead, OS-level scheduling (cron / launchd / Task Scheduler) works just as well but requires more setup. Cloud routines cannot access your local files and will not work with bettersense. See [§4 Wire up scheduled skills](#4-wire-up-scheduled-skills) for details.
+
 ### Quick setup checklist (5 minutes)
 
 ```

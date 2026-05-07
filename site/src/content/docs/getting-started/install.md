@@ -11,6 +11,10 @@ bettersense is a Claude Code plugin. There are three install paths; pick the one
 - **Not sure?** The marketplace install works everywhere and is the easiest starting point
 :::
 
+:::note[Best experience: Claude Code Desktop app]
+The cadence-driven skills (`stakeholder-due`, `wins-due`, `self-reflect`, `patterns-watch`, `product-pulse`) give the most value when they run on a schedule. The **Claude Code Desktop app** makes this the easiest — Routines run locally, have full access to your reflection files, and persist indefinitely. Cloud routines (created via the `schedule` skill in the CLI) cannot access local files and won't work with bettersense. See the [Scheduling guide](/guides/scheduling) for the full comparison.
+:::
+
 ---
 
 ## Marketplace install (recommended)
