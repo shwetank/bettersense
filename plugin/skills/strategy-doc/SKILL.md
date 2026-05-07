@@ -122,7 +122,7 @@ When invoked for first-run creation, walk through these in order. Push for speci
 2. **Target problem** — *"In one paragraph: who's hurting, what they're trying to do, what's blocking them, and why now?"* Push back on solution-first framing.
 3. **Approach** — *"Strategic shape of the answer, not the spec. What's the bet?"*
 4. **Personas** — *"Who specifically are you optimizing for? In priority order. 1-3 max."* Force specificity.
-5. **Key metrics** — *"3-5 SMART metrics. What number, what baseline, what target, by when?"* Don't accept vanity metrics; compose with `metrics-design` if the user is unsure.
+5. **Key metrics** — *"3-5 SMART metrics. What number, what baseline, what target, by when?"* Don't accept vanity metrics; compose with `metrics-design` if the user is unsure. For each metric, also ask: *"What is the nearest business goal this connects to, and can you state the link in one step?"* If they can't — e.g. if the chain requires two or three intermediate goals before it reaches something real — the metric isn't anchored yet.
 6. **Strategic tracks** — *"What are the 2-4 multi-month bets you're making? Not features — themes."*
 7. **Not working on** — *"What will people ask you about that you've decided not to do? Include the reason."* This section is the user's spine.
 8. **Counter-metrics** — *"What would make you doubt the strategy is working, even if the headline metrics look good?"* Composes with `metrics-design`'s counter-metric discipline.
@@ -173,6 +173,7 @@ If no strategy doc exists, the skills work without it — the outputs will just 
 - **5+ tracks.** A strategy with 5+ tracks isn't focused; it's a wishlist. Force consolidation.
 - **No "not working on" section.** Means the user hasn't actually decided what to drop. Surface this before letting the doc be written.
 - **Vague metrics.** *"Improve engagement"* is not a metric. *"Weekly active engineers ≥ 1200 by Q3 end"* is. Push.
+- **Metrics disconnected from any business goal.** A metric that doesn't trace back to something the business actually cares about — in one step — is floating. Ask what real goal it connects to and how. If the answer takes more than one sentence, the connection is too tenuous.
 - **Personas that are everyone.** *"Optimizing for all engineers"* is the same as optimizing for none. Force ranked specificity.
 - **Marketing-tone language.** *"Empower transformative…"* is signaling. The strategy is for internal use; write it like you'd talk to a senior peer who'd push back on hand-waving.
 - **Updating the strategy doc to reflect what you've shipped.** Reverse causality. The strategy declares intent; the strategy doesn't get retconned to match execution. If execution diverges, that's the conversation.

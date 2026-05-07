@@ -32,7 +32,7 @@ If the user starts with "let's RICE the backlog" before defining the situation, 
 `Score = (Reach × Impact × Confidence) / Effort`
 
 - **Reach:** How many users/customers, in what time window. Be concrete: "users per quarter", not "lots."
-- **Impact:** Per-user effect on the goal. Use a fixed scale (e.g., 3 = massive, 2 = high, 1 = medium, 0.5 = low, 0.25 = minimal). Tie to a north-star metric, not "value."
+- **Impact:** Per-user effect on the goal. Use a fixed scale (e.g., 3 = massive, 2 = high, 1 = medium, 0.5 = low, 0.25 = minimal). Tie to a north-star metric, not "value." Better yet: if the team has a specific goal (e.g. "convert 10,000 users"), express impact directly in those units rather than an abstract score — "this could convert ~200 users" beats "impact: 2." It's called impact *estimation*, not impact getting the perfect number. Rough is fine; the point is keeping a real connection to what the goal actually is.
 - **Confidence:** As a percentage (100% / 80% / 50%). Below 50%, you're guessing — go run a test instead of scoring.
 - **Effort:** Person-months. Round up; estimates are wrong on the optimistic side by default.
 
