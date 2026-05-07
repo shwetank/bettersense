@@ -1,6 +1,6 @@
 ---
 name: product-pulse
-description: Use to produce a single-page dated pulse report on product health — usage metrics, system performance, AI-feature signals (hallucination, refusal, eval drift), counter-metrics, and follow-up investigation. Trigger phrases include "run a pulse on [area]", "give me a product health snapshot", "weekly product pulse", "what does the data say this week". Reads strategy.md to know what to watch and which counter-metrics matter. Saves to `~/bettersense-work-reflections/pulses/<area-slug>/pulse-YYYY-MM-DD.md` so the folder accumulates into product memory over time. Designed for daily/weekly `/schedule` cadence. Privacy-first — defaults to aggregated/redacted data; surfaces provenance.
+description: Use to produce a single-page dated pulse report on product health — usage metrics, system performance, AI-feature signals (hallucination, refusal, eval drift), counter-metrics, and follow-up investigation. Trigger phrases include "run a pulse on [area]", "give me a product health snapshot", "weekly product pulse", "what does the data say this week". Reads strategy.md to know what to watch and which counter-metrics matter. Saves to `~/bettersense-work-reflections/pulses/<area-slug>/pulse-YYYY-MM-DD.md` so the folder accumulates into product memory over time. Designed for daily/weekly Desktop scheduled tasks (not cloud routines — those cannot read or write local files). Privacy-first — defaults to aggregated/redacted data; surfaces provenance.
 ---
 
 # Product Pulse
@@ -98,11 +98,13 @@ If pointed at a hosted model, the pulse contents go through that provider on eve
 
 ## The cadence
 
-Designed for `/schedule`. Recommended:
+Designed for recurring scheduled use. Guide the user based on what they're using:
 
-```
-/schedule "Every weekday at 8am, run /product-pulse for default area"
-```
+**Claude Code Desktop app (recommended):** Go to Routines → New routine → Local. Use these instructions: `Run /product-pulse for the default area`. Set schedule to Weekly (Monday 8am) for most teams, or Daily for fast-moving products or launch windows. Desktop Routines have full local file access, persist indefinitely, and can write pulse files to `~/bettersense-work-reflections/pulses/`.
+
+**Terminal / CLI users:** Use OS-level scheduling (cron on macOS/Linux, Task Scheduler on Windows). Session-scoped tasks created by asking Claude in the terminal expire after 7 days.
+
+**Never suggest cloud routines** — they run on Anthropic's servers and cannot read or write to `~/bettersense-work-reflections/`.
 
 For most users, daily is too noisy and weekly is the right cadence. Daily makes sense if the product moves fast (consumer with high event volume) or during a launch window. Quarterly makes sense for slow-moving B2B.
 

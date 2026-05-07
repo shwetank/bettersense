@@ -1,6 +1,6 @@
 ---
 name: stakeholder-due
-description: Use when the user wants to know which stakeholder reflections are overdue. Trigger phrases include "what's due", "who haven't I thought about lately", "what's on my plate this week for stakeholder reflection", "stakeholder check-in", or any Monday-morning planning moment. Scans `~/bettersense-work-reflections/`, computes which question × stakeholder pairs are overdue based on `suggested_freq` and last entry date, and outputs a prioritized list. Designed to be invoked on demand or fired weekly via `/schedule`.
+description: Use when the user wants to know which stakeholder reflections are overdue. Trigger phrases include "what's due", "who haven't I thought about lately", "what's on my plate this week for stakeholder reflection", "stakeholder check-in", or any Monday-morning planning moment. Scans `~/bettersense-work-reflections/`, computes which question × stakeholder pairs are overdue based on `suggested_freq` and last entry date, and outputs a prioritized list. Designed to be invoked on demand or fired on a weekly Desktop scheduled task (not cloud routines — those cannot access local files).
 ---
 
 # Stakeholder Due
@@ -73,16 +73,17 @@ Say so plainly. Don't manufacture work.
 
 > *"Nothing significant is overdue right now. Earliest item due is John's 'priorities, incentives and constraints' in 4 days. If you want to get ahead, that's the one."*
 
-## Wiring to `/schedule`
+## Wiring to a schedule
 
-When the user wants this to fire automatically, suggest:
+When the user wants this to fire automatically, guide them based on what they're using:
 
-> *To get a Monday-morning summary every week, run this once:*
-> ```
-> /schedule "Every Monday at 9am, run /stakeholder-due and post the list"
-> ```
+**Claude Code Desktop app (recommended):** Go to Routines → New routine → Local. Set the schedule to Weekly, Monday, and use these instructions: `Run /stakeholder-due and show me the list`. Desktop Routines have full local file access, persist indefinitely, and support any cadence.
 
-Don't run `/schedule` automatically — the user owns the cadence decision.
+**Terminal / CLI users:** Use OS-level scheduling (cron on macOS/Linux, Task Scheduler on Windows). Session-scoped tasks created by asking Claude in the terminal expire after 7 days and are unsuitable for weekly cadences.
+
+**Never suggest cloud routines** — they run on Anthropic's servers and cannot access `~/bettersense-work-reflections/`.
+
+Don't set up a schedule automatically — the user owns the cadence decision.
 
 ## Operating principles
 

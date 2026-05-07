@@ -381,13 +381,19 @@ If either file is missing, the relevant skills work without it — outputs are j
 
 Claude Code skills are *stateless guides*. They fire when you invoke them — either by typing something that matches their description, or by name. Cadence requires wiring them to a scheduler.
 
-Claude Code has built-in scheduling tools. The two you'll use most often with bettersense:
+**There are three schedulers — only two work for bettersense:**
 
-**`/loop` — session-scoped, built-in.** Fires a prompt repeatedly while your current Claude Code session is open. Good for checking on a build or watching a PR during an active work session. Not the right tool for "run `/wins-due` every Friday" — that requires the session to be open at fire time.
+**❌ Cloud routines** run on Anthropic's servers with no access to your local files. If Claude asks you to "push the bettersense-work-reflections directory to a GitHub remote" when you try to schedule something, that's the cloud path — stop and use one of the local options below instead.
 
-**Desktop scheduled tasks — persistent, runs on your machine.** You ask Claude in natural language to create a scheduled task; Claude sets a cron-based job that fires between your turns even after resuming a session. These survive session restarts (restored on `--resume`), have full access to your local files, and are the right tool for bettersense's weekly and monthly cadences. Requires Claude Code v2.1.72 or later (`claude --version` to check). See the [Claude Code scheduling docs](https://code.claude.com/docs/en/scheduled-tasks) for full details.
+**✅ Desktop scheduled tasks** (best option) — created in the **Claude Code Desktop app** via Routines → New routine → Local. These run on your machine, have full access to `~/bettersense-work-reflections/`, persist indefinitely with no expiry, and support any cadence (daily, weekly, biweekly, monthly, quarterly). They fire while the Desktop app is open. Requires the Desktop app.
 
-Three honest constraints regardless of how you schedule:
+**✅ OS-level scheduling** (cron / launchd / Task Scheduler) — works on any version, fires whether or not Claude Code is open, supports any cadence. Best for monthly and quarterly cadences or if you use Claude Code in the terminal rather than the Desktop app. See *OS-level scheduling fallback* below.
+
+**⚠️ Session-scoped tasks** (created by asking Claude to schedule something in a terminal/CLI session) have a hard **7-day expiry**. A biweekly task expires before its second firing. A monthly task expires before it ever fires. Don't use these for bettersense cadences.
+
+**`/loop`** is for active work sessions — polling a build, watching a PR — not weekly cadences.
+
+Three honest constraints regardless of which local approach you use:
 
 - **Output lives inside Claude Code or a log file.** No mobile push, no email, no SMS — Claude Code is desktop/CLI/IDE.
 - **Desktop tasks only fire while Claude Code is running.** If you close it Friday afternoon and don't reopen until Tuesday, the Friday task fires when you next resume that session (or not at all if the session expired).
@@ -397,91 +403,27 @@ The fix for users who don't live in Claude Code: **pair every scheduled task wit
 
 ### 4. Wire up scheduled skills
 
-The skills below genuinely benefit from a recurring schedule. Set each one up by asking Claude in natural language — no special syntax required. Pick the ones that fit your workflow; none are required.
+Use the **Claude Code Desktop app** for these. In the sidebar, click **Routines → New routine → Local**. Give it a name, write the instructions (what Claude should do when it fires), and set the schedule. The Desktop app offers Daily, Weekdays, and Weekly presets; for biweekly, monthly, or quarterly, just ask Claude in a Desktop session in plain language and it will set the cron expression.
 
-> **Requires Claude Code v2.1.72+.** Run `claude --version` to check. If your version is older, skip to the OS-level scheduling fallback in the next section.
+If you use Claude Code in the terminal rather than the Desktop app, skip to the OS-level scheduling section below — that's the reliable fallback for any cadence.
 
-#### Weekly Friday — wins nudge
+Pick the routines that fit your workflow — none are required:
 
-In Claude Code, ask:
+| Routine | When | Instructions to paste |
+|---|---|---|
+| Wins nudge | Weekly, Friday 4pm | `Run /wins-due and show me the list` |
+| Stakeholder due-list | Weekly, Monday 9am | `Run /stakeholder-due and show me the list` |
+| Self-reflection | Monthly, first Monday 10am | `Run /self-reflect` |
+| Patterns watch | Weekly, Sunday 6pm | `Run /patterns-watch` |
+| Product pulse | Weekly or daily, Monday 8am | `Run /product-pulse for the default area` |
+| Pulse synthesis | Monthly, first Monday 11am | `Run /pulse-synthesize over the last 30 days for the default area` |
+| Team health diagnosis | Quarterly, first Monday 10am | `Run /team-diagnosis` |
+| Growth plan review | Quarterly, first Monday 11am | `Run /report-career-architect for each report and surface the plan review prompts` |
+| Managing-down synthesis | Monthly, 15th 10am | `Run /stakeholder-synthesize over managing-down for the last 30 days` |
 
-```
-Schedule a task to run every Friday at 4pm: run /wins-due and show me the list
-```
+**Note on plugin namespace:** If you installed via `--plugin-dir`, skill names need the `bettersense:` prefix — e.g. `/bettersense:wins-due`. Adjust accordingly.
 
-Pair with a Friday 4pm calendar event: **"Open Claude Code → log this week's wins"**.
-
-#### Weekly Monday — stakeholder due-list
-
-```
-Schedule a task to run every Monday at 9am: run /stakeholder-due and show me the list
-```
-
-Pair with a Monday 9am calendar block: **"Open Claude Code → review stakeholder due-list"**.
-
-#### Monthly — self-reflection
-
-```
-Schedule a task to run on the first Monday of every month at 10am: run /self-reflect
-```
-
-`self-reflect` picks cadence-appropriate questions and walks through them. If you skip a month, no harm done — the next run picks up.
-
-#### Quarterly — team health diagnosis
-
-```
-Schedule a task to run on the first Monday of every quarter at 10am: run /team-diagnosis
-```
-
-Run this *before* you draft the next quarter's plan — the diagnosis often surfaces what the plan should address.
-
-#### Quarterly — growth plan review
-
-```
-Schedule a task to run on the first Monday of every quarter at 11am: run /report-career-architect for each report and surface the plan review prompts
-```
-
-#### Optional: Monthly — synthesize across managing-down
-
-```
-Schedule a task to run on the 15th of every month at 10am: run /stakeholder-synthesize over managing-down for the last 30 days
-```
-
-Useful if you manage 3+ reports — surfaces patterns across the team that no individual 1:1 would catch.
-
-#### Weekly Sunday — patterns watch
-
-```
-Schedule a task to run every Sunday at 6pm: run /patterns-watch
-```
-
-Scans across the whole reflection ecosystem (stakeholder, wins, self) and surfaces patterns you haven't asked about — attention gaps, contradictions between stated focus and actual logged work, trajectory shifts. Most useful after 4+ weeks of logging (patterns need volume). Pair with a Sunday 6pm calendar block: **"Open Claude Code → review weekly patterns"**.
-
-#### Weekly Monday — product pulse
-
-```
-Schedule a task to run every Monday at 8am: run /product-pulse for the default area
-```
-
-For fast-moving products or launch windows, daily:
-
-```
-Schedule a task to run every weekday at 8am: run /product-pulse for the default area
-```
-
-Each run produces a single-page dated report at `~/bettersense-work-reflections/pulses/<area>/`. The folder *is* your product memory — `pulse-synthesize` reads across it. Multi-area users: schedule one task per area.
-
-#### Monthly — pulse synthesis
-
-```
-Schedule a task to run on the first Monday of every month at 11am: run /pulse-synthesize over the last 30 days for the default area
-```
-
-Reads across the month of pulses and surfaces trends, anomalies, regime shifts, and Goodhart-pattern flags. Requires at least 4 pulses in the window.
-
-**Managing tasks:** To see all scheduled tasks, ask `what scheduled tasks do I have?`. To cancel one, ask `cancel the [name] task`. Claude Code also exposes `CronList` and `CronDelete` tools directly.
-
-> **Note on plugin namespace.** If you installed via `--plugin-dir`, skill names need the `bettersense:` prefix — e.g. `/bettersense:wins-due` instead of `/wins-due`. Adjust the task prompts above accordingly.
+Pair each routine with a calendar reminder in whatever system you actually check. The calendar grabs your attention; Claude Code does the work.
 
 ### 5. OS-level scheduling fallback (no `/schedule` required)
 

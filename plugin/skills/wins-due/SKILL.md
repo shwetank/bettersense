@@ -1,6 +1,6 @@
 ---
 name: wins-due
-description: Use when the user wants a low-pressure nudge on whether anything from the recent week is worth logging to their wins file. Trigger phrases include "what should I log this week", "is anything missing from my wins doc", "did I do anything notable this week", "Friday wins check". Designed to be invoked on demand or fired weekly via `/schedule "Every Friday at 4pm, run /wins-due"`. Probes by category (delivery / judgment / mentorship / recovery / range) because memory is selective and "anything notable?" alone surfaces nothing. Accepts "honestly, nothing this week" gracefully — the skill is for honest capture, not forced positivity.
+description: Use when the user wants a low-pressure nudge on whether anything from the recent week is worth logging to their wins file. Trigger phrases include "what should I log this week", "is anything missing from my wins doc", "did I do anything notable this week", "Friday wins check". Designed to be invoked on demand or fired on a weekly Desktop scheduled task (not cloud routines — those cannot access local files). Probes by category (delivery / judgment / mentorship / recovery / range) because memory is selective and "anything notable?" alone surfaces nothing. Accepts "honestly, nothing this week" gracefully — the skill is for honest capture, not forced positivity.
 ---
 
 # Wins Due
@@ -83,16 +83,17 @@ If invoked, look for:
 
 Surface 3–5 candidates as bullets and let the user pick which (if any) to convert into wins entries.
 
-## Wiring to `/schedule`
+## Wiring to a schedule
 
-When the user wants this to fire automatically, suggest:
+When the user wants this to fire automatically, guide them based on what they're using:
 
-> *To get a Friday afternoon nudge every week:*
-> ```
-> /schedule "Every Friday at 4pm, run /wins-due"
-> ```
+**Claude Code Desktop app (recommended):** Go to Routines → New routine → Local. Set the schedule to Weekly, Friday, and use these instructions: `Run /wins-due and show me the list`. Desktop Routines have full local file access, persist indefinitely, and support any cadence.
 
-Don't run `/schedule` automatically — the user owns the cadence decision.
+**Terminal / CLI users:** Use OS-level scheduling (cron on macOS/Linux, Task Scheduler on Windows). Session-scoped tasks created by asking Claude in the terminal expire after 7 days and are unsuitable for weekly cadences.
+
+**Never suggest cloud routines** — they run on Anthropic's servers and cannot access `~/bettersense-work-reflections/`.
+
+Don't set up a schedule automatically — the user owns the cadence decision.
 
 ## Operating principles
 

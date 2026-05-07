@@ -1,6 +1,6 @@
 ---
 name: patterns-watch
-description: Use to surface unsolicited patterns the user hasn't explicitly asked about — across stakeholder reflections, wins log, self-reflect entries, and (eventually) pulse reports. Trigger phrases include "what patterns am I missing", "anything notable across my files", "scan my reflections for things I should know", "weekly cross-cutting check". Designed to be invoked on demand or fired weekly via `/schedule "Every Sunday at 6pm, run /patterns-watch"`. Distinct from `stakeholder-synthesize` (user-driven, scoped to one person/category) — this is unsolicited, cross-cutting, and surfaces what the user hasn't thought to look at. Citation-disciplined: every pattern claim cites specific dated entries.
+description: Use to surface unsolicited patterns the user hasn't explicitly asked about — across stakeholder reflections, wins log, self-reflect entries, and (eventually) pulse reports. Trigger phrases include "what patterns am I missing", "anything notable across my files", "scan my reflections for things I should know", "weekly cross-cutting check". Designed to be invoked on demand or fired on a weekly Desktop scheduled task (not cloud routines — those cannot access local files). Distinct from `stakeholder-synthesize` (user-driven, scoped to one person/category) — this is unsolicited, cross-cutting, and surfaces what the user hasn't thought to look at. Citation-disciplined: every pattern claim cites specific dated entries.
 ---
 
 # Patterns Watch
@@ -110,13 +110,15 @@ This is the same discipline as `stakeholder-synthesize` — pattern detection ac
 7. **Quantify scope honestly.** *"Across 4 entries over 6 weeks"* is honest; *"consistently"* is loaded.
 8. **End with options, not orders.** The output is observation; the action is the user's. Always end with 2-3 things they *could* do, including "do nothing if I'm reading this wrong."
 
-## Wiring to `/schedule`
+## Wiring to a schedule
 
-Designed for weekly cadence. Recommended:
+Designed for weekly cadence. Guide the user based on what they're using:
 
-```
-/schedule "Every Sunday at 6pm, run /patterns-watch"
-```
+**Claude Code Desktop app (recommended):** Go to Routines → New routine → Local. Set the schedule to Weekly, Sunday, and use these instructions: `Run /patterns-watch`. Desktop Routines have full local file access, persist indefinitely, and support any cadence.
+
+**Terminal / CLI users:** Use OS-level scheduling (cron on macOS/Linux, Task Scheduler on Windows). Session-scoped tasks created by asking Claude in the terminal expire after 7 days and are unsuitable for weekly cadences.
+
+**Never suggest cloud routines** — they run on Anthropic's servers and cannot read `~/bettersense-work-reflections/`.
 
 Pair with a Sunday-evening calendar block ("Open Claude Code → review weekly patterns") so the output gets seen.
 
