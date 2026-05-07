@@ -1,6 +1,6 @@
 ---
 title: Agents overview
-description: What agents are, how they differ from skills, and when to use them.
+description: What agents are, how they differ from skills, and when to use them. bettersense includes 16 agents.
 ---
 
 bettersense includes 16 subagents alongside the 32 skills. They're different tools for different situations.

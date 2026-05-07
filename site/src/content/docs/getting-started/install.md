@@ -26,7 +26,7 @@ Works on all platforms. If you're running Claude Code with plugin support:
 /plugin install bettersense@bettersense
 ```
 
-Verify with `/agents` — you should see 13 subagents listed. Skills are namespaced under `bettersense:` (e.g. `/bettersense:wins-log`, `/bettersense:strategy-doc`).
+Verify with `/agents` — you should see 16 subagents listed. Skills are namespaced under `bettersense:` (e.g. `/bettersense:wins-log`, `/bettersense:strategy-doc`).
 
 To update later:
 
@@ -134,7 +134,7 @@ Inside Claude Code, run:
 /agents
 ```
 
-You should see 13 subagents (the-spec-writer, the-translator, the-eval-designer, etc.).
+You should see 16 subagents (the-spec-writer, the-translator, the-eval-designer, the-discovery-facilitator, the-postmortem-facilitator, the-slo-designer, etc.).
 
 Skills auto-load when your prompt matches their description. You can also trigger them explicitly:
 
