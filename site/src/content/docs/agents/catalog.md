@@ -1,6 +1,6 @@
 ---
 title: Agent catalog
-description: All 13 bettersense agents — what each one does and when to use it.
+description: All 16 bettersense agents — what each one does and when to use it.
 ---
 
 ## `the-architect`
@@ -8,6 +8,16 @@ description: All 13 bettersense agents — what each one does and when to use it
 Use when scaling an AI prototype toward production and needing reliability, cost-efficiency, and clean separation between probabilistic and deterministic logic. Trigger for system design, guardrail design, fallback strategy, or when the question is *"how do we run this in production?"*
 
 Best for: production architecture decisions, LLM call structure, safety sandwiches, cost modeling.
+
+---
+
+## `the-discovery-facilitator`
+
+Use when a PM or team needs structured opportunity discovery before committing to build. Trigger when the user says *"we're thinking about building X"*, *"users keep asking for Y"*, or when `the-reducer` has pushed back on a solution and the team needs to find the real problem.
+
+Works through: separating the problem from the solution, mapping direct vs. assumed evidence, validating demand before technical investment, scoping the opportunity, and producing a falsifiable "informed conviction" statement with open questions for the next phase.
+
+Best for: after the-reducer has confirmed AI might be appropriate but before a spec is written. Sits between the-reducer → **the-discovery-facilitator** → the-scientist → the-spec-writer.
 
 ---
 
@@ -32,6 +42,18 @@ Best for: launch enablement, customer trust docs, "explain this to my CEO" situa
 Use during or after an AI-feature incident — model regression, sudden hallucination spike, eval drop, guardrail bypass, cost or latency anomaly, customer-reported wrong answer that escalated. Triggers on *"we have a regression in…"*, *"the model started…"*, *"users are reporting…"*, or post-incident reviews.
 
 Best for: Tuesday-at-11am when CS forwards a screenshot and launch is Friday. The structure under panic is the value.
+
+---
+
+## `the-postmortem-facilitator`
+
+Use after any significant engineering incident to run a blameless postmortem. Trigger when the incident is stable and the team needs to learn from it — *"we had an outage"*, *"the incident is over — now what?"*, *"how do I run a blameless retrospective on this?"*
+
+Distinct from `the-incident-responder` (which handles real-time AI feature incidents). This is for structured learning after any engineering failure, once the situation is stabilized.
+
+Works through: reading existing incident artifacts, establishing the blameless frame, building a precise timeline, five-whys from each failure point, sorting findings into systemic vs. individual causes, pressure-testing action items for specificity and counterfactual validity, and naming what worked.
+
+Best for: the hour after an incident is resolved, before the team's memory fades and before the instinct to assign blame hardens.
 
 ---
 
@@ -90,6 +112,18 @@ Best for: EMs who want a credible technical read before signing off, especially 
 Use for pre-development feasibility and prototyping of an AI feature. Trigger when validating whether an LLM or ML approach actually works before committing engineering resources — building rapid prototypes, golden datasets, or eval baselines.
 
 Best for: the question *"does this even work?"* before you write a spec.
+
+---
+
+## `the-slo-designer`
+
+Use when a team needs to define reliability targets for a service — SLOs grounded in user experience, error budgets with an actual policy, and the monitoring setup that makes those commitments real. Trigger when the user says *"what SLOs should we have?"*, *"how do we define our error budget?"*, or *"how do we know when to roll back?"*
+
+Distinct from `metrics-design` (product/business metric trees) and `engineering-health` (diagnosing existing systems). This designs the reliability contract before incidents happen.
+
+Works through: defining SLOs from user experience (not system metrics), choosing the right SLIs, verifying instrumentation start points (queue entry vs. handler entry), setting achievable targets from actual baselines, designing error budget policy, specifying leading indicators and burn-rate alerts, and defining the rollback trigger.
+
+Best for: new services, launches, or any service where "we'll figure out reliability later" has held for too long.
 
 ---
 

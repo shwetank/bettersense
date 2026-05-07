@@ -57,9 +57,11 @@ bettersense/
 │   │   └── wins-log/SKILL.md
 │   └── agents/
 │       ├── the-architect.md
+│       ├── the-discovery-facilitator.md
 │       ├── the-eval-designer.md
 │       ├── the-explainer.md
 │       ├── the-incident-responder.md
+│       ├── the-postmortem-facilitator.md
 │       ├── the-program-manager.md
 │       ├── the-prompt-critic.md
 │       ├── the-red-teamer.md
@@ -67,6 +69,7 @@ bettersense/
 │       ├── the-research-synthesizer.md
 │       ├── the-rfc-reviewer.md
 │       ├── the-scientist.md
+│       ├── the-slo-designer.md
 │       ├── the-spec-writer.md
 │       └── the-translator.md
 ```
@@ -112,9 +115,11 @@ bettersense/
 
 | Agent | Operational mode |
 |---|---|
+| `the-discovery-facilitator` | Structured opportunity discovery before committing to build — separates validated user needs from assumed ones, maps evidence to gaps, and produces an informed conviction statement. Sits between the-reducer and the-spec-writer. |
 | `the-reducer` | Early discovery. Reduces ambiguity. Pushes back on "AI problems" that are actually UI problems. |
 | `the-research-synthesizer` | Clusters raw qualitative data — interview notes, support tickets, NPS verbatims — into themes, JTBDs, and product implications anchored to direct quotes. |
 | `the-rfc-reviewer` | Reviews engineering RFCs / design docs / architecture proposals like a senior staff engineer — problem clarity, alternatives, trade-offs, failure modes, observability, scaling, security. Especially valuable for EMs whose technical depth is in a different domain than the proposal, or who need a credible second opinion before approving. |
+| `the-slo-designer` | Defines reliability targets and error budgets for a service — SLOs grounded in user experience, instrumentation verification (queue entry vs. handler entry), error budget policy, and monitoring setup. Distinct from metrics-design (business metrics) and engineering-health (diagnosis). |
 | `the-spec-writer` | Turns a validated problem into a decision-ready PRD with concrete success metrics, scoped non-goals, and named seams between probabilistic and deterministic logic. |
 | `the-scientist` | Pre-development feasibility. Builds golden datasets and eval harnesses. Refuses to declare success on a single demo. |
 | `the-eval-designer` | Designs the smallest eval system that would actually catch a regression — golden set, metric class, LLM-as-judge rubric, production sampling, ship/rollback bars. |
@@ -123,6 +128,7 @@ bettersense/
 | `the-architect` | Production hardening. Designs the input filter → LLM → output guardrail "safety sandwich." Separates probabilistic from deterministic logic. |
 | `the-red-teamer` | Pre-launch and maintenance. Simulates prompt injection, exfiltration, jailbreaks, and out-of-distribution failures. |
 | `the-incident-responder` | AI-feature incident lead — stabilization, technical investigation, blameless postmortems, and feeding failures back into the eval set. |
+| `the-postmortem-facilitator` | Blameless postmortem facilitation after any engineering incident — timeline reconstruction, five-whys root cause analysis, systemic vs. individual distinction, and action item discipline. Distinct from the-incident-responder (real-time AI incidents); this is for after stabilization. |
 | `the-program-manager` | Multi-team, multi-month program management: dependency mapping, risk gates per launch phase, orphaned-problem adoption, rollout coordination across teams, audience-calibrated status comms, escalation framing. Distinct from `the-spec-writer` (feature-level) and `prioritization-frameworks` (backlog-level). |
 | `the-translator` | Stakeholder comms. Converts eval metrics and failure modes into honest business language without hype or false humility. |
 
@@ -139,7 +145,7 @@ If you're using Claude Code and want a one-command install with automatic update
 /plugin install bettersense@bettersense
 ```
 
-Then verify with `/agents` — you should see 13 subagents. Skills are namespaced under `bettersense:` (e.g. `/bettersense:wins-log`).
+Then verify with `/agents` — you should see 16 subagents. Skills are namespaced under `bettersense:` (e.g. `/bettersense:wins-log`).
 
 To update later: `/plugin marketplace update bettersense`
 
@@ -210,7 +216,7 @@ The repo root [`MANIFEST.md`](MANIFEST.md) lists every skill and agent in the bu
 
 ### Verifying
 
-Verify with `/agents` inside Claude Code — the thirteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`, `/user-profile`, `/strategy-doc`, `/product-pulse`).
+Verify with `/agents` inside Claude Code — the sixteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`, `/user-profile`, `/strategy-doc`, `/product-pulse`).
 
 ### Updating skills after changes
 
@@ -719,7 +725,7 @@ cat ~/bettersense-work-reflections/README.md
 Inside Claude Code:
 
 ```
-/agents               # twelve subagents should appear
+/agents               # sixteen subagents should appear
 /schedule list        # your routines should appear here
 ```
 

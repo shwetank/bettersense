@@ -3,7 +3,7 @@ title: Agents overview
 description: What agents are, how they differ from skills, and when to use them.
 ---
 
-bettersense includes 13 subagents alongside the 30 skills. They're different tools for different situations.
+bettersense includes 16 subagents alongside the 32 skills. They're different tools for different situations.
 
 ## Skills vs. agents
 
@@ -38,16 +38,18 @@ use the-spec-writer for this
 the-eval-designer should look at this eval setup
 ```
 
-## The 13 agents
+## The 16 agents
 
 Quick reference:
 
 | Agent | Core job |
 |---|---|
 | `the-architect` | System design, guardrails, production reliability |
+| `the-discovery-facilitator` | Structured opportunity discovery before committing to build |
 | `the-eval-designer` | Evaluation systems for LLM/ML features |
 | `the-explainer` | Internal/external explanations of AI features |
 | `the-incident-responder` | AI feature incidents and regressions |
+| `the-postmortem-facilitator` | Blameless postmortems after any engineering incident |
 | `the-program-manager` | Multi-team program management |
 | `the-prompt-critic` | Review and improve production prompts |
 | `the-red-teamer` | Find failure modes before launch |
@@ -55,6 +57,7 @@ Quick reference:
 | `the-research-synthesizer` | Cluster qualitative data into themes |
 | `the-rfc-reviewer` | Senior-engineer read on RFCs and design docs |
 | `the-scientist` | Feasibility and prototyping for AI features |
+| `the-slo-designer` | Reliability targets, error budgets, and monitoring design |
 | `the-spec-writer` | Structured product specs and PRDs |
 | `the-translator` | Technical results into business language |
 
