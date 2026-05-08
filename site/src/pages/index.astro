@@ -105,42 +105,91 @@
           TPMs, and senior ICs</strong> leading without authority — inside Claude Code.
         </p>
 
-        <!-- Install command -->
-        <div style="
-          display: inline-flex; align-items: center; gap: 0;
-          background: var(--bg-card); border: 1px solid var(--border);
-          border-radius: 10px; overflow: hidden;
-          margin-bottom: 1rem;
-          max-width: 100%;
-        ">
-          <code id="install-cmd" style="
-            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
-            font-size: 0.88rem; color: var(--text); padding: 0.85rem 1.25rem;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-          ">/plugin marketplace add shwetank/bettersense</code>
-          <button
-            id="copy-btn"
-            onclick="copyInstall()"
-            title="Copy to clipboard"
-            style="
-              flex-shrink: 0;
-              padding: 0.85rem 1rem;
-              background: transparent; border: none; border-left: 1px solid var(--border);
-              color: var(--text-dim); cursor: pointer; font-size: 0.8rem;
-              transition: color 0.15s, background 0.15s;
-            "
-            onmouseover="this.style.background='rgba(201,164,110,0.08)';this.style.color='var(--accent)'"
-            onmouseout="this.style.background='transparent';this.style.color='var(--text-dim)'"
-          >
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-            </svg>
-          </button>
+        <!-- Install steps -->
+        <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; text-align: left; max-width: 480px; margin-left: auto; margin-right: auto;">
+
+          <!-- Step 1 -->
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="
+              flex-shrink: 0; width: 1.4rem; height: 1.4rem;
+              background: var(--accent-lo); border: 1px solid rgba(201,164,110,0.3);
+              border-radius: 50%; display: flex; align-items: center; justify-content: center;
+              font-size: 0.7rem; font-weight: 700; color: var(--accent);
+            ">1</span>
+            <div style="
+              flex: 1; display: flex; align-items: center; gap: 0;
+              background: var(--bg-card); border: 1px solid var(--border);
+              border-radius: 8px; overflow: hidden;
+            ">
+              <code style="
+                flex: 1; font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+                font-size: 0.84rem; color: var(--text); padding: 0.7rem 1rem;
+                white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+              ">/plugin marketplace add shwetank/bettersense</code>
+              <button
+                id="copy-btn-1"
+                onclick="copyCmd('copy-btn-1', '/plugin marketplace add shwetank/bettersense')"
+                title="Copy to clipboard"
+                style="
+                  flex-shrink: 0; padding: 0.7rem 0.85rem;
+                  background: transparent; border: none; border-left: 1px solid var(--border);
+                  color: var(--text-dim); cursor: pointer;
+                  transition: color 0.15s, background 0.15s;
+                "
+                onmouseover="this.style.background='rgba(201,164,110,0.08)';this.style.color='var(--accent)'"
+                onmouseout="this.style.background='transparent';this.style.color='var(--text-dim)'"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="
+              flex-shrink: 0; width: 1.4rem; height: 1.4rem;
+              background: var(--accent-lo); border: 1px solid rgba(201,164,110,0.3);
+              border-radius: 50%; display: flex; align-items: center; justify-content: center;
+              font-size: 0.7rem; font-weight: 700; color: var(--accent);
+            ">2</span>
+            <div style="
+              flex: 1; display: flex; align-items: center; gap: 0;
+              background: var(--bg-card); border: 1px solid var(--border);
+              border-radius: 8px; overflow: hidden;
+            ">
+              <code style="
+                flex: 1; font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+                font-size: 0.84rem; color: var(--text); padding: 0.7rem 1rem;
+                white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+              ">/plugin install bettersense@bettersense</code>
+              <button
+                id="copy-btn-2"
+                onclick="copyCmd('copy-btn-2', '/plugin install bettersense@bettersense')"
+                title="Copy to clipboard"
+                style="
+                  flex-shrink: 0; padding: 0.7rem 0.85rem;
+                  background: transparent; border: none; border-left: 1px solid var(--border);
+                  color: var(--text-dim); cursor: pointer;
+                  transition: color 0.15s, background 0.15s;
+                "
+                onmouseover="this.style.background='rgba(201,164,110,0.08)';this.style.color='var(--accent)'"
+                onmouseout="this.style.background='transparent';this.style.color='var(--text-dim)'"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
         </div>
 
-        <p style="font-size: 0.8rem; color: var(--text-dim);">
-          Paste into Claude Code. Then <code style="font-size: 0.78rem; background: var(--bg-card); padding: 0.1em 0.4em; border-radius: 4px; border: 1px solid var(--border);">/plugin install bettersense@bettersense</code> to activate.
+        <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0;">
+          Paste into the <strong style="color: var(--text);">Claude app</strong>. Optimized for Claude Desktop. Also works as a standalone Claude Code plugin.
         </p>
 
         <div style="margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
@@ -395,13 +444,12 @@
 
     <!-- ── Copy script ─────────────────────────────── -->
     <script>
-      function copyInstall() {
-        const cmd = '/plugin marketplace add shwetank/bettersense';
+      function copyCmd(btnId, cmd) {
         navigator.clipboard.writeText(cmd).then(() => {
-          const btn = document.getElementById('copy-btn');
+          const btn = document.getElementById(btnId);
           if (!btn) return;
           const original = btn.innerHTML;
-          btn.innerHTML = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+          btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
           btn.style.color = 'var(--accent)';
           setTimeout(() => { btn.innerHTML = original; btn.style.color = 'var(--text-dim)'; }, 1800);
         });
