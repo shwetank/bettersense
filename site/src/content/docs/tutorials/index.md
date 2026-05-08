@@ -12,7 +12,7 @@ Each one takes under 10 minutes to complete alongside Claude Code.
 ## Pick your starting point
 
 **New to bettersense?**  
-Start with [Set up your stakeholder radar](/tutorials/stakeholder-radar). It's the most foundational skill in the bundle, and it demonstrates how bettersense differs from asking plain Claude.
+Start with [Set up your profile](/tutorials/setup-profile). It's the foundation everything else builds on — and it only takes 10 minutes. Then try [Set up your stakeholder radar](/tutorials/stakeholder-radar).
 
 **Have a promo cycle coming up?**  
 Start with [Log a win and turn it into a story](/tutorials/log-a-win). Even if you've been logging, the curation step is where most people are surprised.
@@ -29,6 +29,7 @@ Start with [The Friday leadership review](/tutorials/friday-review). A 15-minute
 
 | Tutorial | Who it's for | Skills | Time |
 |----------|-------------|--------|------|
+| [Set up your profile](/tutorials/setup-profile) | Everyone | `user-profile` | ~10 min |
 | [Set up your stakeholder radar](/tutorials/stakeholder-radar) | Everyone | `stakeholder-register` → `stakeholder-reflect` → `stakeholder-synthesize` | ~10 min |
 | [Log a win and turn it into a story](/tutorials/log-a-win) | Everyone | `wins-log` → `wins-curate` | ~8 min |
 | [Sanity-check an AI feature before building it](/tutorials/ai-feature-check) | AI PMs | `the-reducer` → `the-scientist` → `the-eval-designer` | ~10 min |

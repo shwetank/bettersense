@@ -47,6 +47,7 @@ export default defineConfig({
 					label: 'Tutorials',
 					items: [
 						{ label: 'Overview', slug: 'tutorials' },
+						{ label: 'Set up your profile', slug: 'tutorials/setup-profile' },
 						{ label: 'Set up your stakeholder radar', slug: 'tutorials/stakeholder-radar' },
 						{ label: 'Log a win and turn it into a story', slug: 'tutorials/log-a-win' },
 						{ label: 'Sanity-check an AI feature', slug: 'tutorials/ai-feature-check' },
