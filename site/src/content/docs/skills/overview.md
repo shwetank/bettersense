@@ -22,7 +22,7 @@ Neither is required. Skills work without them — outputs are just more generic 
 
 | Skill | What it does |
 |---|---|
-| `stakeholder-register` | Register a new stakeholder (manager, peer, report, team). Sets up the data directory on first run. |
+| `stakeholder-register` | Register a new stakeholder (manager, peer, report, team). |
 | `stakeholder-reflect` | Guided reflection on a registered stakeholder — question library, cadence-aware, dates entries. |
 | `stakeholder-due` | Scan all stakeholder files and surface which question × stakeholder pairs are overdue. |
 | `stakeholder-synthesize` | Read accumulated reflections for a stakeholder and surface patterns, contradictions, blind spots — with citations. |

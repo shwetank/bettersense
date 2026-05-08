@@ -8,8 +8,8 @@ After installation, three commands are worth running in your first session. Each
 ## Quick setup checklist
 
 ```
-☐  /bettersense:stakeholder-register  → creates the data directory + privacy setup
-☐  /bettersense:user-profile          → creates your "who you are" anchor file
+☐  /bettersense:user-profile          → creates your "who you are" anchor file + data directory
+☐  /bettersense:stakeholder-register  → registers your first stakeholder
 ☐  /bettersense:strategy-doc          → creates your "what you're building" anchor (optional)
 ```
 
@@ -17,30 +17,7 @@ None are required — the skills work without them. But they pay for themselves 
 
 ---
 
-## 1. Register your first stakeholder
-
-Run this first, even if you haven't decided on your other stakeholders yet. It sets up the private data directory.
-
-```
-register a stakeholder
-```
-
-Or explicitly:
-
-```
-/bettersense:stakeholder-register
-```
-
-The skill will:
-1. Create `~/bettersense-work-reflections/` with a `.gitignore` and a privacy README inside
-2. Walk you through registering your first stakeholder (manager, peer, report, or team)
-3. Confirm the file before writing
-
-**Why first?** `stakeholder-register` owns the data directory creation and the privacy warning. Running it before other skills means you understand where your data lives before anything gets written.
-
----
-
-## 2. Set up your profile
+## 1. Set up your profile
 
 ```
 set up my profile
@@ -60,9 +37,30 @@ A 5-10 minute interview capturing:
 - What you're working on as a leader
 - Stack (only if relevant — useful for spec-writer, prompt-critic, RFC reviewer)
 
+On first run, this also creates `~/bettersense-work-reflections/` — the private local directory where all your reflection data lives — and shows you a one-time privacy notice before writing anything.
+
 The result is `~/bettersense-work-reflections/profile.md` — a plain markdown file you own. Skills that read it: `the-spec-writer`, `the-translator`, `the-explainer`, `report-promo-case`, `report-career-architect`, `metrics-design`, `coaching-mode`, `feedback-frameworks`.
 
 **Update it** when your role or scope materially changes — not every week.
+
+---
+
+## 2. Register your first stakeholder
+
+```
+register a stakeholder
+```
+
+Or explicitly:
+
+```
+/bettersense:stakeholder-register
+```
+
+The skill will:
+1. Walk you through registering your first stakeholder (manager, peer, report, or team)
+2. Create the stakeholder subdirectories inside `~/bettersense-work-reflections/` if they don't exist yet
+3. Confirm the file before writing
 
 ---
 

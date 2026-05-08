@@ -44,6 +44,18 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Tutorials',
+					items: [
+						{ label: 'Overview', slug: 'tutorials' },
+						{ label: 'Set up your stakeholder radar', slug: 'tutorials/stakeholder-radar' },
+						{ label: 'Log a win and turn it into a story', slug: 'tutorials/log-a-win' },
+						{ label: 'Sanity-check an AI feature', slug: 'tutorials/ai-feature-check' },
+						{ label: 'The Friday leadership review', slug: 'tutorials/friday-review' },
+						{ label: 'Build a promotion case', slug: 'tutorials/promo-case' },
+						{ label: 'Navigate underperformance', slug: 'tutorials/underperformance' },
+					],
+				},
+				{
 					label: 'Skills',
 					items: [
 						{ label: 'Overview', slug: 'skills/overview' },

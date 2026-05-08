@@ -23,15 +23,15 @@ All stakeholder data lives at `$BETTERSENSE_WORK_REFLECTIONS_HOME` (default: `~/
 
 ## On first run
 
-If `~/bettersense-work-reflections/` does not exist:
+If `~/bettersense-work-reflections/` does not exist, create it silently — the full privacy ceremony belongs to `user-profile`, which is designed to run first. If for some reason `user-profile` wasn't run, issue a short notice before proceeding:
+   > I'm creating `~/bettersense-work-reflections/` to store your stakeholder files. This directory stays on your local machine only. Set `$BETTERSENSE_WORK_REFLECTIONS_HOME` if you'd prefer a different location.
 
-1. Create the directory and category subdirectories (`managing-up`, `managing-across`, `managing-down`, `teams`).
-2. Initialize `stakeholders.json` as `{"version": 1, "stakeholders": []}`.
-3. Add a `.gitignore` at the root containing `*` so the directory is git-ignored if the user happens to drop it inside a repo. Also create a `README.md` at the root that says:
+Whether or not the root existed already:
+
+1. Create the category subdirectories if missing (`managing-up`, `managing-across`, `managing-down`, `teams`).
+2. Initialize `stakeholders.json` as `{"version": 1, "stakeholders": []}` if it doesn't exist.
+3. Ensure a `.gitignore` exists at the root containing `*`, and a `README.md` that says:
    > Private. Contains candid reflections about real people. Do not commit, share, or back up to public locations. Encrypt the parent disk if you can.
-4. **Warn the user explicitly** before writing the first stakeholder file:
-   > I'm about to create `~/bettersense-work-reflections/`, which will hold candid notes about real people. This will live on your local machine only. Confirm the location, or set `$BETTERSENSE_WORK_REFLECTIONS_HOME` if you want a different one (e.g. an encrypted volume or a Dropbox folder).
-   Wait for confirmation before proceeding.
 
 ## The register flow
 

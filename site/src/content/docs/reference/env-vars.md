@@ -15,7 +15,7 @@ description: All environment variables used by bettersense skills, with platform
 
 Controls where all bettersense reflection data lives. Override if you want data on an encrypted volume, a different disk, or a non-standard location.
 
-You don't need to create the directory yourself — `stakeholder-register` creates it on first run, with a `.gitignore` and privacy README inside.
+You don't need to create the directory yourself — `user-profile` creates it on first run, with a `.gitignore` and privacy README inside.
 
 ---
 

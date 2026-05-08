@@ -42,9 +42,7 @@ Walks you through registering a new stakeholder:
 - Name and relationship category (managing-up / managing-across / managing-down / teams)
 - Role, context, and initial notes
 - Creates a structured `.md` file in the right category folder
-- Sets up the root directory and privacy warning on first run
-
-First run: creates `~/bettersense-work-reflections/` with a `.gitignore` and privacy README inside.
+- Creates the stakeholder category folders inside `~/bettersense-work-reflections/` if they don't exist yet
 
 ---
 

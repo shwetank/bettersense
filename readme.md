@@ -99,7 +99,7 @@ bettersense/
 | `report-career-architect` | Designs a 12–18 month growth plan for a direct report — target state, capability gaps, sequenced experiences, *manager moves* (what the user has to stop doing to make room), risks, and observable success criteria. |
 | `report-promo-case` | Builds a panel-ready promotion packet for a direct report with cited evidence per dimension, calibrated solo-vs-shared credit, pre-empted objections, and gaps surfaced as pre-submission targets. The mirror image of `wins-curate` (which is for the user's own brag doc). |
 | `self-reflect` | Self-reflection on leadership, behavior under pressure, time/energy, fulfillment, and advocating for yourself — captured chronologically in a private file so insight compounds over time. |
-| `stakeholder-register` | Register a stakeholder (manager, peer, report, team) for ongoing reflection. Sets up a private folder at `~/bettersense-work-reflections/` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`), creates a per-stakeholder file, and warns about privacy. |
+| `stakeholder-register` | Register a stakeholder (manager, peer, report, team) for ongoing reflection. Creates a per-stakeholder file at `~/bettersense-work-reflections/` (configurable via `$BETTERSENSE_WORK_REFLECTIONS_HOME`). |
 | `stakeholder-manage` | Lifecycle operations on already-registered stakeholders: list / edit / re-categorize after a reorg / rename / archive when someone leaves / delete. Preserves reflection history aggressively; defaults toward archive over delete; routes by natural-language intent. |
 | `stakeholder-reflect` | Guide a single reflection session about a registered stakeholder using a question library spanning *ask*, *sense*, and *ask-and-sense* lenses. Surfaces the question's `things_to_consider`, picks cadence-appropriate questions, and writes a dated entry back. |
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
@@ -285,8 +285,8 @@ If you use Claude Code in the terminal instead, OS-level scheduling (cron / laun
 ```
 ☐ Skills installed (see Install section above)
 ☐ Decide on data location: default ~/bettersense-work-reflections/ or set $BETTERSENSE_WORK_REFLECTIONS_HOME
-☐ Run /stakeholder-register once → creates the data directory + privacy README + .gitignore
-☐ Run /user-profile once → creates the "who you are" anchor file
+☐ Run /user-profile once → creates the data directory + privacy notice + "who you are" anchor file
+☐ Run /stakeholder-register once → registers your first stakeholder
 ☐ Run /strategy-doc once per product/area → creates the "what you're building" anchor (optional)
 ☐ Wire up the recurring schedules below (or skip if you only want on-demand use)
 ☐ Add matching calendar reminders so you actually see the scheduled output
@@ -295,58 +295,37 @@ If you use Claude Code in the terminal instead, OS-level scheduling (cron / laun
 
 The rest of this section walks through each step with the exact commands.
 
-### 1. Data directory
+### 1. Set up your profile
 
-By default, all reflection data lives at `~/bettersense-work-reflections/` (macOS/Linux) or `$HOME\bettersense-work-reflections\` (Windows) — outside any repo, on your local machine only, gitignored by the skill on first run. Override with the env var if you want a different location (e.g. an encrypted volume):
-
-**macOS / Linux / WSL:**
-
-```bash
-export BETTERSENSE_WORK_REFLECTIONS_HOME="$HOME/Encrypted/bettersense-work-reflections"
-
-# Persist across sessions — add to ~/.zshrc (macOS) or ~/.bashrc (Linux/WSL)
-echo 'export BETTERSENSE_WORK_REFLECTIONS_HOME="$HOME/Encrypted/bettersense-work-reflections"' >> ~/.zshrc
-```
-
-**Windows (PowerShell):**
-
-```powershell
-# Current session only
-$env:BETTERSENSE_WORK_REFLECTIONS_HOME = "$HOME\Encrypted\bettersense-work-reflections"
-
-# Persist across sessions (writes to user environment)
-[System.Environment]::SetEnvironmentVariable(
-    'BETTERSENSE_WORK_REFLECTIONS_HOME',
-    "$HOME\Encrypted\bettersense-work-reflections",
-    'User'
-)
-```
-
-You don't need to create the directory yourself — `stakeholder-register` does it on first run, with a privacy `README.md` and `.gitignore` inside. Just open Claude Code and:
-
-```
-register a stakeholder
-```
-
-That triggers `stakeholder-register`, which sets up the directory and walks you through your first registration.
-
-### 2. Anchor files (`profile.md` and `strategy/<area>.md`)
-
-The bundle has two anchor files. Both are read automatically by other skills when present, so you stop re-establishing context every session.
-
-#### `profile.md` — *who you are*
-
-`~/bettersense-work-reflections/profile.md` captures your role, level, company context, communication style, current strategic focus, and (if relevant) stack. A single short file you create once.
-
-Skills that read it: `the-spec-writer`, `the-translator`, `the-explainer`, `report-promo-case`, `report-career-architect`, `metrics-design`, `coaching-mode`, `feedback-frameworks`.
-
-To create:
+Start here. `user-profile` does two things in one step: it creates `~/bettersense-work-reflections/` (your private local data directory) and produces `profile.md` — the anchor file that tells other skills who you are so you never re-explain context.
 
 ```
 set up my profile
 ```
 
-Triggers `user-profile` — 5-10 minute interview, drafts the file, confirms before writing. Update on real role changes, not every week. Supports "alternate hats" for users with mixed roles (PM + EM, TPM + IC); the skill only asks if you bring it up.
+A 5-10 minute interview capturing your role, level, company context, communication style, current strategic focus, and (optionally) stack. The skill shows you a one-time privacy notice and confirms before writing anything. Update on real role changes, not every week. Supports "alternate hats" for users with mixed roles (PM + EM, TPM + IC); the skill only asks if you bring it up.
+
+Skills that read `profile.md` automatically: `the-spec-writer`, `the-translator`, `the-explainer`, `report-promo-case`, `report-career-architect`, `metrics-design`, `coaching-mode`, `feedback-frameworks`.
+
+**If you want the data directory somewhere other than `~/bettersense-work-reflections/`**, set `$BETTERSENSE_WORK_REFLECTIONS_HOME` before running `user-profile`:
+
+**macOS / Linux / WSL:**
+```bash
+export BETTERSENSE_WORK_REFLECTIONS_HOME="$HOME/Encrypted/bettersense-work-reflections"
+# Persist: add to ~/.zshrc (macOS) or ~/.bashrc (Linux)
+```
+
+**Windows (PowerShell):**
+```powershell
+$env:BETTERSENSE_WORK_REFLECTIONS_HOME = "$HOME\Encrypted\bettersense-work-reflections"
+# Persist: [System.Environment]::SetEnvironmentVariable('BETTERSENSE_WORK_REFLECTIONS_HOME', "$HOME\Encrypted\bettersense-work-reflections", 'User')
+```
+
+### 2. Strategy doc (optional)
+
+The second anchor file — `~/bettersense-work-reflections/strategy/<area-slug>.md` — captures the strategic context for a product, area, or program: target problem, approach, personas, SMART metrics, 2-4 multi-month tracks, explicit "not working on" section, counter-metrics.
+
+Skills that read it: `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, `pulse-synthesize`.
 
 #### `strategy/<area-slug>.md` — *what you're building*
 
@@ -379,9 +358,7 @@ draft a strategy doc for [area name]
 
 Triggers `strategy-doc` — interview-driven, refusable on weak inputs ("vague metrics aren't ready"). Refresh on real triggers (planning round, missed bet, market shift), not on schedule.
 
-#### When to skip both
-
-If either file is missing, the relevant skills work without it — outputs are just more generic and harder to defend in planning conversations. The skills won't pester you to set them up unless you raise the question.
+If the strategy file is missing, the relevant skills work without it — outputs are just more generic. The skills won't pester you to set it up unless you raise the question.
 
 ### 3. The cadence story (read this once)
 
@@ -774,7 +751,7 @@ This was originally a feature inside the [Voohy](https://voohy.com) app — the 
 
 ### Things to know before adopting
 
-- **The data lives outside the public repo.** The skill creates `~/bettersense-work-reflections/` on first run, gitignores it, and warns you about privacy. The folder holds candid notes about real people — don't put it in Dropbox if you wouldn't put your journal there. Override the path with `$BETTERSENSE_WORK_REFLECTIONS_HOME` if you want it on an encrypted volume or somewhere else.
+- **The data lives outside the public repo.** `user-profile` creates `~/bettersense-work-reflections/` on first run, gitignores it, and shows you a one-time privacy notice. The folder holds candid notes about real people — don't put it in Dropbox if you wouldn't put your journal there. Override the path with `$BETTERSENSE_WORK_REFLECTIONS_HOME` if you want it on an encrypted volume or somewhere else.
 - **Quality of synthesis depends on quality of input.** One-line entries produce shallow synthesis. The `things_to_consider` field is surfaced prominently to help — use it.
 - **Synthesis is honest about its evidence.** `stakeholder-synthesize` will not claim a pattern without citing dated entries. If your file is sparse, the synthesis will be tentative; if it's rich, the synthesis will be sharp.
 

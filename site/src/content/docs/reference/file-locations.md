@@ -34,7 +34,7 @@ Symlink installs (macOS/Linux/WSL) point back into the repo: `~/.claude/skills/w
 
 All private data lives under `$BETTERSENSE_WORK_REFLECTIONS_HOME` (default: `~/bettersense-work-reflections/`). This directory is:
 
-- Created by `stakeholder-register` on first run
+- Created by `user-profile` on first run
 - Gitignored inside the directory itself (`.gitignore` written on creation)
 - Never touched by `scripts/uninstall.sh`
 
@@ -43,8 +43,8 @@ All private data lives under `$BETTERSENSE_WORK_REFLECTIONS_HOME` (default: `~/b
 ```
 ~/bettersense-work-reflections/
 │
-├── .gitignore                         # created by stakeholder-register on first run
-├── README.md                          # privacy warning, created on first run
+├── .gitignore                         # created by user-profile on first run
+├── README.md                          # privacy warning, created by user-profile on first run
 │
 ├── profile.md                         # created by user-profile
 │
