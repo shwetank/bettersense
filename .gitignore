@@ -23,3 +23,5 @@ bettersense-work-reflections/
 site/node_modules/
 site/dist/
 site/.astro/
+.claude
+scripts/deploy-site.sh
