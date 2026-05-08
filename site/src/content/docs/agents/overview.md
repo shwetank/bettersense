@@ -1,6 +1,6 @@
 ---
 title: Agents overview
-description: What agents are, how they differ from skills, and when to use them. bettersense includes 16 agents.
+description: What agents are, how they differ from skills, and when to use them. bettersense includes 16 agents organized into four clusters.
 ---
 
 bettersense includes 16 subagents alongside the 32 skills. They're different tools for different situations.
@@ -22,7 +22,7 @@ Agents earn their keep when:
 
 2. **The task is multi-pass.** The eval designer runs several passes (problem statement → metric design → test cases → rubric → edge cases). Each pass benefits from the previous without competing with your meeting prep from earlier.
 
-3. **You want the agent to act as a second opinion.** Fresh context means the agent hasn't been anchored by your framing from earlier in the session.
+3. **You want a second opinion.** Fresh context means the agent hasn't been anchored by your framing from earlier in the session.
 
 ## How agents are invoked
 
@@ -38,27 +38,32 @@ use the-spec-writer for this
 the-eval-designer should look at this eval setup
 ```
 
-## The 16 agents
+## The four clusters
 
-Quick reference:
+### [AI product workflow](/agents/ai-product-workflow)
 
-| Agent | Core job |
-|---|---|
-| `the-architect` | System design, guardrails, production reliability |
-| `the-discovery-facilitator` | Structured opportunity discovery before committing to build |
-| `the-eval-designer` | Evaluation systems for LLM/ML features |
-| `the-explainer` | Internal/external explanations of AI features |
-| `the-incident-responder` | AI feature incidents and regressions |
-| `the-postmortem-facilitator` | Blameless postmortems after any engineering incident |
-| `the-program-manager` | Multi-team program management |
-| `the-prompt-critic` | Review and improve production prompts |
-| `the-red-teamer` | Find failure modes before launch |
-| `the-reducer` | Validate whether AI is the right solution |
-| `the-research-synthesizer` | Cluster qualitative data into themes |
-| `the-rfc-reviewer` | Senior-engineer read on RFCs and design docs |
-| `the-scientist` | Feasibility and prototyping for AI features |
-| `the-slo-designer` | Reliability targets, error budgets, and monitoring design |
-| `the-spec-writer` | Structured product specs and PRDs |
-| `the-translator` | Technical results into business language |
+Seven agents covering the full lifecycle of shipping an AI feature — from problem validation through production reliability.
+
+`the-reducer` → `the-discovery-facilitator` → `the-scientist` → `the-eval-designer` → `the-architect` → `the-prompt-critic` → `the-red-teamer`
+
+### [Docs & communication](/agents/docs-and-communication)
+
+Three agents for turning technical work into written artifacts — specs, explanations, and executive communication.
+
+`the-spec-writer` · `the-explainer` · `the-translator`
+
+### [Engineering reliability](/agents/engineering-reliability)
+
+Four agents covering the reliability arc — design review, reliability planning, incident response, and postmortems.
+
+`the-rfc-reviewer` · `the-slo-designer` · `the-incident-responder` · `the-postmortem-facilitator`
+
+### [Research & programs](/agents/research-and-programs)
+
+Two agents for qualitative data synthesis and multi-team program management.
+
+`the-research-synthesizer` · `the-program-manager`
+
+---
 
 [Full agent catalog →](/agents/catalog)

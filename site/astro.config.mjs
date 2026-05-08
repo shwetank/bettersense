@@ -71,6 +71,10 @@ export default defineConfig({
 					label: 'Agents',
 					items: [
 						{ label: 'Overview', slug: 'agents/overview' },
+						{ label: 'AI product workflow', slug: 'agents/ai-product-workflow' },
+						{ label: 'Docs & communication', slug: 'agents/docs-and-communication' },
+						{ label: 'Engineering reliability', slug: 'agents/engineering-reliability' },
+						{ label: 'Research & programs', slug: 'agents/research-and-programs' },
 						{ label: 'Catalog', slug: 'agents/catalog' },
 					],
 				},
