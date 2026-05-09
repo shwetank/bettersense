@@ -2,7 +2,7 @@
 
 This file lists every skill and agent that ships with this bundle. Use it to identify which items in `~/.claude/skills/` and `~/.claude/agents/` came from this repo (vs. skills you wrote yourself or installed from other sources).
 
-The bundle contains **30 skills** and **22 agents**, all inside `plugin/`.
+The bundle contains **34 skills** and **22 agents**, all inside `plugin/`.
 
 ## How to identify bundle items in your Claude Code install
 
@@ -14,7 +14,7 @@ find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*bettersense*
 
 If you installed via plain `cp` (the legacy install path), this manifest is your reference. Match folder/file names below against what you have in `~/.claude/`.
 
-## Skills (30)
+## Skills (34)
 
 | Name | One-line description |
 |---|---|
@@ -23,15 +23,18 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `decision-log` | ADR-style capture of meaningful product/technical decisions. Especially for AI decisions tied to specific model versions. |
 | `demo-prep` | Five-pass prep for high-stakes demos with extra hazard-handling for AI features. |
 | `feedback-frameworks` | COIN structure + SOLID quality checklist for drafting and pressure-testing feedback. |
+| `glue-audit` | Systematically identifies, categorizes, and quantifies glue work (non-core technical activities like onboarding, documentation, unblocking, cross-team alignment) on a team or for an individual. Produces an inventory with time estimates, promotion-value assessment, and fairness analysis. |
 | `hiring-craft` | Interview loop design, behavioral-anchor rubrics, calibrated debrief discipline. |
 | `influence-without-authority` | TPM/staff/IC influence craft: positions vs. interests, currencies model, coalition sequencing. Opinionated about the legitimacy line. |
 | `leadership-os` | Managing up/down/across. Multiple sub-modes (Heat Shield, Career Architect, Diplomat, Triage Lead, etc.). |
+| `manage-glue-workers` | Coaching, protecting, and developing glue-heavy engineers. Provides manager guidance on preventing burnout, ensuring visibility, redistributing non-promotable tasks fairly, and advocating against "not technical enough" bias. |
 | `metrics-design` | Four-layer metric tree (north star, leading, lagging, counter-metrics) for AI features. Counter-metrics first-class. |
 | `one-on-one-prep` | 1:1 agendas matched to relationship type (manager→report, report→manager, peer, skip-level). |
 | `patterns-watch` | Scheduled cross-cutting scan across the reflection ecosystem. Surfaces unsolicited patterns with citations; observation-not-prediction. |
 | `performance-management` | Underperformance ladder: coaching → feedback → PIP → termination. The hardest skill in management. |
 | `prioritization-frameworks` | Picks the right framework (RICE / ICE / WSJF / MoSCoW / Kano / Cost of Delay) for the situation. |
 | `product-pulse` | Single-page dated pulse report on product health. Counter-metrics + AI-specific signals first-class. Privacy-first. |
+| `promo-case-glue` | Builds promotion packets for glue-heavy engineers. Translates glue tasks into technical leadership evidence, identifies artifacts, and provides manager talking points to counter "not technical enough" bias during calibration. |
 | `pulse-synthesize` | Reads accumulated pulses, surfaces trends/anomalies/regime shifts with citations. Refuses to forecast. |
 | `read-the-room` | Retrospective interpretation of meetings/threads/1:1s. Surfaces subtext as hypotheses, never facts. |
 | `report-career-architect` | 12-18 month growth plans for direct reports with explicit "manager moves." |
@@ -48,6 +51,7 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `wins-curate` | Audience-specific artifact from the wins log: promo packet / interview stories / perf review / salary case / year-in-review. |
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category. |
 | `wins-log` | Structured win capture (situation, action, impact, evidence, honest credit). |
+| `workload-equity` | Analyzes whether non-promotable (glue) work is fairly distributed across a team with attention to demographic and seniority patterns. Surfaces bias signals and recommends rebalancing actions. |
 
 ## Agents (22)
 

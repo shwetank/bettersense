@@ -1,9 +1,31 @@
 ---
 title: Cross-cutting skills
-description: Four skills for reading the room, influencing without authority, pre-mortems, and the general leadership OS.
+description: Five skills for reading the room, influencing without authority, pre-mortems, glue work auditing, and the general leadership OS.
 ---
 
-These four skills serve everyone in the bundle — not specific to AI PMs, EMs, or TPMs, but used by all of them.
+These five skills serve everyone in the bundle — not specific to AI PMs, EMs, or TPMs, but used by all of them.
+
+---
+
+## `glue-audit`
+
+**Triggers:** "what glue work am I doing", "audit my glue work", "catalog our glue tasks", "is our glue work fairly distributed", "how much time do I spend on non-promotable work"
+
+Systematically identifies, categorizes, and quantifies glue work — essential non-core technical tasks like onboarding, documentation, unblocking, cross-team alignment, and process improvement — that make projects succeed but are often invisible and non-promotable.
+
+Produces a structured inventory:
+- **Task list** with category, frequency, time estimates
+- **Core vs. glue classification** based on the user's actual role and ladder
+- **Visibility assessment** — who knows this work happens?
+- **Promotion value** — does the company's engineering ladder recognize this?
+- **Fairness signals** — for team audits: demographic patterns, single-point dependencies, volunteer vs. assignment bias
+
+Three modes:
+- **Self-audit** — for engineers questioning "why haven't I been promoted?" when their impact is primarily glue
+- **Team audit** — for managers diagnosing glue distribution across reports
+- **Role audit** — "If I become a manager/TPM, how much of my current glue becomes core?"
+
+**Why this matters:** Tanya Reilly's "glue work" thesis — the team collapses without it, but many orgs don't count it as "technical" for promotion. The audit makes the invisible visible and gives you data for career conversations, workload rebalancing, and promotion packets.
 
 ---
 

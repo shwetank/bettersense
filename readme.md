@@ -27,16 +27,19 @@ bettersense/
 │   │   ├── demo-prep/SKILL.md
 │   │   ├── engineering-health/SKILL.md
 │   │   ├── feedback-frameworks/SKILL.md
+│   │   ├── glue-audit/SKILL.md
 │   │   ├── hiring-craft/SKILL.md
 │   │   ├── impact-audit/SKILL.md
 │   │   ├── influence-without-authority/SKILL.md
 │   │   ├── leadership-os/SKILL.md
+│   │   ├── manage-glue-workers/SKILL.md
 │   │   ├── metrics-design/SKILL.md
 │   │   ├── one-on-one-prep/SKILL.md
 │   │   ├── patterns-watch/SKILL.md
 │   │   ├── performance-management/SKILL.md
 │   │   ├── prioritization-frameworks/SKILL.md
 │   │   ├── product-pulse/SKILL.md
+│   │   ├── promo-case-glue/SKILL.md
 │   │   ├── pulse-synthesize/SKILL.md
 │   │   ├── read-the-room/SKILL.md
 │   │   ├── report-career-architect/SKILL.md
@@ -54,7 +57,8 @@ bettersense/
 │   │   ├── user-profile/SKILL.md
 │   │   ├── wins-curate/SKILL.md
 │   │   ├── wins-due/SKILL.md
-│   │   └── wins-log/SKILL.md
+│   │   ├── wins-log/SKILL.md
+│   │   └── workload-equity/SKILL.md
 │   └── agents/
 │       ├── the-architect.md
 │       ├── the-career-coach.md
@@ -90,16 +94,19 @@ bettersense/
 | `demo-prep` | Five-pass prep for high-stakes demos: headline, audience, pre-mortem, script, and Q&A — with extra hazard-handling for AI-feature demos. |
 | `engineering-health` | Assesses the engineering systems layer — SPACE-based productivity diagnostic, onboarding time as a leading indicator, developer experience friction identification, and making the case for platform investment. Designed to run alongside or after `team-diagnosis`. |
 | `feedback-frameworks` | Drafting and pressure-testing feedback for reports, peers, and stakeholders using the COIN structure (Connection → Observation → Impact → Next steps) and the SOLID quality checklist. |
+| `glue-audit` | Systematically identifies, categorizes, and quantifies glue work (non-core technical activities like onboarding, documentation, unblocking, cross-team alignment) on a team or for an individual. Produces an inventory with time estimates, promotion-value assessment, and fairness analysis to diagnose workload distribution and support promotion cases for glue-heavy engineers. |
 | `hiring-craft` | Treats hiring as craft, not vibes — designing interview loops with explicit signals, writing rubrics with behavioral anchors, and running calibrated debriefs (silent vote first, junior voices first, signal-by-signal walk-through). |
 | `impact-audit` | Stress-tests whether a team's work is actually connected to something the business cares about — runs the budget test, death spiral check, and goal distance check. Designed to run before `strategy-doc` or `prioritization-frameworks`, when the question is "are we even pointed at the right thing?" |
 | `influence-without-authority` | For TPMs, staff engineers, and senior ICs leading people who don't report to them. Diagnoses positions vs. interests, applies the currencies model, sequences coalitions, and is opinionated about legitimate vs. manipulative influence patterns. |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
+| `manage-glue-workers` | Coaching, protecting, and developing engineers who consistently do glue work. Provides manager guidance on preventing burnout, ensuring visibility, redistributing non-promotable tasks fairly, and advocating for glue-heavy reports in promotion cycles against "not technical enough" bias. |
 | `metrics-design` | Designs the metric tree for an AI feature — north star, leading/lagging, and the counter-metrics that catch Goodhart-style failures where you optimize the model into a worse product. |
 | `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
 | `patterns-watch` | Scheduled cross-cutting scan across the reflection ecosystem (stakeholder, wins, self) — surfaces unsolicited patterns the user hasn't asked about: attention gaps, contradictions between stated focus and actual logged work, trajectory shifts. Citation-disciplined; observation-not-prediction. Designed for weekly `/schedule`. |
 | `performance-management` | Walks the underperformance ladder deliberately — coaching → formalized feedback → PIP → termination — with documentation, calibrated conversations, and the brilliant-jerk pattern handled directly. The hardest skill in management. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
 | `product-pulse` | Single-page dated pulse report on product health — usage metrics, system performance, AI-feature signals (hallucination, refusal, eval drift), counter-metrics, follow-up investigation, provenance footer. Saves to `~/bettersense-work-reflections/pulses/<area-slug>/` so the folder accumulates into product memory. Privacy-first; designed for daily/weekly `/schedule`. |
+| `promo-case-glue` | Builds a promotion packet for engineers whose impact is primarily through glue work (onboarding, documentation, unblocking, process improvement). Translates glue tasks into technical leadership evidence, identifies artifacts, and provides manager talking points to counter "not technical enough" bias during calibration. |
 | `pulse-synthesize` | Reads accumulated pulse reports for an area over a time window and surfaces trends, anomalies, regime shifts, and Goodhart-pattern warnings — with citations to specific dated pulses. Distinguishes trend from snapshot, refuses to forecast, surfaces coverage gaps honestly. |
 | `read-the-room` | Retrospective interpretation of a meeting / Slack thread / 1:1 / design review — surfaces who held back, where consensus is performative, what positions are masking what interests, what burnout signals are present. Reads are hypotheses to verify, not facts to act on. |
 | `report-career-architect` | Designs a 12–18 month growth plan for a direct report — target state, capability gaps, sequenced experiences, *manager moves* (what the user has to stop doing to make room), risks, and observable success criteria. |
@@ -116,6 +123,7 @@ bettersense/
 | `wins-log` | Capture a structured win at work — situation, action, impact, evidence, honest credit framing. Pushes back on vague impact claims and inflated solo claims. Front-of-funnel for the brag-doc / hype-doc bundle. |
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category (delivery / judgment / mentorship / recovery / range) because memory is selective. Accepts "honestly, nothing notable" without manufacturing fake wins. |
 | `wins-curate` | Turn the wins log into an audience-specific artifact: promo packet, behavioral interview stories (STAR), perf-review self-eval, salary-negotiation case, or year-in-review. Never invents wins; cites log entries; surfaces gaps as prep targets. |
+| `workload-equity` | Analyzes whether non-promotable (glue) work is fairly distributed across a team with attention to demographic and seniority patterns. Surfaces bias signals (gender, junior staff over-volunteering), identifies single-point dependencies, and recommends concrete rebalancing actions. Manager-facing skill for creating equitable promotion opportunities. |
 
 ### Subagents
 

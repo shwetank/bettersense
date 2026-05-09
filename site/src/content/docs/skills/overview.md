@@ -3,7 +3,7 @@ title: Skills overview
 description: The full skill catalog organized by category, plus the anchor-file pattern that makes skills compound over time.
 ---
 
-bettersense has 31 skills organized into five categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
+bettersense has **37 skills** organized into five categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
 
 ## The anchor-file pattern
 
@@ -74,28 +74,32 @@ Neither is required. Skills work without them — outputs are just more generic 
 
 ---
 
-### People leadership (9 skills)
+### People leadership (12 skills)
 
 | Skill | What it does |
 |---|---|
 | `coaching-mode` | Ask-not-tell mode for development conversations. GROW frame. Pushes back when you catch yourself prescribing. |
 | `feedback-frameworks` | Draft and pressure-test feedback using COIN (Connection → Observation → Impact → Next) + SOLID quality checklist. |
 | `one-on-one-prep` | Build 1:1 agendas matched to the relationship type (manager→report, peer, skip-level). |
-| `performance-management` | The underperformance ladder — coaching → formalized feedback → PIP — with documentation and conversation scripting. |
+| `performance-management` | Underperformance ladder — coaching → formalized feedback → PIP — with documentation and conversation scripting. |
 | `hiring-craft` | Loop design, rubric-writing with behavioral anchors, structured debrief discipline. |
-| `report-career-architect` | 12-18 month growth plan for a report — gaps, sequenced experiences, manager moves, risks. |
+| `report-career-architect` | 12–18 month growth plan for a report — gaps, sequenced experiences, manager moves, risks. |
 | `report-promo-case` | Panel-ready promotion packet with cited evidence, calibrated solo/shared credit, pre-empted objections. |
+| `promo-case-glue` | Build promotion packets for glue-heavy engineers; translates glue tasks into technical leadership evidence with manager talking points. |
 | `team-diagnosis` | Multi-dimensional team health check across eight dimensions — green/yellow/red with cited evidence and top-3 risks. |
-| `engineering-health` | Engineering systems diagnostic — SPACE-based productivity read, onboarding time as a leading indicator, DevEx friction identification, platform investment case. Runs after team-diagnosis when technical health needs a deeper look. |
+| `workload-equity` | Diagnoses fairness of non-promotable work distribution; surfaces bias signals, single-point dependencies, and rebalancing recommendations. |
+| `engineering-health` | Engineering systems diagnostic — SPACE-based productivity read, onboarding time as leading indicator, DevEx friction, platform investment case. |
+| `manage-glue-workers` | Coaching & protecting glue-heavy engineers: credit amplification, workload rebalancing, promotion advocacy, skill development. |
 
 [Full people leadership docs →](/skills/people-leadership)
 
 ---
 
-### Cross-cutting (4 skills)
+### Cross-cutting (5 skills)
 
 | Skill | What it does |
 |---|---|
+| `glue-audit` | Catalog and quantify non-core (glue) work on yourself or team — time estimates, promotion-value, fairness analysis. |
 | `read-the-room` | Retrospective interpretation of a meeting or thread — who held back, performative consensus, subtext. Produces hypotheses, not claims. |
 | `influence-without-authority` | Coalition-building, positions vs. interests, sequencing moves. Opinionated about the legitimacy line. |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
