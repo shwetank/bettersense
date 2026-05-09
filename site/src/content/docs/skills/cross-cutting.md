@@ -1,9 +1,9 @@
 ---
 title: Cross-cutting skills
-description: Three skills for reading the room, influencing without authority, and the general leadership OS.
+description: Four skills for reading the room, influencing without authority, pre-mortems, and the general leadership OS.
 ---
 
-These three skills serve everyone in the bundle — not specific to AI PMs, EMs, or TPMs, but used by all of them.
+These four skills serve everyone in the bundle — not specific to AI PMs, EMs, or TPMs, but used by all of them.
 
 ---
 
@@ -38,6 +38,24 @@ Covers:
 - **The listening conversation** — why going in with a proposal is often the wrong first move
 
 **The skill is opinionated about manipulation.** It refuses to teach manufactured urgency, staged consensus, and fake reciprocity — even when they'd tactically "work." The reasoning: all influence work is iterated, and the cost-to-trust of manipulative tactics outpaces the short-term gain. If you want a tactically harder edge, the operating principles are where to adjust.
+
+---
+
+## `premortem`
+
+**Triggers:** "what could go wrong", "run a pre-mortem", "risk assessment", "pre-mortem this plan"
+
+Pre-mortem is prospective hindsight: imagine your initiative has failed, then work backward to identify why. This technique, developed by Gary Klein and refined by Shreyas Doshi, helps identify risks hidden by optimism bias.
+
+**The three categories:**
+
+- **🎯 Critical Risks** — Clear threats requiring action
+- **🔍 Perceived Risks** — Potential threats others might worry about
+- **🔇 Undiscussed Risks** — Important concerns the team isn't addressing
+
+**Output:** A risk register with top risks ranked by impact × likelihood, proposed mitigations with owners/timelines, and accepted risks (intentional decisions to live with some risk).
+
+For AI features, add specific categories: hallucination risk, refusal/over-refusal, prompt injection, data leakage, cost explosion.
 
 ---
 

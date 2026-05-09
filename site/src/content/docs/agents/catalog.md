@@ -1,6 +1,6 @@
 ---
 title: Agent catalog
-description: All 22 bettersense agents — what each one does and when to use it.
+description: All 23 bettersense agents — what each one does and when to use it.
 ---
 
 ## `the-architect`
@@ -54,6 +54,16 @@ Distinct from `the-incident-responder` (which handles real-time AI feature incid
 Works through: reading existing incident artifacts, establishing the blameless frame, building a precise timeline, five-whys from each failure point, sorting findings into systemic vs. individual causes, pressure-testing action items for specificity and counterfactual validity, and naming what worked.
 
 Best for: the hour after an incident is resolved, before the team's memory fades and before the instinct to assign blame hardens.
+
+---
+
+## `the-premortem-facilitator`
+
+Use proactively before launches, major initiatives, or strategic decisions to identify failure modes and create mitigation plans. Trigger when the user says "let's run a pre-mortem", "what could go wrong with this plan", or "run a pre-mortem on this".
+
+Works through: establishing the forward-looking frame, posing the failure prompt, collecting risks in three categories (Critical, Perceived, Undiscussed), prioritizing risks by impact × likelihood, and creating an action plan with owners/timelines.
+
+Best for: product launches, AI feature deployments, strategic initiatives, team workshops on risk identification.
 
 ---
 

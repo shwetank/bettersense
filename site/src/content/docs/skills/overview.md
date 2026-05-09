@@ -3,7 +3,7 @@ title: Skills overview
 description: The full skill catalog organized by category, plus the anchor-file pattern that makes skills compound over time.
 ---
 
-bettersense has 30 skills organized into five categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
+bettersense has 31 skills organized into five categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
 
 ## The anchor-file pattern
 
@@ -92,19 +92,20 @@ Neither is required. Skills work without them — outputs are just more generic 
 
 ---
 
-### Cross-cutting (3 skills)
+### Cross-cutting (4 skills)
 
 | Skill | What it does |
 |---|---|
 | `read-the-room` | Retrospective interpretation of a meeting or thread — who held back, performative consensus, subtext. Produces hypotheses, not claims. |
 | `influence-without-authority` | Coalition-building, positions vs. interests, sequencing moves. Opinionated about the legitimacy line. |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
+| `premortem` | Pre-mortem risk assessment using Critical/Perceived/Undiscussed categories to anticipate failure before it happens. |
 
 [Full cross-cutting docs →](/skills/cross-cutting)
 
 ---
 
-## All 22 agents
+## All 23 agents
 
 Agents are different from skills: they run in a focused context window, useful for tasks that carry a lot of state or span multiple steps.
 
