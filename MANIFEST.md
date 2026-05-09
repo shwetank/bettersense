@@ -2,7 +2,7 @@
 
 This file lists every skill and agent that ships with this bundle. Use it to identify which items in `~/.claude/skills/` and `~/.claude/agents/` came from this repo (vs. skills you wrote yourself or installed from other sources).
 
-The bundle contains **30 skills** and **19 agents**, all inside `plugin/`.
+The bundle contains **30 skills** and **22 agents**, all inside `plugin/`.
 
 ## How to identify bundle items in your Claude Code install
 
@@ -49,23 +49,26 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category. |
 | `wins-log` | Structured win capture (situation, action, impact, evidence, honest credit). |
 
-## Agents (13)
+## Agents (22)
 
 | Name | One-line description |
 |---|---|
 | `the-architect` | Production hardening for AI features. Safety sandwich, fallback design, separation of probabilistic/deterministic logic. |
-| `the-eval-designer` | Smallest eval system that catches a regression. Golden set, metric class, LLM-as-judge rubric, ship/rollback bars. |
-| `the-explainer` | Audience-calibrated how-it-works docs. Capability + limitations + safety triad. |
-| `the-incident-responder` | AI-feature incident lead. Stabilize, investigate, blameless postmortem, feed failures back into evals. |
-| `the-program-manager` | Multi-team multi-month program management. Dependency mapping, risk gates, orphan adoption, escalation framing. |
-| `the-prompt-critic` | Senior-engineer-style review of production prompts. Severity-ranked findings. |
-| `the-red-teamer` | Adversarial pre-launch testing for AI features. Prompt injection, exfiltration, jailbreaks, OOD. |
-| `the-reducer` | Early-discovery agent. Reduces ambiguity. Pushes back on "AI problems" that are actually UI problems. |
-| `the-research-synthesizer` | Clusters raw qualitative data into themes / JTBDs / product implications anchored to direct quotes. |
-| `the-rfc-reviewer` | Senior-staff-engineer-style review of engineering RFCs. Problem clarity through security. |
-| `the-scientist` | Pre-development AI feasibility. Builds golden datasets and eval harnesses. Refuses single-demo success. |
-| `the-spec-writer` | Validated problem → decision-ready PRD. Reads `profile.md` and `strategy.md` as anchors. |
-| `the-translator` | Tech → business reframing for execs/stakeholders. Honest about both. |
+| `the-discovery-facilitator` | Structured opportunity discovery before committing to build — separates validated user needs from assumed ones, maps evidence to gaps, produces an informed conviction statement. |
+| `the-eval-designer` | Smallest eval system that catches a regression — golden set, metric class, LLM-as-judge rubric, ship/rollback bars. |
+| `the-explainer` | Audience-calibrated how-it-works docs — capability, limitations, safety story for customers, sales, support, execs, security/legal. |
+| `the-incident-responder` | AI-feature incident lead — stabilization, technical investigation, blameless postmortems, feeding failures back into the eval set. |
+| `the-postmortem-facilitator` | Blameless postmortem facilitation after any engineering incident — timeline reconstruction, five-whys root cause analysis, systemic vs. individual distinction, action item discipline. |
+| `the-program-manager` | Multi-team, multi-month program management — dependency mapping, risk gates per launch phase, orphaned-problem adoption, rollout coordination, escalation framing. |
+| `the-prompt-critic` | Senior-engineer-style review of production prompts — scoping, instruction order, output contract, injection resistance, drift hazards. |
+| `the-red-teamer` | Adversarial pre-launch testing for AI features — prompt injection, exfiltration, jailbreaks, out-of-distribution failures. |
+| `the-reducer` | Early-discovery agent — reduces ambiguity, pushes back on "AI problems" that are actually UI or data problems, defaults to "no AI" stance. |
+| `the-research-synthesizer` | Clusters raw qualitative data — interview notes, support tickets, NPS verbatims — into themes, JTBDs, and product implications anchored to direct quotes. |
+| `the-rfc-reviewer` | Senior-staff-engineer-style review of engineering RFCs/design docs — problem clarity, alternatives, trade-offs, failure modes, observability, scaling, security. |
+| `the-scientist` | Pre-development feasibility — builds golden datasets and eval harnesses, refuses to declare success on a single demo. |
+| `the-slo-designer` | Defines reliability targets and error budgets for a service — SLOs grounded in user experience, instrumentation verification, error budget policy, monitoring setup. |
+| `the-spec-writer` | Turns a validated problem into a decision-ready PRD with concrete success metrics, scoped non-goals, and named seams between probabilistic and deterministic logic. |
+| `the-translator` | Converts eval metrics and failure modes into honest business language for executives, stakeholders, or investor demos without hype or false humility. |
 | `the-vendor-evaluator` | Systematic third-party AI tool/platform evaluation — testing on real data, TCO analysis, integration cost assessment, exit-strategy planning. |
 | `the-gtm-planner` | Go-to-market launch strategy for AI features — trust-gap assessment, phased rollout cohorts, audience-calibrated messaging, AI-specific readiness gates. |
 | `the-retro-facilitator` | Structured team retrospectives that produce actionable items — format selection, system diagnosis, SMART action items, psychological safety maintenance. |

@@ -3,7 +3,7 @@ title: Skills overview
 description: The full skill catalog organized by category, plus the anchor-file pattern that makes skills compound over time.
 ---
 
-bettersense has 32 skills organized into five categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
+bettersense has 30 skills organized into five categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
 
 ## The anchor-file pattern
 
