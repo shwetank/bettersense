@@ -104,7 +104,7 @@ Neither is required. Skills work without them — outputs are just more generic 
 
 ---
 
-## All 16 agents
+## All 22 agents
 
 Agents are different from skills: they run in a focused context window, useful for tasks that carry a lot of state or span multiple steps.
 

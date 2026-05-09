@@ -1,6 +1,6 @@
 ---
 title: Agent catalog
-description: All 16 bettersense agents — what each one does and when to use it.
+description: All 22 bettersense agents — what each one does and when to use it.
 ---
 
 ## `the-architect`
@@ -144,3 +144,53 @@ Use when converting technical AI results (eval metrics, latency numbers, failure
 Reads `profile.md` when present — uses your communication style and audience defaults. Composes with `the-incident-responder` for post-incident comms.
 
 Best for: *"I need to brief the CEO on why our accuracy regressed"*, pre-exec readout prep, investor update on AI feature performance.
+
+---
+
+## `the-vendor-evaluator`
+
+Use when evaluating third-party AI tools, models, APIs, or platforms before purchase. Trigger for vendor selection, build-vs-buy decisions with external options, model-provider comparisons, or when the user needs a structured evaluation framework for procurement. Distinct from `the-reducer` (build-vs-buy internal options) and `the-scientist` (technical feasibility validation). Composes with `ai-pm-frameworks` (model selection criteria), `metrics-design` (success criteria), and `the-architect` (integration patterns).
+
+Best for: procurement decisions, comparing LLM providers, evaluating AI SaaS tools, avoiding vendor lock-in, TCO analysis.
+
+---
+
+## `the-gtm-planner`
+
+Use when planning a go-to-market launch for an AI feature or product — sequencing, audience segmentation, messaging calibration, and launch readiness gates. Trigger when the user asks "how do we launch this?", "what's our GTM strategy for the AI feature?", or needs a phased rollout plan that accounts for AI-specific considerations (trust-building, edge-case communication, opt-in/opt-out strategies). Distinct from `the-program-manager` (multi-team coordination) and `the-rollout-planner` (staged feature rollouts). Composes with `the-explainer` (messaging), `the-translator` (executive comms), and `demo-prep` (launch demos).
+
+Best for: phased AI launches, trust-gap management, cohort-based rollouts, launch readiness gates.
+
+---
+
+## `the-retro-facilitator`
+
+Use when facilitating a team retrospective or post-mortem after a project, incident, or sprint. Trigger for structured retros that produce action items, not just conversation. Distinct from `the-incident-responder` (real-time incident management) and `the-postmortem-facilitator` (blameless postmortem after infrastructure incidents). This agent focuses on team process, teamwork, and improvement cycles — it's for the regular cadence retro, not just incident deep-dives. Composes with `read-the-room` (surface subtext before retro), `team-diagnosis` (health data to inform retro), and `feedback-frameworks` (airing concerns constructively).
+
+Best for: sprint retros, project post-mortems, continuous improvement cycles, psychological safety maintenance, system diagnosis.
+
+---
+
+## `the-data-storyteller`
+
+Use when translating metrics, data, or analytical findings into a compelling narrative for stakeholders. Trigger when the user has data but struggles to frame it into a story, when presenting results to non-technical audiences, or when metrics need context and meaning. Distinct from `the-translator` (which focuses on AI-specific technical results) — this agent handles general data-to-story translation across product, business, and team metrics. Composes with `metrics-design` (defining the metrics), `product-pulse` (source data), and `the-translator` (AI-specific reframing).
+
+Best for: executive presentations, metric-driven narratives, insight communication, data visualization storyboarding.
+
+---
+
+## `the-status-crafter`
+
+Use when drafting regular status updates, stakeholder reports, or leadership communications about ongoing work. Trigger for weekly/monthly status emails, stakeholder updates, leadership readouts, or any recurring communication that summarizes progress, risks, and next steps. Distinct from `the-translator` (which converts technical results into business language) and `the-explainer` (which explains features/concepts). This agent focuses on recurring operational reporting. Composes with `the-translator` for executive audiences, `team-diagnosis` for health insights, and `product-pulse` for product metrics.
+
+Best for: weekly status emails, monthly leadership readouts, operational reporting, signal extraction from noise.
+
+---
+
+## `the-career-coach`
+
+Use when coaching individual contributors on career development, growth planning, and skill-building — particularly for ICs navigating promotion paths, skill gaps, or role transitions. Distinct from `report-career-architect` (which builds growth plans for the user's direct reports) and `coaching-mode` (which is for ask-not-tell development conversations). This agent provides structured guidance for ICs to self-assess and build their own careers, and for managers coaching ICs who are not their direct reports (e.g., matrixed reports, mentorship relationships). Composes with `feedback-frameworks` (giving actionable feedback), `report-promo-case` (building evidence), and `leadership-os` (career conversations).
+
+Best for: promotion readiness assessment, career path planning, skill gap analysis, growth plan crafting for ICs.
+
+---

@@ -2,7 +2,7 @@
 
 This file lists every skill and agent that ships with this bundle. Use it to identify which items in `~/.claude/skills/` and `~/.claude/agents/` came from this repo (vs. skills you wrote yourself or installed from other sources).
 
-The bundle contains **30 skills** and **13 agents**, all inside `plugin/`.
+The bundle contains **30 skills** and **19 agents**, all inside `plugin/`.
 
 ## How to identify bundle items in your Claude Code install
 
@@ -66,6 +66,12 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `the-scientist` | Pre-development AI feasibility. Builds golden datasets and eval harnesses. Refuses single-demo success. |
 | `the-spec-writer` | Validated problem → decision-ready PRD. Reads `profile.md` and `strategy.md` as anchors. |
 | `the-translator` | Tech → business reframing for execs/stakeholders. Honest about both. |
+| `the-vendor-evaluator` | Systematic third-party AI tool/platform evaluation — testing on real data, TCO analysis, integration cost assessment, exit-strategy planning. |
+| `the-gtm-planner` | Go-to-market launch strategy for AI features — trust-gap assessment, phased rollout cohorts, audience-calibrated messaging, AI-specific readiness gates. |
+| `the-retro-facilitator` | Structured team retrospectives that produce actionable items — format selection, system diagnosis, SMART action items, psychological safety maintenance. |
+| `the-data-storyteller` | Translates metrics and data into compelling narratives — insight identification, story archetype selection, narrative arc construction, action-driven conclusions. |
+| `the-status-crafter` | Recurring operational status reporting — signal over noise, audience-specific framing, metrics-first presentation, decisions and risks explicitly surfaced. |
+| `the-career-coach` | Individual contributor career development coaching — stage diagnosis, promotion-readiness mapping, skill-gap-to-project conversion, growth plan crafting. |
 
 ## Data the bundle creates (outside the repo)
 

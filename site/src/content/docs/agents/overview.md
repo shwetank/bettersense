@@ -1,9 +1,9 @@
 ---
 title: Agents overview
-description: What agents are, how they differ from skills, and when to use them. bettersense includes 16 agents organized into four clusters.
+description: What agents are, how they differ from skills, and when to use them. bettersense includes 22 agents organized into five clusters.
 ---
 
-bettersense includes 16 subagents alongside the 32 skills. They're different tools for different situations.
+bettersense includes 22 subagents alongside the 30 skills. They're different tools for different situations.
 
 ## Skills vs. agents
 
@@ -38,7 +38,7 @@ use the-spec-writer for this
 the-eval-designer should look at this eval setup
 ```
 
-## The four clusters
+## The clusters
 
 ### [AI product workflow](/agents/ai-product-workflow)
 
@@ -63,6 +63,12 @@ Four agents covering the reliability arc — design review, reliability planning
 Two agents for qualitative data synthesis and multi-team program management.
 
 `the-research-synthesizer` · `the-program-manager`
+
+### [Operations & people](/agents/operations-people)
+
+Six agents covering business operations, team effectiveness, and career development.
+
+`the-vendor-evaluator` · `the-gtm-planner` · `the-retro-facilitator` · `the-data-storyteller` · `the-status-crafter` · `the-career-coach`
 
 ---
 

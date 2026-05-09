@@ -57,9 +57,12 @@ bettersense/
 │   │   └── wins-log/SKILL.md
 │   └── agents/
 │       ├── the-architect.md
+│       ├── the-career-coach.md
+│       ├── the-data-storyteller.md
 │       ├── the-discovery-facilitator.md
 │       ├── the-eval-designer.md
 │       ├── the-explainer.md
+│       ├── the-gtm-planner.md
 │       ├── the-incident-responder.md
 │       ├── the-postmortem-facilitator.md
 │       ├── the-program-manager.md
@@ -67,11 +70,14 @@ bettersense/
 │       ├── the-red-teamer.md
 │       ├── the-reducer.md
 │       ├── the-research-synthesizer.md
+│       ├── the-retro-facilitator.md
 │       ├── the-rfc-reviewer.md
 │       ├── the-scientist.md
 │       ├── the-slo-designer.md
 │       ├── the-spec-writer.md
-│       └── the-translator.md
+│       ├── the-status-crafter.md
+│       ├── the-translator.md
+│       └── the-vendor-evaluator.md
 ```
 
 ### Skills
@@ -145,7 +151,7 @@ If you're using Claude Code and want a one-command install with automatic update
 /plugin install bettersense@bettersense
 ```
 
-Then verify with `/agents` — you should see 16 subagents. Skills are namespaced under `bettersense:` (e.g. `/bettersense:wins-log`).
+Then verify with `/agents` — you should see 22 subagents. Skills are namespaced under `bettersense:` (e.g. `/bettersense:wins-log`).
 
 To update later: `/plugin marketplace update bettersense`
 
@@ -216,7 +222,7 @@ The repo root [`MANIFEST.md`](MANIFEST.md) lists every skill and agent in the bu
 
 ### Verifying
 
-Verify with `/agents` inside Claude Code — the sixteen subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`, `/user-profile`, `/strategy-doc`, `/product-pulse`).
+Verify with `/agents` inside Claude Code — the 22 subagents should appear. Skills auto-load when prompts match their `description`; you can also trigger them explicitly with `/<skill-name>` (e.g. `/ai-pm-frameworks`, `/decision-log`, `/leadership-os`, `/stakeholder-reflect`, `/wins-log`, `/coaching-mode`, `/read-the-room`, `/user-profile`, `/strategy-doc`, `/product-pulse`).
 
 ### Updating skills after changes
 
@@ -650,7 +656,7 @@ cat ~/bettersense-work-reflections/README.md
 Inside Claude Code:
 
 ```
-/agents               # sixteen subagents should appear
+/agents               # 22 subagents should appear
 /schedule list        # your routines should appear here
 ```
 
