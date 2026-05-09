@@ -2,7 +2,7 @@
 
 This file lists every skill and agent that ships with this bundle. Use it to identify which items in `~/.claude/skills/` and `~/.claude/agents/` came from this repo (vs. skills you wrote yourself or installed from other sources).
 
-The bundle contains **34 skills** and **22 agents**, all inside `plugin/`.
+The bundle contains **41 skills** and **22 agents**, all inside `plugin/`.
 
 ## How to identify bundle items in your Claude Code install
 
@@ -14,7 +14,7 @@ find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*bettersense*
 
 If you installed via plain `cp` (the legacy install path), this manifest is your reference. Match folder/file names below against what you have in `~/.claude/`.
 
-## Skills (34)
+## Skills (41)
 
 | Name | One-line description |
 |---|---|
@@ -32,8 +32,10 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `one-on-one-prep` | 1:1 agendas matched to relationship type (manager→report, report→manager, peer, skip-level). |
 | `patterns-watch` | Scheduled cross-cutting scan across the reflection ecosystem. Surfaces unsolicited patterns with citations; observation-not-prediction. |
 | `performance-management` | Underperformance ladder: coaching → feedback → PIP → termination. The hardest skill in management. |
+| `premortem` | Pre-mortem risk assessment using Critical/Perceived/Undiscussed categories to anticipate failure before it happens. |
 | `prioritization-frameworks` | Picks the right framework (RICE / ICE / WSJF / MoSCoW / Kano / Cost of Delay) for the situation. |
 | `product-pulse` | Single-page dated pulse report on product health. Counter-metrics + AI-specific signals first-class. Privacy-first. |
+| `psychological-safety` | Builds psychological safety on a team through concrete leader practices: vulnerability modeling, constructive response to upward speech, inclusive meeting facilitation, and rituals like pre-mortems. Diagnoses safety level and prescribes interventions. |
 | `promo-case-glue` | Builds promotion packets for glue-heavy engineers. Translates glue tasks into technical leadership evidence, identifies artifacts, and provides manager talking points to counter "not technical enough" bias during calibration. |
 | `pulse-synthesize` | Reads accumulated pulses, surfaces trends/anomalies/regime shifts with citations. Refuses to forecast. |
 | `read-the-room` | Retrospective interpretation of meetings/threads/1:1s. Surfaces subtext as hypotheses, never facts. |
@@ -46,7 +48,12 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `stakeholder-register` | Register a new stakeholder. First-run setup of `~/bettersense-work-reflections/`. |
 | `stakeholder-synthesize` | Cross-reflection synthesis for one stakeholder or category, with citation discipline. |
 | `strategy-doc` | Interview-driven creation of `strategy/<area>.md`. Anchor read by spec-writer / prioritization / metrics-design / pulse skills. |
+| `team-charter` | Facilitates explicit goals/roles/norms conversation for new/resetting teams. Produces living charter at `team-charters/<slug>.md`, baseline for team check-ins. The Commit step of 3X3. |
+| `team-check-in` | Structured recurring conversation to revisit goals/roles/norms. Surfaces drift and guides course-correction. The Check-In step of 3X3. Works from existing charter. |
+| `team-close-gap` | Turns alignment gaps into small, targeted behavioral changes with owners and environmental support. The Close step of 3X3: closes the saying-doing gap through realistic, tracked steps. |
 | `team-diagnosis` | Eight-dimension team health check with cited evidence and top-3 actionable risks. |
+| `team-lifecycle` | Guides teams through Tuckman's stages (forming, storming, norming, performing, adjourning) and resets after reorgs. Provides phase-specific leader interventions. |
+| `team-style-inventory` | Helps teams surface and align on working style preferences (communication, decisions, conflict, meetings). Makes implicit norms explicit, accommodates differences. |
 | `user-profile` | Anchor file (`profile.md`) capturing who you are. Read by 8 skills to tailor outputs. Inspired by SOUL.md. |
 | `wins-curate` | Audience-specific artifact from the wins log: promo packet / interview stories / perf review / salary case / year-in-review. |
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category. |

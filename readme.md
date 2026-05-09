@@ -37,8 +37,10 @@ bettersense/
 │   │   ├── one-on-one-prep/SKILL.md
 │   │   ├── patterns-watch/SKILL.md
 │   │   ├── performance-management/SKILL.md
+│   │   ├── premortem/SKILL.md
 │   │   ├── prioritization-frameworks/SKILL.md
 │   │   ├── product-pulse/SKILL.md
+│   │   ├── psychological-safety/SKILL.md
 │   │   ├── promo-case-glue/SKILL.md
 │   │   ├── pulse-synthesize/SKILL.md
 │   │   ├── read-the-room/SKILL.md
@@ -53,7 +55,12 @@ bettersense/
 │   │   ├── stakeholder-register/SKILL.md
 │   │   ├── stakeholder-synthesize/SKILL.md
 │   │   ├── strategy-doc/SKILL.md
+│   │   ├── team-charter/SKILL.md
+│   │   ├── team-check-in/SKILL.md
+│   │   ├── team-close-gap/SKILL.md
 │   │   ├── team-diagnosis/SKILL.md
+│   │   ├── team-lifecycle/SKILL.md
+│   │   ├── team-style-inventory/SKILL.md
 │   │   ├── user-profile/SKILL.md
 │   │   ├── wins-curate/SKILL.md
 │   │   ├── wins-due/SKILL.md
@@ -104,8 +111,10 @@ bettersense/
 | `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
 | `patterns-watch` | Scheduled cross-cutting scan across the reflection ecosystem (stakeholder, wins, self) — surfaces unsolicited patterns the user hasn't asked about: attention gaps, contradictions between stated focus and actual logged work, trajectory shifts. Citation-disciplined; observation-not-prediction. Designed for weekly `/schedule`. |
 | `performance-management` | Walks the underperformance ladder deliberately — coaching → formalized feedback → PIP → termination — with documentation, calibrated conversations, and the brilliant-jerk pattern handled directly. The hardest skill in management. |
+| `premortem` | Pre-mortem risk assessment using the three-category framework (Critical, Perceived, Undiscussed risks) to identify what could go wrong before committing to a plan. |
 | `prioritization-frameworks` | Picks the right prioritization framework (RICE, ICE, WSJF, MoSCoW, Kano, Cost of Delay) for the situation, then forces hidden assumptions out into the open. |
 | `product-pulse` | Single-page dated pulse report on product health — usage metrics, system performance, AI-feature signals (hallucination, refusal, eval drift), counter-metrics, follow-up investigation, provenance footer. Saves to `~/bettersense-work-reflections/pulses/<area-slug>/` so the folder accumulates into product memory. Privacy-first; designed for daily/weekly `/schedule`. |
+| `psychological-safety` | Builds team psychological safety through concrete leader practices: modeling vulnerability, constructive response to upward speech, inclusive meeting facilitation, and rituals like pre-mortems and blameless post-mortems. Diagnoses safety level and prescribes actionable interventions. |
 | `promo-case-glue` | Builds a promotion packet for engineers whose impact is primarily through glue work (onboarding, documentation, unblocking, process improvement). Translates glue tasks into technical leadership evidence, identifies artifacts, and provides manager talking points to counter "not technical enough" bias during calibration. |
 | `pulse-synthesize` | Reads accumulated pulse reports for an area over a time window and surfaces trends, anomalies, regime shifts, and Goodhart-pattern warnings — with citations to specific dated pulses. Distinguishes trend from snapshot, refuses to forecast, surfaces coverage gaps honestly. |
 | `read-the-room` | Retrospective interpretation of a meeting / Slack thread / 1:1 / design review — surfaces who held back, where consensus is performative, what positions are masking what interests, what burnout signals are present. Reads are hypotheses to verify, not facts to act on. |
@@ -118,7 +127,12 @@ bettersense/
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
 | `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
 | `strategy-doc` | Interview-driven creation/update of a product/area strategy document — target problem, approach, personas, SMART metrics, 2-4 multi-month tracks, explicit "not working on" section, counter-metrics. Lives at `~/bettersense-work-reflections/strategy/<area-slug>.md` and is read as an anchor by `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, and `pulse-synthesize`. Supports multiple products/areas. |
+| `team-charter` | Facilitates explicit conversation on goals, roles, and norms for new or resetting teams. Produces a living charter at ~/bettersense-work-reflections/team-charters/<team>.md, serving as the baseline for recurring team check-ins and alignment. Foundation of the 3X3 team framework (Commit step). |
+| `team-check-in` | Structured recurring conversation to revisit a team's goals/roles/norms foundation. Surfaces drift between stated commitments and actual behavior, then guides the team to close gaps through small steps. The Check-In step of Moussa's 3X3 framework. Works from an existing team charter. |
+| `team-close-gap` | Turns identified alignment gaps into small, targeted behavioral changes with owners and environmental support. The Close step of Moussa's 3X3 framework: closes the saying-doing gap through realistic, tracked steps rather than grand resolutions. |
 | `team-diagnosis` | Multi-dimensional team health check — delivery cadence, attrition risk, dependency tax, on-call burden, peer relationships, information flow, technical health, culture. Reads stakeholder files + retros + survey scores; produces a green/yellow/red read with cited evidence and top-3 risks worth acting on. |
+| `team-lifecycle` | Guides a team through Tuckman's stages (forming, storming, norming, performing, adjourning) and resets after reorgs. Provides phase-specific interventions and leader actions to navigate transitions successfully. |
+| `team-style-inventory` | Helps teams surface and align on working style preferences (communication, decision-making, conflict, meetings, work rhythms). Makes implicit norms explicit, accommodating style differences to reduce friction. |
 | `user-profile` | Anchor file for the bundle. Single private `~/bettersense-work-reflections/profile.md` capturing the user's role, level, communication style, current strategic focus, stack — read automatically by other skills so you never re-explain context. Inspired by the SOUL.md pattern. Supports multiple "hats" for users in mixed roles. |
 | `wins-log` | Capture a structured win at work — situation, action, impact, evidence, honest credit framing. Pushes back on vague impact claims and inflated solo claims. Front-of-funnel for the brag-doc / hype-doc bundle. |
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category (delivery / judgment / mentorship / recovery / range) because memory is selective. Accepts "honestly, nothing notable" without manufacturing fake wins. |

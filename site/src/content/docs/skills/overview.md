@@ -3,7 +3,7 @@ title: Skills overview
 description: The full skill catalog organized by category, plus the anchor-file pattern that makes skills compound over time.
 ---
 
-bettersense has **37 skills** organized into five categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
+bettersense has **43 skills** organized into six categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
 
 ## The anchor-file pattern
 
@@ -74,7 +74,7 @@ Neither is required. Skills work without them — outputs are just more generic 
 
 ---
 
-### People leadership (12 skills)
+### People leadership (18 skills)
 
 | Skill | What it does |
 |---|---|
@@ -90,6 +90,12 @@ Neither is required. Skills work without them — outputs are just more generic 
 | `workload-equity` | Diagnoses fairness of non-promotable work distribution; surfaces bias signals, single-point dependencies, and rebalancing recommendations. |
 | `engineering-health` | Engineering systems diagnostic — SPACE-based productivity read, onboarding time as leading indicator, DevEx friction, platform investment case. |
 | `manage-glue-workers` | Coaching & protecting glue-heavy engineers: credit amplification, workload rebalancing, promotion advocacy, skill development. |
+| `psychological-safety` | Builds team psychological safety through leader vulnerability, constructive response to upward speech, inclusive facilitation, and rituals like pre-mortems. Diagnoses level and prescribes actions. |
+| `team-charter` | Facilitates explicit goals/roles/norms conversation for new/resetting teams. Produces living charter as baseline for recurring check-ins (3X3 Commit step). |
+| `team-check-in` | Structured recurring conversation to revisit goals/roles/norms. Surfaces drift and guides course-correction (3X3 Check-In step). |
+| `team-close-gap` | Turns alignment gaps into small, targeted behavioral changes with owners and environmental support (3X3 Close step). Closes saying-doing gap through realistic tracked steps. |
+| `team-lifecycle` | Guides teams through Tuckman's stages (forming, storming, norming, performing, adjourning) and resets after reorgs. Phase-specific leader interventions. |
+| `team-style-inventory` | Helps teams surface and align on working style preferences (communication, decisions, conflict, meetings). Makes implicit norms explicit, accommodates differences. |
 
 [Full people leadership docs →](/skills/people-leadership)
 
