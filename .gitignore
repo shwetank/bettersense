@@ -25,3 +25,4 @@ site/dist/
 site/.astro/
 .claude
 scripts/deploy-site.sh
+.kilo
