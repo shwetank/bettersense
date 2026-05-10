@@ -78,6 +78,12 @@ For the user as the skip-level manager:
 - Don't undercut the direct manager — anything that needs a decision goes back through them.
 - Watch for patterns across multiple skip-levels: same complaint twice = systemic issue, not individual.
 
+## Exit signals
+
+If the user says "stop", "exit", "I'm done", "skip this", "pause", or similar — stop immediately. Share whatever agenda has been built so far and end cleanly. Don't push to complete every section.
+
+In the opening message, after confirming the role, add one short sentence: *"You can say 'stop' at any time and I'll share what we have so far."*
+
 ## How to help the user
 
 1. **Confirm the role and the relationship state.** New report? Long tenure? Recent friction? Recent promotion? These change the agenda.

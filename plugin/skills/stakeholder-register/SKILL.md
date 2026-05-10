@@ -33,6 +33,12 @@ Whether or not the root existed already:
 3. Ensure a `.gitignore` exists at the root containing `*`, and a `README.md` that says:
    > Private. Contains candid reflections about real people. Do not commit, share, or back up to public locations. Encrypt the parent disk if you can.
 
+## Exit signals
+
+If the user says "stop", "exit", "I'm done", "skip this", "pause", or similar — stop immediately. If a name and category were already captured, offer to save a minimal stub so they can continue later. Don't push for more answers.
+
+In the opening message, add one short sentence: *"You can say 'stop' at any time and we'll save what we have."*
+
 ## The register flow
 
 When invoked, walk the user through:

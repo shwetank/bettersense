@@ -11,6 +11,12 @@ Default workflow: **draft with COIN → check against SOLID → revise**.
 
 **User profile:** If `~/bettersense-work-reflections/profile.md` exists, read it before drafting. It carries the user's communication style and directness preference — calibrate the COIN draft accordingly (some users want directness up front; others lead with more relationship work). The profile also surfaces the user's role context, which shapes whether the recipient is a peer, report, or upward stakeholder.
 
+## Exit signals
+
+If the user says "stop", "exit", "I'm done", "skip this", "pause", or similar — stop immediately. Share whatever has been drafted so far (even a partial COIN) and end cleanly. Don't push through the rest of the framework.
+
+In the opening message, after confirming the situation, add one short sentence: *"You can say 'stop' at any time and I'll share whatever we've drafted so far."*
+
 ## When to use this skill
 
 Trigger phrases include:

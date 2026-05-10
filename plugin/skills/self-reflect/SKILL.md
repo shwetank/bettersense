@@ -7,6 +7,12 @@ description: Use when the user wants to reflect on themselves as a leader — be
 
 Reflect on the user themselves — leadership, behavior, fulfillment, calendar — and capture the result to `~/bettersense-work-reflections/self/reflections.md`. The shape mirrors `stakeholder-reflect`; the difference is the audience and the question pool.
 
+## Exit signals
+
+If the user says "stop", "exit", "I'm done", "that's enough", "pause", or similar — end the session immediately and write whatever has been captured so far. Don't push for more.
+
+In the opening message, add one short sentence: *"You can say 'stop' at any time and we'll save what we have."*
+
 ## First-run setup
 
 If `~/bettersense-work-reflections/self/reflections.md` doesn't exist:

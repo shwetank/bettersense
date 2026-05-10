@@ -7,6 +7,12 @@ description: Use when the user wants to reflect on a registered stakeholder — 
 
 Guide a single reflection session about a registered stakeholder. The output is a dated entry appended to `~/bettersense-work-reflections/<category>/<slug>.md` for one or more questions from the question library.
 
+## Exit signals
+
+If the user says "stop", "exit", "I'm done", "that's enough", "pause", or similar — end the session immediately and write whatever has been captured so far. Better one good entry than three rushed ones.
+
+In the opening message, add one short sentence: *"You can say 'stop' at any time and we'll save what we have."*
+
 ## Inputs you need
 
 1. **Which stakeholder.** Either named explicitly ("John") or implied ("my manager"). Resolve via `~/bettersense-work-reflections/stakeholders.json`.
@@ -97,7 +103,6 @@ Don't force these. The reflection is the primary product; the handoffs are bonus
 - **Honor the sense category.** If a question is `sense`, do not record what the stakeholder *said*; record what the user *noticed*. The two are different and the distinction is the whole point of the framework.
 - **Cite evidence in the entry.** When a claim is made ("his morale is dropping"), the entry should include the specific observations or quotes that support it.
 - **Reference the file's history.** Reflections compound only if the user is reading their own past entries. Surface them.
-- **Respect the user's bandwidth.** If they tap out after one question, end the session cleanly. Better one good entry than three rushed ones.
 
 ## Anti-patterns to flag
 

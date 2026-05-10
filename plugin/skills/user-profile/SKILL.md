@@ -71,6 +71,12 @@ default_hat: pm
 
 The "alternate hats" section is optional. Most users have one mode; some wear multiple. The skill should ask whether the user wants alternates only if they bring it up.
 
+## Exit signals
+
+If the user says "stop", "exit", "I'm done", "skip this", "pause", or similar — stop immediately. Briefly summarize what was captured so far, offer to save a partial profile if enough was gathered, and end cleanly. Don't ask follow-up questions or push for completion.
+
+In the opening message, after explaining what this skill will do, add one short sentence: *"You can say 'stop' at any time and we'll wrap up with whatever we have."*
+
 ## The interview flow
 
 When invoked for first-run creation, walk through these in order. Keep each step short — this is a doorway, not an interrogation. The user fills detail over time.
