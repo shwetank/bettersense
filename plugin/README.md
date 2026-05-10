@@ -6,12 +6,23 @@ Opinionated skills and agents for **AI PMs, engineering managers, TPMs, and seni
 
 ## Quick install
 
+**Claude Desktop app:**
+
+1. Click **Customize** in the left sidebar
+2. Click **+** next to "Personal plugins" → choose **Add marketplace**
+3. Enter `shwetank/bettersense` and click **Sync**
+4. Go to **Plugins → Code** tab, find Bettersense, and click **+** to install it
+
+**Claude Code CLI (terminal):**
+
 ```
 /plugin marketplace add shwetank/bettersense
 /plugin install bettersense@bettersense
 ```
 
-Or for local development:
+> The `/plugin` commands only work in the terminal CLI — pasting them into the Desktop app chat does nothing.
+
+**Local development:**
 
 ```bash
 claude --plugin-dir /path/to/bettersense/plugin

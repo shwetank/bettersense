@@ -166,16 +166,25 @@ Three install paths, in order of preference.
 
 ### Plugin marketplace (easiest)
 
-If you're using Claude Code and want a one-command install with automatic updates:
+**Claude Desktop app:**
+
+1. Click **Customize** in the left sidebar
+2. Click **+** next to "Personal plugins" → choose **Add marketplace**
+3. Enter `shwetank/bettersense` and click **Sync**
+4. Go to **Plugins → Code** tab, find Bettersense, and click **+** to install it
+
+**Claude Code CLI (terminal):**
 
 ```
 /plugin marketplace add shwetank/bettersense
 /plugin install bettersense@bettersense
 ```
 
-Then verify with `/agents` — you should see 22 subagents. Skills are namespaced under `bettersense:` (e.g. `/bettersense:wins-log`).
-
 To update later: `/plugin marketplace update bettersense`
+
+> **Note:** The `/plugin` commands only work in the terminal CLI. Pasting them into the Desktop app chat does nothing — use the GUI steps above instead.
+
+Run `/bettersense:start` in a new chat to verify and get oriented.
 
 ### Symlink-based install (recommended for development / standalone)
 

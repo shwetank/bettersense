@@ -19,20 +19,27 @@ The cadence-driven skills (`stakeholder-due`, `wins-due`, `self-reflect`, `patte
 
 ## Marketplace install (recommended)
 
-Works on all platforms. If you're running Claude Code with plugin support:
+**Claude Desktop app:**
+
+1. Click **Customize** in the left sidebar
+2. Click **+** next to "Personal plugins" → choose **Add marketplace**
+3. Enter `shwetank/bettersense` and click **Sync**
+4. Go to **Plugins → Code** tab, find Bettersense, and click **+** to install it
+
+**Claude Code CLI (terminal):**
 
 ```
 /plugin marketplace add shwetank/bettersense
 /plugin install bettersense@bettersense
 ```
 
-Verify with `/agents` — you should see 16 subagents listed. Skills are namespaced under `bettersense:` (e.g. `/bettersense:wins-log`, `/bettersense:strategy-doc`).
+To update later: `/plugin marketplace update bettersense`
 
-To update later:
+:::note
+The `/plugin` commands only work in the terminal CLI. Pasting them into the Desktop app chat does nothing — use the GUI path above instead.
+:::
 
-```
-/plugin marketplace update bettersense
-```
+To verify, run `/bettersense:start` in a new chat — it should greet you and walk through first-time setup.
 
 ---
 
