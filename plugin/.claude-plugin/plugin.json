@@ -1,6 +1,6 @@
 {
   "name": "bettersense",
-  "description": "Opinionated Claude Code skills + agents for AI PMs, engineering managers, and TPMs.",
+  "description": "Opinionated Claude Code skills + agents for AI PMs, engineering managers, and TPMs. Run /bettersense:start to get oriented.",
   "version": "0.1.0",
   "author": {
     "name": "Shwetank Dixit"

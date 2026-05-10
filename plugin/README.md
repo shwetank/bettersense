@@ -20,6 +20,14 @@ claude --plugin-dir /path/to/bettersense/plugin
 ## First-time setup
 
 ```
+/bettersense:start
+```
+
+That's it. The `start` skill orients you, walks through profile + stakeholder setup, and routes you to your first real task.
+
+If you prefer to run setup manually:
+
+```
 ☐ /bettersense:user-profile          — who you are (anchor file, read by 8+ skills)
 ☐ /bettersense:strategy-doc          — what you're building (optional but recommended)
 ☐ /bettersense:stakeholder-register  — register your first stakeholder

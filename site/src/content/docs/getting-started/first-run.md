@@ -1,11 +1,19 @@
 ---
 title: First run
-description: What to do in the first 10 minutes after installing bettersense — set up your profile, register a stakeholder, and wire up the cadence.
+description: What to do in the first 10 minutes after installing bettersense — get oriented, set up your profile, and run your first skill.
 ---
 
-After installation, three commands are worth running in your first session. Each takes 5-10 minutes and dramatically sharpens everything else.
+After installation, run one command:
 
-## Quick setup checklist
+```
+/bettersense:start
+```
+
+It orients you, walks through profile and stakeholder setup, and routes you to your first real task. You can say "stop" at any time to skip setup and jump straight to a skill.
+
+## What setup does
+
+Three things are worth configuring — none are required, but each one sharpens the skills that read them.
 
 ```
 ☐  /bettersense:user-profile          → creates your "who you are" anchor file + data directory
@@ -13,7 +21,7 @@ After installation, three commands are worth running in your first session. Each
 ☐  /bettersense:strategy-doc          → creates your "what you're building" anchor (optional)
 ```
 
-None are required — the skills work without them. But they pay for themselves the first time you run `wins-curate` or `the-spec-writer` and the output is already calibrated to your role and context.
+`/bettersense:start` walks you through the first two. Run them manually if you prefer.
 
 ---
 
@@ -110,3 +118,5 @@ With your profile and at least one stakeholder set up:
 - Try [`/bettersense:stakeholder-reflect`](/skills/stakeholder-management) — a reflection session on your first registered stakeholder
 - Try [`/bettersense:wins-log`](/skills/wins-system) — log something you shipped or did this week
 - Browse [all skills](/skills/overview) to understand what's there before you need it
+
+Not sure where to go? Run `/bettersense:start` again — it routes you based on what you're working on.
