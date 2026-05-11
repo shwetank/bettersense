@@ -44,6 +44,39 @@
 
       a { color: var(--accent); text-decoration: none; }
       a:hover { text-decoration: underline; }
+
+      .step-preview-wrap { position: relative; flex-shrink: 0; }
+      .step-preview-icon {
+        display: flex; align-items: center; justify-content: center;
+        width: 1.75rem; height: 1.75rem;
+        background: transparent; border: none; border-radius: 6px;
+        color: var(--text-dim); cursor: pointer;
+        transition: color 0.15s, background 0.15s;
+        padding: 0;
+      }
+      .step-preview-icon:hover { color: var(--accent); background: rgba(201,164,110,0.08); }
+      .step-preview-tooltip {
+        position: absolute;
+        bottom: calc(100% + 10px);
+        right: 0;
+        width: 320px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.55);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+        z-index: 200;
+        pointer-events: none;
+      }
+      .step-preview-wrap:hover .step-preview-tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
     </style>
   </head>
   <body>
@@ -130,11 +163,11 @@
           <!-- Desktop panel -->
           <div id="panel-desktop" style="display: flex; flex-direction: column; gap: 0.6rem;">
             {[
-              ['1', 'Click Customize in the sidebar → + → Add marketplace'],
-              ['2', 'Enter shwetank/bettersense and click Sync'],
-              ['3', 'Go to Plugins → Code, find Bettersense, click +'],
-              ['4', 'Run /bettersense:start to get oriented'],
-            ].map(([n, text]) => (
+              ['1', 'Click Customize in the sidebar → + → Add marketplace', '/desktop1.png'],
+              ['2', 'Enter shwetank/bettersense and click Sync',             '/desktop2.png'],
+              ['3', 'Go to Plugins → Code, find Bettersense, click +',       '/desktop3.png'],
+              ['4', 'Run /bettersense:start to get oriented',                 null],
+            ].map(([n, text, img]) => (
               <div style="display: flex; align-items: center; gap: 0.75rem;">
                 <span style="
                   flex-shrink: 0; width: 1.4rem; height: 1.4rem;
@@ -143,10 +176,26 @@
                   font-size: 0.7rem; font-weight: 700; color: var(--accent);
                 ">{n}</span>
                 <div style="
-                  flex: 1; background: var(--bg-card); border: 1px solid var(--border);
+                  flex: 1; display: flex; align-items: center; justify-content: space-between;
+                  background: var(--bg-card); border: 1px solid var(--border);
                   border-radius: 8px; padding: 0.6rem 1rem;
                   font-size: 0.84rem; color: var(--text);
-                ">{text}</div>
+                ">
+                  <span>{text}</span>
+                  {img && (
+                    <div class="step-preview-wrap">
+                      <button class="step-preview-icon" title="Preview screenshot" aria-label="Preview screenshot">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                          <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                      </button>
+                      <div class="step-preview-tooltip" role="tooltip">
+                        <img src={img} alt={`Step ${n} screenshot`} style="width:100%;display:block;" loading="lazy" />
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
