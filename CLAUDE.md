@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-`bettersense` is a Claude Code plugin that ships 42 skills and 23 agents for AI PMs, engineering managers, TPMs, and senior ICs. Users install it from the marketplace (`shwetank/bettersense`) or by running `scripts/install.sh`. The repo also contains an Astro/Starlight documentation site at `site/` that deploys to bettersense.ai.
+`bettersense` is a Claude Code plugin with skills and agents for AI PMs, engineering managers, TPMs, and senior ICs. Users install it from the marketplace (`shwetank/bettersense`) or by running `scripts/install.sh`. The repo also contains an Astro/Starlight documentation site at `site/` that deploys to bettersense.ai.
 
 ## Repo structure
 
