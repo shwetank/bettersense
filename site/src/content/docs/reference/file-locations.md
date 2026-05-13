@@ -75,10 +75,10 @@ All private data lives under `$BETTERSENSE_WORK_REFLECTIONS_HOME` (default: `~/b
 │
 └── pulses/
     ├── default/
-    │   ├── 2026-05-05.md              # one per pulse run
-    │   └── 2026-05-12.md
+    │   ├── pulse-2026-05-05.md        # one per pulse run
+    │   └── pulse-2026-05-12.md
     └── <area-slug>/
-        └── YYYY-MM-DD.md
+        └── pulse-YYYY-MM-DD.md
 ```
 
 ### File ownership by skill
@@ -91,7 +91,7 @@ All private data lives under `$BETTERSENSE_WORK_REFLECTIONS_HOME` (default: `~/b
 | `managing-*/name.md` | `stakeholder-register` | `stakeholder-reflect`, `stakeholder-synthesize`, `report-career-architect`, `report-promo-case`, `team-diagnosis` | `stakeholder-reflect`, `stakeholder-manage` |
 | `self/reflections.md` | `self-reflect` | `patterns-watch`, `wins-curate` | `self-reflect` |
 | `wins.md` | `wins-log` | `wins-due`, `wins-curate`, `patterns-watch` | `wins-log` |
-| `pulses/<area>/YYYY-MM-DD.md` | `product-pulse` | `pulse-synthesize` | (immutable — new file per run) |
+| `pulses/<area>/pulse-YYYY-MM-DD.md` | `product-pulse` | `pulse-synthesize` | (immutable — new file per run) |
 
 ---
 
