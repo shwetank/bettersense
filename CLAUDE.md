@@ -27,6 +27,8 @@ MANIFEST.md       — authoritative list of every skill and agent in the bundle
 
 The `description` field in both formats is the trigger condition Claude uses for auto-routing. Keep it precise and action-oriented.
 
+After editing a skill, start a new Claude Code session to pick up changes. Edits to `description` (which controls routing) may not take effect mid-session; edits to `name` always require a new session.
+
 ## Installation mechanics
 
 `scripts/install.sh` creates **symlinks** (not copies) from `~/.claude/skills/<name>` and `~/.claude/agents/<name>.md` into this repo. This means pulling updates auto-updates installed skills. Use `--scope=project` to install into a project's `.claude/` instead of `~/.claude/`.
@@ -58,7 +60,9 @@ Skills that capture reflections write to `~/bettersense-work-reflections/` (over
 
 - `profile.md` — created by `user-profile`
 - `strategy/<area-slug>.md` — created by `strategy-doc`
-- `stakeholders.json` + per-stakeholder `.md` files — managed by the stakeholder skill cluster
+- `stakeholders.json` — index of all registered stakeholders
+- `managing-up/<slug>.md`, `managing-across/<slug>.md`, `managing-down/<slug>.md`, `teams/<slug>.md` — one file per stakeholder, in the appropriate subdirectory
+- `archive/<category>/<slug>.md` — archived stakeholders (moved here by `stakeholder-manage`, never deleted)
 - `wins.md` — created by `wins-log`
 - `pulses/<area-slug>/pulse-YYYY-MM-DD.md` — created by `product-pulse`
 - `self/reflections.md` — created by `self-reflect`
