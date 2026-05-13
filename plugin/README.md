@@ -1,6 +1,6 @@
 # bettersense — Claude Code plugin
 
-Opinionated skills and agents for **AI PMs, engineering managers, TPMs, and senior ICs leading without authority**. 30 skills + 22 agents, namespaced under `bettersense:` (e.g. `/bettersense:coaching-mode`, `/bettersense:wins-log`).
+Opinionated skills and agents for **AI PMs, engineering managers, TPMs, and senior ICs leading without authority**. 42 skills + 23 agents, namespaced under `bettersense:` (e.g. `/bettersense:coaching-mode`, `/bettersense:wins-log`).
 
 → **Full documentation, install instructions, and worked examples: [root README](../readme.md)**
 
