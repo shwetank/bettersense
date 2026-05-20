@@ -20,6 +20,10 @@ Each skill is a reusable framework Claude consults when context matches. Each su
 ```
 bettersense/
 ├── plugin/
+│   ├── monitors/
+│   │   └── monitors.json
+│   ├── bin/
+│   │   └── check-wins-cadence
 │   ├── skills/
 │   │   ├── ai-pm-frameworks/SKILL.md
 │   │   ├── coaching-mode/SKILL.md
@@ -315,7 +319,7 @@ The basic Install above gets the skills loaded. This section covers everything e
 
 The cadence-driven skills (`stakeholder-due`, `wins-due`, `self-reflect`, `patterns-watch`, `product-pulse`) give you their full value only when they run on a schedule — and the **Claude Code Desktop app** is the easiest way to set that up. Desktop Routines run on your machine, have full access to `~/bettersense-work-reflections/`, and persist indefinitely with no expiry.
 
-If you use Claude Code in the terminal instead, OS-level scheduling (cron / launchd / Task Scheduler) works just as well but requires more setup. Cloud routines cannot access your local files and will not work with bettersense. See [§4 Wire up scheduled skills](#4-wire-up-scheduled-skills) for details.
+If you use Claude Code in the terminal instead, OS-level scheduling (cron / launchd / Task Scheduler) works just as well but requires more setup. Cloud routines cannot access your local files and will not work with bettersense. See [§5 Wire up scheduled skills](#5-wire-up-scheduled-skills) for details.
 
 ### Quick setup checklist (5 minutes)
 
@@ -397,7 +401,24 @@ Triggers `strategy-doc` — interview-driven, refusable on weak inputs ("vague m
 
 If the strategy file is missing, the relevant skills work without it — outputs are just more generic. The skills won't pester you to set it up unless you raise the question.
 
-### 3. The cadence story (read this once)
+### 3. Background monitor (zero-config wins cadence)
+
+bettersense ships a background monitor that nudges you to log wins without any scheduling setup. It runs automatically whenever the plugin is active — no Desktop Routines, no cron, no `/schedule`.
+
+**What it does:** At the start of each Claude Code session, `check-wins-cadence` checks `wins.md` for the last entry date. If more than 14 days have passed (configurable) and you haven't been nudged within that same window, Claude gets a single notification: *"No wins logged in N days. Run /bettersense:wins-log to capture recent work before the details fade."* One nudge per cooldown window, then silence.
+
+**Nothing to configure.** The monitor is declared in `plugin/monitors/monitors.json` and the script lives in `plugin/bin/check-wins-cadence` (added to PATH when the plugin is active). It respects `$BETTERSENSE_WORK_REFLECTIONS_HOME` and is silent until `wins.md` exists (i.e., until you've run `/wins-log` at least once).
+
+**To adjust the cadence**, set `WINS_NUDGE_THRESHOLD_DAYS` in your shell environment before launching Claude Code:
+
+```bash
+# Nudge every 4 weeks instead of 2
+export WINS_NUDGE_THRESHOLD_DAYS=28
+```
+
+The cooldown is keyed to the same threshold, so a 28-day setting nudges at most once per 28-day window.
+
+### 4. The cadence story (read this once)
 
 Claude Code skills are *stateless guides*. They fire when you invoke them — either by typing something that matches their description, or by name. Cadence requires wiring them to a scheduler.
 
@@ -421,7 +442,7 @@ Three honest constraints regardless of which local approach you use:
 
 The fix for users who don't live in Claude Code: **pair every scheduled task with a calendar reminder** in the system you actually check. The calendar grabs your attention; Claude Code does the work.
 
-### 4. Wire up scheduled skills
+### 5. Wire up scheduled skills
 
 Use the **Claude Code Desktop app** for these. In the sidebar, click **Routines → New routine → Local**. Give it a name, write the instructions (what Claude should do when it fires), and set the schedule. The Desktop app offers Daily, Weekdays, and Weekly presets; for biweekly, monthly, or quarterly, just ask Claude in a Desktop session in plain language and it will set the cron expression.
 
@@ -445,7 +466,7 @@ Pick the routines that fit your workflow — none are required:
 
 Pair each routine with a calendar reminder in whatever system you actually check. The calendar grabs your attention; Claude Code does the work.
 
-### 5. OS-level scheduling fallback (no `/schedule` required)
+### 6. OS-level scheduling fallback (no `/schedule` required)
 
 If you don't have the `/schedule` skill installed and don't want to add it, OS-level scheduling works on every platform. You invoke `claude` headlessly with the skill as a prompt, and redirect output to a log file you can check later.
 

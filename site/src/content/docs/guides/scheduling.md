@@ -5,6 +5,27 @@ description: How to wire up bettersense skills to run on a cadence — using the
 
 Claude Code skills are stateless — they fire when invoked, not automatically. Cadence requires a scheduler. This guide covers the options in order of recommendation.
 
+## Built-in: wins cadence monitor
+
+bettersense ships one background monitor that requires zero scheduling setup: **wins cadence**.
+
+When the plugin is active, Claude Code runs `check-wins-cadence` automatically at the start of each session. If you haven't logged a win in more than 14 days *and* you haven't been nudged within that same window, Claude receives a single notification — one line, once per cooldown period:
+
+> No wins logged in 18 days. Run /bettersense:wins-log to capture recent work before the details fade.
+
+That's it. No Desktop Routines to configure, no cron entry, no `/schedule` invocation. The monitor is declared in `plugin/monitors/monitors.json`; the script in `plugin/bin/` is added to PATH automatically when the plugin loads.
+
+**To change the cadence**, set `WINS_NUDGE_THRESHOLD_DAYS` before launching Claude Code:
+
+```bash
+# Nudge every 4 weeks instead of 2
+export WINS_NUDGE_THRESHOLD_DAYS=28
+```
+
+The cooldown window matches the threshold, so a 28-day setting will nudge at most once every 28 days regardless of how many sessions you open. The monitor is completely silent until `wins.md` exists (i.e., until you've run `/wins-log` at least once) and stays silent when your wins are current.
+
+For all other cadence-driven skills (`stakeholder-due`, `patterns-watch`, `self-reflect`, `product-pulse`), you'll need one of the schedulers below.
+
 ## Which scheduler to use
 
 Claude Code offers three scheduling mechanisms. Only two work for bettersense:

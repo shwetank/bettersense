@@ -55,6 +55,10 @@ Or via schedule:
 /schedule "Every Friday at 4pm, run /bettersense:wins-due and post the list"
 ```
 
+:::tip[Background monitor included]
+bettersense ships a built-in background monitor (`check-wins-cadence`) that nudges you automatically — no scheduling setup required. At the start of each Claude Code session it checks whether you've logged a win in the last 14 days (configurable via `WINS_NUDGE_THRESHOLD_DAYS`). If overdue and the cooldown window has passed, Claude gets one notification pointing you to `/wins-log`. Use `wins-due` when you want the full category-probe experience; the monitor is for ambient, passive reminders. See [Scheduling routines](/guides/scheduling#built-in-wins-cadence-monitor) for details.
+:::
+
 Weekly cadence check:
 - Computes days since last entry
 - If ≥ 7 days, nudges with category-specific probes (not generic "anything notable?")
