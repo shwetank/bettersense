@@ -8,6 +8,7 @@
     {
       "name": "bettersense",
       "source": "./plugin",
+      "version": "0.2.0",
       "description": "Think more clearly about your work. 40+ skills and 20+ agents for technical leaders building and leading in the age of AI. Covers AI product craft, people leadership, stakeholder reflection, program coordination, and longitudinal self-reflection.",
       "author": {
         "name": "Shwetank Dixit"
