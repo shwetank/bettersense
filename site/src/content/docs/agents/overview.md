@@ -1,9 +1,9 @@
 ---
 title: Agents overview
-description: What agents are, how they differ from skills, and when to use them. bettersense includes 22 agents organized into five clusters.
+description: What agents are, how they differ from skills, and when to use them. bettersense's agents are organized into five clusters.
 ---
 
-bettersense includes 22 subagents alongside the 30 skills. They're different tools for different situations.
+bettersense ships subagents alongside its skills. They're different tools for different situations.
 
 ## Skills vs. agents
 

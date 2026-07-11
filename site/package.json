@@ -3,8 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "counts": "node scripts/gen-counts.mjs",
+    "predev": "node scripts/gen-counts.mjs",
     "dev": "astro dev",
     "start": "astro dev",
+    "prebuild": "node scripts/gen-counts.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"

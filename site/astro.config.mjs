@@ -44,6 +44,15 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'Who it\'s for',
+					items: [
+						{ label: 'AI Product Managers', slug: 'for/ai-pms' },
+						{ label: 'Engineering Managers', slug: 'for/engineering-managers' },
+						{ label: 'TPMs', slug: 'for/tpms' },
+						{ label: 'Senior ICs', slug: 'for/senior-ics' },
+					],
+				},
+				{
 					label: 'Tutorials',
 					items: [
 						{ label: 'Overview', slug: 'tutorials' },
@@ -76,6 +85,7 @@ export default defineConfig({
 						{ label: 'Docs & communication', slug: 'agents/docs-and-communication' },
 						{ label: 'Engineering reliability', slug: 'agents/engineering-reliability' },
 						{ label: 'Research & programs', slug: 'agents/research-and-programs' },
+						{ label: 'Operations & people', slug: 'agents/operations-people' },
 						{ label: 'Catalog', slug: 'agents/catalog' },
 					],
 				},
@@ -91,6 +101,7 @@ export default defineConfig({
 				{
 					label: 'Reference',
 					items: [
+						{ label: 'Your data', slug: 'reference/your-data' },
 						{ label: 'Environment variables', slug: 'reference/env-vars' },
 						{ label: 'File locations', slug: 'reference/file-locations' },
 						{ label: 'License', slug: 'reference/license' },

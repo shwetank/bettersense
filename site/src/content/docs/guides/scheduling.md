@@ -24,7 +24,17 @@ export WINS_NUDGE_THRESHOLD_DAYS=28
 
 The cooldown window matches the threshold, so a 28-day setting will nudge at most once every 28 days regardless of how many sessions you open. The monitor is completely silent until `wins.md` exists (i.e., until you've run `/wins-log` at least once) and stays silent when your wins are current.
 
-For all other cadence-driven skills (`stakeholder-due`, `patterns-watch`, `self-reflect`, `product-pulse`), you'll need one of the schedulers below.
+For all other cadence-driven skills (`stakeholder-due`, `patterns-watch`, `self-reflect`, `product-pulse`), you'll need one of the schedulers below — or the no-scheduler option first.
+
+## The no-scheduler option: `/bettersense:weekly`
+
+Before wiring up any automation, consider the manual ritual. The `weekly` skill runs the whole maintenance loop — wins capture, the single most-overdue stakeholder reflection, a cross-cutting patterns scan, and a pulse glance — as one guided ~15-minute session. Put a recurring block on your own calendar (Friday afternoon and Monday morning are the popular slots) and run:
+
+```
+/bettersense:weekly
+```
+
+This needs no Desktop app, no cron, no routine configuration, and it works identically in the CLI and Desktop. Most users should start here; add schedulers later only if the calendar block alone isn't sticking.
 
 ## Which scheduler to use
 

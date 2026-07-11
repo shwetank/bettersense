@@ -57,16 +57,6 @@ Best for: the hour after an incident is resolved, before the team's memory fades
 
 ---
 
-## `the-premortem-facilitator`
-
-Use proactively before launches, major initiatives, or strategic decisions to identify failure modes and create mitigation plans. Trigger when the user says "let's run a pre-mortem", "what could go wrong with this plan", or "run a pre-mortem on this".
-
-Works through: establishing the forward-looking frame, posing the failure prompt, collecting risks in three categories (Critical, Perceived, Undiscussed), prioritizing risks by impact × likelihood, and creating an action plan with owners/timelines.
-
-Best for: product launches, AI feature deployments, strategic initiatives, team workshops on risk identification.
-
----
-
 ## `the-program-manager`
 
 Use for multi-team, multi-month technical program management — dependency mapping, risk gates per launch phase, adopting orphaned cross-team problems, designing rollout plans with go/no-go criteria, drafting status comms for different audiences, framing escalations.
@@ -191,7 +181,7 @@ Best for: executive presentations, metric-driven narratives, insight communicati
 
 ## `the-status-crafter`
 
-Use when drafting regular status updates, stakeholder reports, or leadership communications about ongoing work. Trigger for weekly/monthly status emails, stakeholder updates, leadership readouts, or any recurring communication that summarizes progress, risks, and next steps. Distinct from `the-translator` (which converts technical results into business language) and `the-explainer` (which explains features/concepts). This agent focuses on recurring operational reporting. Composes with `the-translator` for executive audiences, `team-diagnosis` for health insights, and `product-pulse` for product metrics.
+Use when drafting regular status updates, stakeholder reports, or leadership communications about ongoing work. Trigger for weekly/monthly status emails, stakeholder updates, leadership readouts, or any recurring communication that summarizes progress, risks, and next steps. Distinct from `the-translator` (one-off reframing of AI-technical results into business language) and `the-data-storyteller` (turning a dataset or analysis into a narrative). This agent owns the recurring operational rhythm, and pulls evidence from your pulses, wins log, and strategy doc when they exist. Composes with `the-translator` for executive audiences, `wins-log` for impact evidence, and `product-pulse` for product metrics.
 
 Best for: weekly status emails, monthly leadership readouts, operational reporting, signal extraction from noise.
 

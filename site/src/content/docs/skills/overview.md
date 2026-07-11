@@ -3,7 +3,7 @@ title: Skills overview
 description: The full skill catalog organized by category, plus the anchor-file pattern that makes skills compound over time.
 ---
 
-bettersense has **43 skills** organized into six categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
+bettersense's skills are organized into six categories. Skills auto-load when your prompt matches their description, or you can invoke them explicitly with `/bettersense:<skill-name>`.
 
 ## The anchor-file pattern
 
@@ -18,7 +18,7 @@ Neither is required. Skills work without them — outputs are just more generic 
 
 ## Skills by category
 
-### Stakeholder management (5 skills)
+### Stakeholder management
 
 | Skill | What it does |
 |---|---|
@@ -32,19 +32,20 @@ Neither is required. Skills work without them — outputs are just more generic 
 
 ---
 
-### Wins system (3 skills)
+### Wins system
 
 | Skill | What it does |
 |---|---|
 | `wins-log` | Capture a structured win — type, scope, collaborators, credit framing, situation, action, impact, evidence. Pushes back on vague impact. |
 | `wins-due` | Weekly nudge to surface forgotten wins, probing by category (judgment, recovery, mentorship, range). |
 | `wins-curate` | Turn the wins log into an artifact: promo packet, STAR interview stories, perf-review self-eval, salary case, year-in-review. |
+| `visibility-sponsorship` | The between-formal-moments layer: visibility map, sponsor plan, and an amplification rhythm that gets your logged wins known by the people who decide your career. |
 
 [Full wins system docs →](/skills/wins-system)
 
 ---
 
-### Strategy (5 skills)
+### Strategy
 
 | Skill | What it does |
 |---|---|
@@ -53,12 +54,13 @@ Neither is required. Skills work without them — outputs are just more generic 
 | `product-pulse` | Dated one-page pulse report — usage, system health, AI signals, counter-metrics, ≤3 follow-up investigations. |
 | `pulse-synthesize` | Read accumulated pulse reports over a time window and surface trends, anomalies, regime shifts — with citations. |
 | `user-profile` | Anchor file — who you are. Created once, read automatically by 8+ skills. |
+| `tech-strategy-writer` | Senior-IC technical strategy doc — diagnosis, direction, first moves, explicit "not doing". The engineering-owned peer of `strategy-doc`. |
 
 [Full strategy docs →](/skills/strategy)
 
 ---
 
-### AI product craft (7 skills)
+### AI product craft
 
 | Skill | What it does |
 |---|---|
@@ -69,12 +71,13 @@ Neither is required. Skills work without them — outputs are just more generic 
 | `decision-log` | Capture decisions in ADR format with reversibility, rationale, and revisit triggers. Load-bearing for AI decisions tied to model versions. |
 | `self-reflect` | Self-reflection on leadership, behavior under pressure, time/energy, fulfillment — chronological private file. |
 | `patterns-watch` | Scheduled scan across stakeholder + wins + self files. Surfaces unsolicited patterns with citations. |
+| `model-migration-planner` | When a new model ships: blast-radius inventory, eval-before-belief, decision-log revisits, staged rollout with rollback criteria for live AI features. |
 
 [Full AI product craft docs →](/skills/ai-product-craft)
 
 ---
 
-### People leadership (18 skills)
+### People leadership
 
 | Skill | What it does |
 |---|---|
@@ -96,12 +99,14 @@ Neither is required. Skills work without them — outputs are just more generic 
 | `team-close-gap` | Turns alignment gaps into small, targeted behavioral changes with owners and environmental support (3X3 Close step). Closes saying-doing gap through realistic tracked steps. |
 | `team-lifecycle` | Guides teams through Tuckman's stages (forming, storming, norming, performing, adjourning) and resets after reorgs. Phase-specific leader interventions. |
 | `team-style-inventory` | Helps teams surface and align on working style preferences (communication, decisions, conflict, meetings). Makes implicit norms explicit, accommodates differences. |
+| `exec-readout-prep` | Prep for decision-seeking exec meetings — the falsifiable ask, room power map from your stakeholder reflections, pre-wiring, objection rehearsal. |
+| `commitments` | Ledger of what you've promised upward — log, review what's slipping, renegotiate early, and pressure-test new asks before saying yes. |
 
 [Full people leadership docs →](/skills/people-leadership)
 
 ---
 
-### Cross-cutting (5 skills)
+### Cross-cutting
 
 | Skill | What it does |
 |---|---|
@@ -109,13 +114,16 @@ Neither is required. Skills work without them — outputs are just more generic 
 | `read-the-room` | Retrospective interpretation of a meeting or thread — who held back, performative consensus, subtext. Produces hypotheses, not claims. |
 | `influence-without-authority` | Coalition-building, positions vs. interests, sequencing moves. Opinionated about the legitimacy line. |
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
-| `premortem` | Pre-mortem risk assessment using Critical/Perceived/Undiscussed categories to anticipate failure before it happens. |
+| `premortem` | Pre-mortem risk assessment using Critical/Perceived/Undiscussed categories to anticipate failure before it happens. Solo or facilitated with a team. |
+| `weekly` | The ~15-minute weekly ritual — wins capture, most-overdue stakeholder reflection, patterns scan, pulse glance in one guided session. The recommended entry point for the whole maintenance loop. |
+| `doctor` | Health-check for the memory directory — registry integrity, orphaned files, layout drift, backup status. Read-only by default; every fix needs your OK. |
+| `capture` | Log something from the conversation you just had — decision, win, stakeholder observation — drafted from what was said, filed after approval. No re-typing. |
 
 [Full cross-cutting docs →](/skills/cross-cutting)
 
 ---
 
-## All 23 agents
+## The agents
 
 Agents are different from skills: they run in a focused context window, useful for tasks that carry a lot of state or span multiple steps.
 

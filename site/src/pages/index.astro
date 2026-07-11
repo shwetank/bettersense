@@ -1,5 +1,6 @@
 ---
 // bettersense landing page
+import counts from "../data/counts.json";
 ---
 
 <!doctype html>
@@ -140,7 +141,7 @@
           color: var(--text-dim); max-width: 560px; margin: 0 auto 2.5rem;
           line-height: 1.65;
         ">
-          Most AI tools just create some output for you, and dont help you <u>think better</u>. Bettersense is an AI plugin (with 40+ skills and 20+ agents) for <strong style="color: var(--text);">AI PMs, Engineering Leaders, and Senior ICs</strong> — structured thinking tools that transform how you handle strategy, stakeholder relationships, AI decisions, and the judgment calls that define your career.
+          Most AI tools just create some output for you, and dont help you <u>think better</u>. Bettersense is an AI plugin (with {counts.skills} skills and {counts.agents} agents) for <strong style="color: var(--text);">AI PMs, Engineering Leaders, and Senior ICs</strong> — structured thinking tools that transform how you handle strategy, stakeholder relationships, AI decisions, and the judgment calls that define your career.
         </p>
 
         <!-- Install tabs -->

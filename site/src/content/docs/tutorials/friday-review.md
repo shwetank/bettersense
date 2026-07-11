@@ -12,6 +12,10 @@ description: A 15-minute weekly routine that surfaces wins, overdue reflections,
 - How the three skills compose into a single Friday scan
 - How to set this up as a scheduled routine so you don't have to remember to run it
 
+:::tip[One command]
+This entire routine now ships as a single skill: run `/bettersense:weekly` and it walks the same loop — wins, most-overdue stakeholder, patterns, plus a pulse glance — as one guided session. This tutorial is still worth reading once to understand what each segment does under the hood.
+:::
+
 ---
 
 ## The scenario

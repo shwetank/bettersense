@@ -141,7 +141,7 @@ Inside Claude Code, run:
 /agents
 ```
 
-You should see 23 agents (the-spec-writer, the-translator, the-eval-designer, the-discovery-facilitator, the-postmortem-facilitator, the-slo-designer, etc.).
+You should see the bettersense agents listed (the-spec-writer, the-translator, the-eval-designer, the-discovery-facilitator, the-postmortem-facilitator, the-slo-designer, etc.).
 
 Skills auto-load when your prompt matches their description. You can also trigger them explicitly:
 

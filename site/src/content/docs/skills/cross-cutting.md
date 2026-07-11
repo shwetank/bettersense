@@ -77,6 +77,8 @@ Pre-mortem is prospective hindsight: imagine your initiative has failed, then wo
 
 **Output:** A risk register with top risks ranked by impact × likelihood, proposed mitigations with owners/timelines, and accepted risks (intentional decisions to live with some risk).
 
+Works solo (lightweight, before any significant decision) or as a facilitated team session — the skill includes the facilitation flow: framing the session as prevention rather than criticism, quiet brainstorming before discussion, and ending in an action plan with single owners and deadlines rather than a brainstorm that ends in anxiety.
+
 For AI features, add specific categories: hallucination risk, refusal/over-refusal, prompt injection, data leakage, cost explosion.
 
 ---
