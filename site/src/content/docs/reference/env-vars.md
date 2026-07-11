@@ -93,6 +93,16 @@ $env:BETTERSENSE_WORK_REFLECTIONS_HOME = "$HOME\Encrypted\bettersense-work-refle
 
 ---
 
-## No other environment variables
+## `BETTERSENSE_TEAM_HOME`
 
-bettersense doesn't require API keys, tokens, or other configuration beyond the optional path override. MCP integrations (PostHog, Datadog, Stripe, etc.) for `product-pulse` are configured through Claude Code's MCP settings, not through bettersense-specific environment variables.
+**Optional.** Location of the shared, git-backed **team workspace** used by the `team-workspace` skill for collaborative artifacts (charters, strategy docs, decision records). This is a **separate repository** from your private reflections — the separation is what keeps personal notes from ever being committed to a shared repo. Suggested default: `~/bettersense-team`. Set it only if you use team mode; see [Using bettersense as a team](/guides/team-workspace).
+
+## `WINS_NUDGE_THRESHOLD_DAYS`
+
+**Optional.** Days without a logged win before the built-in wins-cadence monitor nudges you once (default `14`). The cooldown window matches the threshold. See [Scheduling routines](/guides/scheduling).
+
+---
+
+## That's the full set
+
+bettersense doesn't require API keys or tokens. Beyond the three optional variables above, MCP integrations (PostHog, Datadog, Stripe, etc.) for `product-pulse` are configured through Claude Code's MCP settings, not through bettersense-specific environment variables.

@@ -69,9 +69,15 @@ All private data lives under `$BETTERSENSE_WORK_REFLECTIONS_HOME` (default: `~/b
 │   └── platform-team.md
 │
 ├── self/
-│   └── reflections.md                 # written by self-reflect
+│   ├── reflections.md                 # written by self-reflect
+│   └── retros/
+│       └── retro-2026-07-01.md        # written by career-retro (one per retro)
 │
 ├── wins.md                            # written by wins-log, read by wins-due and wins-curate
+├── commitments.md                     # written by commitments (the promises ledger)
+│
+├── team-charters/
+│   └── <team-slug>.md                 # written by team-charter
 │
 └── pulses/
     ├── default/
@@ -81,6 +87,8 @@ All private data lives under `$BETTERSENSE_WORK_REFLECTIONS_HOME` (default: `~/b
         └── pulse-YYYY-MM-DD.md
 ```
 
+The shared **team workspace** (`$BETTERSENSE_TEAM_HOME`, e.g. `~/bettersense-team/`) is a *separate git repository* — charters, strategy, and decisions the team co-owns. Personal files above never go there. See [Using bettersense as a team](/guides/team-workspace).
+
 ### File ownership by skill
 
 | File | Created by | Read by | Updated by |
@@ -88,7 +96,9 @@ All private data lives under `$BETTERSENSE_WORK_REFLECTIONS_HOME` (default: `~/b
 | `profile.md` | `user-profile` | 8+ skills | `user-profile` |
 | `strategy/<area>.md` | `strategy-doc` | 5 skills | `strategy-doc` |
 | `stakeholders.json` | `stakeholder-register` | `stakeholder-due`, `stakeholder-manage` | `stakeholder-register`, `stakeholder-manage` |
-| `managing-*/name.md` | `stakeholder-register` | `stakeholder-reflect`, `stakeholder-synthesize`, `report-career-architect`, `report-promo-case`, `team-diagnosis` | `stakeholder-reflect`, `stakeholder-manage` |
+| `managing-*/name.md` | `stakeholder-register` | `stakeholder-reflect`, `stakeholder-synthesize`, `report-career-architect`, `report-promo-case`, `team-diagnosis`, `one-on-one-prep`, `feedback-frameworks`, `performance-management`, `exec-readout-prep`, `career-retro` | `stakeholder-reflect`, `stakeholder-manage` |
+| `self/retros/retro-*.md` | `career-retro` | `career-retro` (next cycle) | (immutable — new file per retro) |
+| `commitments.md` | `commitments` | `commitments`, `weekly` | `commitments` |
 | `self/reflections.md` | `self-reflect` | `patterns-watch`, `wins-curate` | `self-reflect` |
 | `wins.md` | `wins-log` | `wins-due`, `wins-curate`, `patterns-watch` | `wins-log` |
 | `pulses/<area>/pulse-YYYY-MM-DD.md` | `product-pulse` | `pulse-synthesize` | (immutable — new file per run) |

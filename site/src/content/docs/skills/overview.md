@@ -99,6 +99,7 @@ Neither is required. Skills work without them — outputs are just more generic 
 | `team-close-gap` | Turns alignment gaps into small, targeted behavioral changes with owners and environmental support (3X3 Close step). Closes saying-doing gap through realistic tracked steps. |
 | `team-lifecycle` | Guides teams through Tuckman's stages (forming, storming, norming, performing, adjourning) and resets after reorgs. Phase-specific leader interventions. |
 | `team-style-inventory` | Helps teams surface and align on working style preferences (communication, decisions, conflict, meetings). Makes implicit norms explicit, accommodates differences. |
+| `team-workspace` | Shared git-backed workspace for collaborative artifacts (charters, strategy, decisions), with a hard wall keeping personal reflections local. Drafts the PR; never publishes for you. |
 | `exec-readout-prep` | Prep for decision-seeking exec meetings — the falsifiable ask, room power map from your stakeholder reflections, pre-wiring, objection rehearsal. |
 | `commitments` | Ledger of what you've promised upward — log, review what's slipping, renegotiate early, and pressure-test new asks before saying yes. |
 
@@ -118,6 +119,7 @@ Neither is required. Skills work without them — outputs are just more generic 
 | `weekly` | The ~15-minute weekly ritual — wins capture, most-overdue stakeholder reflection, patterns scan, pulse glance in one guided session. The recommended entry point for the whole maintenance loop. |
 | `doctor` | Health-check for the memory directory — registry integrity, orphaned files, layout drift, backup status. Read-only by default; every fix needs your OK. |
 | `capture` | Log something from the conversation you just had — decision, win, stakeholder observation — drafted from what was said, filed after approval. No re-typing. |
+| `career-retro` | Periodic longitudinal retrospective across the whole memory — cited growth deltas vs. your last retro, honest gaps, focus for next period. Persists to `self/retros/`. |
 
 [Full cross-cutting docs →](/skills/cross-cutting)
 

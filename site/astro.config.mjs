@@ -41,6 +41,7 @@ export default defineConfig({
 						{ label: 'Install', slug: 'getting-started/install' },
 						{ label: 'First run', slug: 'getting-started/first-run' },
 						{ label: 'How skills work', slug: 'getting-started/how-skills-work' },
+						{ label: 'See it in action', slug: 'getting-started/examples' },
 					],
 				},
 				{
@@ -93,6 +94,7 @@ export default defineConfig({
 					label: 'Guides',
 					items: [
 						{ label: 'Scheduling routines', slug: 'guides/scheduling' },
+						{ label: 'Using bettersense as a team', slug: 'guides/team-workspace' },
 						{ label: 'Stakeholder reflection', slug: 'guides/worked-example-stakeholder' },
 						{ label: 'Wins curation', slug: 'guides/worked-example-wins' },
 						{ label: 'Profile & strategy', slug: 'guides/profile-and-strategy' },
@@ -102,6 +104,7 @@ export default defineConfig({
 					label: 'Reference',
 					items: [
 						{ label: 'Your data', slug: 'reference/your-data' },
+						{ label: 'We eval our own skills', slug: 'reference/evals' },
 						{ label: 'Environment variables', slug: 'reference/env-vars' },
 						{ label: 'File locations', slug: 'reference/file-locations' },
 						{ label: 'License', slug: 'reference/license' },
