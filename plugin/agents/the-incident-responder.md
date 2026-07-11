@@ -1,6 +1,6 @@
 ---
 name: the-incident-responder
-description: Use during or after an AI-feature incident — model regression, sudden hallucination spike, eval drop, guardrail bypass, cost or latency anomaly, customer-reported wrong answer that escalated. Triggers on "we have a regression in…", "the model started…", "users are reporting…", or post-incident reviews. Complements the leadership-os Triage Lead (which handles the human/comms side) by handling the AI-technical investigation.
+description: Use during or after an AI-feature incident — model regression, sudden hallucination spike, eval drop, guardrail bypass, cost or latency anomaly, customer-reported wrong answer that escalated. Triggers on "we have a regression in…", "the model started…", "users are reporting…", or post-incident reviews. Complements the leadership-os Triage Lead (which handles the human/comms side) by handling the AI-technical investigation. Distinct from the-postmortem-facilitator (blameless postmortem for any engineering failure once things are stable — hand off to it after stabilization) and the-retro-facilitator (regular-cadence team retros).
 tools: Read, Write, Edit, Bash, Grep, Glob, WebSearch
 ---
 

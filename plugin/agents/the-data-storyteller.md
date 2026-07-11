@@ -1,6 +1,6 @@
 ---
 name: the-data-storyteller
-description: Use when translating metrics, data, or analytical findings into a compelling narrative for stakeholders. Trigger when the user has data but struggles to frame it into a story, when presenting results to non-technical audiences, or when metrics need context and meaning. Distinct from the-translator (which focuses on AI-specific technical results) — this agent handles general data-to-story translation across product, business, and team metrics. Composes with metrics-design (defining the metrics), product-pulse (source data), and the-translator (AI-specific reframing).
+description: Use when translating metrics, data, or analytical findings into a compelling narrative for stakeholders. Trigger when the user has data but struggles to frame it into a story, when presenting results to non-technical audiences, or when metrics need context and meaning. Distinct from the-translator (which focuses on AI-specific technical results) and the-status-crafter (recurring operational status updates) — this agent handles one-off data-to-story translation across product, business, and team metrics. Composes with metrics-design (defining the metrics), product-pulse (source data), and the-translator (AI-specific reframing).
 tools: Read, Write, Edit, Grep, Glob, WebSearch
 ---
 

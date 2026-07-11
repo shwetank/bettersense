@@ -2,7 +2,7 @@
 
 This file lists every skill and agent that ships with this bundle. Use it to identify which items in `~/.claude/skills/` and `~/.claude/agents/` came from this repo (vs. skills you wrote yourself or installed from other sources).
 
-The bundle contains **42 skills** and **23 agents**, all inside `plugin/`.
+The bundle contains **52 skills** and **22 agents**, all inside `plugin/`.
 
 ## How to identify bundle items in your Claude Code install
 
@@ -14,22 +14,29 @@ find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*bettersense*
 
 If you installed via plain `cp` (the legacy install path), this manifest is your reference. Match folder/file names below against what you have in `~/.claude/`.
 
-## Skills (41)
+## Skills (52)
 
 | Name | One-line description |
 |---|---|
 | `ai-pm-frameworks` | AI PM craft: build-vs-buy-vs-rule, eval design, model selection, guardrails. Prototyping stack read from user profile. |
+| `capture` | Logs something from the current conversation into memory without re-typing — drafts the decision / win / stakeholder entry from what was just said, files it after approval. |
 | `coaching-mode` | Forcing function: ask-not-tell mode for development conversations. GROW frame. |
+| `commitments` | Ledger of what you've promised upward (`commitments.md`) — log promises, review what's slipping, renegotiate early with a script, pressure-test new asks before saying yes. |
 | `decision-log` | ADR-style capture of meaningful product/technical decisions. Especially for AI decisions tied to specific model versions. |
 | `demo-prep` | Five-pass prep for high-stakes demos with extra hazard-handling for AI features. |
+| `doctor` | Health-check for the memory directory — registry integrity, orphaned files, layout drift, privacy posture, backup status. Read-only by default. |
+| `engineering-health` | Assesses the engineering systems layer — SPACE-based productivity diagnostic, onboarding time as leading indicator, DevEx friction, platform investment case. |
+| `exec-readout-prep` | Prep for decision-seeking exec meetings — the one-sentence ask, room power map, pre-wiring, decision-first material, objection rehearsal. |
 | `feedback-frameworks` | COIN structure + SOLID quality checklist for drafting and pressure-testing feedback. |
 | `glue-audit` | Systematically identifies, categorizes, and quantifies glue work (non-core technical activities like onboarding, documentation, unblocking, cross-team alignment) on a team or for an individual. Produces an inventory with time estimates, promotion-value assessment, and fairness analysis. |
 | `hiring-craft` | Interview loop design, behavioral-anchor rubrics, calibrated debrief discipline. |
+| `impact-audit` | Stress-tests whether a team's work is connected to something the business cares about — budget test, death spiral check, goal distance check. Runs before strategy-doc or prioritization. |
 | `influence-without-authority` | TPM/staff/IC influence craft: positions vs. interests, currencies model, coalition sequencing. Opinionated about the legitimacy line. |
 | `leadership-os` | Managing up/down/across. Multiple sub-modes (Heat Shield, Career Architect, Diplomat, Triage Lead, etc.). |
 | `manage-glue-workers` | Coaching, protecting, and developing glue-heavy engineers. Provides manager guidance on preventing burnout, ensuring visibility, redistributing non-promotable tasks fairly, and advocating against "not technical enough" bias. |
 | `metrics-design` | Four-layer metric tree (north star, leading, lagging, counter-metrics) for AI features. Counter-metrics first-class. |
-| `one-on-one-prep` | 1:1 agendas matched to relationship type (manager→report, report→manager, peer, skip-level). |
+| `model-migration-planner` | Plans moving a live AI feature between model versions — blast-radius inventory, eval-before-belief, decision-log revisits, staged rollout with rollback criteria. |
+| `one-on-one-prep` | 1:1 agendas matched to relationship type (manager→report, report→manager, peer, skip-level). Reads the stakeholder's reflection file so the agenda arrives pre-loaded. |
 | `patterns-watch` | Scheduled cross-cutting scan across the reflection ecosystem. Surfaces unsolicited patterns with citations; observation-not-prediction. |
 | `performance-management` | Underperformance ladder: coaching → feedback → PIP → termination. The hardest skill in management. |
 | `premortem` | Pre-mortem risk assessment using Critical/Perceived/Undiscussed categories to anticipate failure before it happens. |
@@ -47,6 +54,7 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `stakeholder-reflect` | Guided reflection session on one stakeholder using a curated question library (ships in `questions.json`). |
 | `stakeholder-register` | Register a new stakeholder. First-run setup of `~/bettersense-work-reflections/`. |
 | `stakeholder-synthesize` | Cross-reflection synthesis for one stakeholder or category, with citation discipline. |
+| `start` | Entry point for new users — one-question branching into first-time setup (profile → persona starter kit → one stakeholder) or direct routing to the right skill. |
 | `strategy-doc` | Interview-driven creation of `strategy/<area>.md`. Anchor read by spec-writer / prioritization / metrics-design / pulse skills. |
 | `team-charter` | Facilitates explicit goals/roles/norms conversation for new/resetting teams. Produces living charter at `team-charters/<slug>.md`, baseline for team check-ins. The Commit step of 3X3. |
 | `team-check-in` | Structured recurring conversation to revisit goals/roles/norms. Surfaces drift and guides course-correction. The Check-In step of 3X3. Works from existing charter. |
@@ -54,7 +62,10 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `team-diagnosis` | Eight-dimension team health check with cited evidence and top-3 actionable risks. |
 | `team-lifecycle` | Guides teams through Tuckman's stages (forming, storming, norming, performing, adjourning) and resets after reorgs. Provides phase-specific leader interventions. |
 | `team-style-inventory` | Helps teams surface and align on working style preferences (communication, decisions, conflict, meetings). Makes implicit norms explicit, accommodates differences. |
+| `tech-strategy-writer` | Senior-IC technical strategy doc (diagnosis → direction → first moves → not doing) saved to `strategy/tech-<area>.md`. The staff+ direction-setting artifact. |
 | `user-profile` | Anchor file (`profile.md`) capturing who you are. Read by 8 skills to tailor outputs. Inspired by SOUL.md. |
+| `visibility-sponsorship` | Deliberate, non-gross visibility building — the visibility map, sponsor plan, and amplification rhythm that gets logged wins known before the promo moment. |
+| `weekly` | The ~15-minute weekly ritual — wins capture, most-overdue stakeholder reflection, patterns scan, pulse glance, composed into one guided session. |
 | `wins-curate` | Audience-specific artifact from the wins log: promo packet / interview stories / perf review / salary case / year-in-review. |
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category. |
 | `wins-log` | Structured win capture (situation, action, impact, evidence, honest credit). |

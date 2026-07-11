@@ -29,20 +29,39 @@ If the user is new or wants to set up:
 
 If they agree, invoke `user-profile`. Wait for it to complete (or for the user to exit early) before continuing.
 
-### Step 2: Stakeholder
+### Step 2: Your starter kit
+
+Now that the profile says what they do, hand them a **starter kit**: the five skills for their role, with explicit permission to ignore everything else. This is the antidote to forty-skill overwhelm — confidence comes from five things that fit, not a catalog.
+
+Frame it like this (adapting to their actual role):
+
+> *bettersense has a lot in it, but you only need five things to start. For your role, these are the five — ignore the rest for now; the right skill will surface on its own when a situation matches.*
+
+| Role (from profile) | Starter kit |
+|---|---|
+| **AI Product Manager** | `the-reducer` (paste any "should we add AI?" ask into it) · `ai-pm-frameworks` · `decision-log` · `metrics-design` · `weekly` |
+| **Engineering Manager** | `one-on-one-prep` · `feedback-frameworks` · `stakeholder-reflect` · `wins-log` · `weekly` |
+| **TPM / Program Manager** | `the-program-manager` · `influence-without-authority` · `the-status-crafter` · `stakeholder-reflect` · `weekly` |
+| **Senior IC** | `wins-log` · `glue-audit` · `influence-without-authority` · `the-rfc-reviewer` · `weekly` |
+
+If the role straddles two personas (common), blend: pick the people-side trio from one and the craft pair from the other. If the role matches none, build a five-skill kit from what the profile says they actually spend time on.
+
+Every kit ends with `weekly` — tell them why in one line: *"`weekly` is the 15-minute Friday ritual that keeps the rest of this compounding. It's the one habit worth forming."*
+
+### Step 3: Stakeholder
 
 > *Next — do you have a manager, report, peer, or team you want to reflect on regularly? If so, register one stakeholder now and you'll have a live example of how the reflection system works.*
 
 If they agree, invoke `stakeholder-register`. Optional — don't push if they decline.
 
-### Step 3: Launch
+### Step 4: Launch
 
-Once setup is done (even partially), give them two concrete things to try:
+Once setup is done (even partially), close with two concrete things to try, **drawn from their starter kit**:
 
-> *You're set up. Here are two things to try next:*
+> *You're set up. Two things to try this week:*
 >
-> *1. "Let me reflect on [name]" — a guided reflection on anyone you just registered.*
-> *2. "Help me prep for my 1:1 with [name]" — builds an agenda for a meeting coming up.*
+> *1. [First kit skill applied to something they mentioned — e.g. "Let me reflect on [name]" or "Paste that AI feature request and I'll run it past the-reducer."]*
+> *2. Book a 15-minute block Friday and run `/bettersense:weekly` — that's the whole maintenance habit.*
 >
 > *Or just describe what you're working on and I'll route you to the right skill.*
 

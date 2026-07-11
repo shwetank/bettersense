@@ -98,3 +98,7 @@ Don't set up a schedule automatically — the user owns the cadence decision.
 - **Treating teams the same as individuals.** Teams often deserve a longer cadence (the situation moves slower). If `cadence_overrides` aren't set on a team, gently suggest setting one.
 - **Listing 30 items.** A long list is a list nobody reads. Default to 10.
 - **Sorting purely by date.** A weekly-cadence question 8 days late should rank above a quarterly-cadence question 30 days late. Always sort by `due_ratio`, not raw days.
+
+## The weekly ritual
+
+This skill is one segment of the `weekly` skill — a single ~15-minute session that runs wins capture, the most-overdue stakeholder reflection, and a patterns scan together. When the user wants the recurring ritual rather than this one piece, route to `/bettersense:weekly`.

@@ -149,3 +149,7 @@ For users who'd rather pull than push, on-demand works too. Run before a plannin
 - **`feedback-frameworks`** — when a cross-stakeholder pattern points at feedback the user has been deferring.
 - **`decision-log`** — when patterns-watch surfaces an implicit decision the user is making (e.g., "you've been deprioritizing X for 6 weeks running"), suggest logging it explicitly.
 - **`user-profile`** — patterns-watch reads the profile's "current strategic focus" as one input. If the actual logged work diverges from stated focus, surface that contradiction.
+
+## The weekly ritual
+
+This skill is one segment of the `weekly` skill — a single ~15-minute session that runs wins capture, the most-overdue stakeholder reflection, and a patterns scan together. When the user wants the recurring ritual rather than this one piece, route to `/bettersense:weekly`.

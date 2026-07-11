@@ -1,6 +1,6 @@
 ---
 name: premortem
-description: Use for individual or lightweight pre-mortem analysis of decisions, projects, or initiatives. Trigger when the user says "what could go wrong", "risk assessment", "pre-mortem this", or when evaluating risks for a plan. Applies a three-category framework for systematic risk identification.
+description: Use for pre-mortem analysis of decisions, projects, or initiatives — solo and lightweight, or facilitated with a team before a launch or strategic commitment. Trigger when the user says "what could go wrong", "risk assessment", "pre-mortem this", "let's run a pre-mortem", or when evaluating risks for a plan. Applies a three-category framework (Critical, Perceived, Undiscussed risks) and, for team sessions, a facilitation flow that ends in an action plan with owners — not a brainstorm that ends in anxiety.
 ---
 
 # Premortem
@@ -17,6 +17,8 @@ Trigger this skill for:
 - Any decision worth documenting in a decision log
 
 Skip for: trivially reversible choices, daily execution decisions, routine maintenance.
+
+Before starting, read whatever already exists — project brief, PRD, strategy doc, launch plan. Don't make the user re-explain what's documented.
 
 ## The framework
 
@@ -55,6 +57,18 @@ For top 3-5 risks, ask:
 ### Step 5: Decide what to accept
 
 Not everything needs mitigation. Explicitly list what you're accepting, with rationale: "We're accepting X because Y, and will monitor Z indicator."
+
+## Facilitating a team pre-mortem
+
+When the user is running this with a group (not just thinking alone), add the facilitation layer:
+
+1. **Set the frame out loud first.** Pre-mortems work because they flip the psychology: instead of avoiding problems to be supportive, the group actively seeks problems to be helpful. State the operating principle: *we're imagining failure to prevent it, not to criticize* — everyone gets credit for identifying real risks.
+2. **Pose the prompt vividly:** "Imagine this project has failed spectacularly six months from now. The team is debriefing: what went wrong?" Give a beat to absorb it.
+3. **Quiet brainstorm before discussion.** 5–10 minutes of silent writing, then go around the room. This stops the loudest voice from anchoring the risk list.
+4. **Use the Undiscussed category deliberately.** It creates permission: participants can flag what the team is too polite to raise without owning it as an accusation.
+5. **End in an action plan, not a mood.** Every top risk gets a specific mitigation with a **single owner** (not "the team"), a **deadline**, and **success criteria**. A pre-mortem that ends with a brainstorm and no owners isn't a pre-mortem — it's anxiety.
+
+Facilitation red flags to name in the room: too few Critical risks (safety problem or overconfidence), all Perceived and no Critical (avoiding real concerns under the guise of positivity), zero Undiscussed risks (the team isn't comfortable yet), everything rated maximum impact (force-rank).
 
 ## Pre-mortem for AI features
 

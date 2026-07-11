@@ -9,6 +9,16 @@ The performance-management ladder is the hardest part of being a manager. Most m
 
 This skill helps the user navigate the ladder deliberately. It is **not** for healthy feedback loops — that's `feedback-frameworks`. This is for the moment when feedback alone hasn't worked.
 
+## Zeroth: read the documentation trail
+
+If the report is a registered stakeholder, read their `~/bettersense-work-reflections/<category>/<slug>.md` before diagnosing. It matters here more than anywhere else in the bundle:
+
+- **It corrects the recency story.** Managers arrive at this skill with the last three weeks vivid and the last six months blurred. Dated entries show whether this is a recent dip or a long pattern — which often changes the stage diagnosis.
+- **It is the contemporaneous record.** Entries written near the events are the honest answer to "when did you first raise this, and what did you say?" If the file shows the user *noticed* for months but never delivered the feedback, surface that gently — the ladder starts at Stage 1/2 regardless of how long the private worry existed. Documentation of concern is not the same as delivered clarity.
+- **It feeds HR-grade documentation later.** At Stage 2+, the dated observations become the specifics that formal documentation requires.
+
+**Write-back discipline:** from Stage 2 onward, every formal step — the conversation, the stated bar, the deadline, the report's response — gets a dated entry in the stakeholder file the same day. Prompt this at the end of each stage's conversation. Future-you (and HR) will need the record; memory will not survive the stress.
+
 ## First: diagnose where on the ladder this is
 
 Before anything else, settle which problem the user is actually solving. The interventions are different.

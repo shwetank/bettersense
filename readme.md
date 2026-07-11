@@ -26,10 +26,14 @@ bettersense/
 │   │   └── check-wins-cadence
 │   ├── skills/
 │   │   ├── ai-pm-frameworks/SKILL.md
+│   │   ├── capture/SKILL.md
 │   │   ├── coaching-mode/SKILL.md
+│   │   ├── commitments/SKILL.md
 │   │   ├── decision-log/SKILL.md
 │   │   ├── demo-prep/SKILL.md
+│   │   ├── doctor/SKILL.md
 │   │   ├── engineering-health/SKILL.md
+│   │   ├── exec-readout-prep/SKILL.md
 │   │   ├── feedback-frameworks/SKILL.md
 │   │   ├── glue-audit/SKILL.md
 │   │   ├── hiring-craft/SKILL.md
@@ -38,6 +42,7 @@ bettersense/
 │   │   ├── leadership-os/SKILL.md
 │   │   ├── manage-glue-workers/SKILL.md
 │   │   ├── metrics-design/SKILL.md
+│   │   ├── model-migration-planner/SKILL.md
 │   │   ├── one-on-one-prep/SKILL.md
 │   │   ├── patterns-watch/SKILL.md
 │   │   ├── performance-management/SKILL.md
@@ -58,6 +63,7 @@ bettersense/
 │   │   │   └── questions.json
 │   │   ├── stakeholder-register/SKILL.md
 │   │   ├── stakeholder-synthesize/SKILL.md
+│   │   ├── start/SKILL.md
 │   │   ├── strategy-doc/SKILL.md
 │   │   ├── team-charter/SKILL.md
 │   │   ├── team-check-in/SKILL.md
@@ -65,7 +71,10 @@ bettersense/
 │   │   ├── team-diagnosis/SKILL.md
 │   │   ├── team-lifecycle/SKILL.md
 │   │   ├── team-style-inventory/SKILL.md
+│   │   ├── tech-strategy-writer/SKILL.md
 │   │   ├── user-profile/SKILL.md
+│   │   ├── visibility-sponsorship/SKILL.md
+│   │   ├── weekly/SKILL.md
 │   │   ├── wins-curate/SKILL.md
 │   │   ├── wins-due/SKILL.md
 │   │   ├── wins-log/SKILL.md
@@ -100,11 +109,15 @@ bettersense/
 | Skill | When it triggers |
 |---|---|
 | `ai-pm-frameworks` | Scoping AI features, build-vs-buy-vs-rule decisions, eval design, model selection, guardrail planning. |
+| `capture` | Logs something from the current conversation into memory without re-typing — classifies it (decision / win / stakeholder observation / self-insight), drafts the entry from what was just said, and files it after approval. Closes the "great conversation, nothing written down" leak. |
 | `coaching-mode` | Forcing function that flips the assistant into ask-not-tell mode for development conversations with reports. Stays in question-mode for at least 5 turns, applies the GROW frame, pushes back when the user tries to prescribe instead of helping the report work it out. |
+| `commitments` | Ledger of what you've promised upward — log promises when made, review what's due or slipping, renegotiate early with a two-option script, and pressure-test new asks against current load before saying yes. The honest "no" as a prioritization question. |
 | `decision-log` | Capturing meaningful product/technical decisions in an ADR-style format with reversibility, rationale, and revisit triggers. Especially load-bearing for AI decisions tied to specific model versions. |
-| `demo-prep` | Five-pass prep for high-stakes demos: headline, audience, pre-mortem, script, and Q&A — with extra hazard-handling for AI-feature demos. |
+| `demo-prep` | Five-pass prep for high-stakes demos: headline, audience, pre-mortem, script, and Q&A — with extra hazard-handling for AI-feature demos. Loads your strategy doc and latest pulse so the numbers match what the data said this week. |
+| `doctor` | Health-check for the memory directory — stakeholders.json integrity, orphaned files, layout drift, privacy posture, backup status. Read-only by default; every fix needs explicit approval. Run it before machine migrations and whenever something feels off. |
 | `engineering-health` | Assesses the engineering systems layer — SPACE-based productivity diagnostic, onboarding time as a leading indicator, developer experience friction identification, and making the case for platform investment. Designed to run alongside or after `team-diagnosis`. |
-| `feedback-frameworks` | Drafting and pressure-testing feedback for reports, peers, and stakeholders using the COIN structure (Connection → Observation → Impact → Next steps) and the SOLID quality checklist. |
+| `exec-readout-prep` | Prep for meetings where you need a decision from executives — the one-sentence falsifiable ask, room power map (reads your stakeholder reflections on the execs present), pre-wiring plan, decision-first material, and rehearsal of the hard five minutes. |
+| `feedback-frameworks` | Drafting and pressure-testing feedback for reports, peers, and stakeholders using the COIN structure (Connection → Observation → Impact → Next steps) and the SOLID quality checklist. Pulls dated incidents from your stakeholder reflections as Observation evidence. |
 | `glue-audit` | Systematically identifies, categorizes, and quantifies glue work (non-core technical activities like onboarding, documentation, unblocking, cross-team alignment) on a team or for an individual. Produces an inventory with time estimates, promotion-value assessment, and fairness analysis to diagnose workload distribution and support promotion cases for glue-heavy engineers. |
 | `hiring-craft` | Treats hiring as craft, not vibes — designing interview loops with explicit signals, writing rubrics with behavioral anchors, and running calibrated debriefs (silent vote first, junior voices first, signal-by-signal walk-through). |
 | `impact-audit` | Stress-tests whether a team's work is actually connected to something the business cares about — runs the budget test, death spiral check, and goal distance check. Designed to run before `strategy-doc` or `prioritization-frameworks`, when the question is "are we even pointed at the right thing?" |
@@ -112,7 +125,8 @@ bettersense/
 | `leadership-os` | Managing up/down/across — 1:1s, performance reviews, stakeholder updates, post-mortems, cross-functional conflict. |
 | `manage-glue-workers` | Coaching, protecting, and developing engineers who consistently do glue work. Provides manager guidance on preventing burnout, ensuring visibility, redistributing non-promotable tasks fairly, and advocating for glue-heavy reports in promotion cycles against "not technical enough" bias. |
 | `metrics-design` | Designs the metric tree for an AI feature — north star, leading/lagging, and the counter-metrics that catch Goodhart-style failures where you optimize the model into a worse product. |
-| `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. |
+| `model-migration-planner` | Plans moving a live AI feature between model versions — blast-radius inventory (pinned versions, tuned prompts, output contracts), eval-before-belief, revisiting decision-log entries tied to the old model, staged rollout with written rollback criteria. |
+| `one-on-one-prep` | Builds 1:1 agendas matched to the relationship (manager → report, report → manager, peer, skip-level) instead of generic templates. Reads the stakeholder's reflection file first, so the agenda arrives pre-loaded with open loops and things worth raising. |
 | `patterns-watch` | Scheduled cross-cutting scan across the reflection ecosystem (stakeholder, wins, self) — surfaces unsolicited patterns the user hasn't asked about: attention gaps, contradictions between stated focus and actual logged work, trajectory shifts. Citation-disciplined; observation-not-prediction. Designed for weekly `/schedule`. |
 | `performance-management` | Walks the underperformance ladder deliberately — coaching → formalized feedback → PIP → termination — with documentation, calibrated conversations, and the brilliant-jerk pattern handled directly. The hardest skill in management. |
 | `premortem` | Pre-mortem risk assessment using the three-category framework (Critical, Perceived, Undiscussed risks) to identify what could go wrong before committing to a plan. |
@@ -130,6 +144,7 @@ bettersense/
 | `stakeholder-reflect` | Guide a single reflection session about a registered stakeholder using a question library spanning *ask*, *sense*, and *ask-and-sense* lenses. Surfaces the question's `things_to_consider`, picks cadence-appropriate questions, and writes a dated entry back. |
 | `stakeholder-due` | Scans your stakeholder files and surfaces which question × stakeholder pairs are overdue based on `suggested_freq`. Designed to be invoked on demand or fired weekly via `/schedule`. |
 | `stakeholder-synthesize` | Synthesizes across accumulated reflections — patterns, contradictions, blind spots — with citations to specific dated entries. Never claims a pattern without evidence. |
+| `start` | Entry point for new users — one-question branching into first-time setup (profile → persona starter kit → one registered stakeholder) or direct routing to the right skill for what they're working on. |
 | `strategy-doc` | Interview-driven creation/update of a product/area strategy document — target problem, approach, personas, SMART metrics, 2-4 multi-month tracks, explicit "not working on" section, counter-metrics. Lives at `~/bettersense-work-reflections/strategy/<area-slug>.md` and is read as an anchor by `the-spec-writer`, `prioritization-frameworks`, `metrics-design`, `product-pulse`, and `pulse-synthesize`. Supports multiple products/areas. |
 | `team-charter` | Facilitates explicit conversation on goals, roles, and norms for new or resetting teams. Produces a living charter at ~/bettersense-work-reflections/team-charters/<team>.md, serving as the baseline for recurring team check-ins and alignment. Foundation of the 3X3 team framework (Commit step). |
 | `team-check-in` | Structured recurring conversation to revisit a team's goals/roles/norms foundation. Surfaces drift between stated commitments and actual behavior, then guides the team to close gaps through small steps. The Check-In step of Moussa's 3X3 framework. Works from an existing team charter. |
@@ -137,7 +152,10 @@ bettersense/
 | `team-diagnosis` | Multi-dimensional team health check — delivery cadence, attrition risk, dependency tax, on-call burden, peer relationships, information flow, technical health, culture. Reads stakeholder files + retros + survey scores; produces a green/yellow/red read with cited evidence and top-3 risks worth acting on. |
 | `team-lifecycle` | Guides a team through Tuckman's stages (forming, storming, norming, performing, adjourning) and resets after reorgs. Provides phase-specific interventions and leader actions to navigate transitions successfully. |
 | `team-style-inventory` | Helps teams surface and align on working style preferences (communication, decision-making, conflict, meetings, work rhythms). Makes implicit norms explicit, accommodating style differences to reduce friction. |
+| `tech-strategy-writer` | Senior-IC technical strategy doc — diagnosis → direction → first moves → explicit "not doing" — saved to `strategy/tech-<area>.md`. The engineering-owned peer of `strategy-doc`; pressure-tested against the reversibility and absent-author checks before socializing. |
 | `user-profile` | Anchor file for the bundle. Single private `~/bettersense-work-reflections/profile.md` capturing the user's role, level, communication style, current strategic focus, stack — read automatically by other skills so you never re-explain context. Inspired by the SOUL.md pattern. Supports multiple "hats" for users in mixed roles. |
+| `visibility-sponsorship` | Deliberate, non-gross visibility building for ICs whose work outruns their reputation — the visibility map (who decides your career and what they can actually cite about you), the sponsor plan, and a sustainable amplification rhythm fed by `wins.md`. |
+| `weekly` | The ~15-minute weekly ritual: wins capture, single most-overdue stakeholder reflection, cross-cutting patterns scan, pulse glance — composed from `wins-due`, `stakeholder-due`/`stakeholder-reflect`, and `patterns-watch` into one guided session with a stop-anytime exit. |
 | `wins-log` | Capture a structured win at work — situation, action, impact, evidence, honest credit framing. Pushes back on vague impact claims and inflated solo claims. Front-of-funnel for the brag-doc / hype-doc bundle. |
 | `wins-due` | Weekly low-pressure nudge to surface forgotten wins, probing by category (delivery / judgment / mentorship / recovery / range) because memory is selective. Accepts "honestly, nothing notable" without manufacturing fake wins. |
 | `wins-curate` | Turn the wins log into an audience-specific artifact: promo packet, behavioral interview stories (STAR), perf-review self-eval, salary-negotiation case, or year-in-review. Never invents wins; cites log entries; surfaces gaps as prep targets. |

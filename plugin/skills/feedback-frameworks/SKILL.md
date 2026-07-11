@@ -11,6 +11,8 @@ Default workflow: **draft with COIN → check against SOLID → revise**.
 
 **User profile:** If `~/bettersense-work-reflections/profile.md` exists, read it before drafting. It carries the user's communication style and directness preference — calibrate the COIN draft accordingly (some users want directness up front; others lead with more relationship work). The profile also surfaces the user's role context, which shapes whether the recipient is a peer, report, or upward stakeholder.
 
+**Evidence from reflections:** If the feedback recipient is a registered stakeholder (check `~/bettersense-work-reflections/stakeholders.json`), read their `<category>/<slug>.md` before drafting. Past dated entries are exactly what COIN's Observation step needs — specific, dated, firsthand incidents instead of the vague "lately you've been…" the user is drafting from memory. Offer what you find: *"Your reflections have two dated examples of this pattern — the standup interruption on June 3 and the design-review comment on June 19. Want to build the Observation on those?"* This also strengthens the SOLID pass: entries logged near the event are firsthand and specific by construction, and a pattern claim backed by three dated entries survives a defensive "that was one time" in a way memory doesn't. Never import an entry the user marked as secondhand — SOLID drops it anyway.
+
 ## Exit signals
 
 If the user says "stop", "exit", "I'm done", "skip this", "pause", or similar — stop immediately. Share whatever has been drafted so far (even a partial COIN) and end cleanly. Don't push through the rest of the framework.

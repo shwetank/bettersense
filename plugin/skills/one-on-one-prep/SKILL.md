@@ -1,6 +1,6 @@
 ---
 name: one-on-one-prep
-description: Use when the user is preparing for a 1:1 — as a manager preparing to meet with a report, as an IC preparing to meet with their manager, or as a peer preparing for a regular sync. Trigger phrases include "I have a 1:1 with X tomorrow", "help me prep for my 1:1", "what should I bring up in my next 1:1?". Builds an agenda matched to the relationship and the moment, not a generic template.
+description: Use when the user is preparing for a 1:1 — as a manager preparing to meet with a report, as an IC preparing to meet with their manager, or as a peer preparing for a regular sync. Trigger phrases include "I have a 1:1 with X tomorrow", "help me prep for my 1:1", "what should I bring up in my next 1:1?". Builds an agenda matched to the relationship and the moment, not a generic template. If the other person is a registered stakeholder, reads their reflection file first so the agenda carries what the user already knows — open loops, recent observations, questions worth asking.
 ---
 
 # 1:1 Prep
@@ -8,6 +8,24 @@ description: Use when the user is preparing for a 1:1 — as a manager preparing
 A good 1:1 is the highest-leverage 30 minutes a manager and report have together. A bad one is a status update with extra steps. The difference is preparation.
 
 This skill builds an agenda matched to **who's meeting whom** and **what's actually going on**, not a generic checklist.
+
+## Zeroth: load what you already know
+
+Before asking the user anything, check the memory:
+
+1. **Profile.** Read `~/bettersense-work-reflections/profile.md` if present — role context and communication style.
+2. **The stakeholder file.** Resolve the named person via `~/bettersense-work-reflections/stakeholders.json`; if registered, read their `<category>/<slug>.md` in full. This is the payoff for every reflection the user has logged: the agenda should arrive pre-loaded, not blank.
+
+From the stakeholder file, surface a short **"worth raising"** list before drafting the agenda:
+
+- **Open loops** — anything a past entry says the user planned to ask, raise, or follow up on, with the entry date. Open loops corrode trust; this is where they get caught.
+- **Recent signals** — observations from the last few entries that bear on this meeting (morale shifts, a growth ask, friction with a peer).
+- **Planned asks** — any `ask`-category question entries where the user prepared a question but hasn't logged the answer yet. This meeting may be the moment.
+- **Staleness flags** — topics the entries show haven't been touched in a long time (career conversation, feedback exchange).
+
+Present it as: *"From your reflections on [name]: [2–4 items]. Want any of these on the agenda?"* — then build the agenda below. If the person isn't registered, proceed normally and mention once at the end that registering them (`stakeholder-register`) makes future preps arrive pre-loaded.
+
+After the 1:1 happens, the natural bookend: *"want to log how it went?"* → `stakeholder-reflect`.
 
 ## First: figure out the role
 

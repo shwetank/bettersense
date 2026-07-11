@@ -109,3 +109,7 @@ Don't set up a schedule automatically — the user owns the cadence decision.
 - **Probing every category every time.** Long lists are background noise. 4–5 categories per nudge is the cap.
 - **Logging inline.** Tempting to just write a quick entry from the probe answer. Don't — `wins-log` exists because the structured capture is hard work, and skipping it produces vague entries that hurt later curation.
 - **Treating absence of wins as a problem.** Some weeks are admin / planning / context-loading. That's normal. The skill is for capturing what happened, not validating the user's existence.
+
+## The weekly ritual
+
+This skill is one segment of the `weekly` skill — a single ~15-minute session that runs wins capture, the most-overdue stakeholder reflection, and a patterns scan together. When the user wants the recurring ritual rather than this one piece, route to `/bettersense:weekly`.

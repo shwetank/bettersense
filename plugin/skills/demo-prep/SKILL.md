@@ -18,6 +18,16 @@ Trigger this skill on:
 
 Skip for: routine team standups, casual show-and-tells, anything where the audience is already sold.
 
+## Before Pass 1: load the anchors
+
+Check the memory before walking the passes — a demo framed against the stated strategy, with this week's real numbers, prepares itself half-way:
+
+- **Strategy** — read `~/bettersense-work-reflections/strategy/<area>.md` if present. The headline (Pass 1) should trace to a strategic track the audience already knows about, in the strategy's own vocabulary; a demo that doesn't map to any track is itself a finding worth surfacing to the user.
+- **Latest pulse** — read the most recent `~/bettersense-work-reflections/pulses/<area>/pulse-*.md` if present. Two uses: current metrics for the script (Pass 4) so the numbers on the slide match what the data said this week, and known risks/anomalies for the pre-mortem (Pass 3) — an open follow-up investigation in the pulse is exactly the question a sharp exec asks mid-demo.
+- **Profile** — `profile.md` for the user's role and typical audiences.
+
+Missing files are fine; proceed and don't lecture. If a pulse exists but is stale (older than the reporting period the demo covers), flag it — demoing last month's numbers is a Pass 3 hazard in itself.
+
 ## The five-pass demo prep
 
 Walk through these in order. Each pass takes 5–15 minutes; the whole thing is 30–60 minutes well spent.
