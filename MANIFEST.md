@@ -2,7 +2,7 @@
 
 This file lists every skill and agent that ships with this bundle. Use it to identify which items in `~/.claude/skills/` and `~/.claude/agents/` came from this repo (vs. skills you wrote yourself or installed from other sources).
 
-The bundle contains **52 skills** and **22 agents**, all inside `plugin/`.
+The bundle contains **54 skills** and **22 agents**, all inside `plugin/`.
 
 ## How to identify bundle items in your Claude Code install
 
@@ -14,12 +14,13 @@ find ~/.claude/skills ~/.claude/agents -maxdepth 2 -type l -lname "*bettersense*
 
 If you installed via plain `cp` (the legacy install path), this manifest is your reference. Match folder/file names below against what you have in `~/.claude/`.
 
-## Skills (52)
+## Skills (54)
 
 | Name | One-line description |
 |---|---|
 | `ai-pm-frameworks` | AI PM craft: build-vs-buy-vs-rule, eval design, model selection, guardrails. Prototyping stack read from user profile. |
 | `capture` | Logs something from the current conversation into memory without re-typing — drafts the decision / win / stakeholder entry from what was just said, files it after approval. |
+| `career-retro` | Periodic longitudinal career retrospective — reads the entire memory (wins, reflections, pulses, charters, ADRs), produces a cited self-assessment with growth deltas vs. the last retro, writes to `self/retros/`. The compounding payoff of a year of logging. |
 | `coaching-mode` | Forcing function: ask-not-tell mode for development conversations. GROW frame. |
 | `commitments` | Ledger of what you've promised upward (`commitments.md`) — log promises, review what's slipping, renegotiate early with a script, pressure-test new asks before saying yes. |
 | `decision-log` | ADR-style capture of meaningful product/technical decisions. Especially for AI decisions tied to specific model versions. |
@@ -62,6 +63,7 @@ If you installed via plain `cp` (the legacy install path), this manifest is your
 | `team-diagnosis` | Eight-dimension team health check with cited evidence and top-3 actionable risks. |
 | `team-lifecycle` | Guides teams through Tuckman's stages (forming, storming, norming, performing, adjourning) and resets after reorgs. Provides phase-specific leader interventions. |
 | `team-style-inventory` | Helps teams surface and align on working style preferences (communication, decisions, conflict, meetings). Makes implicit norms explicit, accommodates differences. |
+| `team-workspace` | Shared git-backed team workspace for collaborative artifacts (charters, strategy, decisions) in a separate `$BETTERSENSE_TEAM_HOME` repo. Hard privacy wall: personal reflections/wins/retros never shared. Drafts the branch/commit/PR; never pushes or publishes on your behalf. |
 | `tech-strategy-writer` | Senior-IC technical strategy doc (diagnosis → direction → first moves → not doing) saved to `strategy/tech-<area>.md`. The staff+ direction-setting artifact. |
 | `user-profile` | Anchor file (`profile.md`) capturing who you are. Read by 8 skills to tailor outputs. Inspired by SOUL.md. |
 | `visibility-sponsorship` | Deliberate, non-gross visibility building — the visibility map, sponsor plan, and amplification rhythm that gets logged wins known before the promo moment. |

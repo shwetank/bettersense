@@ -66,21 +66,29 @@ Skills that capture reflections write to `~/bettersense-work-reflections/` (over
 - `wins.md` — created by `wins-log`
 - `pulses/<area-slug>/pulse-YYYY-MM-DD.md` — created by `product-pulse`
 - `self/reflections.md` — created by `self-reflect`
+- `self/retros/retro-YYYY-MM-DD.md` — created by `career-retro`
+- `commitments.md` — created by `commitments`
+
+Skill/agent counts on the docs site are generated at build time by `site/scripts/gen-counts.mjs` (wired into the `predev`/`prebuild` npm hooks → `site/src/data/counts.json`). Never hard-code a count in site content; consume `counts.json` instead.
 
 ## Adding a new skill
 
 1. Create `plugin/skills/<name>/SKILL.md` with `name` and `description` frontmatter.
-2. Add a row to the skills table in `MANIFEST.md`.
+2. Add a row to the skills table in `MANIFEST.md` (and update the count in the heading + intro line).
 3. Add a row to the skills table in `readme.md`.
 4. Add a directory entry in the tree diagram in `readme.md`.
-5. If the skill has supporting data files (e.g., `questions.json`), put them in the same directory.
+5. Add the skill to the relevant category table in `site/src/content/docs/skills/overview.md` (and a category page if applicable).
+6. Add at least one routing case to `evals/routing/cases.jsonl` — one positive case (`expect`) and an appearance in a neighbour's `must_not_fire` — then run `node evals/routing/run-routing.mjs --dry-run` to confirm the labels resolve.
+7. If the skill has supporting data files (e.g., `questions.json`), put them in the same directory.
 
 ## Adding a new agent
 
 1. Create `plugin/agents/<name>.md` with `name`, `description`, and `tools` frontmatter.
-2. Add a row to the agents table in `MANIFEST.md`.
+2. Add a row to the agents table in `MANIFEST.md` (and update the count in the heading + intro line).
 3. Add a row to the agents table in `readme.md`.
 4. Add the filename to the tree diagram in `readme.md`.
+5. Add an entry to `site/src/content/docs/agents/catalog.md` and the relevant cluster page.
+6. Add at least one routing case to `evals/routing/cases.jsonl` and run the `--dry-run` validation.
 
 ## Marketplace listing
 

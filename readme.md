@@ -27,6 +27,7 @@ bettersense/
 │   ├── skills/
 │   │   ├── ai-pm-frameworks/SKILL.md
 │   │   ├── capture/SKILL.md
+│   │   ├── career-retro/SKILL.md
 │   │   ├── coaching-mode/SKILL.md
 │   │   ├── commitments/SKILL.md
 │   │   ├── decision-log/SKILL.md
@@ -71,6 +72,7 @@ bettersense/
 │   │   ├── team-diagnosis/SKILL.md
 │   │   ├── team-lifecycle/SKILL.md
 │   │   ├── team-style-inventory/SKILL.md
+│   │   ├── team-workspace/SKILL.md
 │   │   ├── tech-strategy-writer/SKILL.md
 │   │   ├── user-profile/SKILL.md
 │   │   ├── visibility-sponsorship/SKILL.md
@@ -110,6 +112,7 @@ bettersense/
 |---|---|
 | `ai-pm-frameworks` | Scoping AI features, build-vs-buy-vs-rule decisions, eval design, model selection, guardrail planning. |
 | `capture` | Logs something from the current conversation into memory without re-typing — classifies it (decision / win / stakeholder observation / self-insight), drafts the entry from what was just said, and files it after approval. Closes the "great conversation, nothing written down" leak. |
+| `career-retro` | Periodic (quarterly/annual) career retrospective that reads the *entire* memory — wins, all stakeholder reflections, self-reflections, pulses, team charters, ADRs — and produces a longitudinal self-assessment with growth deltas cited against your last retro. Persists to `self/retros/` so each cycle measures change. The payoff of a year of logging; feeds `wins-curate` and `report-promo-case`. |
 | `coaching-mode` | Forcing function that flips the assistant into ask-not-tell mode for development conversations with reports. Stays in question-mode for at least 5 turns, applies the GROW frame, pushes back when the user tries to prescribe instead of helping the report work it out. |
 | `commitments` | Ledger of what you've promised upward — log promises when made, review what's due or slipping, renegotiate early with a two-option script, and pressure-test new asks against current load before saying yes. The honest "no" as a prioritization question. |
 | `decision-log` | Capturing meaningful product/technical decisions in an ADR-style format with reversibility, rationale, and revisit triggers. Especially load-bearing for AI decisions tied to specific model versions. |
@@ -152,6 +155,7 @@ bettersense/
 | `team-diagnosis` | Multi-dimensional team health check — delivery cadence, attrition risk, dependency tax, on-call burden, peer relationships, information flow, technical health, culture. Reads stakeholder files + retros + survey scores; produces a green/yellow/red read with cited evidence and top-3 risks worth acting on. |
 | `team-lifecycle` | Guides a team through Tuckman's stages (forming, storming, norming, performing, adjourning) and resets after reorgs. Provides phase-specific interventions and leader actions to navigate transitions successfully. |
 | `team-style-inventory` | Helps teams surface and align on working style preferences (communication, decision-making, conflict, meetings, work rhythms). Makes implicit norms explicit, accommodating style differences to reduce friction. |
+| `team-workspace` | The multiplayer layer. Sets up a shared, git-backed team repo (`$BETTERSENSE_TEAM_HOME`, separate from your private reflections) for collaborative artifacts — charters, strategy docs, decision records — and enforces a hard privacy wall: stakeholder reflections, self-reflections, wins, retros, and commitments are never shareable. Scans artifacts for accidental personal content, drafts the branch/commit/PR, but leaves the push and PR to you. |
 | `tech-strategy-writer` | Senior-IC technical strategy doc — diagnosis → direction → first moves → explicit "not doing" — saved to `strategy/tech-<area>.md`. The engineering-owned peer of `strategy-doc`; pressure-tested against the reversibility and absent-author checks before socializing. |
 | `user-profile` | Anchor file for the bundle. Single private `~/bettersense-work-reflections/profile.md` capturing the user's role, level, communication style, current strategic focus, stack — read automatically by other skills so you never re-explain context. Inspired by the SOUL.md pattern. Supports multiple "hats" for users in mixed roles. |
 | `visibility-sponsorship` | Deliberate, non-gross visibility building for ICs whose work outruns their reputation — the visibility map (who decides your career and what they can actually cite about you), the sponsor plan, and a sustainable amplification rhythm fed by `wins.md`. |
