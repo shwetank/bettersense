@@ -1,0 +1,44 @@
+// Routing golden set. One JSON object per line (// comment lines are ignored).
+// Fields: id, prompt, expect (skill/agent name or "none"), must_not_fire[] (near
+// neighbours that must NOT win), note (optional). Keep prompts realistic — the
+// way a user actually types, not keyword bait.
+{"id": "reducer-vs-discovery", "prompt": "Users keep asking for an AI assistant inside our dashboard. Should we build one?", "expect": "the-reducer", "must_not_fire": ["the-discovery-facilitator", "the-spec-writer"], "note": "fuzzy problem, no decision yet — default to reducer"}
+{"id": "discovery", "prompt": "We think AI could help here, but I need to scope what problem we're actually solving before anyone writes a spec.", "expect": "the-discovery-facilitator", "must_not_fire": ["the-spec-writer", "the-reducer"]}
+{"id": "spec-writer", "prompt": "Draft a PRD for the contract-summarization feature we've now validated.", "expect": "the-spec-writer", "must_not_fire": ["the-discovery-facilitator"]}
+{"id": "incident", "prompt": "Our summarization model's hallucination rate spiked this morning and customers are reporting wrong answers.", "expect": "the-incident-responder", "must_not_fire": ["the-postmortem-facilitator", "the-retro-facilitator"]}
+{"id": "postmortem", "prompt": "The outage is resolved. I need to run a blameless postmortem with the team.", "expect": "the-postmortem-facilitator", "must_not_fire": ["the-incident-responder", "the-retro-facilitator"]}
+{"id": "retro", "prompt": "Facilitate our end-of-sprint team retrospective and get real action items out of it.", "expect": "the-retro-facilitator", "must_not_fire": ["the-postmortem-facilitator"]}
+{"id": "premortem", "prompt": "We launch next week. Let's figure out what could go wrong before we commit.", "expect": "premortem", "must_not_fire": ["the-postmortem-facilitator"]}
+{"id": "translator", "prompt": "I need to brief the CEO on why our model accuracy regressed this quarter.", "expect": "the-translator", "must_not_fire": ["the-status-crafter", "the-data-storyteller"]}
+{"id": "status-crafter", "prompt": "Help me write my weekly status update for leadership that actually gets read.", "expect": "the-status-crafter", "must_not_fire": ["the-translator", "the-data-storyteller"]}
+{"id": "data-storyteller", "prompt": "I've got a pile of engagement metrics and need to turn them into a compelling narrative for the board.", "expect": "the-data-storyteller", "must_not_fire": ["the-translator", "the-status-crafter"]}
+{"id": "career-retro", "prompt": "It's review season. Take stock of how I've actually grown across everything this year.", "expect": "career-retro", "must_not_fire": ["wins-curate", "self-reflect"]}
+{"id": "wins-curate", "prompt": "Build my promo packet from the wins I've logged.", "expect": "wins-curate", "must_not_fire": ["career-retro", "report-promo-case"]}
+{"id": "self-reflect", "prompt": "Let me reflect on how I handled the standup this morning.", "expect": "self-reflect", "must_not_fire": ["career-retro"]}
+{"id": "one-on-one", "prompt": "I have a 1:1 with Jordan tomorrow, help me prep.", "expect": "one-on-one-prep", "must_not_fire": ["stakeholder-reflect"]}
+{"id": "feedback", "prompt": "How do I tell my report he's been cutting people off in standups?", "expect": "feedback-frameworks", "must_not_fire": ["performance-management", "coaching-mode"]}
+{"id": "perf-mgmt", "prompt": "I think I need to put Sam on a PIP — feedback hasn't worked.", "expect": "performance-management", "must_not_fire": ["feedback-frameworks"]}
+{"id": "coaching", "prompt": "Coach me through helping Priya figure out her next project without me just telling her what to do.", "expect": "coaching-mode", "must_not_fire": ["feedback-frameworks", "report-career-architect"]}
+{"id": "weekly", "prompt": "Run my weekly review.", "expect": "weekly", "must_not_fire": ["wins-due", "stakeholder-due"]}
+{"id": "capture", "prompt": "Log that decision we just made about going with the smaller model.", "expect": "capture", "must_not_fire": ["decision-log"]}
+{"id": "commitments", "prompt": "What have I promised my VP that I still haven't delivered?", "expect": "commitments", "must_not_fire": ["wins-log"]}
+{"id": "exec-readout", "prompt": "I'm presenting to the C-suite next week to get two headcount approved.", "expect": "exec-readout-prep", "must_not_fire": ["demo-prep", "the-status-crafter"]}
+{"id": "demo-prep", "prompt": "I'm demoing the new feature live to the board on Thursday.", "expect": "demo-prep", "must_not_fire": ["exec-readout-prep"]}
+{"id": "model-migration", "prompt": "A new Claude model just shipped — should we move our live feature onto it?", "expect": "model-migration-planner", "must_not_fire": ["the-vendor-evaluator", "ai-pm-frameworks"]}
+{"id": "vendor-eval", "prompt": "We're comparing three LLM providers before we sign a contract.", "expect": "the-vendor-evaluator", "must_not_fire": ["model-migration-planner"]}
+{"id": "metrics-design", "prompt": "What should we measure to know this AI feature is actually working?", "expect": "metrics-design", "must_not_fire": ["the-eval-designer"]}
+{"id": "eval-designer", "prompt": "How do I build a golden dataset and eval harness for our classifier?", "expect": "the-eval-designer", "must_not_fire": ["metrics-design"]}
+{"id": "tech-strategy", "prompt": "Help me write the technical direction doc for our platform for the next 18 months.", "expect": "tech-strategy-writer", "must_not_fire": ["strategy-doc", "the-rfc-reviewer"]}
+{"id": "product-strategy", "prompt": "I need a product strategy doc for the onboarding area.", "expect": "strategy-doc", "must_not_fire": ["tech-strategy-writer"]}
+{"id": "visibility", "prompt": "Nobody senior knows what I do and I just got passed over for promotion.", "expect": "visibility-sponsorship", "must_not_fire": ["wins-curate", "the-career-coach"]}
+{"id": "doctor", "prompt": "Something seems off with my stakeholder files — can you check them?", "expect": "doctor", "must_not_fire": ["stakeholder-manage"]}
+{"id": "rfc-review", "prompt": "Review this design doc the way a staff engineer would before I publish it.", "expect": "the-rfc-reviewer", "must_not_fire": ["the-prompt-critic"]}
+{"id": "prompt-critic", "prompt": "Is this system prompt good enough to ship?", "expect": "the-prompt-critic", "must_not_fire": ["the-red-teamer"]}
+{"id": "red-teamer", "prompt": "Find ways someone could jailbreak or prompt-inject our agent before launch.", "expect": "the-red-teamer", "must_not_fire": ["the-prompt-critic"]}
+{"id": "stakeholder-register", "prompt": "I just got a new manager — set up reflection for her.", "expect": "stakeholder-register", "must_not_fire": ["stakeholder-reflect"]}
+{"id": "read-the-room", "prompt": "What was actually going on in that design review? Did anyone really object or were they just being polite?", "expect": "read-the-room", "must_not_fire": ["the-retro-facilitator"]}
+{"id": "influence", "prompt": "I need the platform team to prioritize my migration and they don't report to me.", "expect": "influence-without-authority", "must_not_fire": ["the-program-manager"]}
+{"id": "none-general", "prompt": "What's the capital of France?", "expect": "none", "must_not_fire": []}
+{"id": "none-coding", "prompt": "Fix the failing unit test in auth.py.", "expect": "none", "must_not_fire": []}
+{"id": "team-workspace", "prompt": "I want to share our team charter with the whole team so we all work from the same version.", "expect": "team-workspace", "must_not_fire": ["team-charter", "stakeholder-manage"]}
+{"id": "team-workspace-refuse", "prompt": "Can I put my private notes on my reports into the shared team repo?", "expect": "team-workspace", "must_not_fire": ["stakeholder-reflect"], "note": "should route here so the skill can enforce the privacy wall and refuse"}
