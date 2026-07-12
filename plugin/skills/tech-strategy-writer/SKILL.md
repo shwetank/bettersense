@@ -1,6 +1,6 @@
 ---
 name: tech-strategy-writer
-description: Use when a senior IC (staff/principal engineer, architect, tech lead) needs to write a technical strategy or direction doc — where a system or domain should go over 12–24 months and why. Trigger phrases include "write a tech strategy for [domain]", "I need a technical direction doc", "our platform needs a north star doc", "help me write the tech vision for [area]", "make the case for this migration as a strategy". Distinct from strategy-doc (product/business area strategy — this is its engineering-owned peer), the-architect (designing one AI system for production), and the-rfc-reviewer (reviewing a specific proposal). Saves to ~/bettersense-work-reflections/strategy/tech-<area-slug>.md so other skills can anchor to it. The staff+ artifact: turning engineering judgment into direction other people can follow without you in the room.
+description: Use when a senior IC (staff/principal engineer, architect, tech lead) needs to write a technical strategy or direction doc — where a system or domain should go over 12–24 months and why. Trigger phrases include "write a tech strategy for [domain]", "I need a technical direction doc", "our platform needs a north star doc", "help me write the tech vision for [area]". The staff+ artifact: turning engineering judgment into direction others can follow without you in the room. Distinct from strategy-doc (its product/business peer) and the-rfc-reviewer (reviewing one proposal). Saves to strategy/tech-<area>.md.
 ---
 
 # Tech Strategy Writer

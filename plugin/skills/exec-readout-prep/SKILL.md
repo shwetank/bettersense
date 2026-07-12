@@ -1,6 +1,6 @@
 ---
 name: exec-readout-prep
-description: Use when the user needs a decision or backing from executives and is preparing the meeting or memo that gets it — QBRs, roadmap reviews, headcount asks, architecture investment pitches, "I'm presenting to the VP/C-suite next week". Trigger phrases include "prep my exec readout", "I'm presenting to leadership", "I need sign-off from the VP", "help me get this decision approved", "quarterly review with execs coming up". Distinct from demo-prep (performing a product, not securing a decision), the-translator (reframing one technical result), and the-status-crafter (the recurring update rhythm). This is managing up at the decision moment: audience power map, the explicit ask, pre-wiring, and objection handling. Reads stakeholder reflections on the execs in the room when they're registered.
+description: Use when the user needs a decision or backing from executives and is preparing the meeting or memo that gets it — QBRs, roadmap reviews, headcount asks, architecture investment pitches, "I'm presenting to the VP/C-suite next week". Trigger phrases include "prep my exec readout", "I'm presenting to leadership", "I need sign-off from the VP", "help me get this decision approved". Managing up at the decision moment: audience power map, the explicit ask, pre-wiring, and objection handling. Distinct from demo-prep (performing a product) and the-status-crafter (the recurring update rhythm). Reads your stakeholder reflections on the execs in the room.
 ---
 
 # Exec Readout Prep

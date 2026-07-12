@@ -1,6 +1,6 @@
 ---
 name: visibility-sponsorship
-description: Use when the user's work is better than their visibility — building deliberate, non-gross sponsor awareness so the right people know what they do before the promo/calibration moment. Trigger phrases include "nobody knows what I do", "how do I get more visibility", "I need a sponsor", "my work speaks for itself but nobody's listening", "I was passed over and my manager said people don't know me", "how do I self-promote without being obnoxious". Distinct from wins-curate (assembles the packet for a formal moment) and promo-case-glue (frames glue work in the packet) — this is the ongoing drip between formal moments: who needs to know, what they should know, and the amplification moves that feel like communication rather than bragging. Reads wins.md as the source of what's worth amplifying.
+description: Use when the user's work is better than their visibility — building deliberate, non-gross sponsor awareness so the right people know what they do before the promo/calibration moment. Trigger phrases include "nobody knows what I do", "how do I get more visibility", "I need a sponsor", "my work speaks for itself but nobody's listening", "I was passed over because people don't know me", "how do I self-promote without being obnoxious". The ongoing drip between formal moments: who needs to know, what they should know, and amplification that reads as communication, not bragging. Distinct from wins-curate (assembles the formal packet); reads wins.md for what's worth amplifying.
 ---
 
 # Visibility & Sponsorship

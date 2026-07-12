@@ -1,6 +1,6 @@
 ---
 name: model-migration-planner
-description: Use when a new model version ships (or a current one is deprecated) and the user must decide whether and how to migrate an AI feature — "Claude X just came out, should we move?", "our model is being deprecated in 90 days", "the new model is cheaper, can we switch?", "plan the migration to [model]". Runs the full checklist: inventory what's pinned to the old model, re-run evals before believing anything, revisit decision-log entries tied to the old model version, re-baseline cost and latency, stage the rollout with rollback criteria. Distinct from ai-pm-frameworks (choosing a model for a NEW feature) and the-vendor-evaluator (choosing a provider) — this is the recurring, painful event of moving a LIVE feature between model versions without breaking what works.
+description: Use when a new model version ships (or a current one is deprecated) and the user must decide whether and how to migrate a LIVE AI feature — "Claude X just came out, should we move?", "our model is being deprecated in 90 days", "the new model is cheaper, can we switch?", "plan the migration to [model]". Runs the checklist: inventory what's pinned to the old model, re-run evals before believing anything, revisit decision-log entries tied to the old version, re-baseline cost and latency, stage the rollout with rollback criteria. Distinct from ai-pm-frameworks (choosing a model for a NEW feature) and the-vendor-evaluator (choosing a provider).
 ---
 
 # Model Migration Planner
